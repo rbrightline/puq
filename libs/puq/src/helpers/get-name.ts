@@ -7,7 +7,7 @@ import { normalize } from 'path';
  */
 export function getName(name: string): string {
   const n = normalize(name);
-  const result = n.split('/').pop();
+  const result = n.split('\\').pop();
   if (!result) throw new Error(`could not get the name from ${name}`);
 
   return result;
