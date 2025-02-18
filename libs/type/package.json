@@ -1,0 +1,83 @@
+{
+  "name": "@puq/type",
+  "displayName": "@rline/type",
+  "license": "Proprietary",
+  "version": "0.0.1",
+  "description": "Common model and utility types",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://rbrightline.github.io"
+  },
+  "keywords": [
+    "type",
+    "model",
+    "type-utility"
+  ],
+  "repository": {
+    "directory": "type",
+    "url": "",
+    "type": "github"
+  },
+  "homepage": "https://rbrightline.github.io/puq/type",
+  "bugs": {
+    "email": "robert.brightline@gmail.com",
+    "url": "https://rbrightline.github.io"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributors": [
+    {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    }
+  ],
+  "funding": [
+    "https://rbrightline.github.io/funding",
+    "https://rbrightline.github.io/donate",
+    "https://rbrightline.github.io/support"
+  ],
+  "icon": "./favicon.png",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "sourceRoot": "libs/type/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/type/dist",
+          "main": "libs/type/src/index.ts",
+          "tsConfig": "libs/type/tsconfig.lib.json",
+          "skipTypeCheck": true,
+          "stripLeadingPaths": true
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@swc/helpers": "~0.5.11"
+  }
+}
