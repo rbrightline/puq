@@ -1,8 +1,8 @@
 {
   "name": "@puq/type",
+  "version": "0.0.8",
   "displayName": "@puq/type",
   "license": "MIT",
-  "version": "0.0.7",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
