@@ -1,9 +1,9 @@
 import {
-  addProjectConfiguration,
   formatFiles,
   generateFiles,
   names,
   Tree,
+  updateTsConfigsToJs,
 } from '@nx/devkit';
 import * as path from 'path';
 import { LibraryGeneratorSchema } from './schema';
@@ -14,12 +14,8 @@ export async function libraryGenerator(
 ) {
   const projectRoot = `libs/${options.name}`;
 
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
+  updateTsConfigsToJs(tree, { projectRoot });
+
   generateFiles(tree, path.join(__dirname, 'files'), projectRoot, {
     ...names(options.name),
   });
