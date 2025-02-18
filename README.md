@@ -2,4 +2,4 @@
 
 ## Libraries
 
-[@puq/type](https://github.com/rbrightline/puq/libs/type) common model and utility types
+[@puq/type](https://github.com/rbrightline/puq/tree/main/libs/type) common model and utility types

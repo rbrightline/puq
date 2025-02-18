@@ -1,8 +1,12 @@
 {
   "name": "@puq/type",
   "displayName": "@rline/type",
-  "license": "Proprietary",
-  "version": "0.0.1",
+  "license": "MIT",
+  "version": "0.0.6",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "description": "Common model and utility types",
   "author": {
     "email": "robert.brightline@gmail.com",
@@ -15,8 +19,8 @@
     "type-utility"
   ],
   "repository": {
-    "directory": "type",
-    "url": "",
+    "directory": "libs/type",
+    "url": "https://github.com/rbrightline/puq/tree/main",
     "type": "github"
   },
   "homepage": "https://rbrightline.github.io/puq/type",
@@ -35,14 +39,9 @@
     }
   ],
   "funding": [
-    "https://rbrightline.github.io/funding",
-    "https://rbrightline.github.io/donate",
-    "https://rbrightline.github.io/support"
+    "https://cash.app/$puqlib"
   ],
-  "icon": "./favicon.png",
-  "publishConfig": {
-    "access": "public"
-  },
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/type/favicon.png",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -77,7 +76,7 @@
       }
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@swc/helpers": "~0.5.11"
   }
 }
