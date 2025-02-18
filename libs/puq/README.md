@@ -10,34 +10,28 @@ Code generators
 
 ## Install
 
-`pnpm add @puq/puq`
+`pnpm add -D @puq/puq`
 
 ## Features
 
+- `npx nx g @puq/puq:api apps/<api-name>` : generate nestjs project
+- `npx nx g @puq/puq:cli clis/<cli-name>` : generate cli project
+- `npx nx g @puq/puq:client clients/<client-name>` : generate angular project
+- `npx nx g @puq/puq:entity entity/<entity-name>` : generate typeorm entity and dto classes
+- `npx nx g @puq/puq:library libs/<library-name>` : generate library project
+- `npx nx g @puq/puq:model model/<model-name>` : generate database model type
+- `npx nx g @puq/puq:module module/<module-name>` : generate nestjs resource module including controller and module class
+
 ## Useage
 
-Generate a library project
-
 ```bash
-npx nx g @puq/puq:library
-```
-
-Generate a CLI project
-
-```bash
-npx nx g @puq/puq:cli
-```
-
-Generate a NestJS API project
-
-```bash
-npx nx g @puq/puq:api
-```
-
-Generate an Angular Client project
-
-```bash
-npx nx g @puq/puq:client
+npx nx g @puq/puq:api apps/<api-name>
+npx nx g @puq/puq:cli clis/<cli-name>
+npx nx g @puq/puq:client clients/<client-name>
+npx nx g @puq/puq:entity entity/<entity-name>
+npx nx g @puq/puq:library libs/<library-name>
+npx nx g @puq/puq:model model/<model-name>
+npx nx g @puq/puq:module module/<module-name>
 ```
 
 ## Funding
