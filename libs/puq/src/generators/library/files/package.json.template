@@ -72,6 +72,9 @@
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }
+      },
+      "doc": {
+        "command": "npx compodoc -d public/<%- fileName %> -p <%- target %>/tsconfig.lib.json -n <%- fileName %>"
       }
     }
   },

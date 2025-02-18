@@ -10,7 +10,7 @@ export async function libraryGenerator(
   const source = join(__dirname, 'files');
   const target = `${options.name}`;
   const ns = names(getName(options.name));
-  generateFiles(tree, source, target, { ...ns });
+  generateFiles(tree, source, target, { ...ns, target });
   updateTsconfigReferences(options.name);
   await formatFiles(tree);
 }
