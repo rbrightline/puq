@@ -3,6 +3,11 @@ import { join } from 'path';
 import { LibraryGeneratorSchema } from './schema';
 import { getName, updateTsconfigReferences } from '../../helpers';
 
+/**
+ * Generate library project
+ * @param tree
+ * @param options
+ */
 export async function libraryGenerator(
   tree: Tree,
   options: LibraryGeneratorSchema
