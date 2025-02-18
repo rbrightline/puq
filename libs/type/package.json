@@ -1,6 +1,6 @@
 {
   "name": "@puq/type",
-  "displayName": "@rline/type",
+  "displayName": "@puq/type",
   "license": "MIT",
   "version": "0.0.7",
   "publishConfig": {

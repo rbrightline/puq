@@ -1,12 +1,13 @@
 {
-  "name": "@puq/puq",
-  "version": "0.0.1",
+  "name": "@puq/<%- fileName %>",
+  "displayName": "@rline/<%- fileName %>",
   "license": "MIT",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "puq generators",
+  "description": "<%- fileName %>",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -14,15 +15,14 @@
   },
   "keywords": [
     "puq",
-    "cli",
-    "generators"
+    "<%- fileName %>"
   ],
   "repository": {
-    "directory": "libs/puq",
+    "directory": "libs/<%- fileName %>",
     "url": "https://github.com/rbrightline/puq/tree/main",
     "type": "github"
   },
-  "homepage": "https://rbrightline.github.io/puq/puq",
+  "homepage": "https://rbrightline.github.io/puq/<%- fileName %>",
   "bugs": {
     "email": "robert.brightline@gmail.com",
     "url": "https://rbrightline.github.io"
@@ -40,7 +40,11 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/puq/favicon.png",
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/<%- fileName %>/favicon.png",
+  "bin": {
+    "<%- fileName %>": "./bin/<%- fileName %>.js"
+  },
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -52,43 +56,33 @@
       "default": "./dist/index.js"
     }
   },
+  "files": [
+    "bin",
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
   "nx": {
+    "sourceRoot": "libs/<%- fileName %>/src",
     "targets": {
       "build": {
-        "executor": "@nx/js:tsc",
+        "executor": "@nx/js:swc",
         "outputs": [
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/puq/dist",
-          "main": "libs/puq/src/index.ts",
-          "tsConfig": "libs/puq/tsconfig.lib.json",
-          "rootDir": "libs/puq/src",
-          "generatePackageJson": false,
-          "assets": [
-            {
-              "input": "./libs/puq/src",
-              "glob": "**/!(*.ts)",
-              "output": "."
-            },
-            {
-              "input": "./libs/puq/src",
-              "glob": "**/*.d.ts",
-              "output": "."
-            }
-          ]
+          "outputPath": "libs/<%- fileName %>/dist",
+          "main": "libs/<%- fileName %>/src/index.ts",
+          "tsConfig": "libs/<%- fileName %>/tsconfig.lib.json",
+          "skipTypeCheck": true,
+          "stripLeadingPaths": true
         }
       }
     }
   },
-  "dependencies": {
-    "@nx/devkit": "20.4.4",
-    "tslib": "^2.3.0"
-  },
-  "generators": "./generators.json",
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo",
-    "generators.json"
-  ]
+  "dependencies":{ 
+    "commander": "^13.1.0"
+  }
+  "devDependencies": {
+    "@swc/helpers": "~0.5.11"
+  }
 }
