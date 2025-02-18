@@ -80,7 +80,7 @@
         }
       },
       "doc": {
-        "command": "npx compodoc -d public/puq  -p libs/puq/tsconfig.lib.json -n puq"
+        "command": "cd libs/puq && npx compodoc -d ../../public/puq  -p tsconfig.lib.json -n puq"
       }
     }
   },

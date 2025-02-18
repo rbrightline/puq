@@ -75,7 +75,7 @@
         }
       },
       "doc": {
-        "command": "npx compodoc -d public/type  -p libs/type/tsconfig.lib.json -n type"
+        "command": "cd libs/type &&  npx compodoc -d ../../public/type  -p tsconfig.lib.json -n type"
       }
     }
   },
