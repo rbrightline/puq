@@ -13,10 +13,10 @@ export function ___extractConstraints(errors?: ValidationError[]): string[] {
   const result: string[] = [];
 
   console.log(errors);
+
   if (errors && errors.length > 0) {
     errors.forEach((e) => {
       if (e.constraints) result.push(...Object.keys(e.constraints));
-
       if (e.children && e.children.length > 0)
         result.push(...___extractConstraints(e.children));
     });

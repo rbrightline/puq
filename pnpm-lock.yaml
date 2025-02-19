@@ -177,6 +177,9 @@ importers:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
 
   services/sample:
     dependencies:

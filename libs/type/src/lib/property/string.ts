@@ -3,15 +3,50 @@ import { StringFormat } from './string-format.js';
 
 export type __StringOptions = {
   type: 'string';
+
+  /**
+   * Minimum allowed string length
+   */
   minLength?: number;
+  /**
+   * Maximum allowed string length
+   */
   maxLength?: number;
+
+  /**
+   * String format such as email, password.
+   */
   stringFormat?: StringFormat;
+
+  /**
+   * Allowed strings
+   */
   enum?: string[];
+
+  /**
+   * Not allowed strings
+   */
   notIn?: string[];
-  startsWith?: string;
-  endsWith?: string;
-  contains?: string;
-  notContains?: string;
+
+  /**
+   * string starts with
+   */
+  startWith?: string;
+
+  /**
+   * string ends with
+   */
+  endWith?: string;
+
+  /**
+   * check the string contains
+   */
+  contain?: string;
+
+  /**
+   * Check the string not contain
+   */
+  notContain?: string;
 };
 
 export type StringOptions = Readonly<CommonOptions<string> & __StringOptions>;

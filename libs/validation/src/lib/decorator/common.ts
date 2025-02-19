@@ -1,9 +1,15 @@
 import { CommonOptions } from '@puq/type';
 import { Exclude, Expose, Transform } from 'class-transformer';
 import { IsNotEmpty, IsOptional, ValidationOptions } from 'class-validator';
+import { EqualToProperty } from '../custom/equal-to-property.js';
+import { DependOnProperty } from '../custom/depend-on-property.js';
+import { NotWithProperty } from '../custom/not-with-property.js';
 
 /**
- * Applues the common validation decorators such as `IsOptional` and `IsNotEmpty` and default transformer
+ * The decorator controls the following properties.
+ * - **requried or optional**: All values are optional by default unless required is set true
+ * - **exclude or expose**: Unless expose is set false, value is always exposed by default
+ * - **default value**: Default value is used when the input is undefined
  * @param options
  * @param validationOptions
  * @returns
@@ -13,7 +19,8 @@ export function CommonValidation<T>(
   validationOptions?: Readonly<ValidationOptions>
 ): PropertyDecorator {
   return (t, p) => {
-    const { required } = options;
+    const { required, equalToProperty, dependOnProperty, notWithProperty } =
+      options;
 
     // Exclude or expose
     if (options.expose == false) {
@@ -28,6 +35,15 @@ export function CommonValidation<T>(
     } else {
       IsOptional(validationOptions)(t, p);
     }
+
+    if (equalToProperty != undefined)
+      EqualToProperty(equalToProperty, validationOptions)(t, p);
+
+    if (dependOnProperty != undefined)
+      DependOnProperty(dependOnProperty, validationOptions)(t, p);
+
+    if (notWithProperty != undefined)
+      NotWithProperty(notWithProperty, validationOptions)(t, p);
 
     // Default value Transformer
     if (options.default != undefined) {

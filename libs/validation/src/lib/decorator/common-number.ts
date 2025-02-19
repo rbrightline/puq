@@ -8,13 +8,26 @@ import {
   ValidationOptions,
 } from 'class-validator';
 import { MaxDigits } from '../custom/max-digits.js';
+import { EqualToProperty } from '../custom/equal-to-property.js';
+import { LessThanProperty } from '../custom/less-than-property.js';
+import { MoreThanProperty } from '../custom/more-than-property.js';
+import { DependOnProperty } from '../custom/depend-on-property.js';
 
 export function CommonNumberValidation(
   options: NumberOptions | IntegerOptions,
   validationOptions?: Readonly<ValidationOptions>
 ): PropertyDecorator {
   return (t, p) => {
-    const { enum: enums, notIn, minimum, maximum } = options;
+    const {
+      enum: enums,
+      notIn,
+      minimum,
+      maximum,
+      moreThanProperty,
+      lessThanProperty,
+      equalToProperty,
+      dependOnProperty,
+    } = options;
 
     IsNumber({ allowNaN: false, allowInfinity: false }, validationOptions)(
       t,
@@ -33,5 +46,17 @@ export function CommonNumberValidation(
     if (enums != undefined) IsIn(enums, validationOptions);
 
     if (notIn != undefined) IsNotIn(notIn, validationOptions);
+
+    if (moreThanProperty != undefined)
+      MoreThanProperty(moreThanProperty, validationOptions)(t, p);
+
+    if (lessThanProperty != undefined)
+      LessThanProperty(lessThanProperty, validationOptions)(t, p);
+
+    if (equalToProperty != undefined)
+      EqualToProperty(equalToProperty, validationOptions)(t, p);
+
+    if (dependOnProperty != undefined)
+      DependOnProperty(dependOnProperty, validationOptions)(t, p);
   };
 }

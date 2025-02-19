@@ -6,6 +6,10 @@ import {
   ValidationArguments,
 } from 'class-validator';
 
+/**
+ * @ignore
+ * Validate the maximum allowed digits
+ */
 @ValidatorConstraint({ name: 'maxDigits', async: false })
 export class MaxDigitsConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: ValidationArguments) {
@@ -27,9 +31,16 @@ export class MaxDigitsConstraint implements ValidatorConstraintInterface {
   }
 }
 
+/**
+ * Validate the maximum allowed digits
+ * @param wholeCount number of digits that the integer part of the number has 3 such as `100` in `100.888`
+ * @param decimalCount number of digits that the decimal part of the number has 2 such as `22` in `55.22`
+ * @param validationOptions {@link ValidationOptions}
+ * @returns
+ */
 export function MaxDigits(
-  maxWholePart: number,
-  maxDecimalPart: number,
+  wholeCount: number,
+  decimalCount: number,
   validationOptions?: ValidationOptions
 ): PropertyDecorator {
   return (t, p) => {
@@ -38,7 +49,7 @@ export function MaxDigits(
       target: t.constructor,
       propertyName: p.toString(),
       options: validationOptions,
-      constraints: [maxWholePart, maxDecimalPart],
+      constraints: [wholeCount, decimalCount],
       validator: MaxDigitsConstraint,
     });
   };

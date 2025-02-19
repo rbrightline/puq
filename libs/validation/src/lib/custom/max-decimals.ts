@@ -6,6 +6,10 @@ import {
   ValidationArguments,
 } from 'class-validator';
 
+/**
+ * Validate the maximum allowed decimals
+ * @ignore
+ */
 @ValidatorConstraint({ name: 'maxDecimals', async: false })
 export class MaxDecimalsConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: ValidationArguments) {
@@ -25,6 +29,12 @@ export class MaxDecimalsConstraint implements ValidatorConstraintInterface {
   }
 }
 
+/**
+ * Validate the maximum allowed decimals
+ * @param maxDecimal maximum decimal count such as 2  `88` in `100.88`
+ * @param validationOptions
+ * @returns
+ */
 export function MaxDecimals(
   maxDecimal: number,
   validationOptions?: ValidationOptions

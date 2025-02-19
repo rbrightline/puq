@@ -3,6 +3,11 @@ import { CommonOptions } from './common.js';
 
 export type __ObjectOptions = {
   type: 'object';
+
+  /**
+   * Target DTO class
+   * @returns
+   */
   target: () => Type;
 };
 

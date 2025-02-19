@@ -78,7 +78,8 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "reflect-metadata": "^0.2.2"
   },
   "dependencies": {
     "@puq/type": "workspace:^",

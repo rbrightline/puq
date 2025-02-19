@@ -29,10 +29,10 @@ export function StringValidation(
       stringFormat,
       enum: enums,
       notIn,
-      contains,
-      notContains,
-      startsWith,
-      endsWith,
+      contain,
+      notContain,
+      startWith,
+      endWith,
     } = options;
 
     IsString(validationOptions)(t, p);
@@ -49,21 +49,21 @@ export function StringValidation(
 
     if (notIn != undefined) IsNotIn(notIn, validationOptions)(t, p);
 
-    if (contains != undefined) Contains(contains, validationOptions)(t, p);
+    if (contain != undefined) Contains(contain, validationOptions)(t, p);
 
-    if (notContains != undefined)
-      NotContains(notContains, validationOptions)(t, p);
+    if (notContain != undefined)
+      NotContains(notContain, validationOptions)(t, p);
 
-    if (startsWith != undefined)
-      Matches(new RegExp(`/^${startsWith}/`), {
+    if (startWith != undefined)
+      Matches(new RegExp(`/^${startWith}/`), {
         ...validationOptions,
-        message: `$property should start with ${startsWith}`,
+        message: `$property should start with ${startWith}`,
       })(t, p);
 
-    if (endsWith != undefined)
-      Matches(new RegExp(`/${endsWith}$/`), {
+    if (endWith != undefined)
+      Matches(new RegExp(`/${endWith}$/`), {
         ...validationOptions,
-        message: `$property should end with ${endsWith}`,
+        message: `$property should end with ${endWith}`,
       })(t, p);
   };
 }

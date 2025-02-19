@@ -1,14 +1,21 @@
+import { CommonNumberOptions } from './common-number.js';
 import { CommonOptions } from './common.js';
 import { NumberFormat } from './number-format.js';
 
 export type __NumberOptions = {
   type: 'number';
-  minimum?: number;
-  maximum?: number;
+
+  /**
+   * Maximum allowed decimals
+   */
   maxDecimals?: number;
+
+  /**
+   * Special number format
+   */
   numberFormat?: NumberFormat;
-  enum?: number[];
-  notIn?: number[];
 };
 
-export type NumberOptions = Readonly<CommonOptions<number> & __NumberOptions>;
+export type NumberOptions = Readonly<
+  CommonOptions<number> & __NumberOptions & CommonNumberOptions
+>;

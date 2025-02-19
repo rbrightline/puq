@@ -1,5 +1,10 @@
 import { ObjectOptions } from '@puq/type';
-import { isJSON, IsObject, ValidationOptions } from 'class-validator';
+import {
+  isJSON,
+  IsObject,
+  ValidateNested,
+  ValidationOptions,
+} from 'class-validator';
 import { Transform, Type } from 'class-transformer';
 
 /**
@@ -15,6 +20,7 @@ export function ObjectValidation(
   return (t, p) => {
     IsObject(validationOptions)(t, p);
     Type(options.target)(t, p);
+    ValidateNested(validationOptions)(t, p);
 
     // If acceptString, the object-string is transformed into object
     if (options.acceptString === true) {

@@ -1,5 +1,11 @@
 import { ArrayOptions } from '@puq/type';
-import { IsArray, isJSON, ValidationOptions } from 'class-validator';
+import {
+  ArrayMaxSize,
+  ArrayMinSize,
+  IsArray,
+  isJSON,
+  ValidationOptions,
+} from 'class-validator';
 import { Transform } from 'class-transformer';
 
 /**
@@ -14,6 +20,11 @@ export function ArrayValidation<T>(
 ): PropertyDecorator {
   return (t, p) => {
     IsArray(validationOptions)(t, p);
+
+    const { minSize, maxSize } = options;
+
+    if (minSize) ArrayMinSize(minSize, validationOptions)(t, p);
+    if (maxSize) ArrayMaxSize(maxSize, validationOptions)(t, p);
 
     if (options.acceptString === true) {
       Transform(({ value }) => {
