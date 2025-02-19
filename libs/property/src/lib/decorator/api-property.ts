@@ -20,6 +20,13 @@ export function ApiProperty(options: PropertyOptions): PropertyDecorator {
       case 'boolean':
         __ApiProperty({ ...options, required, nullable })(t, p);
         break;
+
+      case 'bigint': {
+        const { ...rest } = options as Omit<PropertyOptions, 'type'>;
+        __ApiProperty({ ...rest, type: 'string' })(t, p);
+        break;
+      }
+
       case 'object': {
         const { target, ...rest } = options;
         __ApiProperty({ ...rest, type: target(), required, nullable })(t, p);
