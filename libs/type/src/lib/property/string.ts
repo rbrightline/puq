@@ -12,9 +12,6 @@ export type __StringOptions = {
   endsWith?: string;
   contains?: string;
   notContains?: string;
-  default?: string;
-  example?: string;
-  examples?: string[];
 };
 
-export type StringOptions = CommonOptions & __StringOptions;
+export type StringOptions = Readonly<CommonOptions<string> & __StringOptions>;

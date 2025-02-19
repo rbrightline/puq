@@ -8,10 +8,6 @@ export type __IntegerOptions = {
   integerFormat?: IntegerFormat;
   enum?: number[];
   notIn?: number[];
-  default?: number;
-  example?: number;
-  examples?: number[];
-  isIntegerString?: boolean;
 };
 
-export type IntegerOptions = __IntegerOptions & CommonOptions;
+export type IntegerOptions = Readonly<CommonOptions<number> & __IntegerOptions>;

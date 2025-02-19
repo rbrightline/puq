@@ -5,13 +5,10 @@ export type __NumberOptions = {
   type: 'number';
   minimum?: number;
   maximum?: number;
+  maxDecimals?: number;
   numberFormat?: NumberFormat;
   enum?: number[];
   notIn?: number[];
-  default?: number;
-  example?: number;
-  examples?: number[];
-  isNumberString?: boolean;
 };
 
-export type NumberOptions = CommonOptions & __NumberOptions;
+export type NumberOptions = Readonly<CommonOptions<number> & __NumberOptions>;

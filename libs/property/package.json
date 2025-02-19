@@ -1,0 +1,89 @@
+{
+  "name": "@puq/property",
+  "displayName": "@puq/property",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "description": "property",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://rbrightline.github.io"
+  },
+  "keywords": [
+    "puq",
+    "property"
+  ],
+  "repository": {
+    "directory": "libs/property",
+    "url": "https://github.com/rbrightline/puq/tree/main",
+    "type": "github"
+  },
+  "homepage": "https://rbrightline.github.io/puq/property",
+  "bugs": {
+    "email": "robert.brightline@gmail.com",
+    "url": "https://rbrightline.github.io"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributors": [
+    {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    }
+  ],
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/property/favicon.png",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "sourceRoot": "libs/property/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/property/dist",
+          "main": "libs/property/src/index.ts",
+          "tsConfig": "libs/property/tsconfig.lib.json",
+          "skipTypeCheck": true,
+          "stripLeadingPaths": true
+        }
+      },
+      "doc": {
+        "command": "cd libs/property && npx compodoc -d ../../public/property  -p tsconfig.lib.json -n property"
+      }
+    }
+  },
+  "devDependencies": {
+    "@swc/helpers": "~0.5.11"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "^11.0.3",
+    "@puq/type": "workspace:^",
+    "@puq/validation": "workspace:^"
+  }
+}

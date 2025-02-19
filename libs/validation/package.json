@@ -1,8 +1,7 @@
 {
   "name": "@puq/validation",
-  "displayName": "@pug/validation",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publishConfig": {
     "access": "public",
     "tag": "latest"

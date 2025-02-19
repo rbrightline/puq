@@ -5,10 +5,8 @@ export type __ArrayOptions<P> = {
   items: P;
   minSize?: number;
   maxSize?: number;
-  default?: any[];
-  example?: any[];
-  examples?: any[][];
-  isJSON?: boolean;
 };
 
-export type ArrayOptions<P> = CommonOptions & __ArrayOptions<P>;
+export type ArrayOptions<P> = Readonly<
+  CommonOptions<any[]> & __ArrayOptions<P>
+>;
