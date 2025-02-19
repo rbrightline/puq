@@ -1,6 +1,7 @@
 import { ArrayOptions } from './array.js';
 import { BigIntegerOptions } from './big-integer.js';
 import { BooleanOptions } from './boolean.js';
+import { DateOptions } from './date.js';
 import { IntegerOptions } from './integer.js';
 import { NumberOptions } from './number.js';
 import { ObjectOptions } from './object.js';
@@ -13,6 +14,7 @@ export type __PropertyOptions<T = any> =
   | BigIntegerOptions
   | BooleanOptions
   | ObjectOptions
+  | DateOptions
   | ArrayOptions<T>;
 
 export type PropertyOptions = Readonly<

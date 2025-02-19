@@ -8,6 +8,7 @@ import { BooleanValidation } from './boolean.js';
 import { ObjectValidation } from './object.js';
 import { ArrayValidation } from './array.js';
 import { BigIntValiation } from './bigint.js';
+import { DateValidation } from './date.js';
 
 /**
  * @exclude
@@ -34,6 +35,11 @@ export function __PropertyValidation(
       case 'integer':
         CommonValidation(options, validationOptions)(t, p);
         IntegerValidation(options, validationOptions)(t, p);
+        break;
+
+      case 'date':
+        CommonValidation(options, validationOptions)(t, p);
+        DateValidation(options, validationOptions)(t, p);
         break;
 
       case 'bigint':

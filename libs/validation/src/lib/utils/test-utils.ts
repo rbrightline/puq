@@ -27,7 +27,10 @@ export function ___extractConstraints(errors?: ValidationError[]): string[] {
 
 export type TestClass = {
   value: any;
+  date: Date;
 };
+
+export const testDateValue = new Date();
 
 /**
  * Create, validate {@link SampleTestClass}, and return the found constraints.
@@ -44,6 +47,9 @@ export function __validateTestClass(
   class SampleTestClass {
     @PropertyValidation(options)
     value: any;
+
+    @PropertyValidation({ type: 'date', default: testDateValue })
+    date: Date;
   }
   const instance = plainToInstance(SampleTestClass, value);
   return ___extractConstraints(

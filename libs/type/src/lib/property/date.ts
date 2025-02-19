@@ -24,21 +24,22 @@ export type __DateOptions = {
   past?: boolean;
 
   /**
-   * Check the date is before the named property's value
+   * Check the property comes before the target property
    */
   beforeProperty?: string;
+
   /**
-   * Check the date is after the named property's value
+   * Check the property comes after the target property
    */
   afterProperty?: string;
 
   /**
-   * Check the date's month value is the same as the named property's month value
+   * Check the property and targer property are in the same month
    */
   sameMonthAsProperty?: string;
 
   /**
-   * Check the date's week value is the same as the named property's week value
+   * Check the property and targer property are in the same year
    */
   sameWeekAsProperty?: string;
 
@@ -48,17 +49,17 @@ export type __DateOptions = {
   sameYearAsProperty?: string;
 
   /**
-   * Check the date's day value is the same as the named property's day value
+   * Check the property and targer property are on the same day
    */
   sameDayAsProperty?: string;
 
   /**
-   * Check the date's day type (inweek or weekend) value is the same as the named property's day type value
+   * Check the property and the target property are weekend or week day
    */
   sameDayTypeAsProperty?: string;
 
   /**
-   * Check the date's day type (inweek or weekend) value is the same as the named property's day type value
+   * Check the property and targer property are in the same hour
    */
   sameHourAsProperty?: string;
 };

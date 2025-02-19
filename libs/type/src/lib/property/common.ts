@@ -67,5 +67,5 @@ export type CommonOptions<T> = {
   /**
    * If set, the property only exist if the provided property does not
    */
-  notWithProperty: string;
+  notWithProperty?: string;
 };
