@@ -2,12 +2,12 @@
   "name": "@puq/sample",
   "displayName": "@puq/sample",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "sample",
+  "description": "Sample service",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -42,7 +42,7 @@
   ],
   "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/services/sample/favicon.png",
   "bin": {
-    "sample": "./bin/sample.js"
+    "sample": "./bin/sample-service.js"
   },
   "type": "module",
   "main": "./dist/index.js",
@@ -92,7 +92,7 @@
         }
       },
       "start": {
-        "command": "cd services/sample &&  node --watch --watch-path=src ./bin/sample.js sample"
+        "command": "cd services/sample &&  node --watch --watch-path=src ./bin/sample-service.js sample"
       },
       "serve": {
         "dependsOn": [
