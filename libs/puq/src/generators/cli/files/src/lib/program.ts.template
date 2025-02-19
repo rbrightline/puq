@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import { <%- propertyName %> } from './<%- fileName %>/<%- fileName %>';
+import { <%- propertyName %> } from './<%- fileName %>/<%- fileName %>.js';
 
 
 async function boot(){ 

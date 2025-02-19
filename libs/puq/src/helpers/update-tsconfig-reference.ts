@@ -1,4 +1,4 @@
-import { names, workspaceRoot } from '@nx/devkit';
+import { workspaceRoot } from '@nx/devkit';
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
@@ -16,13 +16,12 @@ import { join } from 'path';
  * @param name
  */
 export function updateTsconfigReferences(name: string) {
-  const nameVersions = names(name);
   const tsconfigFilePath = join(workspaceRoot, 'tsconfig.json');
   const tsconfigContent = JSON.parse(readFileSync(tsconfigFilePath).toString());
   if (!tsconfigContent.references) tsconfigContent.references = [];
 
   tsconfigContent.references.push({
-    path: `./libs/${nameVersions.fileName}`,
+    path: `./${name}`,
   });
 
   writeFileSync(tsconfigFilePath, JSON.stringify(tsconfigContent));

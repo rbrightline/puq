@@ -18,7 +18,7 @@
     "<%- fileName %>"
   ],
   "repository": {
-    "directory": "libs/<%- fileName %>",
+    "directory": "<%- target %>",
     "url": "https://github.com/rbrightline/puq/tree/main",
     "type": "github"
   },
@@ -40,7 +40,7 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/<%- fileName %>/favicon.png",
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/<%- target %>/favicon.png",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -58,7 +58,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/<%- fileName %>/src",
+    "sourceRoot": "<%- target %>/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -66,9 +66,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/<%- fileName %>/dist",
-          "main": "libs/<%- fileName %>/src/index.ts",
-          "tsConfig": "libs/<%- fileName %>/tsconfig.lib.json",
+          "outputPath": "<%- target %>/dist",
+          "main": "<%- target %>/src/index.ts",
+          "tsConfig": "<%- target %>/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }

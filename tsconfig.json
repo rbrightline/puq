@@ -1,1 +1,1 @@
-{"extends":"./tsconfig.base.json","compileOnSave":false,"files":[],"references":[{"path":"./libs/type"},{"path":"./libs/puq"},{"path":"./libs/libs/validation"}]}
+{"extends":"./tsconfig.base.json","compileOnSave":false,"files":[],"references":[{"path":"./libs/type"},{"path":"./libs/puq"},{"path":"./libs/validation"},{"path":"./services/sample"},{"path":"./libs/core"}]}
