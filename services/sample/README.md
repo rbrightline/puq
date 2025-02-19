@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/sample/favicon.png" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/services/sample/favicon.png" alt="Logo" />
 </p>
 
 # @puq/sample
