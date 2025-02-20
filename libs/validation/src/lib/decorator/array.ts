@@ -2,8 +2,10 @@ import { ArrayOptions } from '@puq/type';
 import {
   ArrayMaxSize,
   ArrayMinSize,
+  ArrayNotEmpty,
   IsArray,
   isJSON,
+  IsOptional,
   ValidationOptions,
 } from 'class-validator';
 import { Transform } from 'class-transformer';
@@ -21,7 +23,13 @@ export function ArrayValidation<T>(
   return (t, p) => {
     IsArray(validationOptions)(t, p);
 
-    const { minSize, maxSize } = options;
+    const { required, minSize, maxSize } = options;
+
+    if (required == true) {
+      ArrayNotEmpty(validationOptions)(t, p);
+    } else {
+      IsOptional(validationOptions)(t, p);
+    }
 
     if (minSize) ArrayMinSize(minSize, validationOptions)(t, p);
     if (maxSize) ArrayMaxSize(maxSize, validationOptions)(t, p);

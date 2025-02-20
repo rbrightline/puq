@@ -1,8 +1,8 @@
 import { PropertyOptions as O } from '@puq/type';
 import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
-import { __assertErrors } from './common.spec.js';
+import { __assertErrors } from './common-utilities.spec.js';
 
-describe('BooleanValidation', () => {
+describe('Boolean property validation', () => {
   it.each`
     value                        | options                                         | errors
     ${{} as T}                   | ${{ type: 'boolean' } as O}                     | ${[] as string[]}
@@ -19,9 +19,10 @@ describe('BooleanValidation', () => {
     ${{ value: {} } as T}        | ${{ type: 'boolean', acceptString: true } as O} | ${['isBoolean'] as string[]}
     ${{ value: [] } as T}        | ${{ type: 'boolean', acceptString: true } as O} | ${['isBoolean'] as string[]}
   `(
-    'should validate $value with $options and throw $errors',
+    'should validate $value with $options and throw $errors (boolean-property)',
     ({ value, options, errors }) => {
-      __assertErrors(errors, __validateTestClass(options, value));
+      const foundErrors = __validateTestClass(options, value);
+      __assertErrors(errors, foundErrors);
     }
   );
 });

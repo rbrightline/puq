@@ -12,8 +12,6 @@ import { validateSync, ValidationError } from 'class-validator';
 export function ___extractConstraints(errors?: ValidationError[]): string[] {
   const result: string[] = [];
 
-  console.log(errors);
-
   if (errors && errors.length > 0) {
     errors.forEach((e) => {
       if (e.constraints) result.push(...Object.keys(e.constraints));
@@ -52,10 +50,11 @@ export function __validateTestClass(
     date: Date;
   }
   const instance = plainToInstance(SampleTestClass, value);
-  return ___extractConstraints(
-    validateSync(instance, {
-      stopAtFirstError: true,
-      validationError: { target: false, value: false },
-    })
-  );
+
+  const foundErrors = validateSync(instance, {
+    stopAtFirstError: true,
+    validationError: { target: false, value: false },
+  });
+
+  return ___extractConstraints(foundErrors);
 }

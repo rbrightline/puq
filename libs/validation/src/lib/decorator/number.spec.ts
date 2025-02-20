@@ -1,8 +1,8 @@
 import { PropertyOptions as O } from '@puq/type';
 import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
-import { __assertErrors } from './common.spec.js';
+import { __assertErrors } from './common-utilities.spec.js';
 
-describe('NumberValidation', () => {
+describe('Number property validation', () => {
   it.each`
     value                                               | options                                              | errors
     ${{} as T}                                          | ${{ type: 'number' } as O}                           | ${[] as string[]}
@@ -35,7 +35,7 @@ describe('NumberValidation', () => {
     ${{ value: Number.MAX_SAFE_INTEGER + 1 + '' } as T} | ${{ type: 'number', acceptString: true } as O}       | ${['max'] as string[]}
     ${{ value: Number.MIN_SAFE_INTEGER - 1 + '' } as T} | ${{ type: 'number', acceptString: true } as O}       | ${['min'] as string[]}
   `(
-    'should validate $value with $options and throw $errors',
+    'should validate $value with $options and throw $errors (number-property)',
     ({ value, options, errors }) => {
       __assertErrors(errors, __validateTestClass(options, value));
     }

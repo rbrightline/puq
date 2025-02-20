@@ -1,5 +1,5 @@
 import { CommonOptions } from '@puq/type';
-import { Exclude, Expose, Transform } from 'class-transformer';
+import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsOptional, ValidationOptions } from 'class-validator';
 import { EqualToProperty } from '../custom/equal-to-property.js';
 import { DependOnProperty } from '../custom/depend-on-property.js';
@@ -19,18 +19,9 @@ export function CommonValidation<T>(
   validationOptions?: Readonly<ValidationOptions>
 ): PropertyDecorator {
   return (t, p) => {
-    const { required, equalToProperty, dependOnProperty, notWithProperty } =
-      options;
+    const { equalToProperty, dependOnProperty, notWithProperty } = options;
 
-    // Exclude or expose
-    if (options.expose == false) {
-      Exclude()(t, p);
-    } else {
-      Expose()(t, p);
-    }
-
-    // Optional or required
-    if (required === true) {
+    if (options.required === true) {
       IsNotEmpty(validationOptions)(t, p);
     } else {
       IsOptional(validationOptions)(t, p);

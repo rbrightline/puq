@@ -1,51 +1,21 @@
 import { PropertyOptions as O } from '@puq/type';
+import { __assertErrors } from './common-utilities.spec.js';
 import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
 
-/**
- * Compare the validation errors with the found errors
- * This method is for testing purposes,
- * @ignore
- * @param expectedErrors
- * @param foundErrors
- */
-export function __assertErrors(
-  expectedErrors: string[],
-  foundErrors: string[]
-) {
-  if (expectedErrors.length > 0) {
-    expect(foundErrors).toHaveLength(expectedErrors.length);
-
-    for (const e of foundErrors) {
-      expect(expectedErrors).include(e);
-    }
-
-    for (const e of expectedErrors) {
-      expect(foundErrors).include(e);
-    }
-  } else {
-    if (foundErrors.length > 0) console.error(foundErrors);
-
-    expect(foundErrors.length).toEqual(0);
-  }
-}
-
-describe('CommonValidation', () => {
+describe('Common property validation', () => {
   it.each`
-    value                                     | options                                   | errors
-    ${{} as T}                                | ${{} as O}                                | ${[] as string[]}
-    ${{} as T}                                | ${{ required: true, default: 1 } as O}    | ${[] as string[]}
-    ${{ value: 'some' } as T}                 | ${{ required: true } as O}                | ${[] as string[]}
-    ${{ value: 1 } as T}                      | ${{ required: true } as O}                | ${[] as string[]}
-    ${{ value: true } as T}                   | ${{ required: true } as O}                | ${[] as string[]}
-    ${{ value: false } as T}                  | ${{ required: true } as O}                | ${[] as string[]}
-    ${{ value: 'some'.repeat(10000) } as T}   | ${{ required: true } as O}                | ${[] as string[]}
-    ${{} as T}                                | ${{ required: true } as O}                | ${['isNotEmpty'] as string[]}
-    ${{ value: undefined } as T}              | ${{ required: true } as O}                | ${['isNotEmpty'] as string[]}
-    ${{ value: null } as T}                   | ${{ required: true } as O}                | ${['isNotEmpty'] as string[]}
-    ${{ value: 'some' } as T}                 | ${{ required: true, expose: false } as O} | ${['isNotEmpty'] as string[]}
-    ${{ value: 'some', other: 'other' } as T} | ${{ required: true, expose: false } as O} | ${['isNotEmpty'] as string[]}
+    value                                       | options                                                     | errors
+    ${{} as T}                                  | ${{ type: 'string' } as O}                                  | ${[] as string[]}
+    ${{} as T}                                  | ${{ type: 'string', required: true, default: 'some' } as O} | ${[] as string[]}
+    ${{ value: 'some' } as T}                   | ${{ type: 'string', required: true } as O}                  | ${[] as string[]}
+    ${{ value: 'some'.repeat(10000) } as T}     | ${{ type: 'string', required: true } as O}                  | ${[] as string[]}
+    ${{} as T}                                  | ${{ type: 'string', required: true } as O}                  | ${['isNotEmpty'] as string[]}
+    ${{ value: undefined } as T}                | ${{ type: 'string', required: true } as O}                  | ${['isNotEmpty'] as string[]}
+    ${{ value: null } as T}                     | ${{ type: 'string', required: true } as O}                  | ${['isNotEmpty'] as string[]}
+    ${{ value: 'some' } as T}                   | ${{ type: 'string', required: true, expose: false } as O}   | ${['isNotEmpty'] as string[]}
+    ${{ value: 'some', date: new Date() } as T} | ${{ type: 'string', required: true, expose: false } as O}   | ${['isNotEmpty'] as string[]}
   `(
-    'should validate $value with $options and throw $errors',
+    'should validate $value with $options and throw $errors (common-propery)',
     ({ value, options, errors }) => {
       __assertErrors(errors, __validateTestClass(options, value));
     }

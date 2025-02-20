@@ -1,7 +1,9 @@
 import { ObjectOptions } from '@puq/type';
 import {
   isJSON,
+  IsNotEmptyObject,
   IsObject,
+  IsOptional,
   ValidateNested,
   ValidationOptions,
 } from 'class-validator';
@@ -22,6 +24,11 @@ export function ObjectValidation(
     Type(options.target)(t, p);
     ValidateNested(validationOptions)(t, p);
 
+    if (options.required === true) {
+      IsNotEmptyObject({ nullable: false }, validationOptions)(t, p);
+    } else {
+      IsOptional(validationOptions)(t, p);
+    }
     // If acceptString, the object-string is transformed into object
     if (options.acceptString === true) {
       Transform(({ value }) => {

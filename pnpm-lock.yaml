@@ -130,6 +130,9 @@ importers:
       '@puq/validation':
         specifier: workspace:^
         version: link:../validation
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
