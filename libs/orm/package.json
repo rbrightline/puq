@@ -79,6 +79,16 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "better-sqlite3": "^11.8.1",
+    "pg": "^8.13.3"
+  },
+  "peerDependencies": {
+    "@puq/property": "^0.0.15",
+    "typeorm": "^0.3.20"
+  },
+  "dependencies": {
+    "@puq/type": "workspace:^",
+    "reflect-metadata": "^0.2.2"
   }
 }

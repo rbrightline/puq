@@ -20,6 +20,11 @@ export type CommonOptions<T> = {
   unique?: boolean;
 
   /**
+   *
+   */
+  readonly?: boolean;
+
+  /**
    * Property description
    */
   description?: string;
