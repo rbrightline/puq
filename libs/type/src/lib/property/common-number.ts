@@ -12,7 +12,7 @@ export type CommonNumberOptions = {
   /**
    * Allowed numbers
    */
-  enum?: number[];
+  enum?: number[] | Record<string, unknown>;
 
   /**
    * Not allowed numbers

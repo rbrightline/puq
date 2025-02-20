@@ -1,5 +1,7 @@
 import { DefaultNamingStrategy } from 'typeorm';
-
+/**
+ * Databaes naming strategy
+ */
 export class TableNamingStrategy extends DefaultNamingStrategy {
   override joinTableName(
     firstTableName: string,

@@ -116,11 +116,17 @@ importers:
   libs/orm:
     dependencies:
       '@puq/property':
-        specifier: ^0.0.15
-        version: 0.0.15(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)
+        specifier: workspace:^
+        version: link:../property
       '@puq/type':
         specifier: workspace:^
         version: link:../type
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -144,11 +150,11 @@ importers:
         specifier: ^11.0.3
         version: 11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@puq/type':
-        specifier: ^0.0.15
-        version: 0.0.15
+        specifier: workspace:^
+        version: link:../type
       '@puq/validation':
-        specifier: ^0.0.15
-        version: 0.0.15
+        specifier: workspace:^
+        version: link:../validation
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -187,8 +193,8 @@ importers:
   libs/validation:
     dependencies:
       '@puq/type':
-        specifier: ^0.0.15
-        version: 0.0.15
+        specifier: workspace:^
+        version: link:../type
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1568,18 +1574,6 @@ packages:
 
   '@puq/core@0.0.6':
     resolution: {integrity: sha512-/J7Rc4vOLeZk2FiiUfiw1kDtIrWSgamV845msmDbCCniV4WN6HNbsGegqQRxaY9LKGfsX4vbliOo9Q62mvqTAQ==}
-
-  '@puq/property@0.0.15':
-    resolution: {integrity: sha512-mvB8Dyx//Cx8eaIPEPfqJ5xkQ/+udWKOqL1sLnxEr6GJKZ/Wba411U6YJR1K1yqg+H3gykZuI/leI6PBmJreCA==}
-    peerDependencies:
-      '@nestjs/swagger': ^11.0.3
-      class-transformer: ^0.5.1
-
-  '@puq/type@0.0.15':
-    resolution: {integrity: sha512-lBALRqCGyksrs/iXkD3UZUD63fXJTGdAFuagm3duYdaFjnDmh7iCah0z4ZEKWH6MyOITTBBQiaqBLMWKnrfzhA==}
-
-  '@puq/validation@0.0.15':
-    resolution: {integrity: sha512-vuGO7uYi/I6x4jmwctr2iM2xeRt8B6Xw/8sjiKuIvZdRYKU8ut45KL5baj1+FBCvHJnoHTlukDz/4aFJSsxEKg==}
 
   '@rollup/rollup-android-arm-eabi@4.34.8':
     resolution: {integrity: sha512-q217OSE8DTp8AFHuNHXo0Y86e1wtlfVrXiAlwkIvGRQv9zbc6mE3sjIVfwI8sYUyNxwOg0j/Vm1RKM04JcWLJw==}
@@ -7931,21 +7925,6 @@ snapshots:
       - class-validator
       - reflect-metadata
       - rxjs
-
-  '@puq/property@0.0.15(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)':
-    dependencies:
-      '@nestjs/swagger': 11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/type': 0.0.15
-      '@puq/validation': 0.0.15
-      class-transformer: 0.5.1
-
-  '@puq/type@0.0.15': {}
-
-  '@puq/validation@0.0.15':
-    dependencies:
-      '@puq/type': 0.0.15
-      class-transformer: 0.5.1
-      class-validator: 0.14.1
 
   '@rollup/rollup-android-arm-eabi@4.34.8':
     optional: true

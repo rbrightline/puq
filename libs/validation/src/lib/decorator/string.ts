@@ -1,6 +1,8 @@
 import { StringOptions } from '@puq/type';
 import {
   Contains,
+  isArray,
+  IsEnum,
   IsIn,
   IsNotIn,
   IsString,
@@ -45,7 +47,13 @@ export function StringValidation(
     if (stringFormat != undefined)
       StringFormatValidation(stringFormat, validationOptions)(t, p);
 
-    if (enums != undefined) IsIn(enums, validationOptions)(t, p);
+    if (enums != undefined) {
+      if (isArray(enums)) {
+        IsIn(enums, validationOptions)(t, p);
+      } else {
+        IsEnum(enums, validationOptions)(t, p);
+      }
+    }
 
     if (notIn != undefined) IsNotIn(notIn, validationOptions)(t, p);
 

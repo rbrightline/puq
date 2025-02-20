@@ -21,7 +21,7 @@ export type __StringOptions = {
   /**
    * Allowed strings
    */
-  enum?: string[];
+  enum?: string[] | Record<string, unknown>;
 
   /**
    * Not allowed strings

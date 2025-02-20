@@ -84,11 +84,12 @@
     "pg": "^8.13.3"
   },
   "peerDependencies": {
-    "@puq/property": "^0.0.15",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "reflect-metadata": "^0.2.2",
+    "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "workspace:^",
-    "reflect-metadata": "^0.2.2"
+    "@puq/property": "workspace:^",
+    "@puq/type": "workspace:^"
   }
 }

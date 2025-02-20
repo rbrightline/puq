@@ -2,6 +2,10 @@ import { CommonOptions } from './common.js';
 
 export type __ArrayOptions<P> = {
   type: 'array';
+
+  /**
+   * Items options
+   */
   items: P;
 
   /**

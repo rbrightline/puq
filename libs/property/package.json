@@ -69,7 +69,7 @@
           "outputPath": "libs/property/dist",
           "main": "libs/property/src/index.ts",
           "tsConfig": "libs/property/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         }
       },
@@ -86,7 +86,7 @@
     "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "^0.0.15",
-    "@puq/validation": "^0.0.15"
+    "@puq/type": "workspace:^",
+    "@puq/validation": "workspace:^"
   }
 }

@@ -2,6 +2,11 @@ import { PropertyOptions as O } from '@puq/type';
 import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
 import { __assertErrors } from './common-utilities.spec.js';
 
+enum Nums {
+  Num1 = 1,
+  Num2 = 2,
+  Num3 = 3,
+}
 describe('Number property validation', () => {
   it.each`
     value                                               | options                                              | errors
@@ -11,8 +16,8 @@ describe('Number property validation', () => {
     ${{ value: 1 } as T}                                | ${{ type: 'number' } as O}                           | ${[] as string[]}
     ${{ value: -1 } as T}                               | ${{ type: 'number' } as O}                           | ${[] as string[]}
     ${{ value: 0 } as T}                                | ${{ type: 'number' } as O}                           | ${[] as string[]}
-    ${{ value: 0.888888888888888888888 } as T}          | ${{ type: 'number' } as O}                           | ${[] as string[]}
-    ${{ value: -0.888888888888888888888 } as T}         | ${{ type: 'number' } as O}                           | ${[] as string[]}
+    ${{ value: 0.88888888888888 } as T}                 | ${{ type: 'number' } as O}                           | ${[] as string[]}
+    ${{ value: -0.888888888888888 } as T}               | ${{ type: 'number' } as O}                           | ${[] as string[]}
     ${{ value: Number.MAX_SAFE_INTEGER } as T}          | ${{ type: 'number' } as O}                           | ${[] as string[]}
     ${{ value: Number.MIN_SAFE_INTEGER } as T}          | ${{ type: 'number' } as O}                           | ${[] as string[]}
     ${{ value: NaN } as T}                              | ${{ type: 'number' } as O}                           | ${['isNumber'] as string[]}
@@ -34,6 +39,10 @@ describe('Number property validation', () => {
     ${{ value: Number.MIN_SAFE_INTEGER - 1 } as T}      | ${{ type: 'number' } as O}                           | ${['min'] as string[]}
     ${{ value: Number.MAX_SAFE_INTEGER + 1 + '' } as T} | ${{ type: 'number', acceptString: true } as O}       | ${['max'] as string[]}
     ${{ value: Number.MIN_SAFE_INTEGER - 1 + '' } as T} | ${{ type: 'number', acceptString: true } as O}       | ${['min'] as string[]}
+    ${{ value: 1 } as T}                                | ${{ type: 'number', enum: Nums } as O}               | ${[] as string[]}
+    ${{ value: 1 } as T}                                | ${{ type: 'number', enum: [1, 2, 3] } as O}          | ${[] as string[]}
+    ${{ value: 4 } as T}                                | ${{ type: 'number', enum: Nums } as O}               | ${['isEnum'] as string[]}
+    ${{ value: 4 } as T}                                | ${{ type: 'number', enum: [1, 2, 3] } as O}          | ${['isIn'] as string[]}
   `(
     'should validate $value with $options and throw $errors (number-property)',
     ({ value, options, errors }) => {

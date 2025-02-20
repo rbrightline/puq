@@ -1,5 +1,7 @@
 import { IntegerOptions, NumberOptions } from '@puq/type';
 import {
+  isArray,
+  IsEnum,
   IsIn,
   IsNotIn,
   IsNumber,
@@ -43,7 +45,13 @@ export function CommonNumberValidation(
     if (maximum != undefined) Max(maximum, validationOptions)(t, p);
     else Max(Number.MAX_SAFE_INTEGER, validationOptions)(t, p);
 
-    if (enums != undefined) IsIn(enums, validationOptions);
+    if (enums != undefined) {
+      if (isArray(enums)) {
+        IsIn(enums, validationOptions)(t, p);
+      } else {
+        IsEnum(enums, validationOptions)(t, p);
+      }
+    }
 
     if (notIn != undefined) IsNotIn(notIn, validationOptions);
 

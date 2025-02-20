@@ -5,5 +5,5 @@ export type __BigIntegerOptions = {
 };
 
 export type BigIntegerOptions = Readonly<
-  CommonOptions<BigInt> & __BigIntegerOptions
+  CommonOptions<bigint> & __BigIntegerOptions
 >;
