@@ -13,15 +13,15 @@ export class BaseEntity implements BaseModel {
   id: number;
 
   @Property({ type: 'date' })
-  @CreateDateColumn({ type: 'varchar', length: 30 })
+  @CreateDateColumn()
   createdAt: Date;
 
   @Property({ type: 'date' })
-  @UpdateDateColumn({ type: 'varchar', length: 30 })
+  @UpdateDateColumn()
   updatedAt: Date;
 
   @Property({ type: 'date' })
-  @DeleteDateColumn({ type: 'varchar', length: 30 })
+  @DeleteDateColumn()
   deletedAt: Date;
 }
 

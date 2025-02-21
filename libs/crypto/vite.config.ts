@@ -2,13 +2,12 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/orm',
+  cacheDir: '../../node_modules/.vite/libs/crypto',
   plugins: [],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
   // },
-
   test: {
     watch: false,
     globals: true,
@@ -18,11 +17,6 @@ export default defineConfig({
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
-    },
-    env: {
-      DB_USERNAME: 'testuser',
-      DB_PASSWORD: 'password',
-      DB_NAME: 'testdb',
     },
   },
 });

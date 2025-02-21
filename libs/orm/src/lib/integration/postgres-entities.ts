@@ -39,7 +39,7 @@ export class TestEntity extends BaseEntity {
   @Column({ type: 'bigint' }) bigint: bigint;
   @Column({ type: 'object', target: () => TestObject }) object: TestObject;
   @Column({ type: 'array', items: { type: 'string' } }) array: string[];
-  @Column({ type: 'date' }) date: Date;
+  @Column({ type: 'date' }) date: string;
 
   @Relation('many-to-one', () => OneRelation, {
     eager: true,

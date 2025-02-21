@@ -1,0 +1,122 @@
+import 'reflect-metadata';
+import { DataSource, DeepPartial, Equal, Repository } from 'typeorm';
+import { TableNamingStrategy } from '../factory/naming-strategy.js';
+import {
+  TestEntity,
+  OneRelation,
+  ManyRelation,
+  OwnerRelation,
+  AttributeRelation,
+  TestObject,
+} from './sqlite-entities.js';
+
+describe('SQLite3 Integration', () => {
+  let ds: DataSource;
+  let TestEntityRepo: Repository<TestEntity>;
+  let OneRelationRepo: Repository<OneRelation>;
+  let ManyRelationRepo: Repository<ManyRelation>;
+  let OwnerRelationRepo: Repository<OwnerRelation>;
+  let AttributeRelationRepo: Repository<AttributeRelation>;
+
+  beforeAll(async () => {
+    ds = await new DataSource({
+      type: 'sqlite',
+      database: ':memory:',
+      entities: [
+        TestEntity,
+        OneRelation,
+        ManyRelation,
+        OwnerRelation,
+        AttributeRelation,
+      ],
+      synchronize: true,
+      dropSchema: true,
+      namingStrategy: new TableNamingStrategy(),
+      maxQueryExecutionTime: 1000,
+      logging: false,
+    }).initialize();
+
+    TestEntityRepo = ds.getRepository(TestEntity);
+    OneRelationRepo = ds.getRepository(OneRelation);
+    ManyRelationRepo = ds.getRepository(ManyRelation);
+    OwnerRelationRepo = ds.getRepository(OwnerRelation);
+    AttributeRelationRepo = ds.getRepository(AttributeRelation);
+  });
+  it('[SQLite3] should initialize repositories', () => {
+    expect(ds).toBeTruthy();
+    expect(TestEntityRepo).toBeTruthy();
+    expect(OneRelationRepo).toBeTruthy();
+    expect(ManyRelationRepo).toBeTruthy();
+    expect(OwnerRelationRepo).toBeTruthy();
+    expect(AttributeRelationRepo).toBeTruthy();
+  });
+  it('[SQLite3] should create tables,columns, and relations as expected', async () => {
+    const oneData = await OneRelationRepo.save({});
+    const manyData = await ManyRelationRepo.save({});
+    const ownerData = await OwnerRelationRepo.save({});
+    const attributeData = await AttributeRelationRepo.save({});
+    const dateValue = new Date().toISOString();
+
+    const testData: DeepPartial<TestEntity> = {
+      string: 'string',
+      array: ['some'],
+      number: 111_222_333_444_555.88,
+      bigint: 100 as any,
+      boolean: true,
+      integer: 111_222_333_444_555,
+      object: new TestObject(),
+      date: dateValue,
+    };
+
+    const entityData = await TestEntityRepo.save(testData);
+
+    await TestEntityRepo.createQueryBuilder()
+      .relation('one')
+      .of(entityData.id)
+      .set(oneData.id);
+
+    await TestEntityRepo.createQueryBuilder()
+      .relation('many')
+      .of(entityData.id)
+      .add(manyData.id);
+
+    await TestEntityRepo.createQueryBuilder()
+      .relation('attributes')
+      .of(entityData.id)
+      .add(attributeData.id);
+
+    await TestEntityRepo.createQueryBuilder()
+      .relation('owner')
+      .of(entityData.id)
+      .set(ownerData.id);
+
+    const found = await TestEntityRepo.find({
+      where: { id: Equal(testData.id!) },
+    });
+
+    console.log(found);
+    expect(found[0].id).toEqual(entityData.id);
+    expect(found[0].createdAt).toEqual(entityData.createdAt);
+    expect(found[0].deletedAt).toEqual(entityData.deletedAt);
+
+    expect(found[0].string).toEqual(testData.string);
+    expect(found[0].number).toEqual(testData.number);
+    expect(found[0].integer).toEqual(testData.integer);
+    expect(found[0].boolean).toEqual(testData.boolean);
+    expect(found[0].bigint).toEqual(testData.bigint);
+    expect(found[0].date).toEqual(testData.date);
+    expect(found[0].object).toEqual(testData.object);
+    expect(found[0].one.id).toEqual(oneData.id);
+    expect(found[0].many[0].id).toEqual(manyData.id);
+    expect(found[0].owner.id).toEqual(ownerData.id);
+    expect(found[0].attributes[0].id).toEqual(attributeData.id);
+  });
+
+  it('[Postgres] should handle high load', async () => {
+    const paralenExecution = 'r'
+      .repeat(100)
+      .split('')
+      .map((e) => TestEntityRepo.save({}));
+    await Promise.all(paralenExecution);
+  });
+});

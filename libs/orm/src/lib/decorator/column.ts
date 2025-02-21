@@ -1,12 +1,80 @@
 import { Property } from '@puq/property';
 import { PropertyOptions } from '@puq/type';
-import { Column as __Column } from 'typeorm';
-import { pickColumnType } from '../utils/pick-column-type.js';
+import { Column as __Column, ColumnType, ValueTransformer } from 'typeorm';
+
+export function pickDataType(options: PropertyOptions): ColumnType {
+  const { type, databaseType } = options;
+
+  switch (databaseType) {
+    case 'better-sqlite3':
+    case 'sqlite':
+      switch (type) {
+        case 'string':
+        case 'date':
+          return 'text';
+        case 'number':
+          return 'real';
+        case 'integer':
+          return 'integer';
+        case 'bigint':
+          return 'integer';
+        case 'boolean':
+          return 'boolean';
+        case 'object':
+        case 'array':
+          return 'text';
+
+        default:
+          throw new Error(`Invalid column type ${type}`);
+      }
+
+    default:
+      switch (type) {
+        case 'string':
+        case 'date':
+          return 'varchar';
+        case 'number':
+          return 'numeric';
+        case 'integer':
+          return 'integer';
+        case 'bigint':
+          return 'bigint';
+        case 'boolean':
+          return 'boolean';
+        case 'object':
+          return 'jsonb';
+        case 'array':
+          return pickDataType(options.items);
+        default:
+          throw new Error(`Invalid column type ${type}`);
+      }
+  }
+}
+
+export function pickTransformer(
+  options: PropertyOptions
+): ValueTransformer | undefined {
+  if (options.databaseType?.includes('sqlite')) {
+    if (options.type === 'object' || options.type === 'array') {
+      return {
+        from(value) {
+          if (value != undefined) return JSON.parse(value);
+          return value;
+        },
+        to(value) {
+          if (value != undefined) return JSON.stringify(value);
+
+          return value;
+        },
+      };
+    }
+  }
+  return undefined;
+}
 
 export function Column(options: PropertyOptions): PropertyDecorator {
   return (t, p) => {
     const {
-      type,
       unique,
       required,
       readonly: __readonly,
@@ -15,83 +83,19 @@ export function Column(options: PropertyOptions): PropertyDecorator {
     const nullable = required != true;
     const update = __readonly == true ? false : undefined;
 
+    const type = pickDataType(options);
+    const transformer = pickTransformer(options);
+
     Property(options)(t, p);
 
-    switch (type) {
-      case 'string':
-        __Column({
-          type: 'varchar',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'number':
-        __Column({
-          type: 'real',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'integer':
-        __Column({
-          type: 'integer',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'bigint':
-        __Column({
-          type: 'bigint',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'boolean':
-        __Column({
-          type: 'boolean',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'object':
-        __Column({
-          type: 'json',
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'date':
-        __Column({
-          type: 'varchar',
-          length: 30,
-          unique,
-          nullable,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-      case 'array':
-        __Column({
-          type: pickColumnType(options),
-          array: true,
-          nullable,
-          unique,
-          update,
-          default: __default,
-        })(t, p);
-        break;
-    }
+    __Column({
+      type,
+      array: options.type === 'array',
+      nullable,
+      unique,
+      update,
+      default: __default,
+      transformer,
+    })(t, p);
   };
 }

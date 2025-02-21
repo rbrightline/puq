@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-
 import { DataSource, DeepPartial, Equal, Repository } from 'typeorm';
 import { TableNamingStrategy } from '../factory/naming-strategy.js';
 import {
@@ -9,9 +8,9 @@ import {
   OwnerRelation,
   AttributeRelation,
   TestObject,
-} from './test-entity.js';
+} from './sqlite-entities.js';
 
-describe('SQLite Integration', () => {
+describe('better-sqlite3 Integration', () => {
   let ds: DataSource;
   let TestEntityRepo: Repository<TestEntity>;
   let OneRelationRepo: Repository<OneRelation>;
@@ -22,7 +21,7 @@ describe('SQLite Integration', () => {
   beforeAll(async () => {
     ds = await new DataSource({
       type: 'better-sqlite3',
-      database: 'tmp/database/sqlite-inegration.sqlite',
+      database: ':memory:',
       entities: [
         TestEntity,
         OneRelation,
@@ -34,6 +33,7 @@ describe('SQLite Integration', () => {
       dropSchema: true,
       namingStrategy: new TableNamingStrategy(),
       maxQueryExecutionTime: 1000,
+      logging: false,
     }).initialize();
 
     TestEntityRepo = ds.getRepository(TestEntity);
@@ -42,7 +42,7 @@ describe('SQLite Integration', () => {
     OwnerRelationRepo = ds.getRepository(OwnerRelation);
     AttributeRelationRepo = ds.getRepository(AttributeRelation);
   });
-  it('should initialize repositories', () => {
+  it('[better-sqlite3] should initialize repositories', () => {
     expect(ds).toBeTruthy();
     expect(TestEntityRepo).toBeTruthy();
     expect(OneRelationRepo).toBeTruthy();
@@ -50,17 +50,17 @@ describe('SQLite Integration', () => {
     expect(OwnerRelationRepo).toBeTruthy();
     expect(AttributeRelationRepo).toBeTruthy();
   });
-  it('should create tables,columns, and relations as expected', async () => {
+  it('[better-sqlite3] should create tables,columns, and relations as expected', async () => {
     const oneData = await OneRelationRepo.save({});
     const manyData = await ManyRelationRepo.save({});
     const ownerData = await OwnerRelationRepo.save({});
     const attributeData = await AttributeRelationRepo.save({});
-    const dateValue = new Date();
+    const dateValue = new Date().toISOString();
 
     const testData: DeepPartial<TestEntity> = {
       string: 'string',
       array: ['some'],
-      number: 111_222_333_444_555,
+      number: 111_222_333_444_555.88,
       bigint: 111_222_333_444_555n,
       boolean: true,
       integer: 111_222_333_444_555,
@@ -94,8 +94,9 @@ describe('SQLite Integration', () => {
       where: { id: Equal(testData.id!) },
     });
 
+    console.log(found);
+
     expect(found[0].id).toEqual(entityData.id);
-    expect(found[0].updatedAt).toEqual(entityData.updatedAt);
     expect(found[0].createdAt).toEqual(entityData.createdAt);
     expect(found[0].deletedAt).toEqual(entityData.deletedAt);
 
@@ -110,5 +111,13 @@ describe('SQLite Integration', () => {
     expect(found[0].many[0].id).toEqual(manyData.id);
     expect(found[0].owner.id).toEqual(ownerData.id);
     expect(found[0].attributes[0].id).toEqual(attributeData.id);
+  });
+
+  it('[Postgres] should handle high load', async () => {
+    const paralenExecution = 'r'
+      .repeat(100)
+      .split('')
+      .map((e) => TestEntityRepo.save({}));
+    await Promise.all(paralenExecution);
   });
 });

@@ -1,3 +1,4 @@
+import { DatabaseType } from './database-type.js';
 import { PropertyType } from './property-type.js';
 
 /**
@@ -73,4 +74,19 @@ export type CommonOptions<T> = {
    * If set, the property only exist if the provided property does not
    */
   notWithProperty?: string;
+
+  /**
+   * Hash the data
+   */
+  hash?: boolean;
+
+  /**
+   * Encrypt the data
+   */
+  encrypt?: boolean;
+
+  /**
+   * Allows us to pick the right column type for the data
+   */
+  databaseType?: DatabaseType;
 };

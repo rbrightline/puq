@@ -17,13 +17,13 @@ export type WhereQueryTransformerOptions = {
  */
 export function WhereQueryTransformer(columns: Keys): PropertyDecorator {
   return (t, p) => {
-    Transform(async ({ value }) => {
+    Transform(({ value }) => {
       if (typeof value == 'string') {
         validateWhereQueryString(value, columns);
         const queryObjects = parseWhereQueryString(value);
 
         return queryObjects
-          .map(async (e) => {
+          .map((e) => {
             return createFindOperator(e);
           })
           .reduce((p, c) => ({ ...p, ...c }), {});
@@ -35,7 +35,7 @@ export function WhereQueryTransformer(columns: Keys): PropertyDecorator {
             const queryObjects = parseWhereQueryString(e);
 
             return queryObjects
-              .map(async (e) => {
+              .map((e) => {
                 return createFindOperator(e);
               })
               .reduce((p, c) => ({ ...p, ...c }), {});
