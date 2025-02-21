@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { DataSource, DeepPartial, Equal, Repository } from 'typeorm';
-import { TableNamingStrategy } from '../factory/naming-strategy.js';
 import {
   TestEntity,
   OneRelation,
@@ -9,8 +8,9 @@ import {
   AttributeRelation,
   TestObject,
 } from './sqlite-entities.js';
+import { TableNamingStrategy } from '../../src/index.js';
 
-describe('SQLite3 Integration', () => {
+describe('better-sqlite3 Integration', () => {
   let ds: DataSource;
   let TestEntityRepo: Repository<TestEntity>;
   let OneRelationRepo: Repository<OneRelation>;
@@ -20,7 +20,7 @@ describe('SQLite3 Integration', () => {
 
   beforeAll(async () => {
     ds = await new DataSource({
-      type: 'sqlite',
+      type: 'better-sqlite3',
       database: ':memory:',
       entities: [
         TestEntity,
@@ -42,7 +42,7 @@ describe('SQLite3 Integration', () => {
     OwnerRelationRepo = ds.getRepository(OwnerRelation);
     AttributeRelationRepo = ds.getRepository(AttributeRelation);
   });
-  it('[SQLite3] should initialize repositories', () => {
+  it('[better-sqlite3] should initialize repositories', () => {
     expect(ds).toBeTruthy();
     expect(TestEntityRepo).toBeTruthy();
     expect(OneRelationRepo).toBeTruthy();
@@ -50,7 +50,7 @@ describe('SQLite3 Integration', () => {
     expect(OwnerRelationRepo).toBeTruthy();
     expect(AttributeRelationRepo).toBeTruthy();
   });
-  it('[SQLite3] should create tables,columns, and relations as expected', async () => {
+  it('[better-sqlite3] should create tables,columns, and relations as expected', async () => {
     const oneData = await OneRelationRepo.save({});
     const manyData = await ManyRelationRepo.save({});
     const ownerData = await OwnerRelationRepo.save({});
@@ -61,7 +61,7 @@ describe('SQLite3 Integration', () => {
       string: 'string',
       array: ['some'],
       number: 111_222_333_444_555.88,
-      bigint: 100 as any,
+      bigint: 111_222_333_444_555n,
       boolean: true,
       integer: 111_222_333_444_555,
       object: new TestObject(),
@@ -94,7 +94,6 @@ describe('SQLite3 Integration', () => {
       where: { id: Equal(testData.id!) },
     });
 
-    console.log(found);
     expect(found[0].id).toEqual(entityData.id);
     expect(found[0].createdAt).toEqual(entityData.createdAt);
     expect(found[0].deletedAt).toEqual(entityData.deletedAt);
@@ -103,7 +102,7 @@ describe('SQLite3 Integration', () => {
     expect(found[0].number).toEqual(testData.number);
     expect(found[0].integer).toEqual(testData.integer);
     expect(found[0].boolean).toEqual(testData.boolean);
-    expect(found[0].bigint).toEqual(testData.bigint);
+    expect(BigInt(found[0].bigint)).toEqual(testData.bigint);
     expect(found[0].date).toEqual(testData.date);
     expect(found[0].object).toEqual(testData.object);
     expect(found[0].one.id).toEqual(oneData.id);

@@ -1,16 +1,17 @@
 import 'reflect-metadata';
 import { DataSource, DeepPartial, Equal, Repository } from 'typeorm';
-import { TableNamingStrategy } from '../factory/naming-strategy.js';
-import {
-  AttributeRelation,
-  ManyRelation,
-  OneRelation,
-  OwnerRelation,
-  TestEntity,
-  TestObject,
-} from './postgres-entities.js';
 
-describe('Postgres Integration', () => {
+import {
+  TestEntity,
+  OneRelation,
+  ManyRelation,
+  OwnerRelation,
+  AttributeRelation,
+  TestObject,
+} from './sqlite-entities.js';
+import { TableNamingStrategy } from '../../src/index.js';
+
+describe('SQLite3 Integration', () => {
   let ds: DataSource;
   let TestEntityRepo: Repository<TestEntity>;
   let OneRelationRepo: Repository<OneRelation>;
@@ -20,10 +21,8 @@ describe('Postgres Integration', () => {
 
   beforeAll(async () => {
     ds = await new DataSource({
-      type: 'postgres',
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      type: 'sqlite',
+      database: ':memory:',
       entities: [
         TestEntity,
         OneRelation,
@@ -34,13 +33,8 @@ describe('Postgres Integration', () => {
       synchronize: true,
       dropSchema: true,
       namingStrategy: new TableNamingStrategy(),
-      poolSize: 50, // Maximum number of connections in the pool
-      extra: {
-        min: 10, // Minimum number of connections kept open
-        max: 50, // Maximum number of connections (matches poolSize)
-        idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
-        connectionTimeoutMillis: 2000, // Timeout for acquiring a connection
-      },
+      maxQueryExecutionTime: 1000,
+      logging: false,
     }).initialize();
 
     TestEntityRepo = ds.getRepository(TestEntity);
@@ -49,8 +43,7 @@ describe('Postgres Integration', () => {
     OwnerRelationRepo = ds.getRepository(OwnerRelation);
     AttributeRelationRepo = ds.getRepository(AttributeRelation);
   });
-
-  it('[Postgres] should initialize repositories', () => {
+  it('[SQLite3] should initialize repositories', () => {
     expect(ds).toBeTruthy();
     expect(TestEntityRepo).toBeTruthy();
     expect(OneRelationRepo).toBeTruthy();
@@ -58,8 +51,7 @@ describe('Postgres Integration', () => {
     expect(OwnerRelationRepo).toBeTruthy();
     expect(AttributeRelationRepo).toBeTruthy();
   });
-
-  it('[Postgres] should create tables,columns, and relations as expected', async () => {
+  it('[SQLite3] should create tables,columns, and relations as expected', async () => {
     const oneData = await OneRelationRepo.save({});
     const manyData = await ManyRelationRepo.save({});
     const ownerData = await OwnerRelationRepo.save({});
@@ -69,10 +61,10 @@ describe('Postgres Integration', () => {
     const testData: DeepPartial<TestEntity> = {
       string: 'string',
       array: ['some'],
-      number: 111_222_333.88,
-      bigint: 111_222_333_444_555n,
+      number: 111_222_333_444_555.88,
+      bigint: 100 as any,
       boolean: true,
-      integer: 111_222_333,
+      integer: 111_222_333_444_555,
       object: new TestObject(),
       date: dateValue,
     };
@@ -108,12 +100,10 @@ describe('Postgres Integration', () => {
     expect(found[0].deletedAt).toEqual(entityData.deletedAt);
 
     expect(found[0].string).toEqual(testData.string);
-    expect(parseFloat(found[0].number as unknown as string)).toEqual(
-      testData.number
-    );
+    expect(found[0].number).toEqual(testData.number);
     expect(found[0].integer).toEqual(testData.integer);
     expect(found[0].boolean).toEqual(testData.boolean);
-    expect(BigInt(found[0].bigint)).toEqual(testData.bigint);
+    expect(found[0].bigint).toEqual(testData.bigint);
     expect(found[0].date).toEqual(testData.date);
     expect(found[0].object).toEqual(testData.object);
     expect(found[0].one.id).toEqual(oneData.id);

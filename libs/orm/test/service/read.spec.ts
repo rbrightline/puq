@@ -1,17 +1,20 @@
 import 'reflect-metadata';
-
-import { DataSource, Repository } from 'typeorm';
-import { Entity } from '../decorator/entity.js';
-import { BaseEntity } from '../entity/base.js';
-import { Column } from '../decorator/column.js';
-import { Dto } from '@puq/property';
-import { CreateQueryManyDto } from '../query/create-query-many-dto.js';
-import { CreateQueryOneDto } from '../query/create-query-one-dto.js';
-import { EntityReadService } from './read.js';
-import { plainToInstance } from 'class-transformer';
-import { CreateQueryCountDto } from '../query/create-query-count-dto.js';
-import { QueryOperator, toWhereQueryString } from '@puq/query';
 import { keys, Keys } from '@puq/type';
+import { DataSource, Repository } from 'typeorm';
+import { Dto } from '@puq/property';
+import { plainToInstance } from 'class-transformer';
+
+import {
+  Entity,
+  BaseEntity,
+  Column,
+  CreateQueryManyDto,
+  CreateQueryOneDto,
+  EntityReadService,
+  CreateQueryCountDto,
+  TableNamingStrategy,
+} from '../../src/index.js';
+import { toWhereQueryString, QueryOperator } from '@puq/query';
 
 @Entity()
 class Sample extends BaseEntity {
@@ -52,6 +55,7 @@ describe('EntityReadService', () => {
       type: 'better-sqlite3',
       database: ':memory:',
       entities: [Sample],
+      namingStrategy: new TableNamingStrategy(),
       synchronize: true,
       dropSchema: true,
     }).initialize();

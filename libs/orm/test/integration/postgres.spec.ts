@@ -1,16 +1,17 @@
 import 'reflect-metadata';
 import { DataSource, DeepPartial, Equal, Repository } from 'typeorm';
-import { TableNamingStrategy } from '../factory/naming-strategy.js';
-import {
-  TestEntity,
-  OneRelation,
-  ManyRelation,
-  OwnerRelation,
-  AttributeRelation,
-  TestObject,
-} from './sqlite-entities.js';
 
-describe('better-sqlite3 Integration', () => {
+import {
+  AttributeRelation,
+  ManyRelation,
+  OneRelation,
+  OwnerRelation,
+  TestEntity,
+  TestObject,
+} from './postgres-entities.js';
+import { TableNamingStrategy } from '../../src/index.js';
+
+describe('Postgres Integration', () => {
   let ds: DataSource;
   let TestEntityRepo: Repository<TestEntity>;
   let OneRelationRepo: Repository<OneRelation>;
@@ -20,8 +21,10 @@ describe('better-sqlite3 Integration', () => {
 
   beforeAll(async () => {
     ds = await new DataSource({
-      type: 'better-sqlite3',
-      database: ':memory:',
+      type: 'postgres',
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [
         TestEntity,
         OneRelation,
@@ -32,8 +35,13 @@ describe('better-sqlite3 Integration', () => {
       synchronize: true,
       dropSchema: true,
       namingStrategy: new TableNamingStrategy(),
-      maxQueryExecutionTime: 1000,
-      logging: false,
+      poolSize: 50, // Maximum number of connections in the pool
+      extra: {
+        min: 10, // Minimum number of connections kept open
+        max: 50, // Maximum number of connections (matches poolSize)
+        idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
+        connectionTimeoutMillis: 2000, // Timeout for acquiring a connection
+      },
     }).initialize();
 
     TestEntityRepo = ds.getRepository(TestEntity);
@@ -42,7 +50,8 @@ describe('better-sqlite3 Integration', () => {
     OwnerRelationRepo = ds.getRepository(OwnerRelation);
     AttributeRelationRepo = ds.getRepository(AttributeRelation);
   });
-  it('[better-sqlite3] should initialize repositories', () => {
+
+  it('[Postgres] should initialize repositories', () => {
     expect(ds).toBeTruthy();
     expect(TestEntityRepo).toBeTruthy();
     expect(OneRelationRepo).toBeTruthy();
@@ -50,7 +59,8 @@ describe('better-sqlite3 Integration', () => {
     expect(OwnerRelationRepo).toBeTruthy();
     expect(AttributeRelationRepo).toBeTruthy();
   });
-  it('[better-sqlite3] should create tables,columns, and relations as expected', async () => {
+
+  it('[Postgres] should create tables,columns, and relations as expected', async () => {
     const oneData = await OneRelationRepo.save({});
     const manyData = await ManyRelationRepo.save({});
     const ownerData = await OwnerRelationRepo.save({});
@@ -60,10 +70,10 @@ describe('better-sqlite3 Integration', () => {
     const testData: DeepPartial<TestEntity> = {
       string: 'string',
       array: ['some'],
-      number: 111_222_333_444_555.88,
+      number: 111_222_333.88,
       bigint: 111_222_333_444_555n,
       boolean: true,
-      integer: 111_222_333_444_555,
+      integer: 111_222_333,
       object: new TestObject(),
       date: dateValue,
     };
@@ -94,14 +104,14 @@ describe('better-sqlite3 Integration', () => {
       where: { id: Equal(testData.id!) },
     });
 
-    console.log(found);
-
     expect(found[0].id).toEqual(entityData.id);
     expect(found[0].createdAt).toEqual(entityData.createdAt);
     expect(found[0].deletedAt).toEqual(entityData.deletedAt);
 
     expect(found[0].string).toEqual(testData.string);
-    expect(found[0].number).toEqual(testData.number);
+    expect(parseFloat(found[0].number as unknown as string)).toEqual(
+      testData.number
+    );
     expect(found[0].integer).toEqual(testData.integer);
     expect(found[0].boolean).toEqual(testData.boolean);
     expect(BigInt(found[0].bigint)).toEqual(testData.bigint);
