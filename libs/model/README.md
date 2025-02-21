@@ -6,7 +6,7 @@
 
 ## Summary
 
-model
+Database table models as typescript type
 
 ## Install
 

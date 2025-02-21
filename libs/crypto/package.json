@@ -1,13 +1,12 @@
 {
   "name": "@puq/crypto",
-  "displayName": "@puq/crypto",
   "license": "MIT",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "crypto",
+  "description": "Hashing and encryption",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -15,7 +14,11 @@
   },
   "keywords": [
     "puq",
-    "crypto"
+    "crypto",
+    "hash",
+    "encrypt",
+    "encode",
+    "decode"
   ],
   "repository": {
     "directory": "libs/crypto",

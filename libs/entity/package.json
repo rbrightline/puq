@@ -1,13 +1,12 @@
 {
   "name": "@puq/entity",
-  "displayName": "@puq/entity",
   "license": "MIT",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "entity",
+  "description": "Database tables and dtos",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

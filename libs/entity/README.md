@@ -6,7 +6,7 @@
 
 ## Summary
 
-entity
+Database tables
 
 ## Install
 
