@@ -4,6 +4,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
+  isISO8601,
 } from 'class-validator';
 
 /**
@@ -14,16 +15,20 @@ import {
 export class SameHourPropertyConstraint
   implements ValidatorConstraintInterface
 {
-  validate(value: any, args: ValidationArguments) {
-    const targetValue = (args.object as any)[args.constraints[0]];
+  validate(valueRaw: any, args: ValidationArguments) {
+    const targetRaw = (args.object as any)[args.constraints[0]];
+
+    if (!isISO8601(valueRaw) && !isISO8601(targetRaw)) return true;
+    if (!isISO8601(valueRaw) || !isISO8601(targetRaw)) return false;
+
+    const target = new Date(targetRaw);
+    const value = new Date(valueRaw);
 
     if (
-      value instanceof Date &&
-      targetValue instanceof Date &&
-      value.getFullYear() == targetValue.getFullYear() &&
-      value.getMonth() == targetValue.getMonth() &&
-      value.getDate() === targetValue.getDate() &&
-      value.getHours() === targetValue.getHours()
+      value.getFullYear() == target.getFullYear() &&
+      value.getMonth() == target.getMonth() &&
+      value.getDate() === target.getDate() &&
+      value.getHours() == target.getHours()
     ) {
       return true;
     }

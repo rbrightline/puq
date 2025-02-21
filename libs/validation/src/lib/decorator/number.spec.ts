@@ -43,6 +43,7 @@ describe('Number property validation', () => {
     ${{ value: 1 } as T}                                | ${{ type: 'number', enum: [1, 2, 3] } as O}          | ${[] as string[]}
     ${{ value: 4 } as T}                                | ${{ type: 'number', enum: Nums } as O}               | ${['isEnum'] as string[]}
     ${{ value: 4 } as T}                                | ${{ type: 'number', enum: [1, 2, 3] } as O}          | ${['isIn'] as string[]}
+    ${{ value: 4 } as T}                                | ${{ type: 'number', enum: [1, 2, 3] } as O}          | ${['isIn'] as string[]}
   `(
     'should validate $value with $options and throw $errors (number-property)',
     ({ value, options, errors }) => {

@@ -15,8 +15,8 @@ export class DependOnPropertyConstraint
   implements ValidatorConstraintInterface
 {
   validate(value: any, args: ValidationArguments) {
-    const targetValue = (args.object as any)[args.constraints[0]];
-    if (targetValue == undefined && value != undefined) {
+    const target = (args.object as any)[args.constraints[0]];
+    if (target == undefined && value != undefined) {
       return false;
     }
     return true;

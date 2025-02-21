@@ -4,6 +4,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
+  isISO8601,
 } from 'class-validator';
 
 /**
@@ -14,15 +15,19 @@ import {
 export class SameWeekPropertyConstraint
   implements ValidatorConstraintInterface
 {
-  validate(value: any, args: ValidationArguments) {
-    const targetValue = (args.object as any)[args.constraints[0]];
+  validate(valueRaw: any, args: ValidationArguments) {
+    const targetRaw = (args.object as any)[args.constraints[0]];
+
+    if (!isISO8601(valueRaw) && !isISO8601(targetRaw)) return true;
+    if (!isISO8601(valueRaw) || !isISO8601(targetRaw)) return false;
+
+    const target = new Date(targetRaw);
+    const value = new Date(valueRaw);
 
     if (
-      value instanceof Date &&
-      targetValue instanceof Date &&
-      value.getFullYear() == targetValue.getFullYear() &&
-      value.getMonth() == targetValue.getMonth() &&
-      Math.abs(value.getDate() - targetValue.getDate()) <= 6
+      value.getFullYear() == target.getFullYear() &&
+      value.getMonth() == target.getMonth() &&
+      Math.abs(value.getDate() - target.getDate()) <= 6
     ) {
       return true;
     }

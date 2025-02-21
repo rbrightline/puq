@@ -8,16 +8,17 @@ import {
 } from 'class-validator';
 
 /**
- * * Validate that the property is after the target property
+ * Vadliate the date is after the constraint date
  * @ignore
  */
-@ValidatorConstraint({ name: 'afterProperty', async: false })
-export class AfterPropertyConstraint implements ValidatorConstraintInterface {
+@ValidatorConstraint({ name: 'minISODate', async: false })
+export class MinISODateConstraint implements ValidatorConstraintInterface {
   validate(valueRaw: any, args: ValidationArguments) {
-    const targetRaw = (args.object as any)[args.constraints[0]];
+    const targetRaw = args.constraints[0] as string;
+    if (!isISO8601(targetRaw))
+      throw new Error(`MinISODate constraint must be ISO8601 date string`);
 
-    if (!isISO8601(valueRaw) && !isISO8601(targetRaw)) return true;
-    if (!isISO8601(valueRaw) || !isISO8601(targetRaw)) return false;
+    if (!isISO8601(valueRaw)) return true;
 
     const value = new Date(valueRaw);
     const target = new Date(targetRaw);
@@ -33,23 +34,23 @@ export class AfterPropertyConstraint implements ValidatorConstraintInterface {
 }
 
 /**
- * Validate that the property is after the target property
- * @param targetPropertyName target property name
+ * Vadliate the date is after the constraint date
+ * @param isoDate ISO8601 date string new Date().toISOString()
  * @param validationOptions {@link ValidationOptions}
  * @returns
  */
-export function AfterProperty(
-  targetPropertyName: string,
+export function MinISODate(
+  isoDate: string,
   validationOptions?: ValidationOptions
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({
-      name: 'AfterProperty',
+      name: 'MinISODate',
       target: t.constructor,
       propertyName: p.toString(),
       options: validationOptions,
-      constraints: [targetPropertyName],
-      validator: AfterPropertyConstraint,
+      constraints: [isoDate],
+      validator: MinISODateConstraint,
     });
   };
 }

@@ -4,6 +4,7 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
+  isISO8601,
 } from 'class-validator';
 
 /**
@@ -14,13 +15,20 @@ import {
 export class SameMonthPropertyConstraint
   implements ValidatorConstraintInterface
 {
-  validate(value: any, args: ValidationArguments) {
-    const targetValue = (args.object as any)[args.constraints[0]];
+  validate(valueRaw: any, args: ValidationArguments) {
+    const targetRaw = (args.object as any)[args.constraints[0]];
 
-    if (value instanceof Date && targetValue instanceof Date) {
-      if (value.getMonth() === targetValue.getMonth()) {
-        return true;
-      }
+    if (!isISO8601(valueRaw) && !isISO8601(targetRaw)) return true;
+    if (!isISO8601(valueRaw) || !isISO8601(targetRaw)) return false;
+
+    const target = new Date(targetRaw);
+    const value = new Date(valueRaw);
+
+    if (
+      value.getFullYear() == target.getFullYear() &&
+      value.getMonth() == target.getMonth()
+    ) {
+      return true;
     }
 
     return false;

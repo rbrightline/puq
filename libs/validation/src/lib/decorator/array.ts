@@ -11,7 +11,7 @@ import {
 import { Transform } from 'class-transformer';
 
 /**
- * Add Array specific validation decorators such as `IsArray`
+ * AAdd array validation capabilities to the {@link PropertyValidation}.
  * @param options
  * @param validationOptions
  * @returns

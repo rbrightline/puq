@@ -74,7 +74,8 @@ export function Column(options: PropertyOptions): PropertyDecorator {
         break;
       case 'date':
         __Column({
-          type: 'date',
+          type: 'varchar',
+          length: 30,
           unique,
           nullable,
           update,

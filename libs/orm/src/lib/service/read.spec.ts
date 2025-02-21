@@ -85,7 +85,17 @@ describe('read service', () => {
     const query = plainToInstance(QueryManySampDto, {});
     const result = await service.read(query);
     expect(result).toHaveLength(3);
+
+    expect(result[0].id).toBeDefined();
+    expect(result[0].createdAt).toBeDefined();
+    expect(result[0].updatedAt).toBeDefined();
+    expect(result[0].deletedAt).toBeFalsy();
+    expect(result[0].string).toBeDefined();
+    expect(result[0].boolean).toBeDefined();
+    expect(result[0].date).toBeDefined();
   });
+
+  it('should read by take', async () => {});
 
   it('should readOne by ', async () => {
     const query = plainToInstance(QueryOneSampleDto, {

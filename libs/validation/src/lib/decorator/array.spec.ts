@@ -165,32 +165,32 @@ describe('Array property validation', () => {
   //
   describe('Array Date', () => {
     it.each`
-      value                                       | options                                                                              | errors
-      ${{} as T}                                  | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
-      ${{ value: undefined } as T}                | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
-      ${{ value: null } as T}                     | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
-      ${{ value: [] } as T}                       | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
-      ${{ value: [new Date()] } as T}             | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
-      ${{ value: [new Date()] } as T}             | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${[] as string[]}
-      ${{ value: [] } as T}                       | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['arrayNotEmpty'] as string[]}
-      ${{ value: [null] } as T}                   | ${{ type: 'array', required: true, items: { type: 'number', required: true } } as O} | ${['isNotEmpty'] as string[]}
-      ${{ value: [undefined] } as T}              | ${{ type: 'array', required: true, items: { type: 'number', required: true } } as O} | ${['isNotEmpty'] as string[]}
-      ${{ value: [new Date()] } as T}             | ${{ type: 'array', minSize: 2, items: { type: 'date' } } as O}                       | ${['arrayMinSize'] as string[]}
-      ${{ value: [new Date(), new Date()] } as T} | ${{ type: 'array', minSize: 2, items: { type: 'date' } } as O}                       | ${[] as string[]}
-      ${{ value: ['some'] } as T}                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [1] } as T}                      | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [-1] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [NaN] } as T}                    | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [{}] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [[]] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: ['some'] } as T}                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [1] } as T}                      | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [-1] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [NaN] } as T}                    | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [{}] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: [[]] } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isDate'] as string[]}
-      ${{ value: undefined } as T}                | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isNotEmpty'] as string[]}
-      ${{ value: null } as T}                     | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isNotEmpty'] as string[]}
+      value                                                                   | options                                                                              | errors
+      ${{} as T}                                                              | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
+      ${{ value: undefined } as T}                                            | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
+      ${{ value: null } as T}                                                 | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
+      ${{ value: [] } as T}                                                   | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
+      ${{ value: [new Date().toISOString()] } as T}                           | ${{ type: 'array', items: { type: 'date' } } as O}                                   | ${[] as string[]}
+      ${{ value: [new Date().toISOString()] } as T}                           | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${[] as string[]}
+      ${{ value: [] } as T}                                                   | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['arrayNotEmpty'] as string[]}
+      ${{ value: [null] } as T}                                               | ${{ type: 'array', required: true, items: { type: 'number', required: true } } as O} | ${['isNotEmpty'] as string[]}
+      ${{ value: [undefined] } as T}                                          | ${{ type: 'array', required: true, items: { type: 'number', required: true } } as O} | ${['isNotEmpty'] as string[]}
+      ${{ value: [new Date().toISOString()] } as T}                           | ${{ type: 'array', minSize: 2, items: { type: 'date' } } as O}                       | ${['arrayMinSize'] as string[]}
+      ${{ value: [new Date().toISOString(), new Date().toISOString()] } as T} | ${{ type: 'array', minSize: 2, items: { type: 'date' } } as O}                       | ${[] as string[]}
+      ${{ value: ['some'] } as T}                                             | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [1] } as T}                                                  | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [-1] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [NaN] } as T}                                                | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [{}] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [[]] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: ['some'] } as T}                                             | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [1] } as T}                                                  | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [-1] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [NaN] } as T}                                                | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [{}] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: [[]] } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isIso8601'] as string[]}
+      ${{ value: undefined } as T}                                            | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isNotEmpty'] as string[]}
+      ${{ value: null } as T}                                                 | ${{ type: 'array', required: true, items: { type: 'date' } } as O}                   | ${['isNotEmpty'] as string[]}
     `(
       'should validate $value with $options and throw $errors | (Array<Date>)',
       ({ value, options, errors }) => {

@@ -6,6 +6,8 @@ export * from './lib/custom/equal-to-property.js';
 export * from './lib/custom/less-than-property.js';
 export * from './lib/custom/max-decimals.js';
 export * from './lib/custom/max-digits.js';
+export * from './lib/custom/max-iso-date.js';
+export * from './lib/custom/min-iso-date.js';
 export * from './lib/custom/more-than-property.js';
 export * from './lib/custom/not-with-property.js';
 export * from './lib/custom/same-day-property.js';

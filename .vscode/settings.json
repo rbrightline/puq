@@ -3,7 +3,6 @@
     "json"
   ],
   "editor.codeActionsOnSave": {
-    "source.removeUnused.ts": "always",
     "source.removeUnusedImports": "always",
     "source.addMissingImports.ts": "always",
   }

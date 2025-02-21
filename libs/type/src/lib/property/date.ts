@@ -64,4 +64,4 @@ export type __DateOptions = {
   sameHourAsProperty?: string;
 };
 
-export type DateOptions = Readonly<CommonOptions<Date> & __DateOptions>;
+export type DateOptions = Readonly<CommonOptions<string> & __DateOptions>;

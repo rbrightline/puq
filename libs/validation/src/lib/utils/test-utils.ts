@@ -23,12 +23,18 @@ export function ___extractConstraints(errors?: ValidationError[]): string[] {
   return result;
 }
 
+/**
+ * @ignore
+ */
 export type TestClass = {
   value: any;
-  date: Date;
+  date: string;
+  unsetdate: string;
 };
-
-export const testDateValue = new Date();
+/**
+ * @ignore
+ */
+export const testDateValue = new Date().toISOString();
 
 /**
  * Create, validate {@link SampleTestClass}, and return the found constraints.
@@ -47,9 +53,12 @@ export function __validateTestClass(
     value: any;
 
     @PropertyValidation({ type: 'date', default: testDateValue })
-    date: Date;
+    date: string;
+
+    @PropertyValidation({ type: 'date' })
+    unsetdate: string;
   }
-  const instance = plainToInstance(SampleTestClass, value);
+  const instance = plainToInstance(SampleTestClass, value, {});
 
   const foundErrors = validateSync(instance, {
     stopAtFirstError: true,
