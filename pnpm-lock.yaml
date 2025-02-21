@@ -118,15 +118,15 @@ importers:
       '@puq/property':
         specifier: workspace:^
         version: link:../property
+      '@puq/query':
+        specifier: workspace:^
+        version: link:../query
       '@puq/type':
         specifier: workspace:^
         version: link:../type
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
-      class-validator:
-        specifier: ^0.14.1
-        version: 0.14.1
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -172,13 +172,13 @@ importers:
         specifier: ^2.3.0
         version: 2.8.1
 
-  libs/rest:
-    devDependencies:
+  libs/query:
+    dependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
 
-  libs/sample:
+  libs/rest:
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11

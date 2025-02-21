@@ -5,7 +5,7 @@ import { Column } from './decorator/column.js';
 import { Entity } from './decorator/entity.js';
 import { BaseEntity } from './entity/base.js';
 import { Relation } from './decorator/relation.js';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, Equal, Repository } from 'typeorm';
 import { TableNamingStrategy } from './factory/naming-strategy.js';
 
 @Dto()
@@ -139,6 +139,10 @@ describe('Better SQLite Integration', () => {
     await OwnerRelationRepo.save({});
     await AttributeRelationRepo.save({});
 
-    console.log(await TestEntityRepo.find());
+    console.log(
+      await TestEntityRepo.find({
+        where: [{ number: Equal(3), integer: Equal(4) }, { number: Equal(5) }],
+      })
+    );
   });
 });
