@@ -1,0 +1,964 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>type</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">type</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-typealiases">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Type aliases</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#__ArrayOptions" title="src/lib/property/array.ts" ><b>__ArrayOptions</b>&nbsp;&nbsp;&nbsp;(src/.../array.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__BigIntegerOptions" title="src/lib/property/big-integer.ts" ><b>__BigIntegerOptions</b>&nbsp;&nbsp;&nbsp;(src/.../big-integer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__BooleanOptions" title="src/lib/property/boolean.ts" ><b>__BooleanOptions</b>&nbsp;&nbsp;&nbsp;(src/.../boolean.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__DateOptions" title="src/lib/property/date.ts" ><b>__DateOptions</b>&nbsp;&nbsp;&nbsp;(src/.../date.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__IntegerOptions" title="src/lib/property/integer.ts" ><b>__IntegerOptions</b>&nbsp;&nbsp;&nbsp;(src/.../integer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__NumberOptions" title="src/lib/property/number.ts" ><b>__NumberOptions</b>&nbsp;&nbsp;&nbsp;(src/.../number.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__ObjectOptions" title="src/lib/property/object.ts" ><b>__ObjectOptions</b>&nbsp;&nbsp;&nbsp;(src/.../object.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__PropertyOptions" title="src/lib/property/property.ts" ><b>__PropertyOptions</b>&nbsp;&nbsp;&nbsp;(src/.../property.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#__StringOptions" title="src/lib/property/string.ts" ><b>__StringOptions</b>&nbsp;&nbsp;&nbsp;(src/.../string.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ArrayOptions" title="src/lib/property/array.ts" ><b>ArrayOptions</b>&nbsp;&nbsp;&nbsp;(src/.../array.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BaseModel" title="src/lib/model/base.ts" ><b>BaseModel</b>&nbsp;&nbsp;&nbsp;(src/.../base.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BigIntegerOptions" title="src/lib/property/big-integer.ts" ><b>BigIntegerOptions</b>&nbsp;&nbsp;&nbsp;(src/.../big-integer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BooleanOptions" title="src/lib/property/boolean.ts" ><b>BooleanOptions</b>&nbsp;&nbsp;&nbsp;(src/.../boolean.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CommonNumberOptions" title="src/lib/property/common-number.ts" ><b>CommonNumberOptions</b>&nbsp;&nbsp;&nbsp;(src/.../common-number.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CommonOptions" title="src/lib/property/common.ts" ><b>CommonOptions</b>&nbsp;&nbsp;&nbsp;(src/.../common.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CountResult" title="src/lib/dto/count-result.ts" ><b>CountResult</b>&nbsp;&nbsp;&nbsp;(src/.../count-result.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DatabaseType" title="src/lib/property/database-type.ts" ><b>DatabaseType</b>&nbsp;&nbsp;&nbsp;(src/.../database-type.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DateOptions" title="src/lib/property/date.ts" ><b>DateOptions</b>&nbsp;&nbsp;&nbsp;(src/.../date.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteResult" title="src/lib/dto/delete-result.ts" ><b>DeleteResult</b>&nbsp;&nbsp;&nbsp;(src/.../delete-result.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IDModel" title="src/lib/model/id.ts" ><b>IDModel</b>&nbsp;&nbsp;&nbsp;(src/.../id.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IntegerFormat" title="src/lib/property/integer-format.ts" ><b>IntegerFormat</b>&nbsp;&nbsp;&nbsp;(src/.../integer-format.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IntegerOptions" title="src/lib/property/integer.ts" ><b>IntegerOptions</b>&nbsp;&nbsp;&nbsp;(src/.../integer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KeyOf" title="src/lib/utils/key-of.ts" ><b>KeyOf</b>&nbsp;&nbsp;&nbsp;(src/.../key-of.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Keys" title="src/lib/utils/keys.ts" ><b>Keys</b>&nbsp;&nbsp;&nbsp;(src/.../keys.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NumberFormat" title="src/lib/property/number-format.ts" ><b>NumberFormat</b>&nbsp;&nbsp;&nbsp;(src/.../number-format.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NumberOptions" title="src/lib/property/number.ts" ><b>NumberOptions</b>&nbsp;&nbsp;&nbsp;(src/.../number.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ObjectOptions" title="src/lib/property/object.ts" ><b>ObjectOptions</b>&nbsp;&nbsp;&nbsp;(src/.../object.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PickOptional" title="src/lib/utils/pick-optional.ts" ><b>PickOptional</b>&nbsp;&nbsp;&nbsp;(src/.../pick-optional.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PickRequired" title="src/lib/utils/pick-required.ts" ><b>PickRequired</b>&nbsp;&nbsp;&nbsp;(src/.../pick-required.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PropertyOptions" title="src/lib/property/property.ts" ><b>PropertyOptions</b>&nbsp;&nbsp;&nbsp;(src/.../property.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PropertyType" title="src/lib/property/property-type.ts" ><b>PropertyType</b>&nbsp;&nbsp;&nbsp;(src/.../property-type.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RelationParam" title="src/lib/dto/relation-param.ts" ><b>RelationParam</b>&nbsp;&nbsp;&nbsp;(src/.../relation-param.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StringFormat" title="src/lib/property/string-format.ts" ><b>StringFormat</b>&nbsp;&nbsp;&nbsp;(src/.../string-format.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StringOptions" title="src/lib/property/string.ts" ><b>StringOptions</b>&nbsp;&nbsp;&nbsp;(src/.../string.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TimestampModel" title="src/lib/model/timestamp.ts" ><b>TimestampModel</b>&nbsp;&nbsp;&nbsp;(src/.../timestamp.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UnsetRelationParam" title="src/lib/dto/relation-param.ts" ><b>UnsetRelationParam</b>&nbsp;&nbsp;&nbsp;(src/.../relation-param.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UpdateResult" title="src/lib/dto/update-result.ts" ><b>UpdateResult</b>&nbsp;&nbsp;&nbsp;(src/.../update-result.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/lib/property/array.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__ArrayOptions"></a>
+                    <span class="name "><b>__ArrayOptions</b><a href="#__ArrayOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ArrayOptions"></a>
+                    <span class="name "><b>ArrayOptions</b><a href="#ArrayOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/big-integer.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__BigIntegerOptions"></a>
+                    <span class="name "><b>__BigIntegerOptions</b><a href="#__BigIntegerOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BigIntegerOptions"></a>
+                    <span class="name "><b>BigIntegerOptions</b><a href="#BigIntegerOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/boolean.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__BooleanOptions"></a>
+                    <span class="name "><b>__BooleanOptions</b><a href="#__BooleanOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BooleanOptions"></a>
+                    <span class="name "><b>BooleanOptions</b><a href="#BooleanOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/date.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__DateOptions"></a>
+                    <span class="name "><b>__DateOptions</b><a href="#__DateOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DateOptions"></a>
+                    <span class="name "><b>DateOptions</b><a href="#DateOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/integer.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__IntegerOptions"></a>
+                    <span class="name "><b>__IntegerOptions</b><a href="#__IntegerOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IntegerOptions"></a>
+                    <span class="name "><b>IntegerOptions</b><a href="#IntegerOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/number.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__NumberOptions"></a>
+                    <span class="name "><b>__NumberOptions</b><a href="#__NumberOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NumberOptions"></a>
+                    <span class="name "><b>NumberOptions</b><a href="#NumberOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/object.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__ObjectOptions"></a>
+                    <span class="name "><b>__ObjectOptions</b><a href="#__ObjectOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ObjectOptions"></a>
+                    <span class="name "><b>ObjectOptions</b><a href="#ObjectOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/property.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__PropertyOptions"></a>
+                    <span class="name "><b>__PropertyOptions</b><a href="#__PropertyOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>StringOptions | NumberOptions | IntegerOptions | BigIntegerOptions | BooleanOptions | ObjectOptions | DateOptions | ArrayOptions&lt;T&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PropertyOptions"></a>
+                    <span class="name "><b>PropertyOptions</b><a href="#PropertyOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;___PropertyOptions&lt;___PropertyOptions&lt;___PropertyOptions&gt;&gt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/string.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="__StringOptions"></a>
+                    <span class="name "><b>__StringOptions</b><a href="#__StringOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StringOptions"></a>
+                    <span class="name "><b>StringOptions</b><a href="#StringOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Readonly&lt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/model/base.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BaseModel"></a>
+                    <span class="name "><b>BaseModel</b><a href="#BaseModel"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/common-number.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CommonNumberOptions"></a>
+                    <span class="name "><b>CommonNumberOptions</b><a href="#CommonNumberOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/common.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CommonOptions"></a>
+                    <span class="name "><b>CommonOptions</b><a href="#CommonOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Common property options</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/dto/count-result.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CountResult"></a>
+                    <span class="name "><b>CountResult</b><a href="#CountResult"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/database-type.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DatabaseType"></a>
+                    <span class="name "><b>DatabaseType</b><a href="#DatabaseType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Represents the database driver types supported by TypeORM.
+Used in the <code>type</code> field of a TypeORM connection configuration.</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;postgres&quot; | &quot;mysql&quot; | &quot;mariadb&quot; | &quot;sqlite&quot; | &quot;better-sqlite3&quot; | &quot;oracle&quot; | &quot;mssql&quot; | &quot;cockroachdb&quot; | &quot;mongodb&quot; | &quot;sqljs&quot; | &quot;cordova&quot; | &quot;react-native&quot; | &quot;expo&quot; | &quot;aurora-data-api&quot; | &quot;aurora-data-api-pg&quot; | &quot;sap&quot; | &quot;spanner&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/dto/delete-result.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteResult"></a>
+                    <span class="name "><b>DeleteResult</b><a href="#DeleteResult"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/model/id.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IDModel"></a>
+                    <span class="name "><b>IDModel</b><a href="#IDModel"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/integer-format.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IntegerFormat"></a>
+                    <span class="name "><b>IntegerFormat</b><a href="#IntegerFormat"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;positive&quot; | &quot;percent&quot; | &quot;rate&quot; | &quot;digit&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/utils/key-of.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KeyOf"></a>
+                    <span class="name "><b>KeyOf</b><a href="#KeyOf"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/utils/keys.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Keys"></a>
+                    <span class="name "><b>Keys</b><a href="#Keys"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#KeyOf" target="_self" >KeyOf&lt;T&gt;[]</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/number-format.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NumberFormat"></a>
+                    <span class="name "><b>NumberFormat</b><a href="#NumberFormat"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;positive&quot; | &quot;percent&quot; | &quot;rate&quot; | &quot;digit&quot; | &quot;fraction&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/utils/pick-optional.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PickOptional"></a>
+                    <span class="name "><b>PickOptional</b><a href="#PickOptional"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/utils/pick-required.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PickRequired"></a>
+                    <span class="name "><b>PickRequired</b><a href="#PickRequired"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/property-type.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PropertyType"></a>
+                    <span class="name "><b>PropertyType</b><a href="#PropertyType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;string&quot; | &quot;number&quot; | &quot;integer&quot; | &quot;bigint&quot; | &quot;date&quot; | &quot;boolean&quot; | &quot;array&quot; | &quot;object&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/dto/relation-param.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RelationParam"></a>
+                    <span class="name "><b>RelationParam</b><a href="#RelationParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UnsetRelationParam"></a>
+                    <span class="name "><b>UnsetRelationParam</b><a href="#UnsetRelationParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property/string-format.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StringFormat"></a>
+                    <span class="name "><b>StringFormat</b><a href="#StringFormat"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;email&quot; | &quot;phone&quot; | &quot;password&quot; | &quot;uuid&quot; | &quot;ip4&quot; | &quot;ip6&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/model/timestamp.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TimestampModel"></a>
+                    <span class="name "><b>TimestampModel</b><a href="#TimestampModel"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/dto/update-result.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateResult"></a>
+                    <span class="name "><b>UpdateResult</b><a href="#UpdateResult"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
+            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

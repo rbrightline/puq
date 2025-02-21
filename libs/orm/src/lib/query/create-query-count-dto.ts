@@ -10,8 +10,8 @@ export type CreateQueryCountDtoOptions<T> = {
 };
 
 /**
- * Create a count query dto for the Entity
- * @param options
+ * Create a count query dto for the entity
+ * @param options {@link CreateQueryCountDtoOptions}
  * @returns
  */
 export function CreateQueryCountDto<Entity>(

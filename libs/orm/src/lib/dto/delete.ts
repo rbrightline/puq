@@ -1,7 +1,9 @@
 import { ApiProperty } from '@puq/property';
 import { DeleteResult } from '@puq/type';
 import { Exclude } from 'class-transformer';
-
+/**
+ * Delete result
+ */
 @Exclude()
 export class DeleteResultDto implements DeleteResult {
   @ApiProperty({

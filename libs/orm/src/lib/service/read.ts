@@ -1,27 +1,36 @@
-import { FindOptionsWhere, Repository } from 'typeorm';
+import { FindOptionsWhere } from 'typeorm';
 import { BaseEntity } from '../entity/base.js';
 import { QueryCount, QueryMany, QueryOne } from '@puq/query';
+import { CountResult } from '@puq/type';
+import { BaseEntityService } from './base.js';
 
-export class EntityReadService<T extends BaseEntity> {
-  constructor(protected readonly repo: Repository<T>) {}
-
+/**
+ * Read service
+ */
+export class EntityReadService<
+  T extends BaseEntity
+> extends BaseEntityService<T> {
   /**
-   * Read all entities by query
+   * Query all entities
    */
-  read(query: QueryMany<T, FindOptionsWhere<T>[]>) {
+  find(query: QueryMany<T, FindOptionsWhere<T>[]>) {
     return this.repo.find(query);
   }
 
-  readOne(query: QueryOne<T, FindOptionsWhere<T>[]>) {
+  /**
+   * Query one entity
+   * @param query {@linkk QueryOne}
+   * @returns
+   */
+  findOne(query: QueryOne<T, FindOptionsWhere<T>[]>) {
     return this.repo.findOne(query);
   }
 
-  readOneById(id: number) {
+  findOneById(id: number) {
     return this.repo.findOneBy({ id } as FindOptionsWhere<T>);
   }
 
-  async count(query: QueryCount<FindOptionsWhere<T>[]>) {
-    const count = await this.repo.count(query);
-    return count;
+  async count(query: QueryCount<FindOptionsWhere<T>[]>): Promise<CountResult> {
+    return { count: await this.repo.count(query) };
   }
 }

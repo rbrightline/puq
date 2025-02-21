@@ -18,11 +18,11 @@ import { toWhereQueryString, QueryOperator } from '@puq/query';
 
 @Entity()
 class Sample extends BaseEntity {
-  @Column({ type: 'string' }) string: string;
-  @Column({ type: 'number' }) number: number;
-  @Column({ type: 'integer' }) integer: number;
-  @Column({ type: 'boolean' }) boolean: boolean;
-  @Column({ type: 'date' }) date: Date;
+  @Column({ type: 'string', databaseType: 'sqlite' }) string: string;
+  @Column({ type: 'number', databaseType: 'sqlite' }) number: number;
+  @Column({ type: 'integer', databaseType: 'sqlite' }) integer: number;
+  @Column({ type: 'boolean', databaseType: 'sqlite' }) boolean: boolean;
+  @Column({ type: 'date', databaseType: 'sqlite' }) date: Date;
 }
 
 const SAMPLE_COLUMNS: Keys<Sample> = keys(new Sample());
@@ -87,7 +87,7 @@ describe('EntityReadService', () => {
 
   it('should read', async () => {
     const query = plainToInstance(QueryManySampDto, {});
-    const result = await service.read(query);
+    const result = await service.find(query);
     expect(result.length).toBeGreaterThan(1);
 
     expect(result[0].id).toBeDefined();
@@ -107,7 +107,7 @@ describe('EntityReadService', () => {
       ]),
     });
 
-    const found = await service.readOne(query);
+    const found = await service.findOne(query);
     expect(found?.id).toEqual(2);
   });
 
@@ -118,6 +118,6 @@ describe('EntityReadService', () => {
       ]),
     });
     const result = await service.count(query);
-    expect(result).toBeGreaterThan(0);
+    expect(result.count).toBeGreaterThan(0);
   });
 });

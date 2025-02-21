@@ -25,7 +25,7 @@ export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
 
 /**
  * Create {@link QueryMany} dto
- * @param options
+ * @param options {@link QueryManyDtoOptions}
  * @returns
  */
 export function CreateQueryManyDto<T>(

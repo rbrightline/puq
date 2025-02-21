@@ -3,7 +3,7 @@ import { PropertyValidation } from '@puq/validation';
 import { ApiProperty } from './api-property.js';
 
 /**
- * Property decorator for DTOs
+ * Dto property decorator
  */
 export function Property(options: PropertyOptions): PropertyDecorator {
   return (t, p) => {

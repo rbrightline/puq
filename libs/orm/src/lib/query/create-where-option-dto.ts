@@ -2,6 +2,11 @@ import { Dto, Property } from '@puq/property';
 import { QueryOperator, WhereOption } from '@puq/query';
 import { KeyOf, Keys, Type } from '@puq/type';
 
+/**
+ * Create {@link WhereOption} dto for the entity
+ * @param columns queriable columns
+ * @returns
+ */
 export function CreateWhereOptionDto<T, V>(
   columns: Keys
 ): Type<WhereOption<T, V>> {

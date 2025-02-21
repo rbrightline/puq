@@ -16,4 +16,6 @@ export * from './lib/query/create-query-one-dto.js';
 export * from './lib/query/create-where-option-dto.js';
 export * from './lib/query/select-transformer.js';
 export * from './lib/query/where-query-transformer.js';
+export * from './lib/service/base.js';
 export * from './lib/service/read.js';
+export * from './lib/service/write.js';

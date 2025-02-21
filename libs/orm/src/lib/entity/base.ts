@@ -7,6 +7,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+/**
+ * All entities extends this entity. The entity provides id, createdAt, updatedAt, and deletedAt columns
+ */
 export class BaseEntity implements BaseModel {
   @Property({ type: 'integer' })
   @PrimaryGeneratedColumn()

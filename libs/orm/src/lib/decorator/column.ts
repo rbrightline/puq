@@ -2,6 +2,11 @@ import { Property } from '@puq/property';
 import { PropertyOptions } from '@puq/type';
 import { Column as __Column, ColumnType, ValueTransformer } from 'typeorm';
 
+/**
+ * Pick column data type based on provided data type and database driver
+ * @param options
+ * @returns
+ */
 export function pickDataType(options: PropertyOptions): ColumnType {
   const { type, databaseType } = options;
 
@@ -51,6 +56,11 @@ export function pickDataType(options: PropertyOptions): ColumnType {
   }
 }
 
+/**
+ * Pick transformer based on the given data type and database driver
+ * @param options
+ * @returns
+ */
 export function pickTransformer(
   options: PropertyOptions
 ): ValueTransformer | undefined {
@@ -72,6 +82,11 @@ export function pickTransformer(
   return undefined;
 }
 
+/**
+ * Typeorm Column decorator with validation and documentaion capability
+ * @param options
+ * @returns
+ */
 export function Column(options: PropertyOptions): PropertyDecorator {
   return (t, p) => {
     const {

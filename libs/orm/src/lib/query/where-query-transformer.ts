@@ -11,8 +11,8 @@ export type WhereQueryTransformerOptions = {
 };
 
 /**
- * Parse /?where=<property>:<operator>:<query>&...
- * @param options
+ * Parse where-query string into typeorm where object.
+ * @param options queriable columns
  * @returns
  */
 export function WhereQueryTransformer(columns: Keys): PropertyDecorator {

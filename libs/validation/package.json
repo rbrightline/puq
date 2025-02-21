@@ -1,7 +1,7 @@
 {
   "name": "@puq/validation",
   "license": "MIT",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -86,6 +86,6 @@
     "reflect-metadata": "^0.2.2"
   },
   "dependencies": {
-    "@puq/type": "workspace:^"
+    "@puq/type": "^0.0.20"
   }
 }

@@ -10,8 +10,18 @@ import {
 } from 'typeorm';
 import { RelationType } from 'typeorm/metadata/types/RelationTypes.js';
 
+/**
+ * Relation decorator options
+ */
 export type RelationOptions = __RelationOptions & { join?: boolean };
 
+/**
+ *
+ * @param type Relation type
+ * @param target Function that returns the relation entity class
+ * @param options {@link RelationOptions} typeorm relation options
+ * @returns
+ */
 export function Relation(
   type: RelationType,
   target: () => Type,

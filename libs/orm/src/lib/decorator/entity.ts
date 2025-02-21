@@ -2,7 +2,7 @@ import { Dto } from '@puq/property';
 import { Entity as __Entity, Unique } from 'typeorm';
 
 /**
- * Typeorm entity decorator
+ * Typeorm entity decorator with transformer capability
  * @param uniques Composite unique constraint must be set on entity classes and must specify entity's fields to be unique
  * @returns
  */

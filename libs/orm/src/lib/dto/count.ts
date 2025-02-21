@@ -2,6 +2,9 @@ import { ApiProperty } from '@puq/property';
 import { CountResult } from '@puq/type';
 import { Exclude } from 'class-transformer';
 
+/**
+ * Count result
+ */
 @Exclude()
 export class CountResultDto implements CountResult {
   @ApiProperty({
