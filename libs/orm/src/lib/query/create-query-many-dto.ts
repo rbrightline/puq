@@ -5,15 +5,29 @@ import { WhereQueryTransformer } from './where-query-transformer.js';
 import { SelectTransformer } from './select-transformer.js';
 import { OrderDirection, OrderNulls, QueryMany } from '@puq/query';
 import { QueryOneDtoOptions } from './create-query-one-dto.js';
-import { QueryTransformer } from './query-transformer.js';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
+  /**
+   * Limit the number of columns to be selected. If set 1 for example, the user must select only 1 column such as id.
+   */
   maximumSelectableColumns?: number;
+  /**
+   * Limit the maximum page length
+   */
   maximumTake?: number;
+
+  /**
+   * Default page length
+   */
   defaultTake?: number;
 };
 
+/**
+ * Create {@link QueryMany} dto
+ * @param options
+ * @returns
+ */
 export function CreateQueryManyDto<T>(
   options: QueryManyDtoOptions<T>
 ): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
@@ -58,7 +72,7 @@ export function CreateQueryManyDto<T>(
       items: {
         type: 'string',
         required: true,
-        enum: columns as string[],
+        enum: columns,
       },
     })
     select?: Keys<T>;
@@ -66,7 +80,7 @@ export function CreateQueryManyDto<T>(
     @Property({
       type: 'string',
       required: true,
-      enum: columns as string[],
+      enum: columns,
       default: 'id',
     })
     orderBy?: KeyOf<T>;
@@ -87,13 +101,9 @@ export function CreateQueryManyDto<T>(
     })
     orderNulls?: OrderNulls;
 
-    @WhereQueryTransformer()
+    @WhereQueryTransformer(columns)
     @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
     where?: FindOptionsWhere<T>[];
-
-    @QueryTransformer(columns as string[])
-    @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
-    query?: FindOptionsWhere<T>[];
   }
 
   return QueryManyDto;

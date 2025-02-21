@@ -5,7 +5,6 @@ export class QueryMany<Entity, Where> {
   take?: number;
   select?: (keyof Entity)[];
   where?: Where;
-  query?: Where;
   orderBy?: keyof Entity;
   orderDir?: OrderDirection;
   orderNulls?: OrderNulls;

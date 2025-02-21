@@ -1,4 +1,8 @@
 // @index('./**/*.ts', f => `export * from '${f.path}.js'`)
+export * from './lib/dto/count-result.js';
+export * from './lib/dto/delete-result.js';
+export * from './lib/dto/relation-param.js';
+export * from './lib/dto/update-result.js';
 export * from './lib/model/base.js';
 export * from './lib/model/id.js';
 export * from './lib/model/timestamp.js';

@@ -6,7 +6,7 @@ export type __ArrayOptions<P> = {
   /**
    * Items options
    */
-  items: P;
+  items: Readonly<P>;
 
   /**
    * Maximumm allowed size of the array

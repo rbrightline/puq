@@ -20,7 +20,8 @@ export class EntityReadService<T extends BaseEntity> {
     return this.repo.findOneBy({ id } as FindOptionsWhere<T>);
   }
 
-  count(query: QueryCount<FindOptionsWhere<T>[]>) {
-    return this.repo.count(query);
+  async count(query: QueryCount<FindOptionsWhere<T>[]>) {
+    const count = await this.repo.count(query);
+    return count;
   }
 }

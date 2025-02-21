@@ -12,9 +12,11 @@ export enum QueryOperator {
   AFTER_DATE = 'ad',
   BEFORE_DATE_OR_EQUAL = 'bde',
   AFTER_DATE_OR_EQUAL = 'ade',
-  NOT_EQUAL = 'neql',
+  NOT_EQUAL = 'neq',
   NOT_CONTAIN = 'ncn',
   NOT_START_WITH = 'nsw',
   NOT_END_WITH = 'new',
   NOT_IS_IN = 'nii',
 }
+
+export const QueryOperators = Object.values(QueryOperator);

@@ -1,4 +1,8 @@
 import { Dto, Property } from '@puq/property';
+
+/**
+ * Common query dto
+ */
 @Dto()
 export class CommonQueryDto {
   @Property({

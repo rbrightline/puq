@@ -10,6 +10,11 @@ import {
   Not,
 } from 'typeorm';
 
+/**
+ * Create {@link FindOperator} from {@link WhereOption}
+ * @param query {@link WhereOption}
+ * @returns
+ */
 export function createFindOperator(
   query: WhereOption
 ): Record<string, FindOperator<unknown>> {

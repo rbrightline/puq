@@ -3,7 +3,6 @@ import { Keys, Type } from '@puq/type';
 import { FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { QueryOne } from '@puq/query';
-import { QueryTransformer } from './query-transformer.js';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryOneDtoOptions<T> = {
@@ -12,6 +11,11 @@ export type QueryOneDtoOptions<T> = {
   isSelectRequired?: boolean;
 };
 
+/**
+ * Create {@link QueryOne} dto
+ * @param options {@link QueryOneDtoOptions}
+ * @returns
+ */
 export function CreateQueryOneDto<T>(
   options: QueryOneDtoOptions<T>
 ): Type<QueryOne<T, FindOptionsWhere<T>[]>> {
@@ -29,18 +33,14 @@ export function CreateQueryOneDto<T>(
       items: {
         type: 'string',
         required: true,
-        enum: columns as string[],
+        enum: columns,
       },
     })
     select?: Keys<T>;
 
-    @WhereQueryTransformer()
+    @WhereQueryTransformer(columns)
     @ApiProperty({ type: 'array', items: { type: 'string' } })
     where?: FindOptionsWhere<T>[];
-
-    @QueryTransformer(columns as string[])
-    @ApiProperty({ type: 'array', items: { type: 'string' } })
-    query?: FindOptionsWhere<T>[];
   }
 
   return QueryOneDto;

@@ -12,12 +12,12 @@ export type CommonNumberOptions = {
   /**
    * Allowed numbers
    */
-  enum?: number[] | Record<string, unknown>;
+  enum?: Readonly<number[] | Record<string, unknown>>;
 
   /**
    * Not allowed numbers
    */
-  notIn?: number[];
+  notIn?: Readonly<number[]>;
 
   /**
    * Check the value is more than the property's value

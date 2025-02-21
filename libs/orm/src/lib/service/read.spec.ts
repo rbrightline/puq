@@ -11,6 +11,7 @@ import { EntityReadService } from './read.js';
 import { plainToInstance } from 'class-transformer';
 import { CreateQueryCountDto } from '../query/create-query-count-dto.js';
 import { QueryOperator, toWhereQueryString } from '@puq/query';
+import { keys, Keys } from '@puq/type';
 
 @Entity()
 class Sample extends BaseEntity {
@@ -21,57 +22,30 @@ class Sample extends BaseEntity {
   @Column({ type: 'date' }) date: Date;
 }
 
+const SAMPLE_COLUMNS: Keys<Sample> = keys(new Sample());
+
 @Dto()
 class QueryManySampDto extends CreateQueryManyDto<Sample>({
-  columns: [
-    'id',
-    'createdAt',
-    'updatedAt',
-    'string',
-    'number',
-    'integer',
-    'boolean',
-    'date',
-  ],
+  columns: SAMPLE_COLUMNS,
   defaultTake: 20,
   isSelectRequired: false,
 }) {}
 
 @Dto()
 class QueryOneSampleDto extends CreateQueryOneDto<Sample>({
-  columns: [
-    'id',
-    'createdAt',
-    'updatedAt',
-    'string',
-    'number',
-    'integer',
-    'boolean',
-    'date',
-  ],
+  columns: SAMPLE_COLUMNS,
   isSelectRequired: false,
 }) {}
 
 @Dto()
 class QueryCountSampleDto extends CreateQueryCountDto<Sample>({
-  columns: [
-    'id',
-    'createdAt',
-    'updatedAt',
-    'string',
-    'number',
-    'integer',
-    'boolean',
-    'date',
-  ],
+  columns: SAMPLE_COLUMNS,
 }) {}
 
 describe('read service', () => {
   let ds: DataSource;
   let repo: Repository<Sample>;
   let service: EntityReadService<Sample>;
-  const date = new Date();
-  let saved: Sample;
 
   beforeAll(async () => {
     ds = await new DataSource({
@@ -84,13 +58,6 @@ describe('read service', () => {
 
     repo = ds.getRepository(Sample);
     service = new EntityReadService(repo);
-    saved = await repo.save({
-      string: 'string 1',
-      number: 100,
-      integer: 100,
-      boolean: false,
-      date,
-    });
 
     await repo.save({
       string: 'string 2',
@@ -120,7 +87,7 @@ describe('read service', () => {
     expect(result).toHaveLength(3);
   });
 
-  it('should read one', async () => {
+  it('should readOne by ', async () => {
     const query = plainToInstance(QueryOneSampleDto, {
       select: ['id'],
       where: toWhereQueryString([

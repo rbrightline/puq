@@ -47,7 +47,7 @@ export type CommonOptions<T> = {
   /**
    * Example values
    */
-  examples?: T[];
+  examples?: Readonly<T[]>;
 
   /**
    * If ture, the string values are accepted and transformed

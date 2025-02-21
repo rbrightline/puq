@@ -13,3 +13,5 @@ export class BaseEntity implements BaseModel {
   @Property({ type: 'date' }) @UpdateDateColumn() updatedAt: Date;
   @Property({ type: 'date' }) @DeleteDateColumn() deletedAt: Date;
 }
+
+export const BASE_ENTITY_COLUMNS = Object.keys(new BaseEntity());

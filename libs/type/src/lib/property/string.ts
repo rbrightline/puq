@@ -21,12 +21,12 @@ export type __StringOptions = {
   /**
    * Allowed strings
    */
-  enum?: string[] | Record<string, unknown>;
+  enum?: Readonly<unknown[] | Record<string, unknown>>;
 
   /**
    * Not allowed strings
    */
-  notIn?: string[];
+  notIn?: Readonly<string[]>;
 
   /**
    * string starts with

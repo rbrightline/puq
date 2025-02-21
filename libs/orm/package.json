@@ -84,15 +84,17 @@
     "pg": "^8.13.3"
   },
   "peerDependencies": {
-    "reflect-metadata": "^0.2.2",
     "@nestjs/swagger": "^11.0.3",
+    "@swc/helpers": "^0.5.15",
     "class-transformer": "^0.5.1",
-    "typeorm": "^0.3.20",
-    "@swc/helpers": "^0.5.15"
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
   },
   "dependencies": {
+    "@nestjs/common": "^11.0.10",
     "@puq/property": "workspace:^",
     "@puq/query": "workspace:^",
-    "@puq/type": "workspace:^"
+    "@puq/type": "workspace:^",
+    "class-validator": "^0.14.1"
   }
 }
