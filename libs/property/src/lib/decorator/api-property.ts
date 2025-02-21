@@ -1,6 +1,7 @@
 import { PropertyOptions } from '@puq/type';
 import { ApiProperty as __ApiProperty } from '@nestjs/swagger';
 import { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface.js';
+import { Exclude, Expose } from 'class-transformer';
 
 /**
  * Swagger {@link ApiProperty} decorator wrapper
@@ -13,6 +14,11 @@ export function ApiProperty(options: PropertyOptions): PropertyDecorator {
     const required = options.required == true;
     const nullable = options.required != true;
 
+    if (options.expose == false) {
+      Exclude()(t, p);
+    } else {
+      Expose()(t, p);
+    }
     switch (type) {
       case 'string':
       case 'number':

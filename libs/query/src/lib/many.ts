@@ -1,11 +1,11 @@
 import { OrderDirection, OrderNulls } from './order.js';
 
-export class QueryMany<Entity, Where, Query> {
+export class QueryMany<Entity, Where> {
   skip?: number;
   take?: number;
   select?: (keyof Entity)[];
   where?: Where;
-  query?: Query;
+  query?: Where;
   orderBy?: keyof Entity;
   orderDir?: OrderDirection;
   orderNulls?: OrderNulls;

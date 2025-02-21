@@ -84,9 +84,11 @@
     "pg": "^8.13.3"
   },
   "peerDependencies": {
-    "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.20"
+    "@nestjs/swagger": "^11.0.3",
+    "class-transformer": "^0.5.1",
+    "typeorm": "^0.3.20",
+    "@swc/helpers": "^0.5.15"
   },
   "dependencies": {
     "@puq/property": "workspace:^",

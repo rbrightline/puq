@@ -1,6 +1,6 @@
-export class QueryOne<Entity, Where, Query> {
+export class QueryOne<Entity, Where> {
   select?: (keyof Entity)[];
-  query?: Query;
+  query?: Where;
   where?: Where;
   withDeleted?: boolean;
 }

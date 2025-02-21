@@ -6,6 +6,7 @@ export * from './lib/entity/base.js';
 export * from './lib/factory/naming-strategy.js';
 export * from './lib/query/common-query-dto.js';
 export * from './lib/query/create-find-operator.js';
+export * from './lib/query/create-query-count-dto.js';
 export * from './lib/query/create-query-many-dto.js';
 export * from './lib/query/create-query-one-dto.js';
 export * from './lib/query/query-transformer.js';

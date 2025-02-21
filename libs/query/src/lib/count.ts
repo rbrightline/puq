@@ -1,5 +1,5 @@
-export type QueryCount<Where, Query> = {
+export type QueryCount<Where> = {
   withDeleted?: boolean;
-  query?: Query;
+  query?: Where;
   where?: Where;
 };

@@ -1,5 +1,5 @@
-import { Property } from '@puq/property';
-
+import { Dto, Property } from '@puq/property';
+@Dto()
 export class CommonQueryDto {
   @Property({
     type: 'boolean',

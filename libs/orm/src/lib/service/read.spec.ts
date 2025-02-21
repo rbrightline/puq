@@ -1,0 +1,144 @@
+import 'reflect-metadata';
+
+import { DataSource, Repository } from 'typeorm';
+import { Entity } from '../decorator/entity.js';
+import { BaseEntity } from '../entity/base.js';
+import { Column } from '../decorator/column.js';
+import { Dto } from '@puq/property';
+import { CreateQueryManyDto } from '../query/create-query-many-dto.js';
+import { CreateQueryOneDto } from '../query/create-query-one-dto.js';
+import { EntityReadService } from './read.js';
+import { plainToInstance } from 'class-transformer';
+import { CreateQueryCountDto } from '../query/create-query-count-dto.js';
+import { QueryOperator, toWhereQueryString } from '@puq/query';
+
+@Entity()
+class Sample extends BaseEntity {
+  @Column({ type: 'string' }) string: string;
+  @Column({ type: 'number' }) number: number;
+  @Column({ type: 'integer' }) integer: number;
+  @Column({ type: 'boolean' }) boolean: boolean;
+  @Column({ type: 'date' }) date: Date;
+}
+
+@Dto()
+class QueryManySampDto extends CreateQueryManyDto<Sample>({
+  columns: [
+    'id',
+    'createdAt',
+    'updatedAt',
+    'string',
+    'number',
+    'integer',
+    'boolean',
+    'date',
+  ],
+  defaultTake: 20,
+  isSelectRequired: false,
+}) {}
+
+@Dto()
+class QueryOneSampleDto extends CreateQueryOneDto<Sample>({
+  columns: [
+    'id',
+    'createdAt',
+    'updatedAt',
+    'string',
+    'number',
+    'integer',
+    'boolean',
+    'date',
+  ],
+  isSelectRequired: false,
+}) {}
+
+@Dto()
+class QueryCountSampleDto extends CreateQueryCountDto<Sample>({
+  columns: [
+    'id',
+    'createdAt',
+    'updatedAt',
+    'string',
+    'number',
+    'integer',
+    'boolean',
+    'date',
+  ],
+}) {}
+
+describe('read service', () => {
+  let ds: DataSource;
+  let repo: Repository<Sample>;
+  let service: EntityReadService<Sample>;
+  const date = new Date();
+  let saved: Sample;
+
+  beforeAll(async () => {
+    ds = await new DataSource({
+      type: 'better-sqlite3',
+      database: 'tmp/database/read-service.sqlite',
+      entities: [Sample],
+      synchronize: true,
+      dropSchema: true,
+    }).initialize();
+
+    repo = ds.getRepository(Sample);
+    service = new EntityReadService(repo);
+    saved = await repo.save({
+      string: 'string 1',
+      number: 100,
+      integer: 100,
+      boolean: false,
+      date,
+    });
+
+    await repo.save({
+      string: 'string 2',
+      number: 200,
+      integer: 200,
+      boolean: true,
+      date: new Date(),
+    });
+
+    await repo.save({
+      string: 'string 3',
+      number: 300,
+      integer: 300,
+      boolean: true,
+      date: new Date(),
+    });
+  });
+
+  it('should initialize', () => {
+    expect(ds).toBeDefined();
+    expect(service).toBeDefined();
+  });
+
+  it('should read', async () => {
+    const query = plainToInstance(QueryManySampDto, {});
+    const result = await service.read(query);
+    expect(result).toHaveLength(3);
+  });
+
+  it('should read one', async () => {
+    const query = plainToInstance(QueryOneSampleDto, {
+      select: ['id'],
+      where: toWhereQueryString([
+        { property: 'id', operator: QueryOperator.EQUAL, query: '2' },
+      ]),
+    });
+
+    const found = await service.readOne(query);
+    expect(found?.id).toEqual(2);
+  });
+
+  it('should count', async () => {
+    const query = plainToInstance(QueryCountSampleDto, {
+      where: toWhereQueryString([
+        { property: 'id', operator: QueryOperator.EQUAL, query: '1' },
+      ]),
+    });
+    const result = await service.count(query);
+    expect(result).toEqual(1);
+  });
+});

@@ -1,27 +1,23 @@
-import { Dto, Property } from '@puq/property';
-import { KeyOf, Keys } from '@puq/type';
+import { ApiProperty, Dto, Property } from '@puq/property';
+import { KeyOf, Keys, Type } from '@puq/type';
 import { FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { SelectTransformer } from './select-transformer.js';
 import { OrderDirection, OrderNulls, QueryMany } from '@puq/query';
 import { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { QueryTransformer } from './query-transformer.js';
+import { CommonQueryDto } from './common-query-dto.js';
 
-export type QueryManyDtoOptions<Entity, Where> = QueryOneDtoOptions<
-  Entity,
-  Where
-> & {
+export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
   maximumSelectableColumns?: number;
   maximumTake?: number;
   defaultTake?: number;
 };
 
-export function CreateQueryManyDto<Entity, Where>(
-  options: QueryManyDtoOptions<Entity, Where>
-) {
+export function CreateQueryManyDto<T>(
+  options: QueryManyDtoOptions<T>
+): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
   const {
-    whereDto,
-    queryDto,
     columns,
     maximumSelectableColumns,
     maximumTake,
@@ -31,7 +27,8 @@ export function CreateQueryManyDto<Entity, Where>(
 
   @Dto()
   class QueryManyDto<T>
-    implements QueryMany<T, FindOptionsWhere<T>[], FindOptionsWhere<T>[]>
+    extends CommonQueryDto
+    implements QueryMany<T, FindOptionsWhere<T>[]>
   {
     @Property({
       type: 'integer',
@@ -91,17 +88,11 @@ export function CreateQueryManyDto<Entity, Where>(
     orderNulls?: OrderNulls;
 
     @WhereQueryTransformer()
-    @Property({
-      type: 'array',
-      items: { type: 'object', target: () => whereDto },
-    })
+    @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
     where?: FindOptionsWhere<T>[];
 
     @QueryTransformer(columns as string[])
-    @Property({
-      type: 'array',
-      items: { type: 'object', target: () => queryDto },
-    })
+    @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
     query?: FindOptionsWhere<T>[];
   }
 
