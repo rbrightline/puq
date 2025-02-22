@@ -7,7 +7,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "core",
+        "description": "Commonly backend utilities",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -93,7 +93,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Hashing and encryption",
+        "description": "Hashing and encryption functions",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -180,7 +180,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Database tables and dtos",
+        "description": "Database entities, views, and dtos crated by @puq/orm library",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -263,7 +263,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "model",
+        "description": "Database table structures designed to facilitate seamless communication between the backend and frontend systems.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -346,7 +346,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "TypeORM decorators with commonly required capabilities",
+        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -446,7 +446,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "property",
+        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -635,7 +635,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Query utilities",
+        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a seamless experience across the entire stack.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
