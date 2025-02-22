@@ -4,82 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puq Libraries</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Brightline Software</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #f4f4f9;
             color: #333;
+            overflow-x: hidden;
         }
 
         header {
-            background: #282c34;
+            background: #1a73e8;
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 24px;
         }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            margin: 20px;
-            padding: 15px;
+        section.intro {
+            padding: 40px;
+            background: #fff;
             text-align: center;
-            transition: transform 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .card:hover {
+        section.intro h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        section.intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .library-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .library-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 250px;
+            /* Added margin to separate cards */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            color: white;
+            border-bottom: 3px solid;
+            /* Random color for bottom border */
+        }
+
+
+        .library-card:hover {
+            cursor: pointer;
+            transform: rotate(30deg);
+        }
+
+
+        .library-card:hover {
             transform: translateY(-10px);
         }
 
-        .card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .library-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .library-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 10px;
+        }
+
+        .library-card p {
+            font-size: 1rem;
             margin-bottom: 15px;
         }
 
-        .card h3 {
-            font-size: 22px;
-            margin: 10px 0;
-        }
-
-        .card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .card a {
-            color: #4CAF50;
+        .library-card .links a {
+            display: block;
+            color: white;
             text-decoration: none;
-            font-weight: bold;
+            margin-bottom: 10px;
+            transition: transform 0.3s, color 0.3s ease;
         }
 
-        .card a:hover {
-            text-decoration: underline;
+        .library-card .links a:hover {
+            transform: scale(1.05);
+            color: #0052cc;
+        }
+
+        .funding-links {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.1rem;
+        }
+
+        .funding-links a {
+            color: #1a73e8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .funding-links a:hover {
+            color: #0052cc;
         }
 
         footer {
-            background: #282c34;
+            background: #222;
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
+            position: relative;
             bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        footer a:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -87,72 +165,100 @@
 <body>
 
     <header>
-        Puq Libraries
+        <h1>Brightline Software</h1>
     </header>
 
-    <div class="container">
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png"
-                alt="Core Library Icon">
-            <h3>@puq/core</h3>
-            <p>Core library for Puq framework. This module handles the basic functionalities that other modules depend
-                on.</p>
-            <a href="https://rbrightline.github.io/puq/core">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/crypto/favicon.png"
-                alt="Crypto Library Icon">
-            <h3>@puq/crypto</h3>
-            <p>Hashing and encryption tools for secure data handling in the Puq ecosystem.</p>
-            <a href="https://rbrightline.github.io/puq/crypto">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/entity/favicon.png"
-                alt="Entity Library Icon">
-            <h3>@puq/entity</h3>
-            <p>Handles database tables and data transfer objects (DTOs) for better data manipulation.</p>
-            <a href="https://rbrightline.github.io/puq/entity">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/model/favicon.png"
-                alt="Model Library Icon">
-            <h3>@puq/model</h3>
-            <p>Provides a structured way to define and manage models in the Puq framework.</p>
-            <a href="https://rbrightline.github.io/puq/model">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/cli/favicon.png"
-                alt="CLI Library Icon">
-            <h3>@puq/cli</h3>
-            <p>A Command Line Interface for managing Puq framework tasks and commands efficiently.</p>
-            <a href="https://rbrightline.github.io/puq/cli">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/http/favicon.png"
-                alt="HTTP Library Icon">
-            <h3>@puq/http</h3>
-            <p>Provides tools for handling HTTP requests and responses within the Puq framework.</p>
-            <a href="https://rbrightline.github.io/puq/http">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/logger/favicon.png"
-                alt="Logger Library Icon">
-            <h3>@puq/logger</h3>
-            <p>Logging utility for tracking events and activities in Puq applications.</p>
-            <a href="https://rbrightline.github.io/puq/logger">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/schedule/favicon.png"
-                alt="Schedule Library Icon">
-            <h3>@puq/schedule</h3>
-            <p>Scheduling tasks and jobs within Puq applications, helping with automation and management.</p>
-            <a href="https://rbrightline.github.io/puq/schedule">Learn More</a>
-        </div>
+    <section class="intro">
+        <h2>Welcome to Brightline Software</h2>
+        <p>We specialize in delivering high-performance and scalable solutions using cutting-edge technologies such as
+            NodeJS, NestJS, NX workspace, TypeORM, Class-Validator, Class-Transformer, and Swagger. Our team of
+            experienced engineers and software architects is committed to providing innovative solutions tailored to
+            your needs.</p>
+    </section>
+
+    <section class="library-list" id="libraries">
+        <!-- Dynamically rendered library cards will appear here -->
+    </section>
+
+    <div class="funding-links">
+        <p>Support our work:</p>
+        <a href="https://cash.app/$puqlib" target="_blank">Donate via Cash App</a>
     </div>
 
     <footer>
-        &copy; 2025 Puq Libraries. All Rights Reserved.
+        <div>
+            <a href="https://nodejs.org" target="_blank" title="NodeJS">
+                <i class="fab fa-node"></i>
+            </a>
+            <a href="https://nestjs.com" target="_blank" title="NestJS">
+                <i class="fab fa-angular"></i>
+            </a>
+            <a href="https://nx.dev" target="_blank" title="NX Workspace">
+                <i class="fas fa-cogs"></i>
+            </a>
+            <a href="https://angular.io" target="_blank" title="Angular">
+                <i class="fab fa-angular"></i>
+            </a>
+        </div>
     </footer>
+
+    <script>
+        async function fetchLibraries() {
+            const response = await fetch("https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/content/libs.json");
+            const data = await response.json();
+            const libraries = data;
+
+            const libraryList = document.getElementById('libraries');
+
+            libraries.forEach(lib => {
+                const card = document.createElement('div');
+
+                card.classList.add('library-card');
+
+                const randomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16); // Random border color
+
+                card.style.borderBottomColor = randomColor();
+                card.style.backgroundColor = randomColor()
+
+                const icon = document.createElement('img');
+                icon.src = lib.icon;
+                icon.alt = `${lib.name} Icon`;
+
+                const title = document.createElement('h3');
+                title.innerText = lib.name;
+
+                const description = document.createElement('p');
+                description.innerText = lib.description || `${lib.name} is a powerful library providing essential functionality in various software systems. It is highly customizable and efficient, designed to meet the needs of complex application architectures.`;
+
+                const version = document.createElement('p');
+                version.innerText = `Version: ${lib.version}`;
+
+                const linksContainer = document.createElement('div');
+                linksContainer.classList.add('links');
+
+                const homepageLink = document.createElement('a');
+                homepageLink.href = lib.homepage;
+                homepageLink.innerText = 'Homepage';
+                homepageLink.target = "_blank";
+                linksContainer.appendChild(homepageLink);
+
+                const repositoryLink = document.createElement('a');
+                repositoryLink.href = lib.repository.url;
+                repositoryLink.innerText = 'Repository';
+                repositoryLink.target = "_blank";
+                linksContainer.appendChild(repositoryLink);
+
+                card.appendChild(icon);
+                card.appendChild(title);
+                card.appendChild(description);
+                card.appendChild(version);
+                card.appendChild(linksContainer);
+                libraryList.appendChild(card);
+            });
+        }
+
+        fetchLibraries();
+    </script>
 
 </body>
 
