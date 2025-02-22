@@ -1,4 +1,5 @@
 // @index('./**/*.ts', f => `export * from '${f.path}.js'`)
+export * from './lib/common/package-json.js';
 export * from './lib/dto/count-result.js';
 export * from './lib/dto/delete-result.js';
 export * from './lib/dto/relation-param.js';
@@ -11,6 +12,7 @@ export * from './lib/property/big-integer.js';
 export * from './lib/property/boolean.js';
 export * from './lib/property/common-number.js';
 export * from './lib/property/common.js';
+export * from './lib/property/database-type.js';
 export * from './lib/property/date.js';
 export * from './lib/property/integer-format.js';
 export * from './lib/property/integer.js';
