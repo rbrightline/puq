@@ -6,7 +6,19 @@
 
 ## Summary
 
-Query utilities
+### 🚀 **Seamless Query Integration Library**
+
+This powerful **query library** bridges the gap between frontend and backend, enabling a **streamlined and intuitive** communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a **seamless experience** across the entire stack.
+
+### **✨ Key Features:**
+
+✅ **Query Builder:** Effortlessly construct complex queries with a clean and intuitive API.  
+✅ **Query Parser:** Transforms incoming queries into backend-friendly formats for optimized execution.  
+✅ **Frontend & Backend Harmony:** Ensures consistency in query structure across both layers.  
+✅ **Performance Optimized:** Reduces unnecessary processing and enhances database efficiency.  
+✅ **Developer-Friendly:** Minimizes boilerplate, making query handling faster and more maintainable.
+
+Designed for modern applications, this library **empowers developers** to build highly efficient and scalable APIs while keeping the query logic clean, consistent, and easy to manage. 🚀💡
 
 ## Install
 
