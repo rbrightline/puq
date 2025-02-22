@@ -87,10 +87,70 @@
 </p>
 
 <h1>@puq/property</h1>
-<h2>Summary</h2>
-<p>property</p>
 <h2>Install</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/property</code></pre></div><h2>Funding</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/property</code></pre></div><h2>Summary</h2>
+<p>The <code>@Property({...})</code> decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.</p>
+<h4><strong>Key Features</strong></h4>
+<ul>
+<li><strong>Automatic Validation:</strong> Leverages <code>class-validator</code> to enforce data integrity.</li>
+<li><strong>Seamless Swagger Integration:</strong> Uses <code>class-transformer</code> and <code>@nestjs/swagger</code> to generate API documentation automatically.</li>
+<li><strong>Type-Specific Validations:</strong> Provides built-in validation rules tailored to each data type.</li>
+<li><strong>Code Simplification:</strong> Reduces the need for redundant decorators by combining validation and documentation into a single, intuitive decorator.</li>
+</ul>
+<h3><strong>Supported Data Types and Validations</strong></h3>
+<h4><strong>1. String</strong></h4>
+<p>Ensures the property is a valid string and allows customization of length, format, and pattern.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;string&#39;, minLength: 3, maxLength: 50})
+name: string;</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>Minimum and maximum length (<code>minLength</code>, <code>maxLength</code>)</li>
+<li>Email, URL, and UUID formats (<code>format: &#39;email&#39; | &#39;url&#39; | &#39;uuid&#39;</code>)</li>
+</ul>
+<h4><strong>2. Number</strong></h4>
+<p>Validates numerical properties with range and precision constraints.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;number&#39;, minimum: 1, maximum: 100 })
+price: number;</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>Minimum and maximum value (<code>minimum</code>, <code>maximum</code>)</li>
+<li>Step/multiple enforcement (<code>multipleOf</code>)</li>
+</ul>
+<h4><strong>3. Integer</strong></h4>
+<p>Ensures the property is a valid integer within a specified range.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;integer&#39;, minimum: 1, maximum: 1000 })
+count: number;</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>Minimum and maximum value (<code>minimum</code>, <code>maximum</code>)</li>
+<li>Integer constraint (<code>type: &#39;integer&#39;</code>)</li>
+</ul>
+<h4><strong>4. Boolean</strong></h4>
+<p>Ensures the property is a boolean value (<code>true</code> or <code>false</code>).</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;boolean&#39; })
+isActive: boolean;</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>Accepts only <code>true</code> or <code>false</code> values</li>
+</ul>
+<h4><strong>5. Date</strong></h4>
+<p>Validates date properties and ensures proper formatting.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;string&#39;, format: &#39;date-time&#39; })
+createdAt: Date;</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>ISO 8601 date format enforcement (<code>format: &#39;date-time&#39;</code>)</li>
+<li>Custom validation for past or future dates (<code>minimum</code>, <code>maximum</code>)</li>
+</ul>
+<h4><strong>6. Array</strong></h4>
+<p>Ensures the property is an array with specific item types and length constraints.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;array&#39;, items: { type: &#39;string&#39; }, minItems: 1, maxItems: 10 })
+tags: string[];</code></pre></div><p><strong>Validations:</strong></p>
+<ul>
+<li>Minimum and maximum length (<code>minItems</code>, <code>maxItems</code>)</li>
+<li>Item type enforcement (<code>items: { type: &#39;string&#39; | &#39;number&#39; | &#39;object&#39; }</code>)</li>
+</ul>
+<h4><strong>7. Object</strong></h4>
+<p>Validates nested objects within DTOs, ensuring structure and required fields.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Property({ type: &#39;object&#39;, target: ()=&gt; ObjectDto})
+object:ObjectDto</code></pre></div><h3><strong>Conclusion</strong></h3>
+<p>The <code>@Property({...})</code> decorator significantly simplifies DTO validation and documentation in NestJS by combining validation logic with API documentation. By supporting a wide range of data types and providing granular control over validation rules, it enhances code maintainability, reduces errors, and improves API clarity. This decorator is ideal for developers looking to build robust, well-documented, and type-safe applications effortlessly. 🚀</p>
+<h2>Funding</h2>
 <p>Thank you for using <code>@puq/property</code> It&#39;s an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.</p>
 <p><a href="https://cash.app/$puqlib">Instant Funding</a></p>
 <h3>Your funding will go toward</h3>
