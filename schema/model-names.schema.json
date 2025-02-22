@@ -3,6 +3,11 @@
     "title": "ModelNames",
     "description": "Model name",
     "enum": [
+        "--Common---",
+        "Category",
+        "Department",
+        "Log",
+        "---Auth---",
         "User",
         "Role",
         "Permission",
@@ -10,6 +15,7 @@
         "SessionLog",
         "UserProfile",
         "Resource",
-        "Operation"
+        "Operation",
+        "---END---"
     ]
 }

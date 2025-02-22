@@ -1,0 +1,7 @@
+description: Operation
+properties:
+  name:
+    type: string
+    required: true
+    unique: true
+    maxLength: 50

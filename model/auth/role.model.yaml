@@ -1,0 +1,15 @@
+description: User role
+
+properties:
+  name:
+    type: string
+    required: true
+    unique: true
+
+relations:
+  permissions:
+    type: many-to-many
+    target: Permission
+    nullable: true
+    eager: true
+    join: true

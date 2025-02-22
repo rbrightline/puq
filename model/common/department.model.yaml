@@ -1,0 +1,7 @@
+description: Category
+properties:
+  name:
+    type: string
+    required: true
+    unique: true
+    maxLength: 50

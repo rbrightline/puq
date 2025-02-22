@@ -3,19 +3,23 @@
     "title": "RelationNames",
     "description": "Relation name",
     "enum": [
-        // singulars
+        "---Singular---",
         "user",
         "role",
         "permission",
         "session",
         "sessionLog",
         "userProfile",
-        // Plurals
+        "resource",
+        "operation",
+        "---Plural---",
         "users",
         "roles",
         "permissions",
         "sessions",
         "sessionLogs",
-        "userProfiles"
+        "userProfiles",
+        "resources",
+        "operations"
     ]
 }

@@ -1,5 +1,7 @@
+description: The entity links resource and operation entities, crafting a precise permission policy for the resource
 relations:
   resource:
+    description: Resource entity
     type: many-to-one
     target: Resource
     eager: true
@@ -7,6 +9,7 @@ relations:
     onDelete: CASCADE
 
   operation:
+    description: Operation entity
     type: many-to-one
     target: Operation
     eager: true

@@ -17,7 +17,7 @@
                 }
             },
             "propertyNames": {
-                "$ref": "#/definitions/PropertyNames"
+                "$ref": "#/definitions/PropertyName"
             }
         },
         "relations": {
@@ -28,13 +28,27 @@
                 }
             },
             "propertyNames": {
-                "$ref": "#/definitions/PropertyNames"
+                "$ref": "#/definitions/RelationName"
             }
+        },
+        "uniques": {
+            "$ref": "#/definitions/PropertyNames"
         }
     },
+    "additionalProperties": false,
     "definitions": {
-        "PropertyNames": {
+        "PropertyName": {
             "$ref": "./property-names.schema.json"
+        },
+        "PropertyNames": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/PropertyName"
+            },
+            "uniqueItems": true
+        },
+        "RelationName": {
+            "$ref": "./relation-names.schema.json"
         },
         "PropertySchema": {
             "$ref": "./property.schema.json"

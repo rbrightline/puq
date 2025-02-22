@@ -1,0 +1,46 @@
+description: User profile
+properties:
+  firstName:
+    type: string
+    maxLength: 100
+
+  middleName:
+    type: string
+    maxLength: 100
+
+  lastName:
+    type: string
+    maxLength: 100
+
+  gender:
+    type: string
+    description: Gender
+    maxLength: 50
+
+  avatar:
+    type: string
+    description: Profile image url
+    stringFormat: url
+
+  bio:
+    type: string
+    description: Brief introduction aobut yourself
+    maxLength: 1000
+
+  occupation:
+    type: string
+    description: Job title
+    maxLength: 100
+
+  organization:
+    type: string
+    description: Organization name
+    maxLength: 100
+
+relations:
+  user:
+    description: Profile owner
+    type: one-to-one
+    target: User
+    join: true
+    onDelete: CASCADE

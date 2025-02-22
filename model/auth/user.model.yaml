@@ -1,15 +1,16 @@
+description: User
 properties:
   username:
     type: string
     stringFormat: email
     required: true
     readonly: true
-    default: Add default value
 
   password:
     type: string
     required: true
     unique: true
+    stringFormat: strong-password
     hash: true
 
 relations:
@@ -18,3 +19,4 @@ relations:
     target: Role
     eager: true
     join: true
+    nullable: true

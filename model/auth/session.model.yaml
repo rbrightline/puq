@@ -1,0 +1,41 @@
+description: User session
+properties:
+  ip:
+    type: string
+    stringFormat: ip
+
+  lastActive:
+    type: date
+
+  location:
+    type: string
+
+  mfaVerified:
+    type: boolean
+    default: false
+
+  opt:
+    type: string
+
+  origin:
+    type: string
+
+  status:
+    type: string
+    enum:
+      - active
+      - expired
+      - revoked
+
+  token:
+    type: string
+    stringFormat: jwt
+    required: true
+
+  type:
+    type: string
+    required: true
+    enum:
+      - Api
+      - Web
+      - Mobile

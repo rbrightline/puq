@@ -248,10 +248,10 @@
                     "$ref": "#/definitions/NumberEnum"
                 },
                 "moreThanProperty": {
-                    "$ref": "#/definitions/PropertyNames"
+                    "$ref": "#/definitions/PropertyName"
                 },
                 "lessThanProperty": {
-                    "$ref": "#/definitions/PropertyNames"
+                    "$ref": "#/definitions/PropertyName"
                 }
             }
         },
@@ -283,35 +283,35 @@
                     "default": true
                 },
                 "beforeProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "afterProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameMonthAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameWeekAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameYearAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameDayAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameDayTypeAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 },
                 "sameHourAsProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "createdAt"
                 }
             },
@@ -404,6 +404,7 @@
                 "integer",
                 "bigint",
                 "boolean",
+                "date",
                 "object",
                 "array"
             ]
@@ -451,15 +452,15 @@
                     ]
                 },
                 "equalToProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "name"
                 },
                 "dependOnProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "name"
                 },
                 "notWithProperty": {
-                    "$ref": "#/definitions/PropertyNames",
+                    "$ref": "#/definitions/PropertyName",
                     "default": "name"
                 },
                 "hash": {
@@ -538,7 +539,7 @@
             },
             "uniqueItems": true
         },
-        "PropertyNames": {
+        "PropertyName": {
             "$ref": "./property-names.schema.json"
         },
         "ModelNames": {
