@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "TypeORM decorators with commonly required capabilities",
+  "description": "TypeORM decorators seamlessly integrated with validation and documentation libraries, enhancing development efficiency by reducing code complexity and minimizing potential bugs",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

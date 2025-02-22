@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "model",
+  "description": "Database table structures designed to facilitate seamless communication between the backend and frontend systems.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "property",
+  "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

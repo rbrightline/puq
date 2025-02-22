@@ -6,7 +6,7 @@
 
 ## Summary
 
-Database tables
+Database entities, views, and dtos crated by @puq/orm library
 
 ## Install
 

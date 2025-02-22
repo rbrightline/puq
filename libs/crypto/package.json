@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "Hashing and encryption",
+  "description": "Hashing and encryption functions",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

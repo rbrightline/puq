@@ -6,7 +6,7 @@
 
 ## Summary
 
-Database table models as typescript type
+Database table structures designed to facilitate seamless communication between the backend and frontend systems.
 
 ## Install
 
