@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ModelNames",
+    "description": "Model name",
+    "enum": [
+        "User",
+        "Role",
+        "Permission",
+        "Session",
+        "SessionLog",
+        "UserProfile"
+    ]
+}

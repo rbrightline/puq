@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ModelSchema",
+    "properties": {
+        "properties": {
+            "description": "Model properties such as name, description",
+            "patternProperties": {
+                "[a-zA-Z]": {
+                    "$ref": "#/definitions/PropertySchema"
+                }
+            },
+            "propertyNames": {
+                "$ref": "#/definitions/PropertyNames"
+            }
+        },
+        "relations": {
+            "description": "Model relations such as category, department",
+            "patternProperties": {
+                "[a-zA-Z]": {
+                    "$ref": "#/definitions/RelationSchema"
+                }
+            },
+            "propertyNames": {
+                "$ref": "#/definitions/PropertyNames"
+            }
+        }
+    },
+    "definitions": {
+        "PropertyNames": {
+            "$ref": "./property-names.schema.json"
+        },
+        "PropertySchema": {
+            "$ref": "./property.schema.json"
+        },
+        "RelationSchema": {
+            "$ref": "./relation.schema.json"
+        }
+    }
+}

@@ -5,5 +5,10 @@
   "editor.codeActionsOnSave": {
     "source.removeUnusedImports": "always",
     "source.addMissingImports.ts": "always",
+  },
+  "yaml.schemas": {
+    "schema/model.schema.json": [
+      "model/**/*.model.yaml"
+    ]
   }
 }

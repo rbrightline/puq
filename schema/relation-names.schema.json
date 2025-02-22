@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RelationNames",
+    "description": "Relation name",
+    "enum": [
+        // singulars
+        "user",
+        "role",
+        "permission",
+        "session",
+        "sessionLog",
+        "userProfile",
+        // Plurals
+        "users",
+        "roles",
+        "permissions",
+        "sessions",
+        "sessionLogs",
+        "userProfiles"
+    ]
+}

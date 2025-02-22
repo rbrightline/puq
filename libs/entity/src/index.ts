@@ -1,1 +1,1 @@
-export * from './lib/entity.js';
+// @index('./**/*.ts', f => `export * from '${f.path}.js'`)

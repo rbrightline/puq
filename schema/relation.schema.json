@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RelationSchema",
+    "properties": {
+        "type": {
+            "$ref": "#/definitions/RelationType",
+            "default": "many-to-one"
+        },
+        "target": {
+            "$ref": "#/definitions/ModelNames",
+            "default": "Pick relation target"
+        },
+        "nullable": {
+            "type": "boolean",
+            "default": true
+        },
+        "eager": {
+            "type": "boolean",
+            "default": true
+        },
+        "join": {
+            "type": "boolean",
+            "default": true
+        },
+        "cascade": {
+            "$ref": "#/definitions/Cascade",
+            "default": true
+        },
+        "onDelete": {
+            "$ref": "#/definitions/OnDelete",
+            "default": "SET NULL"
+        },
+        "onUpdate": {
+            "$ref": "#/definitions/OnUpdate",
+            "default": "NO ACTION"
+        }
+    },
+    "required": [
+        "type",
+        "target"
+    ],
+    "definitions": {
+        "RelationType": {
+            "enum": [
+                "many-to-many",
+                "many-to-one",
+                "one-to-one",
+                "one-to-many"
+            ]
+        },
+        "Cascade": {
+            "oneOf": [
+                {
+                    "type": "boolean",
+                    "default": true
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "insert",
+                            "update",
+                            "remove",
+                            "soft-remove",
+                            "recover"
+                        ]
+                    }
+                }
+            ]
+        },
+        "OnDelete": {
+            "type": "string",
+            "enum": [
+                "RESTRICT",
+                "CASCADE",
+                "SET NULL",
+                "DEFAULT",
+                "NO ACTION"
+            ]
+        },
+        "OnUpdate": {
+            "type": "string",
+            "enum": [
+                "RESTRICT",
+                "CASCADE",
+                "SET NULL",
+                "DEFAULT",
+                "NO ACTION"
+            ]
+        },
+        "ModelNames": {
+            "$ref": "./model-names.schema.json"
+        }
+    }
+}

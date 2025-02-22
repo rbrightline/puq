@@ -1,0 +1,13 @@
+properties:
+  username:
+    type: string
+    stringFormat: email
+    required: true
+    readonly: true
+    default: Add default value
+
+  password:
+    type: string
+    required: true
+    unique: true
+    hash: true

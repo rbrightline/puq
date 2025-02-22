@@ -41,12 +41,12 @@ export type __StringOptions = {
   /**
    * check the string contains
    */
-  contain?: string;
+  contain?: string[];
 
   /**
    * Check the string not contain
    */
-  notContain?: string;
+  notContain?: string[];
 };
 
 export type StringOptions = Readonly<CommonOptions<string> & __StringOptions>;

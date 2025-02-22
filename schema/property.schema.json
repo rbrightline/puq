@@ -1,0 +1,574 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PropertySchema",
+    "$ref": "#/definitions/Property",
+    "definitions": {
+        "Property": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Common"
+                },
+                {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/String"
+                        },
+                        {
+                            "$ref": "#/definitions/Number"
+                        },
+                        {
+                            "$ref": "#/definitions/Integer"
+                        },
+                        {
+                            "$ref": "#/definitions/Bigint"
+                        },
+                        {
+                            "$ref": "#/definitions/Boolean"
+                        },
+                        {
+                            "$ref": "#/definitions/Date"
+                        },
+                        {
+                            "$ref": "#/definitions/Object"
+                        },
+                        {
+                            "$ref": "#/definitions/Array"
+                        }
+                    ]
+                }
+            ]
+        },
+        "String": {
+            "title": "StringProperty",
+            "properties": {
+                "type": {
+                    "const": "string"
+                },
+                "default": {
+                    "type": "string",
+                    "default": "Add default value"
+                },
+                "example": {
+                    "type": "string",
+                    "default": "some"
+                },
+                "minLength": {
+                    "$ref": "#/definitions/PositiveInteger"
+                },
+                "maxLength": {
+                    "$ref": "#/definitions/PositiveInteger"
+                },
+                "stringFormat": {
+                    "$ref": "#/definitions/StringFormat"
+                },
+                "enum": {
+                    "$ref": "#/definitions/UniqueStringArray"
+                },
+                "notIn": {
+                    "$ref": "#/definitions/UniqueStringArray"
+                },
+                "startWith": {
+                    "$ref": "#/definitions/NoneEmptyString"
+                },
+                "endWith": {
+                    "$ref": "#/definitions/NoneEmptyString"
+                },
+                "contain": {
+                    "$ref": "#/definitions/UniqueStringArray"
+                },
+                "notContain": {
+                    "$ref": "#/definitions/UniqueStringArray"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "StringFormat": {
+            "enum": [
+                "alpha",
+                "alphanumeric",
+                "ascii",
+                "base32",
+                "base58",
+                "base64",
+                "bic",
+                "boolean-string",
+                "byte-length",
+                "credit-card",
+                "currency",
+                "data-uri",
+                "date-string",
+                "decimal",
+                "ean",
+                "email",
+                "ethereum-address",
+                "firebase-push-id",
+                "hash",
+                "hex-color",
+                "hsl",
+                "iban",
+                "identity-card",
+                "imei",
+                "ip-range",
+                "ip",
+                "isbn",
+                "isin",
+                "iso31661-alpha2",
+                "iso31661-alpha3",
+                "iso4217",
+                "iso8601",
+                "isrc",
+                "issn",
+                "json",
+                "jwt",
+                "lat-long",
+                "locale",
+                "mac-address",
+                "magnet-uri",
+                "mime-type",
+                "mobile-phone",
+                "mongo-id",
+                "number-string",
+                "octal",
+                "passport-number",
+                "phone-number",
+                "port",
+                "postal-code",
+                "rgb-color",
+                "sem-ver",
+                "slug",
+                "strong-password",
+                "time-zone",
+                "url",
+                "uuid",
+                "variable-width"
+            ]
+        },
+        "NoneEmptyString": {
+            "type": "string",
+            "minLength": 1
+        },
+        "Number": {
+            "title": "NumberProperty",
+            "allOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "const": "number"
+                        },
+                        "maxDecimals": {
+                            "$ref": "#/definitions/PositiveInteger"
+                        },
+                        "numberFormat": {
+                            "$ref": "#/definitions/NumberFormat"
+                        },
+                        "default": {
+                            "type": "number",
+                            "default": 12345
+                        },
+                        "example": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                {
+                    "$ref": "#/definitions/CommonNumber"
+                }
+            ]
+        },
+        "Integer": {
+            "title": "IntegerProperty",
+            "allOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "const": "integer"
+                        },
+                        "integerFormat": {
+                            "$ref": "#/definitions/IntegerFormat"
+                        },
+                        "default": {
+                            "type": "integer",
+                            "default": 12345
+                        },
+                        "example": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                {
+                    "$ref": "#/definitions/CommonNumber"
+                }
+            ]
+        },
+        "Bigint": {
+            "title": "BigintProperty",
+            "allOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "const": "bigint"
+                        },
+                        "default": {
+                            "type": "number",
+                            "default": 3.14
+                        },
+                        "example": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ]
+                },
+                {
+                    "$ref": "#/definitions/CommonNumber"
+                }
+            ]
+        },
+        "CommonNumber": {
+            "properties": {
+                "minimum": {
+                    "type": "number"
+                },
+                "maximum": {
+                    "type": "number"
+                },
+                "enum": {
+                    "$ref": "#/definitions/NumberEnum"
+                },
+                "notIn": {
+                    "$ref": "#/definitions/NumberEnum"
+                },
+                "moreThanProperty": {
+                    "$ref": "#/definitions/PropertyNames"
+                },
+                "lessThanProperty": {
+                    "$ref": "#/definitions/PropertyNames"
+                }
+            }
+        },
+        "Date": {
+            "title": "DateProperty",
+            "properties": {
+                "type": {
+                    "const": "date"
+                },
+                "default": {
+                    "type": "string",
+                    "default": "10-10-1980 10:10:30"
+                },
+                "example": {
+                    "type": "string"
+                },
+                "minDate": {
+                    "type": "string"
+                },
+                "maxDate": {
+                    "type": "string"
+                },
+                "future": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "past": {
+                    "type": "string",
+                    "default": true
+                },
+                "beforeProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "afterProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameMonthAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameWeekAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameYearAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameDayAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameDayTypeAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                },
+                "sameHourAsProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "createdAt"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "Boolean": {
+            "title": "BooleanProperty",
+            "properties": {
+                "type": {
+                    "const": "boolean"
+                },
+                "default": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "example": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "Object": {
+            "title": "ObjectProperty",
+            "properties": {
+                "type": {
+                    "const": "object"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "default": {
+                    "type": "object",
+                    "default": {
+                        "some": true
+                    }
+                },
+                "example": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "Array": {
+            "title": "ArrayProperty",
+            "properties": {
+                "type": {
+                    "const": "array"
+                },
+                "default": {
+                    "type": "array",
+                    "default": [
+                        "Add default items"
+                    ]
+                },
+                "example": {
+                    "type": "array"
+                },
+                "minSize": {
+                    "$ref": "#/definitions/PositiveInteger",
+                    "default": 1
+                },
+                "maxSize": {
+                    "$ref": "#/definitions/PositiveInteger",
+                    "default": 10
+                },
+                "uniqueItems": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "items": {
+                    "$ref": "#/definitions/Property"
+                }
+            },
+            "required": [
+                "type",
+                "items"
+            ]
+        },
+        "DatabaseType": {
+            "type": "string",
+            "enum": [
+                "postgres",
+                "mysql",
+                "mariadb",
+                "sqlite",
+                "better-sqlite3",
+                "oracle",
+                "mssql",
+                "cockroachdb",
+                "mongodb",
+                "sqljs",
+                "cordova",
+                "react-native",
+                "expo",
+                "aurora-data-api",
+                "aurora-data-api-pg",
+                "sap",
+                "spanner"
+            ]
+        },
+        "PropertyType": {
+            "type": "string",
+            "enum": [
+                "string",
+                "number",
+                "integer",
+                "bigint",
+                "boolean",
+                "object",
+                "array"
+            ]
+        },
+        "Common": {
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/PropertyType",
+                    "default": "string"
+                },
+                "required": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "unique": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "description": {
+                    "type": "string",
+                    "default": "Add description"
+                },
+                "expose": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "examples": {
+                    "type": "array",
+                    "default": [
+                        "Example 1"
+                    ]
+                },
+                "acceptString": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "notEqual": {
+                    "type": "array",
+                    "default": [
+                        "First"
+                    ]
+                },
+                "equalToProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "name"
+                },
+                "dependOnProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "name"
+                },
+                "notWithProperty": {
+                    "$ref": "#/definitions/PropertyNames",
+                    "default": "name"
+                },
+                "hash": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "encrypt": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "databaseType": {
+                    "$ref": "#/definitions/DatabaseType",
+                    "default": "postgres"
+                }
+            }
+        },
+        "NumberFormat": {
+            "enum": [
+                "positive",
+                "percent",
+                "rate",
+                "digit",
+                "fraction"
+            ]
+        },
+        "IntegerFormat": {
+            "enum": [
+                "positive",
+                "percent",
+                "rate",
+                "digit"
+            ]
+        },
+        "NumberEnum": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/AnyNumber"
+            },
+            "uniqueItems": true
+        },
+        "IntegerEnum": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/AnyInteger"
+            },
+            "uniqueItems": true
+        },
+        "AnyInteger": {
+            "type": "integer"
+        },
+        "AnyNumber": {
+            "type": "number"
+        },
+        "PositiveInteger": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "PositiveNumber": {
+            "type": "number",
+            "minimum": 0.0001
+        },
+        "UniqueStringArray": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "UniqueNumberArray": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "uniqueItems": true
+        },
+        "UniqueIntegerArray": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "uniqueItems": true
+        },
+        "PropertyNames": {
+            "$ref": "./property-names.schema.json"
+        },
+        "ModelNames": {
+            "$ref": "./model-names.schema.json"
+        }
+    }
+}

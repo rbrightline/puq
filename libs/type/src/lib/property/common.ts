@@ -63,7 +63,7 @@ export type CommonOptions<T> = {
   /**
    * Check the value is not equal to property
    */
-  notEqual?: string;
+  notEqualToProperty?: string;
 
   /**
    * If set, the value is ignored unless the target property is set

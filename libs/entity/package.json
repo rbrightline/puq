@@ -79,5 +79,9 @@
   },
   "devDependencies": {
     "@swc/helpers": "~0.5.11"
+  },
+  "peerDependencies": {
+    "@puq/orm": "^0.0.20",
+    "@puq/property": "^0.0.20"
   }
 }
