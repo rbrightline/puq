@@ -20,7 +20,7 @@ async function run() {
   const newFile = result.reduce((p, c) => ({ ...p, ...c }), {});
 
   const TARGET_ROOT = join(__dirname, '..', 'content');
-  const CONTENT_JSON_FILE_PATH = join(TARGET_ROOT, 'content.json');
+  const CONTENT_JSON_FILE_PATH = join(TARGET_ROOT, 'libs.json');
   await writeFile(CONTENT_JSON_FILE_PATH, JSON.stringify(newFile));
 }
 
