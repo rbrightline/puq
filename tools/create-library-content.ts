@@ -11,13 +11,12 @@ async function run() {
     const root = join(ROOT, e);
     const packageJsonPath = join(root, 'package.json');
     const content = (await readFile(packageJsonPath)).toString();
-    const obj = JSON.parse(content);
-    return { [obj.name]: obj };
+    return JSON.parse(content);
   });
 
   const result = await Promise.all(files);
 
-  const newFile = [result.reduce((p, c) => ({ ...p, ...c }), {})];
+  const newFile = result;
 
   const TARGET_ROOT = join(__dirname, '..', 'content');
   const CONTENT_JSON_FILE_PATH = join(TARGET_ROOT, 'libs.json');
