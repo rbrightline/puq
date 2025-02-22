@@ -6,6 +6,8 @@
 
 ## Summary
 
+The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.
+
 Database entity development is streamlined through the integration of `intuitive` and widely adopted implementations within decorators. These decorators are paired with `class-validator`, `class-transformer`, and `@nestjs/swagger`, enhancing efficiency in the development process. This approach achieves a minimum reduction of `60%` in both `code volume` and associated `errors`.
 
 ## Install

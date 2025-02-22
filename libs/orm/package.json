@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "TypeORM decorators seamlessly integrated with validation and documentation libraries, enhancing development efficiency by reducing code complexity and minimizing potential bugs",
+  "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
