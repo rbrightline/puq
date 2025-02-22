@@ -11,3 +11,10 @@ properties:
     required: true
     unique: true
     hash: true
+
+relations:
+  roles:
+    type: many-to-many
+    target: Role
+    eager: true
+    join: true

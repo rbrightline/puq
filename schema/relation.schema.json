@@ -6,6 +6,10 @@
             "$ref": "#/definitions/RelationType",
             "default": "many-to-one"
         },
+        "description": {
+            "type": "string",
+            "default": "Add description"
+        },
         "target": {
             "$ref": "#/definitions/ModelNames",
             "default": "Pick relation target"

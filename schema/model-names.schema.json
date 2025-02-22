@@ -8,6 +8,8 @@
         "Permission",
         "Session",
         "SessionLog",
-        "UserProfile"
+        "UserProfile",
+        "Resource",
+        "Operation"
     ]
 }

@@ -2,6 +2,13 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "ModelSchema",
     "properties": {
+        "databaseType": {
+            "$ref": "#/definitions/DatabaseType"
+        },
+        "description": {
+            "type": "string",
+            "default": "Add description"
+        },
         "properties": {
             "description": "Model properties such as name, description",
             "patternProperties": {
@@ -34,6 +41,28 @@
         },
         "RelationSchema": {
             "$ref": "./relation.schema.json"
+        },
+        "DatabaseType": {
+            "type": "string",
+            "enum": [
+                "postgres",
+                "mysql",
+                "mariadb",
+                "sqlite",
+                "better-sqlite3",
+                "oracle",
+                "mssql",
+                "cockroachdb",
+                "mongodb",
+                "sqljs",
+                "cordova",
+                "react-native",
+                "expo",
+                "aurora-data-api",
+                "aurora-data-api-pg",
+                "sap",
+                "spanner"
+            ]
         }
     }
 }

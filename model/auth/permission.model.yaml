@@ -1,0 +1,14 @@
+relations:
+  resource:
+    type: many-to-one
+    target: Resource
+    eager: true
+    join: true
+    onDelete: CASCADE
+
+  operation:
+    type: many-to-one
+    target: Operation
+    eager: true
+    join: true
+    onDelete: CASCADE

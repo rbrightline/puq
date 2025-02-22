@@ -396,28 +396,6 @@
                 "items"
             ]
         },
-        "DatabaseType": {
-            "type": "string",
-            "enum": [
-                "postgres",
-                "mysql",
-                "mariadb",
-                "sqlite",
-                "better-sqlite3",
-                "oracle",
-                "mssql",
-                "cockroachdb",
-                "mongodb",
-                "sqljs",
-                "cordova",
-                "react-native",
-                "expo",
-                "aurora-data-api",
-                "aurora-data-api-pg",
-                "sap",
-                "spanner"
-            ]
-        },
         "PropertyType": {
             "type": "string",
             "enum": [
@@ -491,10 +469,6 @@
                 "encrypt": {
                     "type": "boolean",
                     "default": true
-                },
-                "databaseType": {
-                    "$ref": "#/definitions/DatabaseType",
-                    "default": "postgres"
                 }
             }
         },
