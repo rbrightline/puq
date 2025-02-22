@@ -17,7 +17,7 @@ async function run() {
 
   const result = await Promise.all(files);
 
-  const newFile = result.reduce((p, c) => ({ ...p, ...c }), {});
+  const newFile = [result.reduce((p, c) => ({ ...p, ...c }), {})];
 
   const TARGET_ROOT = join(__dirname, '..', 'content');
   const CONTENT_JSON_FILE_PATH = join(TARGET_ROOT, 'libs.json');
