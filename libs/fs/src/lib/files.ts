@@ -1,4 +1,4 @@
-import { debug } from 'console';
+import { debug } from '@puq/debug';
 import { Stats } from 'fs';
 import { readdir, stat } from 'fs/promises';
 import { extname, join } from 'path';

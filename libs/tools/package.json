@@ -1,7 +1,7 @@
 {
   "name": "@puq/tools",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -83,11 +83,9 @@
       }
     }
   },
-  "optionalDependencies": {
-    "@puq/debug": "^0.0.1"
-  },
   "dependencies": {
-    "@puq/fs": "workspace:^",
+    "@puq/debug": "^0.0.1",
+    "@puq/fs": "^0.0.2",
     "commander": "^13.1.0"
   },
   "devDependencies": {

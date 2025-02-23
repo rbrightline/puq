@@ -1,10 +1,10 @@
 import { program } from 'commander';
-import { tools } from './tools/tools.js';
+import { parseRenameFile } from './rename-file/parse-rename-file.js';
 
 async function boot() {
-  program.name('tools CLI').description('tools CLI').version('0.0.1');
+  program.name('tools CLI').description('Common utilities').version('0.0.2');
 
-  program.command('tools').name('tools').description(' CLI').action(tools);
+  parseRenameFile(program);
 
   program.parse();
 }
