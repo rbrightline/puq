@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/tools',
+  cacheDir: '../../node_modules/.vite/libs/debug',
   plugins: [],
   // Uncomment this if you are using workers.
   // worker: {
@@ -12,14 +12,11 @@ export default defineConfig({
     watch: false,
     globals: true,
     environment: 'node',
-    include: ['test/**/*.{spec,test}.ts'],
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
-    },
-    env: {
-      DEBUG_MODE: 'true',
     },
   },
 });

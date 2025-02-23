@@ -107,6 +107,12 @@ importers:
         specifier: ~0.5.11
         version: 0.5.15
 
+  libs/debug:
+    devDependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.15
+
   libs/entity:
     dependencies:
       '@nestjs/common':
@@ -145,6 +151,10 @@ importers:
         version: 0.5.15
 
   libs/fs:
+    dependencies:
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -257,9 +267,16 @@ importers:
 
   libs/tools:
     dependencies:
+      '@puq/fs':
+        specifier: workspace:^
+        version: link:../fs
       commander:
         specifier: ^13.1.0
         version: 13.1.0
+    optionalDependencies:
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11

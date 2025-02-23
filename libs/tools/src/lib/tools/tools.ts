@@ -1,3 +1,3 @@
-export function tools() {
-  return 'tools';
+export async function tools(...args: any[]): Promise<void> {
+  //
 }

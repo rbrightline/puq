@@ -1,8 +1,8 @@
 import { mkdir, rm, writeFile } from 'fs/promises';
 import { join } from 'path';
-import { dirs } from './../../src/index.js';
+import { files } from '../../src/index.js';
 
-describe('dirs', () => {
+describe('files', () => {
   const testDirs = ['dir 1', 'dir 2', 'dir 3'];
   const testFiles = ['file1.txt'];
 
@@ -30,7 +30,7 @@ describe('dirs', () => {
     await Promise.all(deleteFiles);
   });
 
-  it('should list all dirs', async () => {
-    expect(await dirs(join(__dirname, 'data'))).toEqual(testDirs);
+  it('should list all files', async () => {
+    expect(await files(join(__dirname, 'data'))).toEqual(testFiles);
   });
 });

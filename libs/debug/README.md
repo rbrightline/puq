@@ -1,22 +1,22 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/tools/favicon.png" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/debug/favicon.png" alt="Logo" />
 </p>
 
-# @puq/tools
+# @puq/debug
 
 ## Summary
 
-Common cli utilities
+debug
 
 ## Install
 
 ```bash
-  pnpm add @puq/tools
+  pnpm add @puq/debug
 ```
 
 ## Funding
 
-Thank you for using `@puq/tools` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
+Thank you for using `@puq/debug` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
 
 [Instant Funding](https://cash.app/$puqlib)
 

@@ -79,5 +79,8 @@
   },
   "devDependencies": {
     "@swc/helpers": "~0.5.11"
+  },
+  "dependencies": {
+    "@puq/debug": "workspace:^"
   }
 }
