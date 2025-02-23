@@ -1,0 +1,83 @@
+{
+  "name": "@puq/fs",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "description": "fs",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://rbrightline.github.io"
+  },
+  "keywords": [
+    "puq",
+    "fs"
+  ],
+  "repository": {
+    "directory": "libs/fs",
+    "url": "https://github.com/rbrightline/puq/tree/main",
+    "type": "github"
+  },
+  "homepage": "https://rbrightline.github.io/puq/fs",
+  "bugs": {
+    "email": "robert.brightline@gmail.com",
+    "url": "https://rbrightline.github.io"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributors": [
+    {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    }
+  ],
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/fs/favicon.png",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "sourceRoot": "libs/fs/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/fs/dist",
+          "main": "libs/fs/src/index.ts",
+          "tsConfig": "libs/fs/tsconfig.lib.json",
+          "skipTypeCheck": false,
+          "stripLeadingPaths": true
+        }
+      },
+      "doc": {
+        "command": "cd libs/fs && npx compodoc -d ../../public/fs  -p tsconfig.lib.json -n fs"
+      }
+    }
+  },
+  "devDependencies": {
+    "@swc/helpers": "~0.5.11"
+  }
+}
