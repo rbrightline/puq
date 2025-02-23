@@ -57,10 +57,16 @@ export function StringValidation(
 
     if (notIn != undefined) IsNotIn(notIn, validationOptions)(t, p);
 
-    if (contain != undefined) Contains(contain, validationOptions)(t, p);
+    if (contain != undefined) {
+      contain.forEach((e) => {
+        if (e != undefined) Contains(e, validationOptions)(t, p);
+      });
+    }
 
     if (notContain != undefined)
-      NotContains(notContain, validationOptions)(t, p);
+      notContain.forEach((e) => {
+        if (e != undefined) NotContains(e, validationOptions)(t, p);
+      });
 
     if (startWith != undefined)
       Matches(new RegExp(`/^${startWith}/`), {

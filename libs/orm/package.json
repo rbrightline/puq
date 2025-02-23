@@ -1,7 +1,7 @@
 {
   "name": "@puq/orm",
   "license": "MIT",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -68,7 +68,7 @@
           "outputPath": "libs/orm/dist",
           "main": "libs/orm/src/index.ts",
           "tsConfig": "libs/orm/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         }
       },
@@ -82,17 +82,18 @@
     "@swc/helpers": "~0.5.11"
   },
   "peerDependencies": {
-    "@nestjs/swagger": "^11.0.3",
     "@nestjs/common": "^11.0.10",
+    "@nestjs/swagger": "^11.0.3",
+    "better-sqlite3": "^11.8.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "pg": "^8.13.3",
     "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.20",
-    "better-sqlite3": "^11.8.1",
     "sqlite3": "^5.1.7",
-    "pg": "^8.13.3"
+    "typeorm": "^0.3.20"
   },
   "dependencies": {
+    "@puq/names": "workspace:^",
     "@puq/property": "^0.0.20",
     "@puq/query": "^0.0.20",
     "@puq/type": "^0.0.20"

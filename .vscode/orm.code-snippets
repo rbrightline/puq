@@ -1,0 +1,74 @@
+{
+    "entity": {
+        "prefix": "entity",
+        "body": [
+            "import { Entity, Column, BaseEntity } from '@puq/orm';",
+            "",
+            "@Entity()",
+            "export class $1 extends BaseEntity {",
+            "  @Column({ type: 'string', unique: true, readonly: true })",
+            "  name: string;",
+            "}",
+        ],
+        "scope": "typescript,javascript"
+    },
+    "view": {
+        "prefix": "view",
+        "body": [
+            "import { $1ViewModel } from '@puq/model';",
+            "import { ViewEntity, BaseView, ViewColumn } from '@puq/orm';",
+            "import { $1 } from './$2.entity.js';",
+            "",
+            "@ViewEntity((q) => q.addSelect('m.name', 'name').from($1, 'm'))",
+            "export class $1View extends BaseView implements $1ViewModel {",
+            "    @ViewColumn({ type: 'string' }) name: string;",
+            "}",
+        ]
+    },
+    "column": {
+        "prefix": "entity column",
+        "body": [
+            "@Column({ type: '$2' })",
+            "$1: $2;",
+        ],
+        "scope": "typescript,javascript"
+    },
+    "relation": {
+        "prefix": "entity relation",
+        "body": [
+            "@Relation('$3', () => $2, {",
+            "    eager: true,",
+            "    onDelete: 'SET NULL',",
+            "    join: true,",
+            "    nullable: true,",
+            "  })",
+            "  $1: $2;",
+        ],
+        "scope": "typescript,javascript"
+    },
+    "create dto": {
+        "prefix": "create dto",
+        "body": [
+            "import { Create$1Model } from '@puq/model';",
+            "import { Dto, Property } from '@puq/property';",
+            "",
+            "@Dto()",
+            "export class Create$1Dto implements Create$1Model {",
+            "@Property({ type: 'string', required: true, maxLength: 50 }) name: string;",
+            "}",
+        ],
+        "scope": "typescript"
+    },
+    "update dto": {
+        "prefix": "update dto",
+        "body": [
+            "import { PartialType } from '@nestjs/swagger';",
+            "import { Create$1Dto } from './create-$2.dto.js';",
+            "import { Dto } from '@puq/property';",
+            "",
+            "@Dto()",
+            "export class Update$1Dto extends PartialType(Create$1Dto) {}",
+        ],
+        "scope": "typescript"
+    },
+}

@@ -2,6 +2,8 @@
 export * from './lib/decorator/column.js';
 export * from './lib/decorator/entity.js';
 export * from './lib/decorator/relation.js';
+export * from './lib/decorator/view-column.js';
+export * from './lib/decorator/view-entity.js';
 export * from './lib/dto/count.js';
 export * from './lib/dto/delete.js';
 export * from './lib/dto/relation.js';
@@ -19,3 +21,4 @@ export * from './lib/query/where-query-transformer.js';
 export * from './lib/service/base.js';
 export * from './lib/service/read.js';
 export * from './lib/service/write.js';
+export * from './lib/view/base.view.js';

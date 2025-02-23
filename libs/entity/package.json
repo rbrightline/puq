@@ -78,10 +78,20 @@
     }
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.5.0",
     "@swc/helpers": "~0.5.11"
   },
   "peerDependencies": {
-    "@puq/orm": "^0.0.20",
-    "@puq/property": "^0.0.20"
+    "@nestjs/common": "^11.0.10",
+    "@nestjs/swagger": "^11.0.3",
+    "@puq/property": "^0.0.20",
+    "@puq/type": "^0.0.20"
+  },
+  "dependencies": {
+    "@puq/model": "workspace:^",
+    "@puq/orm": "workspace:^",
+    "pg": "^8.13.3",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20"
   }
 }
