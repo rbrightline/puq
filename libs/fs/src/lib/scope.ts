@@ -1,11 +1,15 @@
 import { normalize, resolve } from 'path';
 import { AccessDeniedError } from '@puq/error';
+import { cwd } from 'process';
+import { rval } from '@puq/is';
 export type PathScope = (path: string) => string | never;
 
 /**
  * Create a path resolver that restrict the access to the provided root directory only
  *
- * @param scopePath Relative or absolute directory path
+ * The scope converts all paths into absolute
+ *
+ * @param root Relative or absolute directory path
  *
  * ````typescript
  *    './directory'
@@ -25,10 +29,12 @@ export type PathScope = (path: string) => string | never;
  * ````
  *
  */
-export function scope(scopePath: string) {
+export function scope(root = cwd()) {
+  root = resolve(normalize(rval(root)));
+  if (!root.startsWith(cwd())) throw new AccessDeniedError();
   return (...paths: string[]) => {
-    const resolved = resolve(scopePath, ...paths);
-    if (!resolved.startsWith(scopePath)) throw new AccessDeniedError();
-    return normalize(resolved);
+    const resolved = resolve(root, ...paths);
+    if (!resolved.startsWith(root)) throw new AccessDeniedError();
+    return resolved;
   };
 }

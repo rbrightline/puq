@@ -1,4 +1,4 @@
-import { debug } from '@puq/debug';
+import { debug, start, end } from '@puq/debug';
 import { dirs, files } from '@puq/fs';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
@@ -29,10 +29,12 @@ export type ReplaceOptions = {
   suffix?: string;
 };
 
-export async function repalce(options: ReplaceOptions) {
+export async function replace(options: ReplaceOptions) {
   const { expression, from, to, prefix, suffix } = options;
   const RX = new RegExp(expression);
   const directory = options.directory ?? '';
+
+  start('replace');
 
   debug(options);
 
@@ -71,11 +73,13 @@ export async function repalce(options: ReplaceOptions) {
 
   if (foundDirs.length > 0) {
     const replaceAllSubDirectories = foundDirs.map((subDirectory) =>
-      repalce({ ...options, directory: join(directory, subDirectory) })
+      replace({ ...options, directory: join(directory, subDirectory) })
     );
 
     for (const e of replaceAllSubDirectories) {
       await e;
     }
   }
+
+  end();
 }

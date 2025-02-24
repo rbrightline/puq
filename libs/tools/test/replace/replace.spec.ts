@@ -1,6 +1,6 @@
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
-import { repalce } from '../../src/index.js';
+import { replace } from '../../src/index.js';
 
 describe('replace', () => {
   const root = join(__dirname, 'data');
@@ -32,7 +32,7 @@ describe('replace', () => {
   });
 
   it('should replace the content', async () => {
-    await repalce({
+    await replace({
       directory: root,
       expression: 'sample',
       from: ['Sample', 'sample\\.', 'sample', 'SAMPLE'],

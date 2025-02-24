@@ -39,6 +39,9 @@ importers:
       '@puq/debug':
         specifier: ^0.0.1
         version: 0.0.1
+      '@puq/fs':
+        specifier: ^0.0.2
+        version: 0.0.2(@puq/debug@0.0.1)
       '@puq/puq':
         specifier: ^0.0.9
         version: 0.0.9(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
@@ -168,11 +171,14 @@ importers:
   libs/fs:
     dependencies:
       '@puq/debug':
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: ^0.0.2
+        version: 0.0.2
       '@puq/error':
         specifier: ^0.0.3
         version: 0.0.3
+      '@puq/is':
+        specifier: ^0.0.2
+        version: 0.0.2
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -329,11 +335,17 @@ importers:
   libs/tools:
     dependencies:
       '@puq/debug':
-        specifier: ^0.0.1
-        version: 0.0.1
-      '@puq/fs':
         specifier: ^0.0.2
-        version: 0.0.2(@puq/debug@0.0.1)
+        version: 0.0.2
+      '@puq/error':
+        specifier: ^0.0.3
+        version: 0.0.3
+      '@puq/fs':
+        specifier: ^0.0.7
+        version: 0.0.7(@puq/debug@0.0.2)
+      '@puq/is':
+        specifier: ^0.0.2
+        version: 0.0.2
       commander:
         specifier: ^13.1.0
         version: 13.1.0
@@ -1751,6 +1763,9 @@ packages:
   '@puq/debug@0.0.1':
     resolution: {integrity: sha512-obtcxy7zrjY8Q0Higy9pMygWCPde+Y7Yi8Jde6Nh15s868dDX3P8f4d5bpXfr1lSQyfVELw+b6cwZGcQ3ENG9Q==}
 
+  '@puq/debug@0.0.2':
+    resolution: {integrity: sha512-L9KRIh2efNi7YmArfY/ZUzK48/o0Fy6Y14jZN1IqMUDQ999P7iT9dQI4495RHlNK+eExROZWti8Zb/t+M3ehtw==}
+
   '@puq/error@0.0.3':
     resolution: {integrity: sha512-V2tyKJZnfdH7JsA7NRQz+8Z6ZmcvxJifGP4uId8F7tXWdGLU5g3YeLbzN3aX43xIRgm0w+PBWJaMSofvQWXghA==}
 
@@ -1758,6 +1773,14 @@ packages:
     resolution: {integrity: sha512-D898lmyTILFvAuXUpgUYjQgl8i4P0nrnvcC122GS2s7kOUvai+DsQIQ5z0R4FP4CZ6VDxeox5/eqQs1Vl1HrCA==}
     peerDependencies:
       '@puq/debug': ^0.0.1
+
+  '@puq/fs@0.0.7':
+    resolution: {integrity: sha512-RrrEhd5dy92CHmks6Qm/TcmqPebnZQaecK0mdd4kUy/NEmeaXpQ+zmqaOBKVaYZrYQ0MoGxWb1+Hu34cCStidw==}
+    peerDependencies:
+      '@puq/debug': ^0.0.1
+
+  '@puq/is@0.0.2':
+    resolution: {integrity: sha512-MP1niL+cFzKeuW9fCv71rbxSSjKpqg7JFYaLHwJ0kZEibgCDNBEfzC1Mof3TJMxTYebAOP6181QWmTcd+x/mhw==}
 
   '@puq/property@0.0.20':
     resolution: {integrity: sha512-ASWh8QIkoyxv/Xgr6wcTX1a4rRtq2y5ViyeHhNcLQyTbm5s6+pqJvhrXQMFuXHMK+g8lO0jpdpFH1Bza6KcWpg==}
@@ -8365,11 +8388,22 @@ snapshots:
 
   '@puq/debug@0.0.1': {}
 
+  '@puq/debug@0.0.2': {}
+
   '@puq/error@0.0.3': {}
 
   '@puq/fs@0.0.2(@puq/debug@0.0.1)':
     dependencies:
       '@puq/debug': 0.0.1
+
+  '@puq/fs@0.0.7(@puq/debug@0.0.2)':
+    dependencies:
+      '@puq/debug': 0.0.2
+      '@puq/error': 0.0.3
+
+  '@puq/is@0.0.2':
+    dependencies:
+      '@puq/error': 0.0.3
 
   '@puq/property@0.0.20(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:

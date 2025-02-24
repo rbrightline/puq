@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
-import { readdir } from 'fs/promises';
+import {} from '@puq/fs';
 
 export async function updateContent() {
-  await readdir(__dirname);
+  await __dirname;
 }

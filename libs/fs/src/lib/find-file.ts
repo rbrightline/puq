@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { dirs } from './dirs.js';
 import { files } from './files.js';
+import { scope } from './scope.js';
 
 /**
  * Seach directory by filename recursively and return the filepath
@@ -11,6 +12,7 @@ export async function findFile(
   directory: string,
   expression: string
 ): Promise<string | never> {
+  directory = scope()(directory);
   const foundFiles = await files(directory);
   const RX = new RegExp(expression);
   const found = foundFiles.find((e) => RX.test(e));

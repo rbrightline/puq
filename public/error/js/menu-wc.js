@@ -52,13 +52,31 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AccessDeniedError.html" data-type="entity-link" >AccessDeniedError</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DirectoryNotFoundError.html" data-type="entity-link" >DirectoryNotFoundError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileNotFoundError.html" data-type="entity-link" >FileNotFoundError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/InvalidValueError.html" data-type="entity-link" >InvalidValueError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LowLatencyError.html" data-type="entity-link" >LowLatencyError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/OfflineError.html" data-type="entity-link" >OfflineError</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PuqError.html" data-type="entity-link" >PuqError</a>
                             </li>
                             <li class="link">
                                 <a href="classes/RequiredValueError.html" data-type="entity-link" >RequiredValueError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SystemIsDownError.html" data-type="entity-link" >SystemIsDownError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/UnautorizedError.html" data-type="entity-link" >UnautorizedError</a>
                             </li>
                         </ul>
                     </li>

@@ -84,8 +84,10 @@
     }
   },
   "dependencies": {
-    "@puq/debug": "^0.0.1",
-    "@puq/fs": "^0.0.2",
+    "@puq/debug": "^0.0.2",
+    "@puq/error": "^0.0.3",
+    "@puq/fs": "^0.0.7",
+    "@puq/is": "^0.0.2",
     "commander": "^13.1.0"
   },
   "devDependencies": {

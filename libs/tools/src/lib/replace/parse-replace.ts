@@ -1,6 +1,6 @@
 import { debug } from '@puq/debug';
 import { Command } from 'commander';
-import { repalce, ReplaceOptions } from './replace.js';
+import { replace, ReplaceOptions } from './replace.js';
 
 export function parseReplace(command: Command) {
   command
@@ -20,6 +20,6 @@ export function parseReplace(command: Command) {
     .option('-s, --suffix <string>', 'suffix (optional)')
     .action((options: ReplaceOptions) => {
       debug(options);
-      repalce(options);
+      replace(options);
     });
 }
