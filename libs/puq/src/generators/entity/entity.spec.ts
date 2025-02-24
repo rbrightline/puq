@@ -6,7 +6,7 @@ import { EntityGeneratorSchema } from './schema';
 
 describe('entity generator', () => {
   let tree: Tree;
-  const options: EntityGeneratorSchema = { name: 'test' };
+  const options: EntityGeneratorSchema = { directory: 'test' };
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

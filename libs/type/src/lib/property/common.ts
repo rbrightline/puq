@@ -1,3 +1,5 @@
+import { Icon } from '../ui/icon.js';
+import { InputType } from '../ui/input-type.js';
 import { DatabaseType } from './database-type.js';
 import { PropertyType } from './property-type.js';
 
@@ -9,6 +11,11 @@ export type CommonOptions<T> = {
    * Property type
    */
   type: PropertyType;
+
+  /**
+   * Property name
+   */
+  name?: string;
 
   /**
    * Check the value is not undefined
@@ -89,4 +96,34 @@ export type CommonOptions<T> = {
    * Allows us to pick the right column type for the data
    */
   databaseType?: DatabaseType;
+
+  /**
+   * Google icons
+   */
+  icon?: Icon;
+
+  /**
+   * Inputt type
+   */
+  inputType?: InputType;
+
+  /**
+   * Input label
+   */
+  label?: string;
+
+  /**
+   * Input hint
+   */
+  hint?: string;
+
+  /**
+   * Disabled input
+   */
+  disabled?: string;
+
+  /**
+   * Hidden input
+   */
+  hidden?: boolean;
 };

@@ -8,8 +8,8 @@ export async function modelGenerator(
   options: ModelGeneratorSchema
 ) {
   const source = join(__dirname, 'files');
-  const target = options.name;
-  const ns = names(getName(options.name));
+  const target = options.directory;
+  const ns = names(getName(options.directory));
   generateFiles(tree, source, target, { ...ns });
   await formatFiles(tree);
 }
