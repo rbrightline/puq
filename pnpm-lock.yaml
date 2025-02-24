@@ -39,6 +39,9 @@ importers:
       '@puq/debug':
         specifier: ^0.0.1
         version: 0.0.1
+      '@puq/puq':
+        specifier: ^0.0.9
+        version: 0.0.9(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
       '@swc-node/register':
         specifier: ~1.9.1
         version: 1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3)
@@ -156,11 +159,43 @@ importers:
         specifier: ~0.5.11
         version: 0.5.15
 
+  libs/error:
+    devDependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.15
+
   libs/fs:
     dependencies:
       '@puq/debug':
         specifier: ^0.0.1
         version: 0.0.1
+      '@puq/error':
+        specifier: ^0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.15
+
+  libs/gen:
+    dependencies:
+      '@nx/devkit':
+        specifier: 20.4.4
+        version: 20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
+      '@puq/debug':
+        specifier: ^0.0.1
+        version: 0.0.1
+    devDependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.15
+
+  libs/is:
+    dependencies:
+      '@puq/error':
+        specifier: ^0.0.3
+        version: 0.0.3
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -1716,6 +1751,9 @@ packages:
   '@puq/debug@0.0.1':
     resolution: {integrity: sha512-obtcxy7zrjY8Q0Higy9pMygWCPde+Y7Yi8Jde6Nh15s868dDX3P8f4d5bpXfr1lSQyfVELw+b6cwZGcQ3ENG9Q==}
 
+  '@puq/error@0.0.3':
+    resolution: {integrity: sha512-V2tyKJZnfdH7JsA7NRQz+8Z6ZmcvxJifGP4uId8F7tXWdGLU5g3YeLbzN3aX43xIRgm0w+PBWJaMSofvQWXghA==}
+
   '@puq/fs@0.0.2':
     resolution: {integrity: sha512-D898lmyTILFvAuXUpgUYjQgl8i4P0nrnvcC122GS2s7kOUvai+DsQIQ5z0R4FP4CZ6VDxeox5/eqQs1Vl1HrCA==}
     peerDependencies:
@@ -1727,6 +1765,9 @@ packages:
       '@nestjs/swagger': ^11.0.3
       '@swc/helpers': ~0.5.11
       class-transformer: ^0.5.1
+
+  '@puq/puq@0.0.9':
+    resolution: {integrity: sha512-yzJYSdfa2M0jN93IeD1Pd9rWMLNJBKAH0vLg8iglKZCYguwjbKdevKvOa7mEk9aUyj5UlzIg0o28qba7YMQP4w==}
 
   '@puq/query@0.0.20':
     resolution: {integrity: sha512-nNmVkCOIlXN6ZaMNrqTZE96P7/ZixBy4Y5VMxJcLz/Kii00XHNZd5SOWy0UXlaWz9Hw/brX/f4aKj1oxqqlEzg==}
@@ -8324,6 +8365,8 @@ snapshots:
 
   '@puq/debug@0.0.1': {}
 
+  '@puq/error@0.0.3': {}
+
   '@puq/fs@0.0.2(@puq/debug@0.0.1)':
     dependencies:
       '@puq/debug': 0.0.1
@@ -8338,6 +8381,13 @@ snapshots:
     transitivePeerDependencies:
       - class-validator
       - reflect-metadata
+
+  '@puq/puq@0.0.9(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))':
+    dependencies:
+      '@nx/devkit': 20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - nx
 
   '@puq/query@0.0.20':
     dependencies:

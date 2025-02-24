@@ -1,3 +1,0 @@
-import { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
-
-export type Create<%- className %>Model = <%- className %>RawModel;

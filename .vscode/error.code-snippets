@@ -1,0 +1,15 @@
+{
+    "error class": {
+        "prefix": "error class",
+        "body": [
+            "import { ErrorCode } from './error-codes.js';",
+            "import { ErrorMetadata, PuqError } from './puq-error.js';",
+            "",
+            "export class $1Error extends PuqError {",
+            "constructor(message = '$2', metadata?: ErrorMetadata) {",
+            "super(ErrorCode.$2, message, metadata);",
+            "}",
+            "}",
+        ]
+    }
+}

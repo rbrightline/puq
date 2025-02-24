@@ -1,7 +1,0 @@
-import { Create<%- className %>Model } from '@puq/model';
-import { Dto, Property } from '@puq/property';
-
-@Dto()
-export class Create<%- className %>Dto implements Create<%- className %>Model {
-  @Property({ type: 'string', required: true, maxLength: 50 }) name: string;
-}

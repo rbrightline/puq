@@ -1,22 +1,18 @@
 import { isDebugMode } from './is-debug-mode.js';
 
-export function debug<T>(record: T): void;
 /**
- * Debug console
+ * Print a debug message if DEBUG_MODE is active
  * @returns
  */
 export function debug(...message: any[]): void {
   if (!isDebugMode()) return;
-
   if (
     message.every((e) => {
       return typeof e != 'object';
     })
   ) {
-    console.debug('[ Debug ]', ...message);
+    console.log(...message);
   } else {
-    console.debug('[ Debug ]');
-
     console.table(message);
   }
 }

@@ -1,7 +1,0 @@
-/**
- * Return the text `<%- propertyName %>`
- * @returns
- */
-export function <%- propertyName %>(): string {
-  return '<%- propertyName %>';
-}

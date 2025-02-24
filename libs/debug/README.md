@@ -6,13 +6,17 @@
 
 ## Summary
 
-debug
+The library privides 3 functions, `start`, `end`, and `debug`. These function only work when the `process.env.DEBUG_MODE` is `true`.
+
+`start` function is for indicating context of the debug such as `operationName` and the `end` function is for indicating the closing of the context.
 
 ## Install
 
 ```bash
   pnpm add @puq/debug
 ```
+
+### Useage
 
 ## Funding
 

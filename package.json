@@ -12,6 +12,7 @@
     "@nx/vite": "20.4.4",
     "@nx/web": "20.4.4",
     "@puq/debug": "^0.0.1",
+    "@puq/puq": "^0.0.9",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
