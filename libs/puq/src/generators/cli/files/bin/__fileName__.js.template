@@ -1,1 +1,1 @@
-require('../dist/lib/program.js');
+import '../dist/lib/program.js';

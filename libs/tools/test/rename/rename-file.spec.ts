@@ -1,9 +1,10 @@
 import { join } from 'path';
-import { renameFile } from '../../src/index.js';
+import { rename } from '../../src/index.js';
 import { rm, writeFile } from 'fs/promises';
 import { files } from '@puq/fs';
 
-describe('renameFile', () => {
+describe('rename', () => {
+  const root = join(__dirname, 'data');
   const testFiles = ['sample.dto.ts', 'sample.entity.ts', 'sample.view.ts'];
   const testTemplateFiles = [
     '__fileName__.dto.ts.template',
@@ -13,15 +14,13 @@ describe('renameFile', () => {
 
   async function remvoeFiles() {
     await Promise.all(
-      testTemplateFiles.map((filename) => rm(join(__dirname, 'data', filename)))
+      testTemplateFiles.map((filename) => rm(join(root, filename)))
     );
   }
 
   async function createFiles() {
     await Promise.all(
-      testFiles.map((filename) =>
-        writeFile(join(__dirname, 'data', filename), '')
-      )
+      testFiles.map((filename) => writeFile(join(root, filename), ''))
     );
   }
 
@@ -34,15 +33,15 @@ describe('renameFile', () => {
   });
 
   it('should rename file', async () => {
-    await renameFile({
-      directory: 'data',
+    await rename({
+      directory: root,
       expression: '^.*.ts$',
       suffix: '.template',
-      from: 'sample',
-      to: '__fileName__',
+      from: ['sample'],
+      to: ['__fileName__'],
     });
 
-    const foundFiles = await files(join(__dirname, 'data'));
+    const foundFiles = await files(root);
 
     testTemplateFiles.forEach((filename) => {
       expect(foundFiles.includes(filename)).toBeTruthy();

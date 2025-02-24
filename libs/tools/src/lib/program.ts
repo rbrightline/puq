@@ -1,10 +1,13 @@
 import { program } from 'commander';
-import { parseRenameFile } from './rename-file/parse-rename-file.js';
+import { parseRename } from './rename/parse-rename.js';
+import { parseReplace } from './replace/parse-replace.js';
 
 async function boot() {
-  program.name('tools CLI').description('Common utilities').version('0.0.2');
+  program.name('tools CLI').description('Common utilities').version('0.0.14');
 
-  parseRenameFile(program);
+  parseRename(program);
+
+  parseReplace(program);
 
   program.parse();
 }

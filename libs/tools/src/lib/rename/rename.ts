@@ -1,5 +1,5 @@
-import { files } from '@puq/fs';
-import { rename } from 'fs/promises';
+import { dirs, files } from '@puq/fs';
+import { rename as __rename } from 'fs/promises';
 import { join } from 'path';
 
 import { debug } from '@puq/debug';
@@ -17,12 +17,12 @@ export type RenameOptions = {
   /**
    * New file name or replacement string
    */
-  to: string;
+  to: string[];
 
   /**
    * placeholder string (optional)
    */
-  from?: string;
+  from?: string[];
 
   /**
    * filename suffix
@@ -40,40 +40,56 @@ export type RenameOptions = {
  * @param options {@link RenameOptions}
  * @returns
  */
-export async function renameFile(options: RenameOptions): Promise<void> {
+export async function rename(options: RenameOptions): Promise<void> {
   const RX = new RegExp(options.expression);
   const directory = options.directory ?? '.';
-  const foundFiles = await files(directory);
   const prefix = options.prefix ?? '';
   const suffix = options.suffix ?? '';
 
   debug({ ...options });
   debug({ suffix, prefix, directory });
-  debug({ foundFiles });
 
-  if (foundFiles.length == 0)
+  const matchedFiles = await files(directory);
+
+  debug({ matchedFiles });
+
+  if (matchedFiles.length == 0)
     throw new Error(`No files found in the directory ${directory}`);
 
-  const operations = foundFiles
+  const operations = matchedFiles
     .map(async (filename) => {
       if (!RX.test(filename)) {
         debug(`${filename} does not pass the expression test`);
         return undefined;
       }
-      let newFileName = options.to;
+
+      let newFileName = options.to[0];
+
       debug({ newFileName });
+
       if (options.from) {
-        newFileName = filename.replace(options.from, options.to);
+        options.from.forEach((f, i) => {
+          newFileName = filename.replace(f, options.to[i] ?? options.to[0]);
+        });
         debug({ newFileName });
       }
 
       const source = join(directory, filename);
       const target = join(directory, [prefix, newFileName, suffix].join(''));
       debug({ source, target });
-      await rename(source, target);
+      await __rename(source, target);
     })
     .map((e) => e);
 
   await Promise.all(operations);
-  return;
+
+  const foundDirs = await dirs(directory);
+
+  if (foundDirs.length > 0) {
+    await Promise.all(
+      foundDirs.map((d) =>
+        rename({ ...options, directory: join(directory, d) })
+      )
+    );
+  }
 }

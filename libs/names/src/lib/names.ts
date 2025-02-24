@@ -89,6 +89,26 @@ export type Names = {
    * Example: ResourceNameOptions
    */
   optionsName: string;
+
+  /**
+   * Example: propertyName
+   */
+  propertyName: string;
+
+  /**
+   * Example: ClassName
+   */
+  className: string;
+
+  /**
+   * Example: file-name
+   */
+  fileName: string;
+
+  /**
+   * Example: CONSTANT_NAME
+   */
+  constantName: string;
 };
 
 export type NamesOption = {
@@ -119,23 +139,40 @@ export function names(resourceName: string, options?: NamesOption): Names {
     .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase())
     .replace(/\s+/g, '');
 
-  const result = {
-    camelCase: value
-      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
-        index === 0 ? word.toLowerCase() : word.toUpperCase()
-      )
-      .replace(/\s+/g, ''),
-    constCase: value.toUpperCase().replace(/\s/g, '_'),
-    kebabCase: value.replace(/\s/g, '-'),
+  const camelCase = value
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
+      index === 0 ? word.toLowerCase() : word.toUpperCase()
+    )
+    .replace(/\s+/g, '');
+
+  const constCase = value.toUpperCase().replace(/\s/g, '_');
+
+  const titleCase = value.replace(/(?:^\w|[A-Z]|\b\w)/g, (word) =>
+    word.toUpperCase()
+  );
+
+  const kebabCase = value.replace(/\s/g, '-');
+
+  const snakeCase = value.replace(/\s/g, '_');
+
+  const sentenceCase = value[0].toUpperCase() + value.slice(1);
+
+  const dotCase = value.replace(/\s/g, '.');
+
+  const result: Names = {
+    camelCase,
+    kebabCase,
+    constCase,
+    titleCase,
     pascalCase,
-    snakeCase: value.replace(/\s/g, '_'),
-    titleCase: value.replace(/(?:^\w|[A-Z]|\b\w)/g, (word) =>
-      word.toUpperCase()
-    ),
+    snakeCase,
+    sentenceCase,
+    propertyName: camelCase,
+    className: pascalCase,
+    fileName: kebabCase,
+    constantName: constCase,
 
-    sentenceCase: value[0].toUpperCase() + value.slice(1),
-    dotCase: value.replace(/\s/g, '.'),
-
+    dotCase,
     controllerName: pascalCase + 'Controller',
     serviceName: pascalCase + 'Service',
     moduleName: pascalCase + 'Module',

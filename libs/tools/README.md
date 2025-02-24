@@ -14,6 +14,19 @@ Common cli utilities
   pnpm add @puq/tools
 ```
 
+## Useage
+
+### Rename files
+
+```bash
+# dto/
+#     - create-category.dto.ts
+#     - update-category.dto.ts
+# - category.entity.ts
+# - category.view.ts
+tools renmae -e *.ts -f category
+```
+
 ## Funding
 
 Thank you for using `@puq/tools` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
