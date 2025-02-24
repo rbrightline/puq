@@ -1,7 +1,7 @@
 {
   "name": "@puq/fs",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
