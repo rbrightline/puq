@@ -1,7 +1,7 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
-import { EntityGeneratorSchema } from './schema';
+import { EntityGeneratorSchema } from './schema.js';
 import { join } from 'path';
-import { getName } from 'src/helpers';
+import { getName } from '../../helpers/index.js';
 
 export async function entityGenerator(
   tree: Tree,

@@ -47,5 +47,8 @@
   },
   "dependencies": {
     "@nx/devkit": "20.4.4"
+  },
+  "puq": {
+    "model": "./model"
   }
 }

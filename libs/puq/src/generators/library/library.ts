@@ -1,7 +1,7 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import { join } from 'path';
-import { LibraryGeneratorSchema } from './schema';
-import { getName, updateTsconfigReferences } from '../../helpers';
+import { LibraryGeneratorSchema } from './schema.js';
+import { getName, updateTsconfigReferences } from '../../helpers/index.js';
 
 /**
  * Generate library project

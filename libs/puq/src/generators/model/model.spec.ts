@@ -1,12 +1,12 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
-import { modelGenerator } from './model';
-import { ModelGeneratorSchema } from './schema';
+import { modelGenerator } from './model.js';
+import { ModelGeneratorSchema } from './schema.js';
 
 describe('model generator', () => {
   let tree: Tree;
-  const options: ModelGeneratorSchema = { name: 'test' };
+  const options: ModelGeneratorSchema = { directory: 'test' };
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

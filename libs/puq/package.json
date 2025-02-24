@@ -41,6 +41,7 @@
     "https://cash.app/$puqlib"
   ],
   "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/puq/favicon.png",
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -86,6 +87,8 @@
   },
   "dependencies": {
     "@nx/devkit": "20.4.4",
+    "@puq/type": "^0.0.25",
+    "js-yaml": "^4.1.0",
     "tslib": "^2.3.0"
   },
   "generators": "./generators.json",
@@ -93,5 +96,8 @@
     "dist",
     "!**/*.tsbuildinfo",
     "generators.json"
-  ]
+  ],
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9"
+  }
 }

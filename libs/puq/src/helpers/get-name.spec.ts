@@ -1,5 +1,5 @@
 import { describe } from 'node:test';
-import { getName } from './get-name';
+import { getName } from './get-name.js';
 
 describe('getName', () => {
   it('should get name', () => {
