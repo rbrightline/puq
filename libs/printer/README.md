@@ -6,7 +6,7 @@
 
 ## Summary
 
-printer
+Property printers to help code generators. The printer use `@puq/type` `PropertyOptions` to create property definitions.
 
 ## Install
 

@@ -1,11 +1,11 @@
 import { PropertyOptions } from '@puq/type';
 
 /**
- * Pick typescript property type such as `string`, `number`, `string[]`
+ * Print property type such as 'string', 'number', 'stirng[]', 'SomeObject[]'
  * @param options
  * @returns
  */
-export function pickPropertyType(options: PropertyOptions): string {
+export function propertyType(options: PropertyOptions): string {
   switch (options.type) {
     case 'string':
     case 'number':
@@ -22,6 +22,6 @@ export function pickPropertyType(options: PropertyOptions): string {
       return 'string';
 
     case 'array':
-      return `${pickPropertyType(options.items)}[]`;
+      return `${propertyType(options.items)}[]`;
   }
 }

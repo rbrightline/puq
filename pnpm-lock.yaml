@@ -234,8 +234,8 @@ importers:
   libs/printer:
     dependencies:
       '@puq/type':
-        specifier: ^0.0.23
-        version: 0.0.23
+        specifier: ^0.0.25
+        version: 0.0.25
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -298,7 +298,7 @@ importers:
         version: 0.5.15
 
   libs/type:
-    dependencies:
+    devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
@@ -1724,8 +1724,8 @@ packages:
   '@puq/type@0.0.20':
     resolution: {integrity: sha512-E0QEuMDUz0iWsFtzoAey+G95wSiww/MIjODh6NKVByf/yeGtQoxr0dVtFuAoFyCz7TqewgK+a261f9Q+QUrfIA==}
 
-  '@puq/type@0.0.23':
-    resolution: {integrity: sha512-3W5I0mHXvIlrI+YdAT/vwrDMddQk++PswYulnwwmZKPt4i+YlTK14gxCUg09N0l8G+U1NvHfK8iCZQC+g0U+bg==}
+  '@puq/type@0.0.25':
+    resolution: {integrity: sha512-bD8pJmC/PWy2CtFpSKtAZkhM5ZqWKyuxYZuxTD7S3cVVxI59xl+jFrnRH1NAHPUz2qZmYUbodq8llju458DJUA==}
 
   '@puq/validation@0.0.20':
     resolution: {integrity: sha512-c/S54WR81ZchUa1HWBAu166WKwyQdm1xf4rrMpDeXr+p23POjH++oV3sAZkSetwVGKtD3kR9j/UNx3WKsn6B1Q==}
@@ -8332,7 +8332,7 @@ snapshots:
 
   '@puq/type@0.0.20': {}
 
-  '@puq/type@0.0.23': {}
+  '@puq/type@0.0.25': {}
 
   '@puq/validation@0.0.20(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:

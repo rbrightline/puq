@@ -1,12 +1,12 @@
 import { PropertyOptions } from '@puq/type';
-import { pickPropertyType } from './pick-property-type.js';
+import { propertyType } from './property-type.js';
 
 /**
  * print property definition such as `name :string;`
  * @param options
  */
-export function printProperty(options: PropertyOptions): string {
-  const type = pickPropertyType(options);
+export function propertyDefinition(options: PropertyOptions): string {
+  const type = propertyType(options);
   const required = options.required === true ? '' : '?';
 
   return `${(options as any)['name']}${required}: ${type};`;
