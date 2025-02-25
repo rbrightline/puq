@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import { PropertyOptions, RelationOptions } from '@puq/type';
 import { propertyDecoratorOptions } from './property-decorator-options.js';
 
 /**
@@ -9,7 +9,7 @@ import { propertyDecoratorOptions } from './property-decorator-options.js';
  */
 export function propertyDecorator<T>(
   decoratorName: string,
-  options: PropertyOptions
+  options: RelationOptions
 ): string {
   return `@${decoratorName}(${JSON.stringify(
     propertyDecoratorOptions(options)

@@ -5,9 +5,8 @@ import { PropertyOptions } from '@puq/type';
  * @param options {@link PropertyOptions}
  * @returns
  */
-export function propertyDecoratorOptions(
-  options: PropertyOptions
-): PropertyOptions {
+export function propertyDecoratorOptions(options: PropertyOptions): string {
+  let { name, ...rest } = options as any;
   switch (options.type) {
     case 'string':
     case 'number':
@@ -17,13 +16,14 @@ export function propertyDecoratorOptions(
     case 'date':
       break;
     case 'object': {
-      const { target } = options;
-      (options as any).target = `()=>${target as unknown as string}`;
+      const { target } = rest;
+      (rest as any).target = `()=>${target as unknown as string}`;
+
       break;
     }
     case 'array': {
       if (options.items.type === 'object') {
-        options = {
+        rest = {
           ...options,
           items: propertyDecoratorOptions(options.items),
         };
@@ -32,5 +32,6 @@ export function propertyDecoratorOptions(
     }
   }
 
-  return options;
+  // [ ] create property decorator options
+  return '';
 }

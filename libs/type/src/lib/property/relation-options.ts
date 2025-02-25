@@ -25,6 +25,11 @@ export type RelationOptions = {
   type: RelationType;
 
   /**
+   * Relation column name
+   */
+  name?: string;
+
+  /**
    * Relation description
    */
   description?: string;
@@ -42,7 +47,7 @@ export type RelationOptions = {
   /**
    * Relation is required or nullable
    */
-  nullable?: boolean;
+  required?: boolean;
 
   /**
    * Relation data is loaded by default or on request

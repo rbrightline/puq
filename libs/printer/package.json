@@ -82,6 +82,6 @@
   },
   "dependencies": {
     "@puq/is": "^0.0.2",
-    "@puq/type": "^0.0.30"
+    "@puq/type": "workspace:^"
   }
 }

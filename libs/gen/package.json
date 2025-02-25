@@ -88,8 +88,8 @@
     "@nx/devkit": "20.4.4",
     "@puq/debug": "^0.0.1",
     "@puq/fs": "^0.0.8",
-    "@puq/printer": "^0.0.2",
-    "@puq/type": "^0.0.27",
+    "@puq/printer": "workspace:^",
+    "@puq/type": "workspace:^",
     "js-yaml": "^4.1.0"
   }
 }
