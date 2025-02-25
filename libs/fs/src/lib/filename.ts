@@ -1,23 +1,26 @@
 import { debug, end, start } from '@puq/debug';
 import { InvalidValueError } from '@puq/error';
 import { rval } from '@puq/is';
-import { normalize } from 'path';
 
 /**
- * Extract the filename from the filepath
+ * Extract the filename/last segment from the filepath.
  * @param filepath filename
  * @returns
  */
 export function filename(filepath: string): string {
-  start('filename');
+  start(filename.name);
+
+  filepath = rval(filepath);
+
   debug({ filepath });
-  const extractedFileName = normalize(rval(filepath)).split('\\').pop();
 
-  debug({ extractedFileName });
+  const __filename = filepath.split('\\').pop();
 
-  if (extractedFileName) {
+  debug({ extractedFileName: __filename });
+
+  if (__filename) {
     end();
-    return extractedFileName;
+    return __filename;
   }
   throw new InvalidValueError(`${filepath} is not valid`);
 }

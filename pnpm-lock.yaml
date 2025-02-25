@@ -174,8 +174,8 @@ importers:
         specifier: ^0.0.2
         version: 0.0.2
       '@puq/error':
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: ^0.0.4
+        version: 0.0.4
       '@puq/is':
         specifier: ^0.0.2
         version: 0.0.2
@@ -1768,6 +1768,9 @@ packages:
 
   '@puq/error@0.0.3':
     resolution: {integrity: sha512-V2tyKJZnfdH7JsA7NRQz+8Z6ZmcvxJifGP4uId8F7tXWdGLU5g3YeLbzN3aX43xIRgm0w+PBWJaMSofvQWXghA==}
+
+  '@puq/error@0.0.4':
+    resolution: {integrity: sha512-bOmmWGtCwCO1MdJhxCsYZxLLXxI6TcL/b0MWdw6mO70R9fRauHQlKYsVMKhVgCs0zXukTjoJ8til3p6qiZBrYA==}
 
   '@puq/fs@0.0.2':
     resolution: {integrity: sha512-D898lmyTILFvAuXUpgUYjQgl8i4P0nrnvcC122GS2s7kOUvai+DsQIQ5z0R4FP4CZ6VDxeox5/eqQs1Vl1HrCA==}
@@ -8391,6 +8394,8 @@ snapshots:
   '@puq/debug@0.0.2': {}
 
   '@puq/error@0.0.3': {}
+
+  '@puq/error@0.0.4': {}
 
   '@puq/fs@0.0.2(@puq/debug@0.0.1)':
     dependencies:

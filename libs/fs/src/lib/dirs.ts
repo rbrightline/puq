@@ -1,7 +1,6 @@
 import { debug, end, start } from '@puq/debug';
 import { Stats } from 'fs';
 import { readdir, stat } from 'fs/promises';
-import { join } from 'path';
 import { scope } from './scope.js';
 import { rval } from '@puq/is';
 
@@ -12,20 +11,25 @@ import { rval } from '@puq/is';
  */
 export async function dirs(directory = '.'): Promise<string[]> {
   start('dirs');
-
+  rval(directory);
   debug({ directory });
 
-  directory = scope()(rval(directory));
+  const resolve = scope();
 
-  debug({ directory });
+  directory = resolve(directory);
 
-  const foundDirs = await readdir(directory);
+  const __dirs = await readdir(directory);
 
-  const filesStatsPromise = foundDirs.map(async (filename) => {
-    return [filename, await stat(join(directory, filename))] as [string, Stats];
+  debug({ foundDirectories: __dirs });
+
+  const fileAndStatsPromise = __dirs.map(async (filename) => {
+    return [filename, await stat(resolve(directory, filename))] as [
+      string,
+      Stats
+    ];
   });
 
-  const filesStats = await Promise.all(filesStatsPromise);
+  const filesStats = await Promise.all(fileAndStatsPromise);
 
   const foundDirectories = filesStats
     .filter(([f, s]) => s.isDirectory())

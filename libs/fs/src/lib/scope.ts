@@ -2,6 +2,8 @@ import { normalize, resolve } from 'path';
 import { AccessDeniedError } from '@puq/error';
 import { cwd } from 'process';
 import { rval } from '@puq/is';
+import { debug, end, start } from '@puq/debug';
+
 export type PathScope = (path: string) => string | never;
 
 /**
@@ -29,12 +31,36 @@ export type PathScope = (path: string) => string | never;
  * ````
  *
  */
-export function scope(root = cwd()) {
-  root = resolve(normalize(rval(root)));
-  if (!root.startsWith(cwd())) throw new AccessDeniedError();
+export function scope(root = resolve(cwd(), '..')) {
+  root = rval(root);
+  start(scope.name);
+  debug({ root });
+  root = normalize(resolve(root));
+  debug({ root });
+  debug({ cwd: cwd() });
+
+  const _cwd = normalize(resolve(cwd(), '..'));
+
+  if (!root.startsWith(_cwd)) {
+    debug({ accessDeniedError: true, cwd: _cwd, root });
+    throw new AccessDeniedError(`${root}`);
+  }
+
+  end();
   return (...paths: string[]) => {
-    const resolved = resolve(root, ...paths);
-    if (!resolved.startsWith(root)) throw new AccessDeniedError();
+    start('resolve');
+    debug({ paths: paths });
+    const resolved = normalize(resolve(paths.join('\\')));
+    debug({ resolved });
+    debug({ root });
+    if (!resolved.startsWith(root)) {
+      debug({
+        accessDeniedError: true,
+        root,
+        resolved,
+      });
+      throw new AccessDeniedError(`${root}`);
+    }
     return resolved;
   };
 }

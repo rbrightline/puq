@@ -1,22 +1,22 @@
-import { mkdir, rm, writeFile } from 'fs/promises';
+import { dirs, mkdir, rm, scope, writeFile } from './../../src/index.js';
 import { join } from 'path';
-import { dirs } from './../../src/index.js';
 
-describe('dirs', () => {
+describe('dirs(filepath): list all directories', () => {
+  const resolve = scope(join(__dirname, 'data'));
   const testDirs = ['dir 1', 'dir 2', 'dir 3'];
   const testFiles = ['file1.txt'];
 
   beforeAll(async () => {
     const createTestDirs = testDirs.map(async (e) => {
       try {
-        await mkdir(join(__dirname, 'data', e));
+        return await mkdir(resolve(__dirname, 'data', e));
       } catch (err) {
         //
       }
     });
 
     const createTestFiles = testFiles.map(
-      async (e) => await writeFile(join(__dirname, 'data', e), '')
+      async (e) => await writeFile(resolve(__dirname, 'data', e), '')
     );
 
     await Promise.all(createTestDirs);
@@ -24,13 +24,10 @@ describe('dirs', () => {
   });
 
   afterAll(async () => {
-    const deleteFiles = [...testDirs, ...testFiles].map((filename) =>
-      rm(join('data', filename), { recursive: true })
-    );
-    await Promise.all(deleteFiles);
+    await rm(resolve(__dirname, 'data'), { recursive: true });
   });
 
-  it('should list all dirs', async () => {
-    expect(await dirs(join(__dirname, 'data'))).toEqual(testDirs);
+  it('should list all directories recursively', async () => {
+    expect(await dirs(resolve(__dirname, 'data'))).toEqual(testDirs);
   });
 });

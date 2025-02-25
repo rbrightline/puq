@@ -11,15 +11,13 @@ export default defineConfig({
   test: {
     watch: false,
     globals: true,
+    maxConcurrency: 0,
     environment: 'node',
     include: ['test/**/*.{spec,test}.ts'],
     reporters: ['default'],
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
-    },
-    env: {
-      DEBUG_MODE: 'true',
     },
   },
 });

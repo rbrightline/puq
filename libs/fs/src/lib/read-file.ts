@@ -1,8 +1,9 @@
+import { start } from 'repl';
 import { findFile } from './find-file.js';
 import { scope } from './scope.js';
-import { dirpath } from './dirpath.js';
-import { filename } from './filename.js';
-
+import { FileNotFoundError } from '@puq/error';
+import { readFile as __readFile } from 'fs/promises';
+import { debug, end } from '@puq/debug';
 export type ReadFileOptions = {
   recursive?: boolean;
 };
@@ -14,8 +15,27 @@ export type ReadFileOptions = {
  * @returns
  */
 export async function readFile(filepath: string, options?: ReadFileOptions) {
-  filepath = scope()(filepath);
+  start('readFile');
 
-  const found = await findFile(dirpath(filepath), filename(filepath));
-  if (!found) throw ;
+  debug({ filepath, options });
+
+  const resolve = scope();
+
+  filepath = resolve(filepath);
+
+  debug({ filepath });
+
+  const found = await findFile(filepath, options);
+
+  debug({ found });
+
+  if (!found) throw new FileNotFoundError();
+
+  const fileContent = await __readFile(found);
+
+  debug({ fileContent });
+
+  end();
+
+  return fileContent;
 }

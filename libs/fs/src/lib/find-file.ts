@@ -1,33 +1,89 @@
-import { join } from 'path';
 import { dirs } from './dirs.js';
 import { files } from './files.js';
 import { scope } from './scope.js';
+import { dirpath } from './dirpath.js';
+import { filename } from './filename.js';
+import { FileNotFoundError } from '@puq/error';
+import { debug, start, end } from '@puq/debug';
+
+export type FindFileOptions = {
+  recursive?: boolean;
+};
 
 /**
- * Seach directory by filename recursively and return the filepath
- * @param directory root directory
- * @param expression filename expression (RexExp) string
+ * Find file and return the absolute filepath recursively (optional)
+ * @param filepath file path or file path with filename expression
+ * @param options
+ * @returns
+ * @throw
  */
 export async function findFile(
-  directory: string,
-  expression: string
+  filepath: string,
+  options?: FindFileOptions
 ): Promise<string | never> {
-  directory = scope()(directory);
+  const timeout = setTimeout(() => {
+    throw new Error('findFile operation takes too long ');
+  }, 5000);
+
+  start('findFile');
+  debug({ filepath });
+  debug(options);
+
+  const resolve = scope();
+
+  filepath = resolve(filepath);
+
+  debug({ filepath });
+
+  const directory = dirpath(filepath);
+
+  debug({ directory });
+
+  const fname = filename(filepath);
+
+  debug({ filename: fname });
+
   const foundFiles = await files(directory);
-  const RX = new RegExp(expression);
-  const found = foundFiles.find((e) => RX.test(e));
 
-  if (found) return join(directory, found);
+  debug({ foundFiles });
 
-  const foundDirs = await dirs(directory);
+  const ex = new RegExp(fname);
 
-  if (foundDirs.length > 0)
-    for (const d of foundDirs) {
-      const result = await findFile(join(directory, d), expression);
-      if (result) return result;
+  debug({ regularExpression: ex });
+
+  const found = foundFiles.find((e) => ex.test(e));
+
+  debug({ found });
+
+  if (found) {
+    end();
+    clearTimeout(timeout);
+    return resolve(directory, found);
+  }
+
+  if (options?.recursive === true) {
+    const foundDirs = await dirs(directory);
+
+    debug({ foundDirs });
+    if (foundDirs.length > 0) {
+      for (const d of foundDirs) {
+        try {
+          const found = await findFile(resolve(directory, d, fname), options);
+          end();
+          clearTimeout(timeout);
+          return found;
+        } catch (err) {
+          if (!(err instanceof FileNotFoundError)) {
+            clearTimeout(timeout);
+            throw err;
+          }
+          end();
+        }
+      }
     }
+  }
 
-  throw new Error(
-    `Could not find any file mathcing the expression ${expression} under the dirctcory ${directory}`
-  );
+  clearTimeout(timeout);
+
+  throw new FileNotFoundError(`File not found by ${filepath}`);
 }

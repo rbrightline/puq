@@ -1,20 +1,29 @@
-import { mkdir, writeFile } from 'fs/promises';
-import { readFile } from '../../src/index.js';
+import { mkdir, readFile, scope } from '../../src/index.js';
 import { join } from 'path';
+import { rm } from '../../src/lib/rm.js';
+import { writeFile } from 'fs/promises';
 
 describe('readFile', () => {
-  const root = join(__dirname, 'data', 'some', 'other');
+  const resolve = scope(join(__dirname, 'data'));
+  const root = resolve(__dirname, 'data');
+  const fileDirectory = resolve(root, 'some', 'other');
+
   beforeAll(async () => {
-    await mkdir(root, { recursive: true });
-    await writeFile(join(root, 'file.ts'), 'export const hello = "hello";');
+    await mkdir(fileDirectory);
+    await writeFile(
+      resolve(fileDirectory, 'file.ts'),
+      'export const hello = "hello";'
+    );
   });
 
   afterAll(async () => {
-    // await rm(join(__dirname, 'data'), { recursive: true });
+    await rm(resolve(__dirname, 'data'), { recursive: true });
   });
 
   it('should read file', async () => {
-    const fileContent = await readFile('file.ts');
+    const fileContent = await readFile(resolve(__dirname, 'data', 'file.ts'), {
+      recursive: true,
+    });
     const textContent = fileContent.toString();
     expect(textContent).toEqual('export const hello = "hello";');
   });

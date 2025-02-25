@@ -1,972 +1,1587 @@
 [
-    {
-        "name": "@puq/core",
-        "license": "MIT",
-        "version": "0.0.6",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Commonly backend utilities",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "core"
-        ],
-        "repository": {
-            "directory": "libs/core",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/core",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/core/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/core/dist",
-                        "main": "libs/core/src/index.ts",
-                        "tsConfig": "libs/core/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/core && npx compodoc -d ../../public/core  -p tsconfig.lib.json -n core"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        },
-        "dependencies": {
-            "@nestjs/common": "^11.0.10"
-        }
+  {
+    "name": "@puq/core",
+    "license": "MIT",
+    "version": "0.0.6",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
     },
-    {
-        "name": "@puq/crypto",
-        "license": "MIT",
-        "version": "0.0.1",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Hashing and encryption functions",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "crypto",
-            "hash",
-            "encrypt",
-            "encode",
-            "decode"
-        ],
-        "repository": {
-            "directory": "libs/crypto",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/crypto",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/crypto/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/crypto/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/crypto/dist",
-                        "main": "libs/crypto/src/index.ts",
-                        "tsConfig": "libs/crypto/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/crypto && npx compodoc -d ../../public/crypto  -p tsconfig.lib.json -n crypto"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
+    "description": "Commonly backend utilities",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
     },
-    {
-        "name": "@puq/entity",
-        "license": "MIT",
-        "version": "0.0.1",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Database entities, views, and dtos crated by @puq/orm library",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "entity"
-        ],
-        "repository": {
-            "directory": "libs/entity",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/entity",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/entity/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/entity/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/entity/dist",
-                        "main": "libs/entity/src/index.ts",
-                        "tsConfig": "libs/entity/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/entity && npx compodoc -d ../../public/entity  -p tsconfig.lib.json -n entity"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
+    "keywords": [
+      "puq",
+      "core"
+    ],
+    "repository": {
+      "directory": "libs/core",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
     },
-    {
-        "name": "@puq/model",
-        "license": "MIT",
-        "version": "0.0.1",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Database table structures designed to facilitate seamless communication between the backend and frontend systems.",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "model"
-        ],
-        "repository": {
-            "directory": "libs/model",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/model",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/model/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/model/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/model/dist",
-                        "main": "libs/model/src/index.ts",
-                        "tsConfig": "libs/model/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/model && npx compodoc -d ../../public/model  -p tsconfig.lib.json -n model"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
+    "homepage": "https://rbrightline.github.io/puq/core",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
     },
-    {
-        "name": "@puq/orm",
-        "license": "MIT",
-        "version": "0.0.20",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "orm"
-        ],
-        "repository": {
-            "directory": "libs/orm",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/orm",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/orm/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
         "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/orm/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/orm/dist",
-                        "main": "libs/orm/src/index.ts",
-                        "tsConfig": "libs/orm/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/orm && npx compodoc -d ../../public/orm  -p tsconfig.lib.json -n orm"
-                }
-            }
-        },
-        "devDependencies": {
-            "@nx/devkit": "20.4.4",
-            "@swc/helpers": "~0.5.11"
-        },
-        "peerDependencies": {
-            "@nestjs/swagger": "^11.0.3",
-            "@nestjs/common": "^11.0.10",
-            "class-transformer": "^0.5.1",
-            "class-validator": "^0.14.1",
-            "reflect-metadata": "^0.2.2",
-            "typeorm": "^0.3.20",
-            "better-sqlite3": "^11.8.1",
-            "sqlite3": "^5.1.7",
-            "pg": "^8.13.3"
-        },
-        "dependencies": {
-            "@puq/property": "^0.0.20",
-            "@puq/query": "^0.0.20",
-            "@puq/type": "^0.0.20"
-        }
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
     },
-    {
-        "name": "@puq/property",
-        "license": "MIT",
-        "version": "0.0.20",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/core/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/core/dist",
+            "main": "libs/core/src/index.ts",
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
         },
-        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "property"
-        ],
-        "repository": {
-            "directory": "libs/property",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/property",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/property/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/property/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/property/dist",
-                        "main": "libs/property/src/index.ts",
-                        "tsConfig": "libs/property/tsconfig.lib.json",
-                        "skipTypeCheck": false,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/property && npx compodoc -d ../../public/property  -p tsconfig.lib.json -n property"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        },
-        "peerDependencies": {
-            "@nestjs/swagger": "^11.0.3",
-            "class-transformer": "^0.5.1",
-            "@swc/helpers": "~0.5.11"
-        },
-        "dependencies": {
-            "@puq/type": "^0.0.20",
-            "@puq/validation": "^0.0.20"
+        "doc": {
+          "command": "cd libs/core && npx compodoc -d ../../public/core  -p tsconfig.lib.json -n core"
         }
+      }
     },
-    {
-        "name": "@puq/puq",
-        "version": "0.0.8",
-        "license": "MIT",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "puq generators",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "cli",
-            "generators"
-        ],
-        "repository": {
-            "directory": "libs/puq",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/puq",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/puq/favicon.png",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "nx": {
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:tsc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/puq/dist",
-                        "main": "libs/puq/src/index.ts",
-                        "tsConfig": "libs/puq/tsconfig.lib.json",
-                        "rootDir": "libs/puq/src",
-                        "generatePackageJson": false,
-                        "assets": [
-                            {
-                                "input": "./libs/puq/src",
-                                "glob": "**/!(*.ts)",
-                                "output": "."
-                            },
-                            {
-                                "input": "./libs/puq/src",
-                                "glob": "**/*.d.ts",
-                                "output": "."
-                            }
-                        ]
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/puq && npx compodoc -d ../../public/puq  -p tsconfig.lib.json -n puq"
-                }
-            }
-        },
-        "dependencies": {
-            "@nx/devkit": "20.4.4",
-            "tslib": "^2.3.0"
-        },
-        "generators": "./generators.json",
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo",
-            "generators.json"
-        ]
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
     },
-    {
-        "name": "@puq/query",
-        "license": "MIT",
-        "version": "0.0.20",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a seamless experience across the entire stack.",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "query"
-        ],
-        "repository": {
-            "directory": "libs/query",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/query",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/query/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/query/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/query/dist",
-                        "main": "libs/query/src/index.ts",
-                        "tsConfig": "libs/query/tsconfig.lib.json",
-                        "skipTypeCheck": false,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/query && npx compodoc -d ../../public/query  -p tsconfig.lib.json -n query"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
-    },
-    {
-        "name": "@puq/rest",
-        "displayName": "@puq/rest",
-        "license": "MIT",
-        "version": "0.0.1",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "rest"
-        ],
-        "repository": {
-            "directory": "libs/rest",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/rest",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/rest/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/rest/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/rest/dist",
-                        "main": "libs/rest/src/index.ts",
-                        "tsConfig": "libs/rest/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/rest && npx compodoc -d ../../public/rest  -p tsconfig.lib.json -n rest"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
-    },
-    {
-        "name": "@puq/type",
-        "version": "0.0.21",
-        "license": "MIT",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Common model and utility types",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "type",
-            "model",
-            "type-utility"
-        ],
-        "repository": {
-            "directory": "libs/type",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/type",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/type/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/type/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/type/dist",
-                        "main": "libs/type/src/index.ts",
-                        "tsConfig": "libs/type/tsconfig.lib.json",
-                        "skipTypeCheck": true,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/type &&  npx compodoc -d ../../public/type  -p tsconfig.lib.json -n type"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        }
-    },
-    {
-        "name": "@puq/validation",
-        "license": "MIT",
-        "version": "0.0.20",
-        "publishConfig": {
-            "access": "public",
-            "tag": "latest"
-        },
-        "description": "Validation decorators",
-        "author": {
-            "email": "robert.brightline@gmail.com",
-            "name": "Robert Brightline",
-            "url": "https://rbrightline.github.io"
-        },
-        "keywords": [
-            "puq",
-            "validation"
-        ],
-        "repository": {
-            "directory": "libs/validation",
-            "url": "https://github.com/rbrightline/puq/tree/main",
-            "type": "github"
-        },
-        "homepage": "https://rbrightline.github.io/puq/validation",
-        "bugs": {
-            "email": "robert.brightline@gmail.com",
-            "url": "https://rbrightline.github.io"
-        },
-        "categories": [
-            "Other"
-        ],
-        "contributors": [
-            {
-                "email": "robert.brightline@gmail.com",
-                "name": "Robert Brightline",
-                "url": "https://rbrightline.github.io"
-            }
-        ],
-        "funding": [
-            "https://cash.app/$puqlib"
-        ],
-        "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/validation/favicon.png",
-        "type": "module",
-        "main": "./dist/index.js",
-        "module": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "exports": {
-            "./package.json": "./package.json",
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.js",
-                "default": "./dist/index.js"
-            }
-        },
-        "files": [
-            "dist",
-            "!**/*.tsbuildinfo"
-        ],
-        "nx": {
-            "sourceRoot": "libs/validation/src",
-            "targets": {
-                "build": {
-                    "executor": "@nx/js:swc",
-                    "outputs": [
-                        "{options.outputPath}"
-                    ],
-                    "options": {
-                        "outputPath": "libs/validation/dist",
-                        "main": "libs/validation/src/index.ts",
-                        "tsConfig": "libs/validation/tsconfig.lib.json",
-                        "skipTypeCheck": false,
-                        "stripLeadingPaths": true
-                    }
-                },
-                "doc": {
-                    "command": "cd libs/validation && npx compodoc -d ../../public/validation  -p tsconfig.lib.json -n validation"
-                }
-            }
-        },
-        "devDependencies": {
-            "@swc/helpers": "~0.5.11"
-        },
-        "peerDependencies": {
-            "class-transformer": "^0.5.1",
-            "class-validator": "^0.14.1",
-            "reflect-metadata": "^0.2.2"
-        },
-        "dependencies": {
-            "@puq/type": "^0.0.20"
-        }
+    "dependencies": {
+      "@nestjs/common": "^11.0.10"
     }
+  },
+  {
+    "name": "@puq/crypto",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Hashing and encryption functions",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "crypto",
+      "hash",
+      "encrypt",
+      "encode",
+      "decode"
+    ],
+    "repository": {
+      "directory": "libs/crypto",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/crypto",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/crypto/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/crypto/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/crypto/dist",
+            "main": "libs/crypto/src/index.ts",
+            "tsConfig": "libs/crypto/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/crypto && npx compodoc -d ../../public/crypto  -p tsconfig.lib.json -n crypto"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/debug",
+    "license": "MIT",
+    "version": "0.0.2",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "debug",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "debug"
+    ],
+    "repository": {
+      "directory": "libs/debug",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/debug",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/debug/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/debug/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/debug/dist",
+            "main": "libs/debug/src/index.ts",
+            "tsConfig": "libs/debug/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/debug && npx compodoc -d ../../public/debug  -p tsconfig.lib.json -n debug"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/entity",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Database entities, views, and dtos crated by @puq/orm library",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "entity"
+    ],
+    "repository": {
+      "directory": "libs/entity",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/entity",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/entity/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/entity/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/entity/dist",
+            "main": "libs/entity/src/index.ts",
+            "tsConfig": "libs/entity/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/entity && npx compodoc -d ../../public/entity  -p tsconfig.lib.json -n entity"
+        }
+      }
+    },
+    "devDependencies": {
+      "@faker-js/faker": "^9.5.0",
+      "@swc/helpers": "~0.5.11"
+    },
+    "peerDependencies": {
+      "@nestjs/common": "^11.0.10",
+      "@nestjs/swagger": "^11.0.3",
+      "@puq/property": "^0.0.20",
+      "@puq/type": "^0.0.20"
+    },
+    "dependencies": {
+      "@puq/model": "workspace:^",
+      "@puq/orm": "workspace:^",
+      "pg": "^8.13.3",
+      "sqlite3": "^5.1.7",
+      "typeorm": "^0.3.20"
+    }
+  },
+  {
+    "name": "@puq/error",
+    "license": "MIT",
+    "version": "0.0.4",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Errors used accross the **puq** project",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "error"
+    ],
+    "repository": {
+      "directory": "libs/error",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/error",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/error/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/error/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/error/dist",
+            "main": "libs/error/src/index.ts",
+            "tsConfig": "libs/error/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/error && npx compodoc -d ../../public/error  -p tsconfig.lib.json -n error"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/fs",
+    "license": "MIT",
+    "version": "0.0.8",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "fs",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "fs"
+    ],
+    "repository": {
+      "directory": "libs/fs",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/fs",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/fs/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/fs/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/fs/dist",
+            "main": "libs/fs/src/index.ts",
+            "tsConfig": "libs/fs/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/fs && npx compodoc -d ../../public/fs  -p tsconfig.lib.json -n fs"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "dependencies": {
+      "@puq/debug": "^0.0.2",
+      "@puq/error": "^0.0.4",
+      "@puq/is": "^0.0.2"
+    }
+  },
+  {
+    "name": "@puq/gen",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "gen",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "gen"
+    ],
+    "repository": {
+      "directory": "libs/gen",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/gen",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/gen/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo",
+      "generators.json"
+    ],
+    "nx": {
+      "sourceRoot": "libs/gen/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/gen/dist",
+            "main": "libs/gen/src/index.ts",
+            "tsConfig": "libs/gen/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/gen && npx compodoc -d ../../public/gen  -p tsconfig.lib.json -n gen"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "generators": "./generators.json",
+    "dependencies": {
+      "@nx/devkit": "20.4.4",
+      "@puq/debug": "^0.0.1"
+    }
+  },
+  {
+    "name": "@puq/is",
+    "license": "MIT",
+    "version": "0.0.2",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "is",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "is"
+    ],
+    "repository": {
+      "directory": "libs/is",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/is",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/is/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/is/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/is/dist",
+            "main": "libs/is/src/index.ts",
+            "tsConfig": "libs/is/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/is && npx compodoc -d ../../public/is  -p tsconfig.lib.json -n is"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "dependencies": {
+      "@puq/error": "^0.0.3"
+    }
+  },
+  {
+    "name": "@puq/model",
+    "license": "MIT",
+    "version": "0.0.2",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Database table structures designed to facilitate seamless communication between the backend and frontend systems.",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "model"
+    ],
+    "repository": {
+      "directory": "libs/model",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/model",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/model/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/model/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/model/dist",
+            "main": "libs/model/src/index.ts",
+            "tsConfig": "libs/model/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/model && npx compodoc -d ../../public/model  -p tsconfig.lib.json -n model"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "dependencies": {
+      "@puq/type": "^0.0.20"
+    }
+  },
+  {
+    "name": "@puq/names",
+    "license": "MIT",
+    "version": "0.0.2",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "names",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "names"
+    ],
+    "repository": {
+      "directory": "libs/names",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/names",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/names/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/names/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/names/dist",
+            "main": "libs/names/src/index.ts",
+            "tsConfig": "libs/names/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/names && npx compodoc -d ../../public/names  -p tsconfig.lib.json -n names"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/orm",
+    "license": "MIT",
+    "version": "0.0.21",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "orm"
+    ],
+    "repository": {
+      "directory": "libs/orm",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/orm",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/orm/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/orm/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/orm/dist",
+            "main": "libs/orm/src/index.ts",
+            "tsConfig": "libs/orm/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/orm && npx compodoc -d ../../public/orm  -p tsconfig.lib.json -n orm"
+        }
+      }
+    },
+    "devDependencies": {
+      "@nx/devkit": "20.4.4",
+      "@swc/helpers": "~0.5.11"
+    },
+    "peerDependencies": {
+      "@nestjs/common": "^11.0.10",
+      "@nestjs/swagger": "^11.0.3",
+      "better-sqlite3": "^11.8.1",
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.14.1",
+      "pg": "^8.13.3",
+      "reflect-metadata": "^0.2.2",
+      "sqlite3": "^5.1.7",
+      "typeorm": "^0.3.20"
+    },
+    "dependencies": {
+      "@puq/names": "workspace:^",
+      "@puq/property": "^0.0.20",
+      "@puq/query": "^0.0.20",
+      "@puq/type": "^0.0.20"
+    }
+  },
+  {
+    "name": "@puq/printer",
+    "license": "MIT",
+    "version": "0.0.2",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Property definition printer to help code generators",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "printer"
+    ],
+    "repository": {
+      "directory": "libs/printer",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/printer",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/printer/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/printer/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/printer/dist",
+            "main": "libs/printer/src/index.ts",
+            "tsConfig": "libs/printer/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/printer && npx compodoc -d ../../public/printer  -p tsconfig.lib.json -n printer"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "dependencies": {
+      "@puq/type": "^0.0.25"
+    }
+  },
+  {
+    "name": "@puq/property",
+    "license": "MIT",
+    "version": "0.0.20",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "property"
+    ],
+    "repository": {
+      "directory": "libs/property",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/property",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/property/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/property/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/property/dist",
+            "main": "libs/property/src/index.ts",
+            "tsConfig": "libs/property/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/property && npx compodoc -d ../../public/property  -p tsconfig.lib.json -n property"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "peerDependencies": {
+      "@nestjs/swagger": "^11.0.3",
+      "class-transformer": "^0.5.1",
+      "@swc/helpers": "~0.5.11"
+    },
+    "dependencies": {
+      "@puq/type": "^0.0.20",
+      "@puq/validation": "^0.0.20"
+    }
+  },
+  {
+    "name": "@puq/query",
+    "license": "MIT",
+    "version": "0.0.20",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a seamless experience across the entire stack.",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "query"
+    ],
+    "repository": {
+      "directory": "libs/query",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/query",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/query/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/query/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/query/dist",
+            "main": "libs/query/src/index.ts",
+            "tsConfig": "libs/query/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/query && npx compodoc -d ../../public/query  -p tsconfig.lib.json -n query"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/rest",
+    "displayName": "@puq/rest",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "rest"
+    ],
+    "repository": {
+      "directory": "libs/rest",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/rest",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/rest/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/rest/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/rest/dist",
+            "main": "libs/rest/src/index.ts",
+            "tsConfig": "libs/rest/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/rest && npx compodoc -d ../../public/rest  -p tsconfig.lib.json -n rest"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/tools",
+    "license": "MIT",
+    "version": "0.0.15",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with this robust CLI library built on the Commander framework. Designed for developers and power users, it streamlines essential I/O operations such as recursive and asynchronous file renaming, replacing, and copying with ease. Beyond file management, the library includes a suite of developer-friendly commands to enhance workflow automation and efficiency. Whether you're handling bulk file operations or optimizing your development environment, this CLI is your go-to tool for seamless execution. Empower your command-line experience—effortlessly!",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "tools",
+      "rename",
+      "replace"
+    ],
+    "repository": {
+      "directory": "libs/tools",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/tools",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/tools/favicon.png",
+    "bin": {
+      "tools": "./bin/tools.js"
+    },
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "bin",
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/tools/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/tools/dist",
+            "main": "libs/tools/src/index.ts",
+            "tsConfig": "libs/tools/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/tools && npx compodoc -d ../../public/tools  -p tsconfig.lib.json -n tools"
+        }
+      }
+    },
+    "dependencies": {
+      "@puq/debug": "^0.0.2",
+      "@puq/error": "^0.0.3",
+      "@puq/fs": "^0.0.7",
+      "@puq/is": "^0.0.2",
+      "commander": "^13.1.0"
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/type",
+    "version": "0.0.26",
+    "license": "MIT",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Common model and utility types",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "type",
+      "model",
+      "type-utility"
+    ],
+    "repository": {
+      "directory": "libs/type",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/type",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/type/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/type/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/type/dist",
+            "main": "libs/type/src/index.ts",
+            "tsConfig": "libs/type/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/type &&  npx compodoc -d ../../public/type  -p tsconfig.lib.json -n type"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@puq/validation",
+    "license": "MIT",
+    "version": "0.0.20",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "description": "Validation decorators",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+      "puq",
+      "validation"
+    ],
+    "repository": {
+      "directory": "libs/validation",
+      "url": "https://github.com/rbrightline/puq/tree/main",
+      "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/validation",
+    "bugs": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+      "Other"
+    ],
+    "contributors": [
+      {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+      }
+    ],
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/validation/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/validation/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/validation/dist",
+            "main": "libs/validation/src/index.ts",
+            "tsConfig": "libs/validation/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "command": "cd libs/validation && npx compodoc -d ../../public/validation  -p tsconfig.lib.json -n validation"
+        }
+      }
+    },
+    "devDependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "peerDependencies": {
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.14.1",
+      "reflect-metadata": "^0.2.2"
+    },
+    "dependencies": {
+      "@puq/type": "^0.0.20"
+    }
+  }
 ]

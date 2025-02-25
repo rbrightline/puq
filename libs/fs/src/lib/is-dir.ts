@@ -1,10 +1,28 @@
 import { rval } from '@puq/is';
 import { stat } from 'fs/promises';
-import { normalize } from 'path';
 import { scope } from './scope.js';
+import {} from 'repl';
+import { debug, start, end } from '@puq/debug';
 
+/**
+ * Checkt he filepath is a directory
+ * @param filepath
+ * @returns
+ */
 export async function isDir(filepath: string): Promise<boolean> {
-  filepath = scope()(filepath);
-  const __stat = await stat(normalize(rval(filepath)));
-  return __stat.isDirectory();
+  start(isDir.name);
+  filepath = rval(filepath);
+  debug({ filepath });
+
+  const resolve = scope();
+  filepath = resolve(filepath);
+  debug({ filepath });
+
+  const s = await stat(filepath);
+  const __isDirectory = s.isDirectory();
+
+  debug({ isDirectory: __isDirectory });
+  end();
+
+  return __isDirectory;
 }

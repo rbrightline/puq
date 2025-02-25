@@ -1,5 +1,6 @@
+import { end, start, debug } from '@puq/debug';
 import { rval } from '@puq/is';
-import { normalize } from 'path';
+import { scope } from './scope.js';
 
 /**
  * Extract the dirpath from the filepath
@@ -7,5 +8,21 @@ import { normalize } from 'path';
  * @returns
  */
 export function dirpath(filepath: string) {
-  return normalize(rval(filepath)).split('\\').slice(0, -1).join('\\');
+  start(dirpath.name);
+
+  filepath = rval(filepath);
+
+  debug({ filepath });
+
+  const resolve = scope();
+
+  filepath = resolve(filepath);
+
+  const __dirpath = resolve(filepath.split('\\').slice(0, -1).join('\\'));
+
+  debug({ dirpath: __dirpath });
+
+  end();
+
+  return __dirpath;
 }

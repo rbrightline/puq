@@ -10,4 +10,6 @@ export * from './lib/is-dir.js';
 export * from './lib/is-file.js';
 export * from './lib/mkdir.js';
 export * from './lib/read-file.js';
+export * from './lib/rm.js';
 export * from './lib/scope.js';
+export * from './lib/write-file.js';

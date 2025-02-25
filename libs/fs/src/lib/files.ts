@@ -2,8 +2,9 @@ import { debug, end, start } from '@puq/debug';
 import { def, rval } from '@puq/is';
 import { Stats } from 'fs';
 import { readdir, stat } from 'fs/promises';
-import { extname, join } from 'path';
+import { extname } from 'path';
 import { scope } from './scope.js';
+
 /**
  * Find all files in the target directory (only files)
  * @param directory target directory ("." by default)
@@ -14,14 +15,20 @@ export async function files(
   extention?: string
 ): Promise<string[]> {
   start('files');
+  rval(directory);
   debug({ directory, extention });
-  directory = scope()(rval(directory));
-  const found = await readdir(directory);
+  const resolve = scope();
+  directory = resolve(directory);
+  const foundDirs = await readdir(directory);
 
-  debug({ directory, extention });
+  debug({ directory });
+  debug({ foundDirs });
 
-  const filesStatsPromise = found.map(async (filename) => {
-    return [filename, await stat(join(directory, filename))] as [string, Stats];
+  const filesStatsPromise = foundDirs.map(async (filename) => {
+    return [filename, await stat(resolve(directory, filename))] as [
+      string,
+      Stats
+    ];
   });
 
   const filesStats = await Promise.all(filesStatsPromise);

@@ -6,7 +6,9 @@
 
 ## Summary
 
-fs
+The library restricts I/O operations to the project directory. These operations are confined within the defined scope and cannot access resources outside of it.
+
+By default, the scope is set to the current working directory (cwd), meaning that functions are limited to accessing files and directories within this directory.
 
 ## Install
 
