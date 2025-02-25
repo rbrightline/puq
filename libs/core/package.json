@@ -1,12 +1,12 @@
 {
   "name": "@puq/core",
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "Commonly backend utilities",
+  "description": "The library provides common functionality, configurations for backend services.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

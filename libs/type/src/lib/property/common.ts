@@ -120,7 +120,7 @@ export type CommonOptions<T> = {
   /**
    * Disabled input
    */
-  disabled?: string;
+  disabled?: boolean;
 
   /**
    * Hidden input

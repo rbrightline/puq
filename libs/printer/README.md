@@ -6,7 +6,7 @@
 
 ## Summary
 
-Property printers to help code generators. The printer use `@puq/type` `PropertyOptions` to create property definitions.
+A utility library that transforms property options such as `{ type:'string'}` into various property definitions like plain (`name: string`), entity (`@Column() name:string`), dto (`@Property() name: string`), or view (`@ViewColumn() name: string`) property definitions for TypeScript/JavaScript projects.
 
 ## Install
 

@@ -14,6 +14,8 @@ for (const l of libs) {
 
   const { nx, exports, files, ...rest } = object;
 
+  rest.summary = rest.description.slice(0, 100) + '...';
+
   result.push(JSON.stringify(rest));
 }
 

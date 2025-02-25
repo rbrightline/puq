@@ -2,9 +2,10 @@ import { rval } from '@puq/is';
 import { RelationOptions } from '@puq/type';
 
 /**
- * Print property type such as 'string', 'number', 'stirng[]', 'SomeObject[]'
- * @param options
- * @returns
+ * Determines the relation type string based on the provided options.
+ *
+ * @param {RelationOptions} options - The relation options containing type and target.
+ * @returns {string} A string representation of the relation type.
  */
 export function relationType(options: RelationOptions): string {
   rval(options);

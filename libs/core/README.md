@@ -6,7 +6,7 @@
 
 ## Summary
 
-core
+The library provides common functionality, configurations for backend services.
 
 ## Install
 

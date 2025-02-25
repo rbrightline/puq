@@ -6,7 +6,7 @@
 
 ## Summary
 
-crypto
+A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along with robust hashing methods for data integrity verification. Ideal for protecting sensitive information, implementing password storage, and ensuring data confidentiality in modern web applications.
 
 ## Install
 

@@ -1,13 +1,12 @@
-import { rval } from '@puq/is';
 import { PropertyOptions } from '@puq/type';
 
 /**
- * Print property type such as 'string', 'number', 'stirng[]', 'SomeObject[]'
- * @param options
- * @returns
+ * Determines the TypeScript-compatible property type based on the given options.
+ *
+ * @param {PropertyOptions} options - The property options including type and target.
+ * @returns {string} A TypeScript-like type definition (e.g., 'string', 'number', 'SomeObject[]').
  */
 export function propertyType(options: PropertyOptions): string {
-  rval(options);
   switch (options.type) {
     case 'string':
     case 'number':

@@ -2,12 +2,12 @@
     {
         "name": "@puq/core",
         "license": "MIT",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "Commonly backend utilities",
+        "description": "The library provides common functionality, configurations for backend services.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -55,12 +55,12 @@
     {
         "name": "@puq/crypto",
         "license": "MIT",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "Hashing and encryption functions",
+        "description": "A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along ",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -380,8 +380,8 @@
             "@nx/devkit": "20.4.4",
             "@puq/debug": "^0.0.1",
             "@puq/fs": "^0.0.8",
-            "@puq/printer": "^0.0.2",
-            "@puq/type": "^0.0.27",
+            "@puq/printer": "workspace:^",
+            "@puq/type": "workspace:^",
             "js-yaml": "^4.1.0"
         }
     },
@@ -549,7 +549,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
+        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities ar",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -617,7 +617,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Property definition printer to help code generators",
+        "description": "Thank you for using `@puq/printer` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your cont",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -660,7 +660,7 @@
         },
         "dependencies": {
             "@puq/is": "^0.0.2",
-            "@puq/type": "^0.0.30"
+            "@puq/type": "workspace:^"
         }
     },
     {
@@ -671,7 +671,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
+        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -730,7 +730,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a seamless experience across the entire stack.",
+        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -781,7 +781,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.",
+        "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This libra",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -831,7 +831,7 @@
             "access": "public",
             "tag": "latest"
         },
-        "description": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with this robust CLI library built on the Commander framework. Designed for developers and power users, it streamlines essential I/O operations such as recursive and asynchronous file renaming, replacing, and copying with ease. Beyond file management, the library includes a suite of developer-friendly commands to enhance workflow automation and efficiency. Whether you're handling bulk file operations or optimizing your development environment, this CLI is your go-to tool for seamless execution. Empower your command-line experience—effortlessly!",
+        "description": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with this robust CLI library built on the Commander framework. Designed for developers and power users, it ",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -887,7 +887,7 @@
     },
     {
         "name": "@puq/type",
-        "version": "0.0.30",
+        "version": "0.0.31",
         "license": "MIT",
         "publishConfig": {
             "access": "public",
