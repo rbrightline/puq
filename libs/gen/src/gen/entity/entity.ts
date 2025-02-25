@@ -15,7 +15,13 @@ export async function entityGenerator(
   const source = join(__dirname, 'files');
   const target = options.directory;
   const ns = names(getName(options.directory));
-  generateFiles(tree, source, target, { ...ns });
+
+  generateFiles(tree, source, target, {
+    ...ns,
+    properties: '// properties',
+    columns: '// columns',
+    viewColumns: '// viewColumns',
+  });
   await formatFiles(tree);
 }
 

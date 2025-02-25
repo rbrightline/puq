@@ -1,3 +1,5 @@
+import { PuqOptions } from './puq-options.js';
+
 export type PackageJSON = {
   name: string;
   version: string;
@@ -68,4 +70,5 @@ export type PackageJSON = {
   dependencies: Record<string, string>;
   devDependencies: Record<string, string>;
   peerDependencies: Record<string, string>;
+  puq: PuqOptions;
 };

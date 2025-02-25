@@ -84,14 +84,14 @@
   "peerDependencies": {
     "@nestjs/common": "^11.0.10",
     "@nestjs/swagger": "^11.0.3",
-    "@puq/property": "^0.0.20",
-    "@puq/type": "^0.0.20"
+    "pg": "^8.13.3",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20"
   },
   "dependencies": {
     "@puq/model": "workspace:^",
     "@puq/orm": "workspace:^",
-    "pg": "^8.13.3",
-    "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.20"
+    "@puq/property": "^0.0.20",
+    "@puq/type": "^0.0.27"
   }
 }

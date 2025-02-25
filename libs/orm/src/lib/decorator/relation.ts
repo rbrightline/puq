@@ -1,19 +1,23 @@
-import { Type } from '@puq/type';
+import { RelationOptions } from '@puq/type';
 import {
   JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
+  ObjectLiteral,
   OneToMany,
   OneToOne,
-  RelationOptions as __RelationOptions,
 } from 'typeorm';
-import { RelationType } from 'typeorm/metadata/types/RelationTypes.js';
 
-/**
- * Relation decorator options
- */
-export type RelationOptions = __RelationOptions & { join?: boolean };
+// /**
+//  * Relation decorator options
+//  */
+// export type RelationOptions = __RelationOptions & {
+//   type: RelationType;
+//   target: () => Type;
+//   targetColumn?: string;
+//   join?: boolean;
+// };
 
 /**
  *
@@ -22,24 +26,24 @@ export type RelationOptions = __RelationOptions & { join?: boolean };
  * @param options {@link RelationOptions} typeorm relation options
  * @returns
  */
-export function Relation(
-  type: RelationType,
-  target: () => Type,
-  options: RelationOptions
-): PropertyDecorator {
+export function Relation(options: RelationOptions): PropertyDecorator {
   return (t, p) => {
+    const { type, target } = options;
+
+    const pickColumn = (e: ObjectLiteral) => e[options.targetColumn ?? 'id'];
+
     switch (type) {
       case 'one-to-one':
-        OneToOne(target, (e) => e.id, options)(t, p);
+        OneToOne(target, pickColumn, options)(t, p);
         break;
       case 'one-to-many':
-        OneToMany(target, (e) => e.id, options)(t, p);
+        OneToMany(target, pickColumn, options)(t, p);
         break;
       case 'many-to-one':
-        ManyToOne(target, (e) => e.id, options)(t, p);
+        ManyToOne(target, pickColumn, options)(t, p);
         break;
       case 'many-to-many':
-        ManyToMany(target, (e) => e.id, options)(t, p);
+        ManyToMany(target, pickColumn, options)(t, p);
         break;
     }
 

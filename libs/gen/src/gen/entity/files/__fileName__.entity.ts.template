@@ -3,5 +3,6 @@ import { Entity, Column, BaseEntity } from '@puq/orm';
 
 @Entity()
 export class <%- className %> extends BaseEntity implements <%- className %>Model {
-  @Column({ type: 'string', unique: true, readonly: true }) name: string;
+ <%- columns %>
+ <%- relations %>
 }

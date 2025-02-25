@@ -4,5 +4,5 @@ import { <%- className %> } from './<%- fileName %>.entity.js';
 
 @ViewEntity((q) => q.addSelect('m.name', 'name').from(<%- className %>, 'm'))
 export class <%- className %>View extends BaseView implements <%- className %>ViewModel {
-  @ViewColumn({ type: 'string' }) name: string;
+  <%- viewColumns %>
 }

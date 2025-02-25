@@ -93,9 +93,9 @@
     "typeorm": "^0.3.20"
   },
   "dependencies": {
-    "@puq/names": "workspace:^",
+    "@puq/names": "^0.0.2",
     "@puq/property": "^0.0.20",
     "@puq/query": "^0.0.20",
-    "@puq/type": "^0.0.20"
+    "@puq/type": "^0.0.27"
   }
 }

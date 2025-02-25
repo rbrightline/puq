@@ -51,8 +51,11 @@
     "@nx/devkit": "20.4.4"
   },
   "puq": {
-    "models": "./model",
-    "libs": "libs",
-    "services": "services"
+    "libsRoot": "./libs",
+    "servicesRoot": "./services",
+    "modelLibrary": "model",
+    "entityLibrary": "entity",
+    "resourceLibrary": "resource",
+    "metadataRoot": "./model"
   }
 }

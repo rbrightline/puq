@@ -80,13 +80,16 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "@types/js-yaml": "^4.0.9"
   },
   "generators": "./generators.json",
   "dependencies": {
     "@nx/devkit": "20.4.4",
     "@puq/debug": "^0.0.1",
     "@puq/fs": "^0.0.8",
-    "@puq/type": "^0.0.26"
+    "@puq/printer": "^0.0.2",
+    "@puq/type": "^0.0.27",
+    "js-yaml": "^4.1.0"
   }
 }

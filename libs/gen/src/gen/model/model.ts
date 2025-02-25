@@ -19,7 +19,7 @@ export async function modelGenerator(
   const packageJSON = await projectPackageJson();
 
   const modelRoot = (packageJSON as any).puq?.model ?? 'model';
-  generateFiles(tree, source, target, { ...ns });
+  generateFiles(tree, source, target, { ...ns, properties: '// Properties' });
   await formatFiles(tree);
 
   throw new Error(modelRoot);
