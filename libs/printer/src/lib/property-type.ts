@@ -1,3 +1,4 @@
+import { rval } from '@puq/is';
 import { PropertyOptions } from '@puq/type';
 
 /**
@@ -6,6 +7,7 @@ import { PropertyOptions } from '@puq/type';
  * @returns
  */
 export function propertyType(options: PropertyOptions): string {
+  rval(options);
   switch (options.type) {
     case 'string':
     case 'number':
@@ -14,7 +16,7 @@ export function propertyType(options: PropertyOptions): string {
       return options.type;
 
     case 'object':
-      return options.target as unknown as string;
+      return options.target.toString();
     case 'integer':
       return 'number';
 

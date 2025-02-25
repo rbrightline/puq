@@ -289,9 +289,12 @@ importers:
 
   libs/printer:
     dependencies:
+      '@puq/is':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@puq/type':
-        specifier: ^0.0.25
-        version: 0.0.25
+        specifier: ^0.0.30
+        version: 0.0.30
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11

@@ -1,7 +1,7 @@
 {
   "name": "@puq/printer",
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.0.31",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -81,6 +81,7 @@
     "@swc/helpers": "~0.5.11"
   },
   "dependencies": {
-    "@puq/type": "^0.0.25"
+    "@puq/is": "^0.0.2",
+    "@puq/type": "^0.0.30"
   }
 }
