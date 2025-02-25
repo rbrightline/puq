@@ -1,12 +1,12 @@
 {
   "name": "@puq/gen",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "Generator",
+  "description": "Resoruce generators such as entity, model, rest-resource, library-project, cli-project, service-project.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

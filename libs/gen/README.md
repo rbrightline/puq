@@ -6,7 +6,7 @@
 
 ## Summary
 
-gen
+Resoruce generators such as entity, model, rest-resource, library-project, cli-project, service-project.
 
 ## Install
 

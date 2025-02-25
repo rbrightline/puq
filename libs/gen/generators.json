@@ -1,5 +1,25 @@
 {
   "generators": {
+    "api": {
+      "factory": "./dist/gen/api/api",
+      "schema": "./dist/gen/api/schema.json",
+      "description": "api generator"
+    },
+    "cli": {
+      "factory": "./dist/gen/cli/cli",
+      "schema": "./dist/gen/cli/schema.json",
+      "description": "cli generator"
+    },
+    "client": {
+      "factory": "./dist/gen/client/client",
+      "schema": "./dist/gen/client/schema.json",
+      "description": "client generator"
+    },
+    "entity": {
+      "factory": "./dist/gen/entity/entity",
+      "schema": "./dist/gen/entity/schema.json",
+      "description": "entity generator"
+    },
     "generator": {
       "factory": "./dist/gen/generator/generator",
       "schema": "./dist/gen/generator/schema.json",
@@ -8,7 +28,22 @@
     "hello": {
       "factory": "./dist/gen/hello/hello",
       "schema": "./dist/gen/hello/schema.json",
-      "description": "hello generator"
+      "description": "hello hello"
+    },
+    "library": {
+      "factory": "./dist/gen/library/library",
+      "schema": "./dist/gen/library/schema.json",
+      "description": "library library"
+    },
+    "model": {
+      "factory": "./dist/gen/model/model",
+      "schema": "./dist/gen/model/schema.json",
+      "description": "model model"
+    },
+    "module": {
+      "factory": "./dist/gen/module/module",
+      "schema": "./dist/gen/module/schema.json",
+      "description": "module module"
     }
   }
 }
