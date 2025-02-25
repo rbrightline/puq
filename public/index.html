@@ -8,10 +8,20 @@
     <title>Brightline Software</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body,
+        html {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+
             background-color: #f4f4f9;
             color: #333;
             overflow-x: hidden;
@@ -53,28 +63,24 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
+            width: 100%;
             gap: 20px;
             animation: fadeIn 2s ease-in-out;
         }
 
         .library-card {
             padding: 20px;
-            margin-bottom: 20px;
-            width: 250px;
-            /* Added margin to separate cards */
+            width: 300px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #333;
             transition: all 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
             color: white;
             border-bottom: 3px solid;
-            /* Random color for bottom border */
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
         }
 
 
@@ -82,10 +88,6 @@
 
         .library-card:hover {
             cursor: pointer;
-            transform: translateY(-10px) rotate(10deg);
-            border-top-right-radius: 20%;
-            border-bottom-width: 10px;
-            border-bottom-left-radius: 20%;
             text-shadow: 0px 0px 3px 1px orange;
         }
 
