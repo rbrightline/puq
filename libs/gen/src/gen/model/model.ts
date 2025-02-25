@@ -1,7 +1,7 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import { ModelGeneratorSchema } from './schema.js';
 import { join } from 'path';
-import { projectPackageJson, getName } from '../../lib/index.js';
+import { getName, projectPackageJson } from '../../lib/index.js';
 
 /**
  * Generate model type

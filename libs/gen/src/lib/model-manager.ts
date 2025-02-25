@@ -80,9 +80,7 @@ export class ModelManager {
       .join('\n');
 
     const __relations = this.relations()
-      ?.map((e) =>
-        [propertyDecorator('Relation', e), relationDefinition(e)].join('\n')
-      )
+      ?.map((e) => [relationDefinition(e), relationDefinition(e)].join('\n'))
       .join('\n');
 
     return [__properies, __relations].join('\n');

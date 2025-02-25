@@ -1,7 +1,7 @@
 {
   "name": "@puq/entity",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -89,9 +89,9 @@
     "typeorm": "^0.3.20"
   },
   "dependencies": {
-    "@puq/model": "workspace:^",
-    "@puq/orm": "workspace:^",
-    "@puq/property": "^0.0.20",
-    "@puq/type": "^0.0.27"
+    "@puq/model": "0.1.0",
+    "@puq/orm": "0.1.0",
+    "@puq/property": "^0.1.0",
+    "@puq/type": "^0.1.0"
   }
 }

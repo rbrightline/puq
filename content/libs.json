@@ -2,7 +2,7 @@
     {
         "name": "@puq/core",
         "license": "MIT",
-        "version": "0.0.7",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -50,17 +50,18 @@
         },
         "dependencies": {
             "@nestjs/common": "^11.0.10"
-        }
+        },
+        "summary": "The library provides common functionality, configurations for backend services...."
     },
     {
         "name": "@puq/crypto",
         "license": "MIT",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along ",
+        "description": "A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along with robust hashing methods for data integrity verification. Ideal for protecting sensitive information, implementing password storage, and ensuring data confidentiality in modern web applications.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -104,12 +105,13 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It..."
     },
     {
         "name": "@puq/debug",
         "license": "MIT",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -154,12 +156,13 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "debug..."
     },
     {
         "name": "@puq/entity",
         "license": "MIT",
-        "version": "0.0.1",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -214,16 +217,17 @@
             "typeorm": "^0.3.20"
         },
         "dependencies": {
-            "@puq/model": "workspace:^",
-            "@puq/orm": "workspace:^",
-            "@puq/property": "^0.0.20",
-            "@puq/type": "^0.0.27"
-        }
+            "@puq/model": "0.1.0",
+            "@puq/orm": "0.1.0",
+            "@puq/property": "^0.1.0",
+            "@puq/type": "^0.1.0"
+        },
+        "summary": "Database entities, views, and dtos crated by @puq/orm library..."
     },
     {
         "name": "@puq/error",
         "license": "MIT",
-        "version": "0.0.4",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -268,12 +272,13 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "Errors used accross the **puq** project..."
     },
     {
         "name": "@puq/fs",
         "license": "MIT",
-        "version": "0.0.8",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -320,15 +325,16 @@
             "@swc/helpers": "~0.5.11"
         },
         "dependencies": {
-            "@puq/debug": "^0.0.2",
-            "@puq/error": "^0.0.4",
-            "@puq/is": "^0.0.2"
-        }
+            "@puq/debug": "^0.1.0",
+            "@puq/error": "^0.1.0",
+            "@puq/is": "^0.1.0"
+        },
+        "summary": "fs..."
     },
     {
         "name": "@puq/gen",
         "license": "MIT",
-        "version": "0.0.3",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -378,17 +384,18 @@
         "generators": "./generators.json",
         "dependencies": {
             "@nx/devkit": "20.4.4",
-            "@puq/debug": "^0.0.1",
-            "@puq/fs": "^0.0.8",
-            "@puq/printer": "workspace:^",
-            "@puq/type": "workspace:^",
-            "js-yaml": "^4.1.0"
-        }
+            "js-yaml": "^4.1.0",
+            "@puq/type": "0.1.0",
+            "@puq/debug": "^0.1.0",
+            "@puq/fs": "^0.1.0",
+            "@puq/printer": "0.1.0"
+        },
+        "summary": "Resoruce generators such as entity, model, rest-resource, library-project, cli-project, service-proj..."
     },
     {
         "name": "@puq/is",
         "license": "MIT",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -435,13 +442,14 @@
             "@swc/helpers": "~0.5.11"
         },
         "dependencies": {
-            "@puq/error": "^0.0.3"
-        }
+            "@puq/error": "^0.1.0"
+        },
+        "summary": "is..."
     },
     {
         "name": "@puq/model",
         "license": "MIT",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -488,13 +496,14 @@
             "@swc/helpers": "~0.5.11"
         },
         "dependencies": {
-            "@puq/type": "^0.0.20"
-        }
+            "@puq/type": "^0.1.0"
+        },
+        "summary": "Database table structures designed to facilitate seamless communication between the backend and fron..."
     },
     {
         "name": "@puq/names",
         "license": "MIT",
-        "version": "0.0.2",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -539,17 +548,18 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "names..."
     },
     {
         "name": "@puq/orm",
         "license": "MIT",
-        "version": "0.0.30",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities ar",
+        "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -603,21 +613,22 @@
             "typeorm": "^0.3.20"
         },
         "dependencies": {
-            "@puq/names": "^0.0.2",
-            "@puq/query": "^0.0.20",
-            "@puq/property": "^0.0.30",
-            "@puq/type": "^0.0.30"
-        }
+            "@puq/names": "^0.1.0",
+            "@puq/query": "^0.1.0",
+            "@puq/property": "^0.1.0",
+            "@puq/type": "^0.1.0"
+        },
+        "summary": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validatio..."
     },
     {
         "name": "@puq/printer",
         "license": "MIT",
-        "version": "0.0.31",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "Thank you for using `@puq/printer` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your cont",
+        "description": "Thank you for using `@puq/printer` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -659,19 +670,20 @@
             "@swc/helpers": "~0.5.11"
         },
         "dependencies": {
-            "@puq/is": "^0.0.2",
-            "@puq/type": "workspace:^"
-        }
+            "@puq/is": "^0.1.0",
+            "@puq/type": "0.1.0"
+        },
+        "summary": "Thank you for using `@puq/printer` It's an open-source project, and maintaining it takes time and ef..."
     },
     {
         "name": "@puq/property",
         "license": "MIT",
-        "version": "0.0.30",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (",
+        "description": "The property decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -718,19 +730,20 @@
             "class-transformer": "^0.5.1"
         },
         "dependencies": {
-            "@puq/type": "^0.0.30",
-            "@puq/validation": "^0.0.30"
-        }
+            "@puq/type": "^0.1.0",
+            "@puq/validation": "^0.1.0"
+        },
+        "summary": "The property decorator is a powerful and versatile property decorator designed for NestJS applicatio..."
     },
     {
         "name": "@puq/query",
         "license": "MIT",
-        "version": "0.0.20",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and",
+        "description": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and intuitive communication layer for handling queries efficiently. With a built-in **query builder and parser**, it simplifies data retrieval, filtering, sorting, and pagination, ensuring a seamless experience across the entire stack.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -770,18 +783,19 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "This powerful query library bridges the gap between frontend and backend, enabling a streamlined and..."
     },
     {
         "name": "@puq/rest",
         "displayName": "@puq/rest",
         "license": "MIT",
-        "version": "0.0.1",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This libra",
+        "description": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -821,17 +835,18 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creatio..."
     },
     {
         "name": "@puq/tools",
         "license": "MIT",
-        "version": "0.0.15",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
         },
-        "description": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with this robust CLI library built on the Commander framework. Designed for developers and power users, it ",
+        "description": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with this robust CLI library built on the Commander framework. Designed for developers and power users, it streamlines essential I/O operations such as recursive and asynchronous file renaming, replacing, and copying with ease. Beyond file management, the library includes a suite of developer-friendly commands to enhance workflow automation and efficiency. Whether you're handling bulk file operations or optimizing your development environment, this CLI is your go-to tool for seamless execution. Empower your command-line experience—effortlessly!",
         "author": {
             "email": "robert.brightline@gmail.com",
             "name": "Robert Brightline",
@@ -875,19 +890,20 @@
         "module": "./dist/index.js",
         "types": "./dist/index.d.ts",
         "dependencies": {
-            "@puq/debug": "^0.0.2",
-            "@puq/error": "^0.0.3",
-            "@puq/fs": "^0.0.7",
-            "@puq/is": "^0.0.2",
+            "@puq/debug": "^0.1.0",
+            "@puq/error": "^0.1.0",
+            "@puq/fs": "^0.1.0",
+            "@puq/is": "^0.1.0",
             "commander": "^13.1.0"
         },
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "Powerful CLI for Advanced File & Development Operations.Boost your command-line productivity with th..."
     },
     {
         "name": "@puq/type",
-        "version": "0.0.31",
+        "version": "0.1.0",
         "license": "MIT",
         "publishConfig": {
             "access": "public",
@@ -934,12 +950,13 @@
         "types": "./dist/index.d.ts",
         "devDependencies": {
             "@swc/helpers": "~0.5.11"
-        }
+        },
+        "summary": "Common model and utility types..."
     },
     {
         "name": "@puq/utils",
         "license": "MIT",
-        "version": "0.0.1",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -986,13 +1003,14 @@
             "@swc/helpers": "~0.5.11"
         },
         "dependencies": {
-            "@puq/type": "^0.0.27"
-        }
+            "@puq/type": "^0.1.0"
+        },
+        "summary": "utils..."
     },
     {
         "name": "@puq/validation",
         "license": "MIT",
-        "version": "0.0.30",
+        "version": "0.1.0",
         "publishConfig": {
             "access": "public",
             "tag": "latest"
@@ -1044,7 +1062,8 @@
             "reflect-metadata": "^0.2.2"
         },
         "dependencies": {
-            "@puq/type": "^0.0.30"
-        }
+            "@puq/type": "^0.1.0"
+        },
+        "summary": "Validation decorators..."
     }
 ]

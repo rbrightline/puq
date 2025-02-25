@@ -2,7 +2,7 @@
   "name": "@puq/rest",
   "displayName": "@puq/rest",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"

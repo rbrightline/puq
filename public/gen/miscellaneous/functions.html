@@ -124,9 +124,6 @@
                             <a href="#entityGenerator" title="src/gen/entity/entity.ts" ><b>entityGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#gen" title="src/lib/gen.ts" ><b>gen</b>&nbsp;&nbsp;&nbsp;(src/.../gen.ts)</a>
-                        </li>
-                        <li>
                             <a href="#generatorGenerator" title="src/gen/generator/generator.ts" ><b>generatorGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../generator.ts)</a>
                         </li>
                         <li>
@@ -452,44 +449,6 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/gen.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="gen"></a>
-                    <span class="name">
-                        <span ><b>gen</b></span>
-                        <a href="#gen"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>gen()</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Return the text <code>gen</code></p>
-</div>
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>    <h3>src/gen/generator/generator.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -765,7 +724,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getName(directory?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -774,8 +733,6 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Get the name from the provide name parameter which might be a path with multiple segments</p>
-</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -786,25 +743,20 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>name</td>
+                                                <td>directory</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
 
                                             <td>
-                                                    No
+                                                    Yes
                                             </td>
 
 
-                                            <td>
-                                                    <p>parameter provided by the generator</p>
-
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

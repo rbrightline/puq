@@ -1,6 +1,6 @@
 {
   "name": "@puq/source",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.26",
@@ -53,9 +53,10 @@
   "puq": {
     "libsRoot": "./libs",
     "servicesRoot": "./services",
+    "metadataRoot": "./model",
+    "contentRoot": "./content",
     "modelLibrary": "model",
     "entityLibrary": "entity",
-    "resourceLibrary": "resource",
-    "metadataRoot": "./model"
+    "resourceLibrary": "resource"
   }
 }

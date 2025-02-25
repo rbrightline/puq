@@ -27,4 +27,9 @@ export type PuqOptions = {
    * Metadata files directory that contains the `.model.yaml` model metadata files
    */
   metadataRoot: string;
+
+  /**
+   * The content is a directory that provides projects metadata for documentation and marketing purposes in JSON format
+   */
+  contentRoot: string;
 };

@@ -112,6 +112,15 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#getOptionalMarker" title="src/lib/get-optional-marker.ts" ><b>getOptionalMarker</b>&nbsp;&nbsp;&nbsp;(src/.../get-optional-marker.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getTargetString" title="src/lib/property-decorator-options.ts" ><b>getTargetString</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getTargetString" title="src/lib/relation-decorator-options.ts" ><b>getTargetString</b>&nbsp;&nbsp;&nbsp;(src/.../relation-decorator-options.ts)</a>
+                        </li>
+                        <li>
                             <a href="#propertyDecorator" title="src/lib/property-decorator.ts" ><b>propertyDecorator</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator.ts)</a>
                         </li>
                         <li>
@@ -123,6 +132,24 @@
                         <li>
                             <a href="#propertyType" title="src/lib/property-type.ts" ><b>propertyType</b>&nbsp;&nbsp;&nbsp;(src/.../property-type.ts)</a>
                         </li>
+                        <li>
+                            <a href="#relationDecorator" title="src/lib/relation-decorator.ts" ><b>relationDecorator</b>&nbsp;&nbsp;&nbsp;(src/.../relation-decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#relationDecoratorOptions" title="src/lib/relation-decorator-options.ts" ><b>relationDecoratorOptions</b>&nbsp;&nbsp;&nbsp;(src/.../relation-decorator-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#relationDefinition" title="src/lib/relation-definition.ts" ><b>relationDefinition</b>&nbsp;&nbsp;&nbsp;(src/.../relation-definition.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#relationType" title="src/lib/relation-type.ts" ><b>relationType</b>&nbsp;&nbsp;&nbsp;(src/.../relation-type.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#replaceTargetWithFunction" title="src/lib/property-decorator-options.ts" ><b>replaceTargetWithFunction</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#replaceTargetWithFunction" title="src/lib/relation-decorator-options.ts" ><b>replaceTargetWithFunction</b>&nbsp;&nbsp;&nbsp;(src/.../relation-decorator-options.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -130,7 +157,530 @@
     </table>
 </section>
 
-    <h3>src/lib/property-decorator.ts</h3>
+    <h3>src/lib/get-optional-marker.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOptionalMarker"></a>
+                    <span class="name">
+                        <span ><b>getOptionalMarker</b></span>
+                        <a href="#getOptionalMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getOptionalMarker(options: T)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determines if a property is optional based on its required status</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration object containing required property</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | &quot;?&quot;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>&#39;&#39; if required, &#39;?&#39; if optional</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property-decorator-options.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTargetString"></a>
+                    <span class="name">
+                        <span ><b>getTargetString</b></span>
+                        <a href="#getTargetString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTargetString(options: PropertyOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extracts target string from options based on type</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>PropertyOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Property options to inspect</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Target string if applicable, undefined otherwise</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propertyDecoratorOptions"></a>
+                    <span class="name">
+                        <span ><b>propertyDecoratorOptions</b></span>
+                        <a href="#propertyDecoratorOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>propertyDecoratorOptions(options: PropertyOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Serializes property decorator options to a JSON-CODE string with special handling for target properties</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>PropertyOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Property decorator configuration</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Formatted JSON string with function notation for targets</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replaceTargetWithFunction"></a>
+                    <span class="name">
+                        <span ><b>replaceTargetWithFunction</b></span>
+                        <a href="#replaceTargetWithFunction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>replaceTargetWithFunction(json: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, target: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Replaces target string with function notation in JSON</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>json</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Original JSON string</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>target</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Target string to replace</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Modified JSON string</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/relation-decorator-options.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTargetString"></a>
+                    <span class="name">
+                        <span ><b>getTargetString</b></span>
+                        <a href="#getTargetString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTargetString(options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extracts target string from options based on type</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Property options to inspect</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Target string if applicable, undefined otherwise</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationDecoratorOptions"></a>
+                    <span class="name">
+                        <span ><b>relationDecoratorOptions</b></span>
+                        <a href="#relationDecoratorOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relationDecoratorOptions(options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Converts relation options into a JSON-Code string for use in a decorator.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The relation options, including name, type, and target.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A JSON string representation of the relation options, with <code>target</code> formatted as a function.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replaceTargetWithFunction"></a>
+                    <span class="name">
+                        <span ><b>replaceTargetWithFunction</b></span>
+                        <a href="#replaceTargetWithFunction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>replaceTargetWithFunction(json: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, target: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Replaces target string with function notation in JSON</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>json</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Original JSON string</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>target</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Target string to replace</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Modified JSON string</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/property-decorator.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -154,7 +704,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Print property decorator</p>
+                        <div class="io-description"><p>Generates a TypeScript-like property decorator (e.g., <code>@Property({ type: &#39;string&#39; })</code>).</p>
 </div>
 
                             <div class="io-description">
@@ -182,7 +732,9 @@
 
 
                                             <td>
-                                                    <p>decorator name</p>
+                                                    <ul>
+<li>The name of the decorator (e.g.,&#39;Property&#39;, &#39;ViewColumn&#39;, &#39;Column&#39;).</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -198,7 +750,9 @@
 
 
                                             <td>
-                                                    <p><a href="PropertyOptions">PropertyOptions</a></p>
+                                                    <ul>
+<li>The property options used in the decorator.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -210,77 +764,8 @@
 
                         </div>
                             <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/lib/property-decorator-options.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="propertyDecoratorOptions"></a>
-                    <span class="name">
-                        <span ><b>propertyDecoratorOptions</b></span>
-                        <a href="#propertyDecoratorOptions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>propertyDecoratorOptions(options: PropertyOptions)</code>
-                </td>
-            </tr>
+                                <p>A formatted decorator string.</p>
 
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Print property options (JSON.stringify)</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>options</td>
-                                            <td>
-                                                        <code>PropertyOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <p><a href="PropertyOptions">PropertyOptions</a></p>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>PropertyOptions</code>
-
-                        </div>
-                            <div class="io-description">
-                                
                             </div>
                 </td>
             </tr>
@@ -310,7 +795,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>print property definition such as <code>name :string;</code></p>
+                        <div class="io-description"><p>Generates a TypeScript-like property definition (e.g., <code>name: string;</code>).</p>
 </div>
 
                             <div class="io-description">
@@ -322,6 +807,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -336,6 +822,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The property options including name, type, and optionality.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -345,7 +837,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A formatted property definition string.</p>
+
                             </div>
                 </td>
             </tr>
@@ -375,7 +868,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Print property type such as &#39;string&#39;, &#39;number&#39;, &#39;stirng[]&#39;, &#39;SomeObject[]&#39;</p>
+                        <div class="io-description"><p>Determines the TypeScript-compatible property type based on the given options.</p>
 </div>
 
                             <div class="io-description">
@@ -387,6 +880,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -401,6 +895,103 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The property options including type and target.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A TypeScript-like type definition (e.g., &#39;string&#39;, &#39;number&#39;, &#39;SomeObject[]&#39;).</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/relation-decorator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationDecorator"></a>
+                    <span class="name">
+                        <span ><b>relationDecorator</b></span>
+                        <a href="#relationDecorator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relationDecorator(decoratorName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a relation decorator string (e.g., <code>@OneToMany({ type:&quot;many-to-many&quot;, target:()=&gt;Product , eager: true})</code>).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>decoratorName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The name of the decorator (e.g., <code>OneToMany</code>).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The relation options.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -411,6 +1002,152 @@
                         </div>
                             <div class="io-description">
                                 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/relation-definition.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationDefinition"></a>
+                    <span class="name">
+                        <span ><b>relationDefinition</b></span>
+                        <a href="#relationDefinition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relationDefinition(options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Generates a TypeScript-like relation definition (e.g., <code>product: Product;</code>).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The relation options including name, type, and target.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A formatted relation definition.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/relation-type.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationType"></a>
+                    <span class="name">
+                        <span ><b>relationType</b></span>
+                        <a href="#relationType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relationType(options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determines the relation type string based on the provided options.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The relation options containing type and target.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A string representation of the relation type.</p>
+
                             </div>
                 </td>
             </tr>
