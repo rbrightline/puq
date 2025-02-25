@@ -7,8 +7,14 @@ const LIBS_ROOT = join(__dirname, '..', 'libs');
 const libs = readdirSync(LIBS_ROOT);
 
 const result: string[] = [];
+
 for (const l of libs) {
-  result.push(readFileSync(join(LIBS_ROOT, l, 'package.json')).toString());
+  const content = readFileSync(join(LIBS_ROOT, l, 'package.json')).toString();
+  const object = JSON.parse(content);
+
+  const { nx, exports, files, ...rest } = object;
+
+  result.push(JSON.stringify(rest));
 }
 
 writeFileSync(
