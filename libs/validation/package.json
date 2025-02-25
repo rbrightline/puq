@@ -86,6 +86,6 @@
     "reflect-metadata": "^0.2.2"
   },
   "dependencies": {
-    "@puq/type": "^0.0.20"
+    "@puq/type": "^0.0.26"
   }
 }

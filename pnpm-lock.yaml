@@ -192,6 +192,12 @@ importers:
       '@puq/debug':
         specifier: ^0.0.1
         version: 0.0.1
+      '@puq/fs':
+        specifier: ^0.0.8
+        version: 0.0.8
+      '@puq/type':
+        specifier: ^0.0.26
+        version: 0.0.26
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -363,8 +369,8 @@ importers:
   libs/validation:
     dependencies:
       '@puq/type':
-        specifier: ^0.0.20
-        version: 0.0.20
+        specifier: ^0.0.26
+        version: 0.0.26
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1782,6 +1788,9 @@ packages:
     peerDependencies:
       '@puq/debug': ^0.0.1
 
+  '@puq/fs@0.0.8':
+    resolution: {integrity: sha512-W0kOGDkGr0aDgHkBePDPQcH4Maf6N6X2AwVnZ9/Mzo6xKBnQpodUiQZhWBKpfYQn0QgKxTqz77AObuJ6VJR/8w==}
+
   '@puq/is@0.0.2':
     resolution: {integrity: sha512-MP1niL+cFzKeuW9fCv71rbxSSjKpqg7JFYaLHwJ0kZEibgCDNBEfzC1Mof3TJMxTYebAOP6181QWmTcd+x/mhw==}
 
@@ -1803,6 +1812,9 @@ packages:
 
   '@puq/type@0.0.25':
     resolution: {integrity: sha512-bD8pJmC/PWy2CtFpSKtAZkhM5ZqWKyuxYZuxTD7S3cVVxI59xl+jFrnRH1NAHPUz2qZmYUbodq8llju458DJUA==}
+
+  '@puq/type@0.0.26':
+    resolution: {integrity: sha512-ZPGNLP0Vd2co+uq9ko7gGocN/XgxtfavKGsLKcy8J5WLOUSAmZ5lX1mMaaN5g2WPjO1Bq9xmuw3INffbnyQEPg==}
 
   '@puq/validation@0.0.20':
     resolution: {integrity: sha512-c/S54WR81ZchUa1HWBAu166WKwyQdm1xf4rrMpDeXr+p23POjH++oV3sAZkSetwVGKtD3kR9j/UNx3WKsn6B1Q==}
@@ -8406,6 +8418,12 @@ snapshots:
       '@puq/debug': 0.0.2
       '@puq/error': 0.0.3
 
+  '@puq/fs@0.0.8':
+    dependencies:
+      '@puq/debug': 0.0.2
+      '@puq/error': 0.0.4
+      '@puq/is': 0.0.2
+
   '@puq/is@0.0.2':
     dependencies:
       '@puq/error': 0.0.3
@@ -8435,6 +8453,8 @@ snapshots:
   '@puq/type@0.0.20': {}
 
   '@puq/type@0.0.25': {}
+
+  '@puq/type@0.0.26': {}
 
   '@puq/validation@0.0.20(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:

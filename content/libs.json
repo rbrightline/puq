@@ -531,7 +531,7 @@
       "access": "public",
       "tag": "latest"
     },
-    "description": "gen",
+    "description": "Generator",
     "author": {
       "email": "robert.brightline@gmail.com",
       "name": "Robert Brightline",
@@ -579,6 +579,7 @@
     },
     "files": [
       "dist",
+      "generators.json",
       "!**/*.tsbuildinfo",
       "generators.json"
     ],
@@ -609,7 +610,9 @@
     "generators": "./generators.json",
     "dependencies": {
       "@nx/devkit": "20.4.4",
-      "@puq/debug": "^0.0.1"
+      "@puq/debug": "^0.0.1",
+      "@puq/fs": "^0.0.8",
+      "@puq/type": "^0.0.26"
     }
   },
   {
@@ -1581,7 +1584,7 @@
       "reflect-metadata": "^0.2.2"
     },
     "dependencies": {
-      "@puq/type": "^0.0.20"
+      "@puq/type": "^0.0.26"
     }
   }
 ]

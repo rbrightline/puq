@@ -4,6 +4,11 @@
       "factory": "./dist/gen/generator/generator",
       "schema": "./dist/gen/generator/schema.json",
       "description": "generator generator"
+    },
+    "hello": {
+      "factory": "./dist/gen/hello/hello",
+      "schema": "./dist/gen/hello/schema.json",
+      "description": "hello generator"
     }
   }
 }

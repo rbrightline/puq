@@ -1,0 +1,3 @@
+import { Create<%- className %>Model } from './create-<%- fileName %>.model.js';
+
+export type Update<%- className %>Model = Partial<Create<%- className %>Model>;

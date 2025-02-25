@@ -3,8 +3,9 @@
 import { exec } from 'child_process';
 import { DIRS } from './dirs';
 import { chdir } from 'process';
+import { join } from 'path';
 
-chdir('..');
+chdir(join(__dirname, '..'));
 
 Promise.all(
   DIRS.map((e) => {

@@ -51,6 +51,8 @@
     "@nx/devkit": "20.4.4"
   },
   "puq": {
-    "model": "./model"
+    "models": "./model",
+    "libs": "libs",
+    "services": "services"
   }
 }

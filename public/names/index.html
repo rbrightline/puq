@@ -1,0 +1,429 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>names</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">names</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/names/favicon.png" alt="Logo" />
+</p>
+
+<h1>@puq/names</h1>
+<h2>Summary</h2>
+<p>Utility library that provides functions for generating various naming conventions, authentication paths, and RESTful paths for CRUD and relation operations, including count endpoints.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>names</strong>: Generates all variations of names based on a provided string.</li>
+<li><strong>auths</strong>: Generates common authentication and authorization paths with an optional prefix.</li>
+<li><strong>paths</strong>: Generates commonly used REST paths for database entity CRUD operations and relations, including count endpoints.</li>
+<li><strong>plurize</strong>: Converts a given string between singular and plural forms. This function is used internally by all other functions to ensure consistent singular and plural naming.</li>
+</ul>
+<h2>Installation</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">npm install mylibrary</code></pre></div><h2>Usage</h2>
+<h3>Importing the Library</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">import { names, auths, paths, plurize } from &#39;&#64;puq/names&#39;;</code></pre></div><h3>names Function</h3>
+<p>Generates different versions of names based on a given string.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">const result = names(&#39;user&#39;);
+
+export type Names = {
+  /**
+   * The string in PascalCase format.
+   * Example: &quot;PascalCaseExample&quot;
+   */
+  pascalCase: string,
+
+  /**
+   * The string in camelCase format.
+   * Example: &quot;camelCaseExample&quot;
+   */
+  camelCase: string,
+
+  /**
+   * The string in kebab-case format.
+   * Example: &quot;kebab-case-example&quot;
+   */
+  kebabCase: string,
+
+  /**
+   * The string in snake_case format.
+   * Example: &quot;snake_case_example&quot;
+   */
+  snakeCase: string,
+
+  /**
+   * Dot case
+   * Example: &#39;dot.case.ts&#39;
+   */
+  dotCase: string,
+
+  /**
+   * The string in CONSTANT_CASE format.
+   * Example: &quot;CONSTANT_CASE_EXAMPLE&quot;
+   */
+  constCase: string,
+
+  /**
+   * Example: &quot;Sentence case example.&quot;
+   */
+  sentenceCase: string,
+
+  /**
+   * The string in Title Case format.
+   * Example: &quot;Title Case Example&quot;
+   */
+  titleCase: string,
+
+  /**
+   * Example: ResourceNameController
+   */
+  controllerName: string,
+
+  /**
+   * Example: ResourceNameService
+   */
+  serviceName: string,
+
+  /**
+   * Example: ResourceNameModule
+   */
+  moduleName: string,
+
+  /**
+   * Example: CreateResourceNameDto
+   */
+  createDtoName: string,
+
+  /**
+   * Example: UpdateResourceNameDto
+   */
+  updateDtoName: string,
+
+  /**
+   * Example: QueryResourceNameDto
+   */
+  queryDtoName: string,
+
+  /**
+   * Example: ResourceNameModel
+   */
+  modelName: string,
+
+  /**
+   * Example: ResourceNameOptions
+   */
+  optionsName: string,
+};</code></pre></div><h3>auths Function</h3>
+<p>Generates common authentication and authorization paths, optionally prefixed.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">const authPaths = auths(&#39;api&#39;);
+
+export type AuthPaths = {
+  /**
+   * /login
+   */
+  login: string,
+
+  /**
+   * /login-otp
+   */
+  loginWithOTP: string,
+  /**
+   * /logout
+   */
+  logout: string,
+
+  /**
+   * /logout-all
+   */
+  logoutAll: string,
+
+  /**
+   * /signup
+   */
+  signup: string,
+
+  /**
+   * /forgot-password
+   */
+  forgotPassword: string,
+
+  /**
+   * /reset-password
+   */
+  resetPassword: string,
+
+  /**
+   * /has-session
+   */
+  hasSession: string,
+
+  /**
+   * /has-permission
+   */
+  hasPermission: string,
+};</code></pre></div><h3>paths Function</h3>
+<p>Generates commonly used REST paths for a database entity CRUD and relation operations, including count. Both singular and plural paths are included.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">const entityPaths = paths(&#39;user&#39;);
+export type RestApiPaths = {
+  /**
+   * The plural form of the resource path.
+   * &#64;example
+   * - GET `/users` ⭐ Query all users
+   * - POST `/users` Create many users
+   */
+  plural: string,
+
+  /**
+   * The singular form of the resource path.
+   * Typically used to represent a single resource.
+   * &#64;example
+   * - POST `/user` ⭐ Create user
+   * - GET `/user` Get user metadata
+   */
+  singular: string,
+
+  /**
+   * The path parameter representing the unique identifier of a resource.
+   * &#64;example
+   * - GET `/user/1` ⭐ Get user by id
+   */
+  id: string,
+
+  /**
+   * Increment the provided key by 1
+   * &#64;example
+   * - PATCH `user/1/increment`  { key: &#39;count&#39; } ⭐ Increment the count property by 1
+   */
+  increment: string,
+
+  /**
+   * Decrement the provided key by 1
+   * &#64;example
+   * - PATCH `user/1/decrement`  { key: &#39;count&#39; } ⭐ Decrement the count property by 1
+   */
+  decrement: string,
+
+  /**
+   * The path used to get the count of resources.
+   * &#64;example
+   * - GET `/users/count` { withDeleted:true, query: query } ⭐ Count items by query
+   */
+  count: string,
+
+  /**
+   * The path used to represent a relation between resources.
+   * &#64;example
+   * - DELETE `/user/1/category` ⭐ Set the user&#39;s cateogry relation null.
+   */
+  relation: string,
+
+  /**
+   * The path parameter representing the unique identifier of a related resource.
+   * &#64;example
+   * - POST `/user/1/category/2` ⭐ Set the category relation (2) to user (1).
+   *
+   * - DELETE `/user/1/categories/2` ⭐ Remove one of the categories (2) from the user (1).
+   *
+   * - PUT `/user/1/categories/2` ⭐ Add one of the categories (2) to the user (1).
+   */
+  relationId: string,
+
+  /**
+   * Upload file path
+   * &#64;example
+   * - POST `/user/1/file` { file: file } ⭐ Upload file for the user (1)
+   */
+  file: string,
+
+  /**
+   * Upload image path
+   * &#64;example
+   * - POST /`user/1/img` { file: file } ⭐ Upload image for the user (1)
+   */
+  img: string,
+};</code></pre></div><h3>plurize Function</h3>
+<p>Converts a given string between singular and plural forms.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">console.log(plurize(&#39;user&#39;)); // Output: &quot;users&quot;
+console.log(plurize(&#39;users&#39;)); // Output: &quot;user&quot;
+console.log(plurize(&#39;category&#39;)); // Output: &quot;categories&quot;</code></pre></div><h2>Install</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/names</code></pre></div><h2>Funding</h2>
+<p>Thank you for using <code>@puq/names</code> It&#39;s an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.</p>
+<p><a href="https://cash.app/$puqlib">Instant Funding</a></p>
+<h3>Your funding will go toward</h3>
+<ul>
+<li><strong>Bug fixes and updates</strong> to ensure compatibility with the latest versions of dependencies.</li>
+<li><strong>New features</strong> that will make the library even more powerful.</li>
+<li><strong>Documentation</strong> improvements to help users get the most out of [Your Library Name].</li>
+<li><strong>General maintenance</strong> to keep the library running smoothly and securely.</li>
+</ul>
+<p>Contact to the developer: [<a href="mailto:robert.brightline@gmail.com">robert.brightline@gmail.com</a>]</p>
+<p><a href="https://cash.app/$puqlib">Support the developer</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,24 @@
+import { program } from 'commander';
+import { <%- propertyName %> } from './<%- fileName %>/<%- fileName %>.js';
+
+
+async function boot(){ 
+
+  program
+    .name('<%- fileName %> CLI')
+    .description('<%- fileName %> CLI')
+    .version('0.0.1');
+
+  program
+    .command('<%- fileName %>')
+    .name('<%- fileName %>')
+    .description('<% fileName %> CLI')
+    .action(<%- propertyName %>);
+
+  program.parse();
+
+}
+
+
+
+boot();

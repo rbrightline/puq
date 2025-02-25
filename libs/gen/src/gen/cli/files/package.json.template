@@ -1,0 +1,90 @@
+{
+  "name": "@puq/<%- fileName %>",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "description": "<%- fileName %>",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://rbrightline.github.io"
+  },
+  "keywords": [
+    "puq",
+    "<%- fileName %>"
+  ],
+  "repository": {
+    "directory": "<%- target %>",
+    "url": "https://github.com/rbrightline/puq/tree/main",
+    "type": "github"
+  },
+  "homepage": "https://rbrightline.github.io/puq/<%- fileName %>",
+  "bugs": {
+    "email": "robert.brightline@gmail.com",
+    "url": "https://rbrightline.github.io"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributors": [
+    {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://rbrightline.github.io"
+    }
+  ],
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/<%- target %>/favicon.png",
+  "bin": {
+    "<%- fileName %>": "./bin/<%- fileName %>.js"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "bin",
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "sourceRoot": "<%- target %>/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "<%- target %>/dist",
+          "main": "<%- target %>/src/index.ts",
+          "tsConfig": "<%- target %>/tsconfig.lib.json",
+          "skipTypeCheck": false,
+          "stripLeadingPaths": true
+        }
+      },
+      "doc": {
+         "command": "cd <%- target %> && npx compodoc -d ../../public/<%- fileName %>  -p tsconfig.lib.json -n <%- fileName %>"
+      }
+    }
+  },
+  "dependencies":{ 
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@swc/helpers": "~0.5.11"
+  }
+}
