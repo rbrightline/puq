@@ -9,28 +9,17 @@ import {
   OneToOne,
 } from 'typeorm';
 
-// /**
-//  * Relation decorator options
-//  */
-// export type RelationOptions = __RelationOptions & {
-//   type: RelationType;
-//   target: () => Type;
-//   targetColumn?: string;
-//   join?: boolean;
-// };
-
 /**
- *
- * @param type Relation type
- * @param target Function that returns the relation entity class
- * @param options {@link RelationOptions} typeorm relation options
+ * Relation decorator
+ * @param options relation options {@link RelationOptions}
  * @returns
  */
 export function Relation(options: RelationOptions): PropertyDecorator {
   return (t, p) => {
     const { type, target } = options;
 
-    const pickColumn = (e: ObjectLiteral) => e[options.targetColumn ?? 'id'];
+    const pickColumn = (e: ObjectLiteral) =>
+      e[(options as any)['refColumn'] ?? 'id'];
 
     switch (type) {
       case 'one-to-one':

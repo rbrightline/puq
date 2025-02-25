@@ -1,7 +1,7 @@
 {
   "name": "@puq/property",
   "license": "MIT",
-  "version": "0.0.20",
+  "version": "0.0.30",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -82,11 +82,11 @@
   },
   "peerDependencies": {
     "@nestjs/swagger": "^11.0.3",
-    "class-transformer": "^0.5.1",
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "^0.0.20",
-    "@puq/validation": "^0.0.20"
+    "@puq/type": "^0.0.30",
+    "@puq/validation": "^0.0.30"
   }
 }

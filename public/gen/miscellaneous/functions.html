@@ -130,10 +130,13 @@
                             <a href="#generatorGenerator" title="src/gen/generator/generator.ts" ><b>generatorGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../generator.ts)</a>
                         </li>
                         <li>
-                            <a href="#getModelOptions" title="src/lib/get-model-options.ts" ><b>getModelOptions</b>&nbsp;&nbsp;&nbsp;(src/.../get-model-options.ts)</a>
+                            <a href="#getModelMetadata" title="src/lib/model-manager.ts" ><b>getModelMetadata</b>&nbsp;&nbsp;&nbsp;(src/.../model-manager.ts)</a>
                         </li>
                         <li>
                             <a href="#getName" title="src/lib/get-name.ts" ><b>getName</b>&nbsp;&nbsp;&nbsp;(src/.../get-name.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getPuqConfig" title="src/lib/get-puq-config.ts" ><b>getPuqConfig</b>&nbsp;&nbsp;&nbsp;(src/.../get-puq-config.ts)</a>
                         </li>
                         <li>
                             <a href="#helloGenerator" title="src/gen/hello/hello.ts" ><b>helloGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../hello.ts)</a>
@@ -145,10 +148,19 @@
                             <a href="#modelGenerator" title="src/gen/model/model.ts" ><b>modelGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../model.ts)</a>
                         </li>
                         <li>
+                            <a href="#modelProperties" title="src/lib/model-manager.ts" ><b>modelProperties</b>&nbsp;&nbsp;&nbsp;(src/.../model-manager.ts)</a>
+                        </li>
+                        <li>
                             <a href="#moduleGenerator" title="src/gen/module/module.ts" ><b>moduleGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../module.ts)</a>
                         </li>
                         <li>
+                            <a href="#printEntityColumns" title="src/lib/print-entity-columns.ts" ><b>printEntityColumns</b>&nbsp;&nbsp;&nbsp;(src/.../print-entity-columns.ts)</a>
+                        </li>
+                        <li>
                             <a href="#projectPackageJson" title="src/lib/project-package-json.ts" ><b>projectPackageJson</b>&nbsp;&nbsp;&nbsp;(src/.../project-package-json.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#relationProperties" title="src/lib/model-manager.ts" ><b>relationProperties</b>&nbsp;&nbsp;&nbsp;(src/.../model-manager.ts)</a>
                         </li>
                         <li>
                             <a href="#updateTsconfigReferences" title="src/lib/update-tsconfig-reference.ts" ><b>updateTsconfigReferences</b>&nbsp;&nbsp;&nbsp;(src/.../update-tsconfig-reference.ts)</a>
@@ -548,22 +560,102 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/get-model-options.ts</h3>
+</section>    <h3>src/lib/model-manager.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getModelOptions"></a>
+                    <a name="getModelMetadata"></a>
                     <span class="name">
-                        <span ><b>getModelOptions</b></span>
-                        <a href="#getModelOptions"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getModelMetadata</b></span>
+                        <a href="#getModelMetadata"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getModelOptions(modelRoot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getModelMetadata(metadataRoot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>metadataRoot</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the root directory of the <code>.model.yaml</code> metadata files</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Model&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modelProperties"></a>
+                    <span class="name">
+                        <span ><b>modelProperties</b></span>
+                        <a href="#modelProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modelProperties(model: Model)</code>
                 </td>
             </tr>
 
@@ -586,9 +678,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>modelRoot</td>
+                                                <td>model</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        <code>Model</code>
                                             </td>
 
                                             <td>
@@ -597,10 +689,52 @@
 
 
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationProperties"></a>
+                    <span class="name">
+                        <span ><b>relationProperties</b></span>
+                        <a href="#relationProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>relationProperties(model: Model)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
                                         <tr>
-                                                <td>name</td>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        <code>Model</code>
                                             </td>
 
                                             <td>
@@ -682,6 +816,39 @@
                             <div class="io-description">
                                 
                             </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/get-puq-config.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPuqConfig"></a>
+                    <span class="name">
+                        <span ><b>getPuqConfig</b></span>
+                        <a href="#getPuqConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPuqConfig()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;PuqOptions&gt;</code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -949,6 +1116,62 @@
                                                 <td>options</td>
                                             <td>
                                                         <code>ModuleGeneratorSchema</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/print-entity-columns.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="printEntityColumns"></a>
+                    <span class="name">
+                        <span ><b>printEntityColumns</b></span>
+                        <a href="#printEntityColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>printEntityColumns(model: Model)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
+                                            <td>
+                                                        <code>Model</code>
                                             </td>
 
                                             <td>
