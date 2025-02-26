@@ -1,12 +1,8 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import { ModelGeneratorSchema } from './schema.js';
 import { join } from 'path';
-import {
-  getName,
-  ModelManager,
-  readProjectPackageJSON,
-} from '../../lib/index.js';
 import { readYamlFile } from '@puq/fs';
+import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
 /**
  * Generate model type
  * @param tree
@@ -20,13 +16,13 @@ export async function modelGenerator(
   const target = options.directory;
   const modelName = getName(options.directory);
   const ns = names(modelName);
-
   const packageJSON = await readProjectPackageJSON();
-  const modelManager = new ModelManager(
-    await readYamlFile(
-      join(packageJSON.puq.metadataRoot, `${modelName}.model.yaml`)
-    )
+  const resovledFilepath = join(
+    packageJSON.puq.metadataRoot,
+    `${modelName}.model.yaml`
   );
+
+  const modelManager = new ModelManager(await readYamlFile(resovledFilepath));
 
   const modelRoot = (packageJSON as any).puq?.model ?? 'model';
   generateFiles(tree, source, target, {

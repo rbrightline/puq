@@ -1,7 +1,7 @@
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import { ModuleGeneratorSchema } from './schema.js';
 import { join } from 'path';
-import { getName } from '../../lib/index.js';
+import { getName } from '@puq/gen-helper';
 
 /**
  * Generate resource module with rest and database module

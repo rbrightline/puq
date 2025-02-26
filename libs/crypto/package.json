@@ -81,7 +81,7 @@
       }
     }
   },
-  "devDependencies": {
+  "dependencies": {
     "@swc/helpers": "~0.5.11"
   }
 }

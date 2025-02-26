@@ -120,7 +120,7 @@ importers:
         version: 0.5.15
 
   libs/crypto:
-    devDependencies:
+    dependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
@@ -205,21 +205,43 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       '@puq/fs':
+        specifier: ^0.1.1
+        version: 0.1.1
+      '@puq/gen-helper':
         specifier: workspace:^
-        version: link:../fs
+        version: link:../gen-helper
       '@puq/printer':
         specifier: 0.1.0
         version: 0.1.0
       '@puq/type':
         specifier: 0.1.0
         version: 0.1.0
+      '@swc/helpers':
+        specifier: ~0.5.15
+        version: 0.5.15
+    devDependencies:
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
+
+  libs/gen-helper:
+    dependencies:
+      '@nx/devkit':
+        specifier: 20.4.4
+        version: 20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
+      '@puq/fs':
+        specifier: ^0.1.1
+        version: 0.1.1
+      '@puq/printer':
+        specifier: 0.1.0
+        version: 0.1.0
+      '@puq/type':
+        specifier: ^0.1.0
+        version: 0.1.0
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
-      '@types/js-yaml':
-        specifier: ^4.0.9
-        version: 4.0.9
 
   libs/is:
     dependencies:
@@ -1826,6 +1848,9 @@ packages:
 
   '@puq/fs@0.1.0':
     resolution: {integrity: sha512-nabTlc7d1S9NAXeNsmzB6RCypBSH3WXsxVA0b4vrjghz2KSQvSpJZUl0wLbyeESFC60+pS+02D5KOmGrzb5ZZg==}
+
+  '@puq/fs@0.1.1':
+    resolution: {integrity: sha512-qdZPYDoiSdl1cryohXvsr99QZjkpvATgIPZ7QsQ0B9rUgIVWxOfhu9p0jk+ZFmCVs8EjX4+l/mhF4RR38KvUmA==}
 
   '@puq/is@0.1.0':
     resolution: {integrity: sha512-1SjckuJ5s7Hus+je7DOUEpvB5byTYO3zHcwkGAnTkPPWHjl+Y2kwA5iX8KiZaaGRNeMDy8ttiO7fJtCLc6fLng==}
@@ -8562,6 +8587,13 @@ snapshots:
       '@puq/debug': 0.1.0
       '@puq/error': 0.1.0
       '@puq/is': 0.1.0
+
+  '@puq/fs@0.1.1':
+    dependencies:
+      '@puq/debug': 0.1.0
+      '@puq/error': 0.1.0
+      '@puq/is': 0.1.0
+      js-yaml: 4.1.0
 
   '@puq/is@0.1.0':
     dependencies:
