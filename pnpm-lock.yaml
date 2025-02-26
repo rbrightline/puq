@@ -208,8 +208,8 @@ importers:
         specifier: ^0.1.1
         version: 0.1.1
       '@puq/gen-helper':
-        specifier: ^0.0.1
-        version: 0.0.1(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
+        specifier: ^0.1.0
+        version: 0.1.0(@nx/devkit@20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))))
       '@puq/printer':
         specifier: 0.1.0
         version: 0.1.0
@@ -230,8 +230,8 @@ importers:
         specifier: 20.4.4
         version: 20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
       '@puq/fs':
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^0.1.2
+        version: 0.1.2
       '@puq/printer':
         specifier: 0.1.0
         version: 0.1.0
@@ -1852,8 +1852,13 @@ packages:
   '@puq/fs@0.1.1':
     resolution: {integrity: sha512-qdZPYDoiSdl1cryohXvsr99QZjkpvATgIPZ7QsQ0B9rUgIVWxOfhu9p0jk+ZFmCVs8EjX4+l/mhF4RR38KvUmA==}
 
-  '@puq/gen-helper@0.0.1':
-    resolution: {integrity: sha512-mCPqtYJPKF1phaYkdsNNILdBx7I2Fa64to1Xxzsej1bY2IA2GCm+Py9k+QfRaAZIJGburAiJ/RzyuSQ7INuTog==}
+  '@puq/fs@0.1.2':
+    resolution: {integrity: sha512-cEysebHOQ2jF+j5gqLA18fpFC2o3M+I8KojV4mAu67U2k8NKf5UzN3D7RBgbIkGVftKyAIMt0sW7qy01FOdyYA==}
+
+  '@puq/gen-helper@0.1.0':
+    resolution: {integrity: sha512-UVLqONgUrz/9Znr0KWtq/x4f5BlQz1VMaljvOb66oLH3A3Pv2695loWt/MmGUQVzTxlEGvy6gd3wVh35OJm3nQ==}
+    peerDependencies:
+      '@nx/devkit': 20.4.4
 
   '@puq/is@0.1.0':
     resolution: {integrity: sha512-1SjckuJ5s7Hus+je7DOUEpvB5byTYO3zHcwkGAnTkPPWHjl+Y2kwA5iX8KiZaaGRNeMDy8ttiO7fJtCLc6fLng==}
@@ -8598,14 +8603,19 @@ snapshots:
       '@puq/is': 0.1.0
       js-yaml: 4.1.0
 
-  '@puq/gen-helper@0.0.1(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))':
+  '@puq/fs@0.1.2':
+    dependencies:
+      '@puq/debug': 0.1.0
+      '@puq/error': 0.1.0
+      '@puq/is': 0.1.0
+      js-yaml: 4.1.0
+
+  '@puq/gen-helper@0.1.0(@nx/devkit@20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))))':
     dependencies:
       '@nx/devkit': 20.4.4(nx@20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
-      '@puq/fs': 0.1.1
+      '@puq/fs': 0.1.2
       '@puq/printer': 0.1.0
       '@puq/type': 0.1.0
-    transitivePeerDependencies:
-      - nx
 
   '@puq/is@0.1.0':
     dependencies:

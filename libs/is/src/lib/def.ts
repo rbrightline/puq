@@ -1,7 +1,9 @@
 /**
- * Check the value is defined.
- * @param value T | null| undefined
- * @returns boolean
+ * Checks if the given value is neither `undefined` nor `null`.
+ * Acts as a type guard to ensure `value` is of type `T`.
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is defined (not `undefined` or `null`), otherwise `false`.
  */
 export function def<T>(value: T | null | undefined): value is T {
   return value != undefined;
