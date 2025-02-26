@@ -2,6 +2,7 @@
   "name": "@puq/source",
   "version": "0.1.0",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.26",
     "@eslint/js": "^9.8.0",
@@ -25,6 +26,7 @@
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
     "jsdom": "~22.1.0",
+    "jsonc-eslint-parser": "^2.4.0",
     "nx": "20.4.4",
     "pkg": "^5.8.1",
     "prettier": "^2.6.2",
@@ -59,5 +61,6 @@
     "modelLibrary": "model",
     "entityLibrary": "entity",
     "resourceLibrary": "resource"
-  }
+  },
+  "packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51"
 }

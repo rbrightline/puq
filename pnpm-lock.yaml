@@ -78,6 +78,9 @@ importers:
       jsdom:
         specifier: ~22.1.0
         version: 22.1.0
+      jsonc-eslint-parser:
+        specifier: ^2.4.0
+        version: 2.4.0
       nx:
         specifier: 20.4.4
         version: 20.4.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.7.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))
@@ -182,10 +185,16 @@ importers:
       '@puq/is':
         specifier: ^0.1.0
         version: 0.1.0
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
 
   libs/gen:
     dependencies:
@@ -196,17 +205,14 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       '@puq/fs':
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: workspace:^
+        version: link:../fs
       '@puq/printer':
         specifier: 0.1.0
         version: 0.1.0
       '@puq/type':
         specifier: 0.1.0
         version: 0.1.0
-      js-yaml:
-        specifier: ^4.1.0
-        version: 4.1.0
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -224,6 +230,25 @@ importers:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
+
+  libs/metadata:
+    dependencies:
+      '@puq/fs':
+        specifier: workspace:^
+        version: link:../fs
+      '@puq/type':
+        specifier: ^0.1.0
+        version: 0.1.0
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
+    devDependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.15
+      '@types/js-yaml':
+        specifier: ^4.0.9
+        version: 4.0.9
 
   libs/model:
     dependencies:

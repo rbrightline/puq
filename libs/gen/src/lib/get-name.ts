@@ -1,6 +1,10 @@
 import { normalize } from 'path';
 
-export function getName(directory?: string): string {
-  if (!directory) throw new Error('Directory is required');
+/**
+ * Extract the filename from the url
+ * @param directory
+ * @returns
+ */
+export function getName(directory: string): string {
   return normalize(directory).split('\\').pop()!;
 }

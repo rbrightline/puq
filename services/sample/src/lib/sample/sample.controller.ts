@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class SampleController {
   @Get('hello')
   hello() {
-    return 'Updated 512312';
+    return 'Updated is updated';
   }
 }

@@ -4,6 +4,7 @@ import { scope } from './scope.js';
 import { FileNotFoundError } from '@puq/error';
 import { readFile as __readFile } from 'fs/promises';
 import { debug, end } from '@puq/debug';
+
 export type ReadFileOptions = {
   recursive?: boolean;
 };
