@@ -1,8 +1,16 @@
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
+import {
+  formatFiles,
+  generateFiles,
+  names,
+  Tree,
+  workspaceRoot,
+} from '@nx/devkit';
 import { ModelGeneratorSchema } from './schema.js';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { readYamlFile } from '@puq/fs';
 import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
+import { cwd } from 'process';
+import { Model } from '@puq/type';
 /**
  * Generate model type
  * @param tree
@@ -13,25 +21,39 @@ export async function modelGenerator(
   options: ModelGeneratorSchema
 ) {
   const source = join(__dirname, 'files');
-  const target = options.directory;
+  const target = resolve(cwd(), options.directory);
+
+  console.table({ target });
   const modelName = getName(options.directory);
+
+  console.table({ modelName });
+
   const ns = names(modelName);
+
+  console.table({
+    ...ns,
+  });
   const packageJSON = await readProjectPackageJSON();
-  const resovledFilepath = join(
+
+  console.table({ modelName });
+
+  const modelFilePath = join(
+    workspaceRoot,
     packageJSON.puq.metadataRoot,
     `${modelName}.model.yaml`
   );
 
-  const modelManager = new ModelManager(await readYamlFile(resovledFilepath));
+  console.table({ modelFilePath });
+  const yamlContent = await readYamlFile<Model>(modelFilePath);
 
-  const modelRoot = (packageJSON as any).puq?.model ?? 'model';
+  console.log(yamlContent);
+  const modelManager = new ModelManager(yamlContent);
+
   generateFiles(tree, source, target, {
     ...ns,
     properties: modelManager.typeProperties(),
   });
   await formatFiles(tree);
-
-  throw new Error(modelRoot);
 }
 
 export default modelGenerator;

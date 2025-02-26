@@ -99,7 +99,7 @@
     "@nx/devkit": "20.4.4",
     "@puq/debug": "^0.1.0",
     "@puq/fs": "^0.1.1",
-    "@puq/gen-helper": "workspace:^",
+    "@puq/gen-helper": "^0.0.1",
     "@puq/printer": "0.1.0",
     "@puq/type": "0.1.0",
     "@swc/helpers": "~0.5.15"

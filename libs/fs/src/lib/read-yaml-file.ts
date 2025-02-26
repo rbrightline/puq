@@ -9,6 +9,6 @@ import { load } from 'js-yaml';
 export async function readYamlFile<T>(filepath: string): Promise<T> {
   const buffer = await readFile(filepath, { recursive: true });
   const text = buffer.toString();
-
-  return load(text) as T;
+  const object = await load(text);
+  return object as T;
 }

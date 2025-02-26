@@ -10,7 +10,7 @@ chdir(join(__dirname, '..'));
 export async function docs() {
   await Promise.all(
     DIRS.map((e) => {
-      exec(`npx nx doc ${e}`, (err, stdout, stderr) => {
+      exec(`npx nx doc @puq/${e}`, (err, stdout, stderr) => {
         if (stdout) console.log(stdout);
         if (err) console.error(err);
         if (stderr) console.error(stderr);
