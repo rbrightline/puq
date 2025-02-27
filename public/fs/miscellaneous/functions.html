@@ -163,7 +163,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dirs(directory: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/DirsOptions.html" target="_self">DirsOptions</a>)</code>
+<code>dirs(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
                 </td>
             </tr>
 
@@ -172,7 +172,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>List all all directories under <a href="directory">directory</a></p>
+                        <div class="io-description"><p>List all directories under the provided <a href="root">root</a> directory</p>
 </div>
 
                             <div class="io-description">
@@ -189,7 +189,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>directory</td>
+                                                <td>root</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
@@ -200,14 +200,14 @@
 
 
                                             <td>
-                                                    <p>target directory</p>
+                                                    <p>root directory to search for sub directories</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#DirsOptions" target="_self" >DirsOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
                                             </td>
 
                                             <td>
@@ -226,7 +226,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>the list of directories (not inluding files). If the recursive options is set true, then the result includes sub directories as well.</p>
+                                <p>list of directory paths</p>
 
                             </div>
                 </td>
@@ -248,7 +248,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>files(directory: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/FilesOptions.html" target="_self">FilesOptions</a>)</code>
+<code>files(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
                 </td>
             </tr>
 
@@ -257,7 +257,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find all files in the target directory (only files)</p>
+                        <div class="io-description"><p>List all files under the provided <a href="root">root</a> directory</p>
 </div>
 
                             <div class="io-description">
@@ -274,7 +274,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>directory</td>
+                                                <td>root</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
@@ -285,14 +285,14 @@
 
 
                                             <td>
-                                                    <p>target directory (&quot;.&quot; by default)</p>
+                                                    <p>root directory to search for files</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#FilesOptions" target="_self" >FilesOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
                                             </td>
 
                                             <td>
@@ -311,7 +311,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>list of file paths</p>
+
                             </div>
                 </td>
             </tr>
@@ -332,7 +333,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findFile(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/FindFileOptions.html" target="_self">FindFileOptions</a>)</code>
+<code>findFile(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
                 </td>
             </tr>
 
@@ -341,7 +342,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find file and return the absolute filepath recursively (optional)</p>
+                        <div class="io-description"><p>Find the first matching file with the <a href="filepath">filepath</a>. The filename in the <a href="filepath">filepath</a> might be <a href="RegExp">RegExp</a> string such as <code>\.ts</code></p>
 </div>
 
                             <div class="io-description">
@@ -369,14 +370,14 @@
 
 
                                             <td>
-                                                    <p>file path or file path with filename expression</p>
+                                                    <p>filepath to search under the directory</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#FindFileOptions" target="_self" >FindFileOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
                                             </td>
 
                                             <td>
@@ -385,6 +386,8 @@
 
 
                                             <td>
+                                                    <p><a href="../miscellaneous/typealiases.html#IOptions">IOptions</a></p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -395,7 +398,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>file path</p>
+
                             </div>
                 </td>
             </tr>
@@ -416,7 +420,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findFiles(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/FindFilesOptions.html" target="_self">FindFilesOptions</a>)</code>
+<code>findFiles(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../miscellaneouss/IOptions.html" target="_self">IOptions</a>)</code>
                 </td>
             </tr>
 
@@ -425,7 +429,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find files and return the list of relative paths</p>
+                        <div class="io-description"><p>Find all files matching with the <a href="filepath">filepath</a>.</p>
 </div>
 
                             <div class="io-description">
@@ -453,14 +457,14 @@
 
 
                                             <td>
-                                                    <p>string | regular expression</p>
+                                                    <p>file path. Filename part might be regular expression such as <code>\.ts</code></p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#FindFilesOptions" target="_self" >FindFilesOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
                                             </td>
 
                                             <td>
@@ -544,7 +548,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>if the {@link filepath} is a directory, then return true, else false</p>
+
                             </div>
                 </td>
             </tr>
@@ -609,7 +614,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>if the {@link filepath} is a file, then return <code>true</code>, else <code>false</code></p>
+
                             </div>
                 </td>
             </tr>
@@ -639,7 +645,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Read file and parse json</p>
+                        <div class="io-description"><p>Read and parse <code>json</code> file</p>
 </div>
 
                             <div class="io-description">
@@ -710,7 +716,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Read file and parse YAML</p>
+                        <div class="io-description"><p>Read and parse <code>yaml</code> file</p>
 </div>
 
                             <div class="io-description">
@@ -772,7 +778,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>scope(root, isRootFile)</code>
+<code>scope(root)</code>
                 </td>
             </tr>
 
@@ -781,8 +787,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Create a path resolver that restrict the access to the provided root directory only</p>
-<p>The scope converts all paths into absolute</p>
+                        <div class="io-description"><p>Create a scoped path resolver that prevents access to outer directories by throwing <a href="AccessDeniedError">AccessDeniedError</a>.</p>
 </div>
 
                             <div class="io-description">
@@ -810,27 +815,20 @@
                                             </td>
 
                                             <td>
-                                                    <p>Relative or absolute directory path</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#39;./directory&#39;
-&#39;/directory/directory&#39;</code></pre></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                                <td>isRootFile</td>
+                                                    <p>scoped directory path</p>
 
-                                            <td>
-                                                    No
-                                            </td>
-
-                                            <td>
-                                                    <code>false</code>
-                                            </td>
-
-                                            <td>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ScopeResolver" target="_self" >ScopeResolver</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>scoped resolver {@link ScopeResolver}</p>
+
                             </div>
                 </td>
             </tr>
@@ -860,7 +858,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>List all segments of filepath such as [&#39;root&#39;, &#39;sub1&#39;, &#39;sub2&#39;, &#39;sub3&#39;, &#39;file.ts&#39;]</p>
+                        <div class="io-description"><p>Split path into segments</p>
 </div>
 
                             <div class="io-description">
@@ -900,7 +898,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>list of all segments</p>
+                                <p>segment string array</p>
 
                             </div>
                 </td>

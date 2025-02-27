@@ -1,27 +1,23 @@
 import { def } from '@puq/is';
 import { readdir, stat } from 'fs/promises';
 import { normalize, resolve } from 'path';
-
-export type FilesOptions = {
-  recursive?: boolean;
-  fullpath?: boolean;
-};
+import { IOptions } from './io-options.js';
 
 /**
- * Find all files in the target directory (only files)
- * @param directory target directory ("." by default)
- * @returns
+ * List all files under the provided {@link root} directory
+ * @param root root directory to search for files
+ * @returns list of file paths
  */
 export async function files(
-  directory: string,
-  options?: FilesOptions
+  root: string,
+  options?: IOptions
 ): Promise<string[]> {
-  directory = resolve(directory);
+  root = resolve(root);
 
-  const __readdir = await readdir(directory);
+  const __readdir = await readdir(root);
 
   const __readdirAsync = __readdir.map(async (filepath) => {
-    filepath = resolve(directory, filepath);
+    filepath = resolve(root, filepath);
     const fileStat = await stat(filepath);
 
     if (fileStat.isFile()) {
@@ -40,5 +36,5 @@ export async function files(
 
   if (options?.fullpath == true) return preresult;
 
-  return preresult.map((e) => normalize(e.replace(directory, './')));
+  return preresult.map((e) => normalize(e.replace(root, './')));
 }

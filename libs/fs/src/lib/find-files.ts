@@ -2,20 +2,17 @@ import { normalize, resolve } from 'path';
 import { files } from './files.js';
 import { InvalidValueError, FileNotFoundError } from '@puq/error';
 import { segments } from './segments.js';
-
-export type FindFilesOptions = {
-  recursive?: boolean;
-  fullpath?: boolean;
-};
+import { IOptions } from './io-options.js';
 
 /**
- * Find files and return the list of relative paths
- * @param filepath string | regular expression
+ * Find all files matching with the {@link filepath}.
+ * @param filepath file path. Filename part might be regular expression such as `\.ts`
  * @param options  {@link @FindFilesOptions}
+ * @throw {@link FileNotFoundError} if file not found
  */
 export async function findFiles(
   filepath: string,
-  options?: FindFilesOptions
+  options?: IOptions
 ): Promise<string[]> {
   filepath = resolve(filepath);
   const __segments = segments(filepath);

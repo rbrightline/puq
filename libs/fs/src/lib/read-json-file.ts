@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 
 /**
- * Read file and parse json
+ * Read and parse `json` file
  * @param filepath filepath
  * @returns object {@link T}
  */

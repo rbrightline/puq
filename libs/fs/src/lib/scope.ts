@@ -1,36 +1,15 @@
 import { resolve } from 'path';
 import { AccessDeniedError } from '@puq/error';
 import { cwd } from 'process';
-
-export type PathScope = (path: string) => string | never;
+import { ScopeResolver } from './scope-resolver.js';
 
 /**
- * Create a path resolver that restrict the access to the provided root directory only
- *
- * The scope converts all paths into absolute
- *
- * @param root Relative or absolute directory path
- *
- * ````typescript
- *    './directory'
- *    '/directory/directory'
- * ````
- *
- * @returns
- *
- * In the example below, If the `filepath` is not under the secure directory,
- * `scope` throws {@link AccessDeniedError}
- *
- * ````typescript
- *
- *    const scope = scope(join(__dirname,'secure'));
- *    const filepath = scope('../../../../secured-file.md);
- *
- * ````
- *
+ * Create a scoped path resolver that prevents access to outer directories by throwing {@link AccessDeniedError}.
+ * @param root scoped directory path
+ * @returns scoped resolver {@link ScopeResolver}
  */
-export function scope(root = cwd(), isRootFile = false) {
-  root = isRootFile ? resolve(root, '..') : resolve(root);
+export function scope(root = cwd()): ScopeResolver {
+  root = resolve(root);
 
   return (...paths: string[]) => {
     const resolved = resolve(...paths);

@@ -2,22 +2,18 @@ import { files } from './files.js';
 import { FileNotFoundError, InvalidValueError } from '@puq/error';
 import { segments } from './segments.js';
 import { resolve } from 'path';
-
-export type FindFileOptions = {
-  recursive?: boolean;
-  fullpath?: boolean;
-};
+import { IOptions } from './io-options.js';
 
 /**
- * Find file and return the absolute filepath recursively (optional)
- * @param filepath file path or file path with filename expression
- * @param options
- * @returns
- * @throw
+ * Find the first matching file with the {@link filepath}. The filename in the {@link filepath} might be {@link RegExp} string such as `\.ts`
+ * @param filepath filepath to search under the directory
+ * @param options {@link IOptions}
+ * @returns file path
+ * @throw {@link FileNotFoundError} if the file not found
  */
 export async function findFile(
   filepath: string,
-  options?: FindFileOptions
+  options?: IOptions
 ): Promise<string | never> {
   filepath = resolve(filepath);
 

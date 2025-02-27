@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises';
 import { load } from 'js-yaml';
 
 /**
- * Read file and parse YAML
+ * Read and parse `yaml` file
  * @param filepath file path
  * @returns object {@link T}
  */
