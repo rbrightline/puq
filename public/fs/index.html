@@ -88,8 +88,37 @@
 
 <h1>@puq/fs</h1>
 <h2>Summary</h2>
-<p>The library restricts I/O operations to the project directory. These operations are confined within the defined scope and cannot access resources outside of it.</p>
-<p>By default, the scope is set to the current working directory (cwd), meaning that functions are limited to accessing files and directories within this directory.</p>
+<h1>IO Utility Library</h1>
+<p>A lightweight and efficient TypeScript utility library for handling file system operations. This library provides functions to work with directories, files, and structured data formats like JSON and YAML.</p>
+<h2>Features</h2>
+<ul>
+<li><p><strong>Directory Operations</strong></p>
+<ul>
+<li>List directories (<code>dirs.ts</code>)</li>
+<li>Check if a path is a directory (<code>is-dir.ts</code>)</li>
+</ul>
+</li>
+<li><p><strong>File Operations</strong></p>
+<ul>
+<li>List files (<code>files.ts</code>)</li>
+<li>Check if a path is a file (<code>is-file.ts</code>)</li>
+<li>Find a matching file (<code>find-file.ts</code>)</li>
+<li>Find multiple matching files (<code>find-files.ts</code>)</li>
+</ul>
+</li>
+<li><p><strong>File Reading</strong></p>
+<ul>
+<li>Read JSON files (<code>read-json-file.ts</code>)</li>
+<li>Read YAML files (<code>read-yaml-file.ts</code>)</li>
+</ul>
+</li>
+<li><p><strong>Path Utilities</strong></p>
+<ul>
+<li>Handle file system scope (<code>scope.ts</code>)</li>
+<li>Work with path segments (<code>segments.ts</code>)</li>
+</ul>
+</li>
+</ul>
 <h2>Install</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/fs</code></pre></div><h2>Funding</h2>
 <p>Thank you for using <code>@puq/fs</code> It&#39;s an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.</p>
