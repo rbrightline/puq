@@ -1,43 +1,50 @@
-import { debug, end, start } from '@puq/debug';
-import { Stats } from 'fs';
+import { def } from '@puq/is';
 import { readdir, stat } from 'fs/promises';
-import { scope } from './scope.js';
-import { rval } from '@puq/is';
+import { normalize, resolve } from 'path';
+
+export type DirsOptions = {
+  /**
+   * if true, sub directories are listed as well.
+   */
+  recursive?: boolean;
+
+  /**
+   * if true, output will be a list of relative path of the directories
+   */
+  fullpath?: boolean;
+};
 
 /**
- * Find all directories in the target directory (only directories)
- * @param directory target directory ("." by default)
- * @returns
+ * List all all directories under {@link directory}
+ * @param directory target directory
+ * @returns the list of directories (not inluding files). If the recursive options is set true, then the result includes sub directories as well.
  */
-export async function dirs(directory = '.'): Promise<string[]> {
-  start('dirs');
-  rval(directory);
-  debug({ directory });
-
-  const resolve = scope();
-
+export async function dirs(
+  directory: string,
+  options?: DirsOptions
+): Promise<string[]> {
   directory = resolve(directory);
+  const __readdir = await readdir(directory);
+  const __readdirAsync = __readdir.map(async (dirpath) => {
+    dirpath = resolve(directory, dirpath);
 
-  const __dirs = await readdir(directory);
+    const dirStat = await stat(dirpath);
 
-  debug({ foundDirectories: __dirs });
+    if (!dirStat.isDirectory()) return undefined;
 
-  const fileAndStatsPromise = __dirs.map(async (filename) => {
-    return [filename, await stat(resolve(directory, filename))] as [
-      string,
-      Stats
-    ];
+    if (options?.recursive === true) {
+      const found = await dirs(dirpath, options);
+      return [dirpath, ...found];
+    } else {
+      return [dirpath];
+    }
   });
 
-  const filesStats = await Promise.all(fileAndStatsPromise);
+  const foundDirs = await Promise.all(__readdirAsync);
 
-  const foundDirectories = filesStats
-    .filter(([f, s]) => s.isDirectory())
-    .map(([f]) => f);
+  const preresult = foundDirs.flat().filter(def);
 
-  debug({ foundDirectories });
+  if (options?.fullpath == true) return preresult;
 
-  end();
-
-  return foundDirectories;
+  return preresult.map((e) => normalize(e.replace(directory, './')));
 }

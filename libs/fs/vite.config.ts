@@ -15,6 +15,9 @@ export default defineConfig({
     environment: 'node',
     include: ['test/**/*.{spec,test}.ts'],
     reporters: ['default'],
+    env: {
+      DEBUG_MODE: 'true',
+    },
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',

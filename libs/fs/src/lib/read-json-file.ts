@@ -1,12 +1,12 @@
-import { readFile } from './read-file.js';
-// [ ] addd unit testing
+import { readFile } from 'fs/promises';
+
 /**
- * Read json file
- * @param filepath file path
- * @returns {T}
+ * Read file and parse json
+ * @param filepath filepath
+ * @returns object {@link T}
  */
 export async function readJSONFile<T>(filepath: string): Promise<T> {
-  const buffer = await readFile(filepath, { recursive: true });
+  const buffer = await readFile(filepath);
   const text = buffer.toString();
   return JSON.parse(text) as T;
 }

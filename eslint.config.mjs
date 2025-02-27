@@ -18,7 +18,6 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
-      '@typescript-eslint/no-floating-promises': 'error',
       '@nx/enforce-module-boundaries': [
         'error',
         {

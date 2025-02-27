@@ -13,6 +13,16 @@ export class Hash {
   private static readonly ENCODING = 'hex';
 
   /**
+   * Check the key has at 256 bits
+   * @param key
+   */
+  protected static validateData(key?: string | undefined | null) {
+    if (key?.length !== this.KEY_LENGTH) {
+      throw new Error(`Key must be ${this.KEY_LENGTH} bytes`);
+    }
+  }
+
+  /**
    * Generates a secure hash from input data
    * @param data String to hash (e.g., password)
    * @returns Promise resolving to object with hash and salt (both hex-encoded)

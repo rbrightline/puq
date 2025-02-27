@@ -6,9 +6,32 @@
 
 ## Summary
 
-The library restricts I/O operations to the project directory. These operations are confined within the defined scope and cannot access resources outside of it.
+# IO Utility Library
 
-By default, the scope is set to the current working directory (cwd), meaning that functions are limited to accessing files and directories within this directory.
+A lightweight and efficient TypeScript utility library for handling file system operations. This library provides functions to work with directories, files, and structured data formats like JSON and YAML.
+
+## Features
+
+- **Directory Operations**
+
+  - List directories (`dirs.ts`)
+  - Check if a path is a directory (`is-dir.ts`)
+
+- **File Operations**
+
+  - List files (`files.ts`)
+  - Check if a path is a file (`is-file.ts`)
+  - Find a matching file (`find-file.ts`)
+  - Find multiple matching files (`find-files.ts`)
+
+- **File Reading**
+
+  - Read JSON files (`read-json-file.ts`)
+  - Read YAML files (`read-yaml-file.ts`)
+
+- **Path Utilities**
+  - Handle file system scope (`scope.ts`)
+  - Work with path segments (`segments.ts`)
 
 ## Install
 

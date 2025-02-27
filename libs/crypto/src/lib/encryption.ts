@@ -14,8 +14,8 @@ export class Encryption {
    * Check the key has at 256 bits
    * @param key
    */
-  protected static validateKey(key: Buffer) {
-    if (key.length !== this.KEY_LENGTH) {
+  protected static validateKey(key: Buffer | undefined | null) {
+    if (key?.length !== this.KEY_LENGTH) {
       throw new Error(`Key must be ${this.KEY_LENGTH} bytes`);
     }
   }

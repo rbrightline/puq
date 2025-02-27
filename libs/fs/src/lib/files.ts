@@ -1,9 +1,11 @@
-import { debug, end, start } from '@puq/debug';
-import { def, rval } from '@puq/is';
-import { Stats } from 'fs';
+import { def } from '@puq/is';
 import { readdir, stat } from 'fs/promises';
-import { extname } from 'path';
-import { scope } from './scope.js';
+import { normalize, resolve } from 'path';
+
+export type FilesOptions = {
+  recursive?: boolean;
+  fullpath?: boolean;
+};
 
 /**
  * Find all files in the target directory (only files)
@@ -11,39 +13,32 @@ import { scope } from './scope.js';
  * @returns
  */
 export async function files(
-  directory = '.',
-  extention?: string
+  directory: string,
+  options?: FilesOptions
 ): Promise<string[]> {
-  start('files');
-  rval(directory);
-  debug({ directory, extention });
-  const resolve = scope();
   directory = resolve(directory);
-  const foundDirs = await readdir(directory);
 
-  debug({ directory });
-  debug({ foundDirs });
+  const __readdir = await readdir(directory);
 
-  const filesStatsPromise = foundDirs.map(async (filename) => {
-    return [filename, await stat(resolve(directory, filename))] as [
-      string,
-      Stats
-    ];
+  const __readdirAsync = __readdir.map(async (filepath) => {
+    filepath = resolve(directory, filepath);
+    const fileStat = await stat(filepath);
+
+    if (fileStat.isFile()) {
+      return filepath;
+    } else if (fileStat.isDirectory() && options?.recursive === true) {
+      const found = await files(filepath, { ...options, fullpath: true });
+      return [...found];
+    }
+
+    return undefined;
   });
 
-  const filesStats = await Promise.all(filesStatsPromise);
+  const foundDirs = await Promise.all(__readdirAsync);
 
-  let filteredFilesStats = filesStats.filter(([f, s]) => s.isFile());
+  const preresult = foundDirs.flat().filter(def);
 
-  if (def(extention))
-    filteredFilesStats = filteredFilesStats.filter(
-      ([f]) => extname(f) === extention
-    );
+  if (options?.fullpath == true) return preresult;
 
-  const foundFileNames = filteredFilesStats.map(([f]) => f);
-
-  debug({ foundFileNames });
-
-  end();
-  return foundFileNames;
+  return preresult.map((e) => normalize(e.replace(directory, './')));
 }

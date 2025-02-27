@@ -1,13 +1,11 @@
-import { dirs } from './dirs.js';
 import { files } from './files.js';
-import { scope } from './scope.js';
-import { dirpath } from './dirpath.js';
-import { filename } from './filename.js';
-import { FileNotFoundError } from '@puq/error';
-import { debug, start, end } from '@puq/debug';
+import { FileNotFoundError, InvalidValueError } from '@puq/error';
+import { segments } from './segments.js';
+import { resolve } from 'path';
 
 export type FindFileOptions = {
   recursive?: boolean;
+  fullpath?: boolean;
 };
 
 /**
@@ -21,69 +19,35 @@ export async function findFile(
   filepath: string,
   options?: FindFileOptions
 ): Promise<string | never> {
-  const timeout = setTimeout(() => {
-    throw new Error('findFile operation takes too long ');
-  }, 5000);
-
-  start('findFile');
-  debug({ filepath });
-  debug(options);
-
-  const resolve = scope();
-
   filepath = resolve(filepath);
 
-  debug({ filepath });
+  const rotopath = resolve(filepath, '..');
 
-  const directory = dirpath(filepath);
+  const __segments = segments(filepath);
 
-  debug({ directory });
+  const filename = __segments.at(-1);
 
-  const fname = filename(filepath);
+  const foundFiles = await files(rotopath, { ...options, fullpath: true });
 
-  debug({ filename: fname });
+  const rx = new RegExp(`${filename}`);
 
-  const foundFiles = await files(directory);
+  if (filename == undefined)
+    throw new InvalidValueError(
+      `Could not extract the last segment from the ${filepath}`
+    );
 
-  debug({ foundFiles });
+  if (foundFiles.length == 0)
+    throw new FileNotFoundError(`File not found: ${filepath}`);
 
-  const ex = new RegExp(fname);
+  for (const filepath of foundFiles) {
+    const __segments = segments(filepath);
+    const relativeRoot = __segments.slice(0, -1).join('\\');
+    const filename = __segments.at(-1);
 
-  debug({ regularExpression: ex });
+    if (!filename || !relativeRoot || !rx.test(filename)) continue;
 
-  const found = foundFiles.find((e) => ex.test(e));
-
-  debug({ found });
-
-  if (found) {
-    end();
-    clearTimeout(timeout);
-    return resolve(directory, found);
+    return filepath;
   }
 
-  if (options?.recursive === true) {
-    const foundDirs = await dirs(directory);
-
-    debug({ foundDirs });
-    if (foundDirs.length > 0) {
-      for (const d of foundDirs) {
-        try {
-          const found = await findFile(resolve(directory, d, fname), options);
-          end();
-          clearTimeout(timeout);
-          return found;
-        } catch (err) {
-          if (!(err instanceof FileNotFoundError)) {
-            clearTimeout(timeout);
-            throw err;
-          }
-          end();
-        }
-      }
-    }
-  }
-
-  clearTimeout(timeout);
-
-  throw new FileNotFoundError(`File not found by ${filepath}`);
+  throw new FileNotFoundError(`File not found: ${filepath}`);
 }
