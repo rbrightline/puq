@@ -1,25 +1,11 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  Tree,
-} from '@nx/devkit';
-import * as path from 'path';
-import { HelloGeneratorSchema } from './schema';
+import { Tree } from '@nx/devkit';
+import { HelloGeneratorSchema } from './schema.js';
 
 export async function helloGenerator(
   tree: Tree,
   options: HelloGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
-  await formatFiles(tree);
+  console.log(options);
 }
 
 export default helloGenerator;

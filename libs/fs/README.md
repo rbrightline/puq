@@ -6,8 +6,6 @@
 
 ## Summary
 
-# IO Utility Library
-
 A lightweight and efficient TypeScript utility library for handling file system operations. This library provides functions to work with directories, files, and structured data formats like JSON and YAML.
 
 ## Features
