@@ -1,11 +1,11 @@
-import { RequiredValueError } from '@puq/error';
+import { ErrorCode, throwEmptyFieldError } from '@puq/error';
 import { ne } from './ne.js';
 
 /**
  * Ensure the `value` or `defaultValue` is neither `undefined`, `null`, or empty (check {@link ne}), and return the value, or throw {@link RequiredValueError}
- * @param value any value
- * @param defaultValue default value
- * @throws if the value is undefined, null, or empty throws {@link RequiredValueError}
+ * @param value {T | undefined | null} any value
+ * @param defaultValue {T | undefined | null} default value
+ * @throws error {@link ErrorCode.EmptyField} if the value is empty
  * @returns
  */
 export function rne<T>(
@@ -15,5 +15,5 @@ export function rne<T>(
   if (ne(value)) return value;
   if (ne(defaultValue)) return defaultValue;
 
-  throw new RequiredValueError(`value is empty: ${value}`);
+  throwEmptyFieldError(undefined, { data: { params: [value, defaultValue] } });
 }

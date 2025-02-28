@@ -112,19 +112,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#auths" title="src/lib/auths.ts" ><b>auths</b>&nbsp;&nbsp;&nbsp;(src/.../auths.ts)</a>
+                            <a href="#authPaths" title="src/lib/paths/auth-paths.ts" ><b>authPaths</b>&nbsp;&nbsp;&nbsp;(src/.../auth-paths.ts)</a>
                         </li>
                         <li>
-                            <a href="#names" title="src/lib/names.ts" ><b>names</b>&nbsp;&nbsp;&nbsp;(src/.../names.ts)</a>
+                            <a href="#names" title="src/lib/names/names.ts" ><b>names</b>&nbsp;&nbsp;&nbsp;(src/.../names.ts)</a>
                         </li>
                         <li>
-                            <a href="#normalize" title="src/lib/normalize.ts" ><b>normalize</b>&nbsp;&nbsp;&nbsp;(src/.../normalize.ts)</a>
+                            <a href="#normalize" title="src/lib/common/normalize.ts" ><b>normalize</b>&nbsp;&nbsp;&nbsp;(src/.../normalize.ts)</a>
                         </li>
                         <li>
-                            <a href="#paths" title="src/lib/paths.ts" ><b>paths</b>&nbsp;&nbsp;&nbsp;(src/.../paths.ts)</a>
+                            <a href="#paths" title="src/lib/paths/paths.ts" ><b>paths</b>&nbsp;&nbsp;&nbsp;(src/.../paths.ts)</a>
                         </li>
                         <li>
-                            <a href="#pluralize" title="src/lib/pluralize.ts" ><b>pluralize</b>&nbsp;&nbsp;&nbsp;(src/.../pluralize.ts)</a>
+                            <a href="#pluralize" title="src/lib/names/pluralize.ts" ><b>pluralize</b>&nbsp;&nbsp;&nbsp;(src/.../pluralize.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -133,22 +133,22 @@
     </table>
 </section>
 
-    <h3>src/lib/auths.ts</h3>
+    <h3>src/lib/paths/auth-paths.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="auths"></a>
+                    <a name="authPaths"></a>
                     <span class="name">
-                        <span ><b>auths</b></span>
-                        <a href="#auths"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>authPaths</b></span>
+                        <a href="#authPaths"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>auths(prefix: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>authPaths(prefix?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -157,7 +157,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Geneate auth rest api paths</p>
+                        <div class="io-description"><p>Generate the standard authorization and authentication rest-api paths with (optional) prefix</p>
 </div>
 
                             <div class="io-description">
@@ -169,7 +169,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -180,13 +180,14 @@
                                             </td>
 
                                             <td>
-                                                    No
+                                                    Yes
                                             </td>
+
 
                                             <td>
-                                                    <code>&#x27;&#x27;</code>
-                                            </td>
+                                                    <p>prefix can be any none-empty string such as <code>api</code>, <code>auth</code>,<code>security</code>. But it is better do not set prefix here, configure it in the main module.</p>
 
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -196,13 +197,14 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>auth paths {@link AuthPaths}</p>
+
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/names.ts</h3>
+</section>    <h3>src/lib/names/names.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -254,9 +256,7 @@
 
 
                                             <td>
-                                                    <ul>
-<li>The name of the resource to be transformed into different case formats.</li>
-</ul>
+                                                    <p>the resource name</p>
 
                                             </td>
                                         </tr>
@@ -272,6 +272,8 @@
 
 
                                             <td>
+                                                    <p>extra options such as prefix, suffix <a href="../miscellaneous/typealiases.html#NamesOption">NamesOption</a></p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -300,7 +302,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/normalize.ts</h3>
+</section>    <h3>src/lib/common/normalize.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -393,7 +395,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/paths.ts</h3>
+</section>    <h3>src/lib/paths/paths.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -408,7 +410,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>paths(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, prefix: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>paths(resourceName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, prefix: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -417,7 +419,67 @@ contains only letters, underscores, dollar signs, and spaces.</li>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Generates REST API paths for a given resource name with an optional prefix.</p>
+                        <div class="io-description"><p>Create rest-api resource paths for each operations including</p>
+<ul>
+<li><p><strong>plural</strong> :</p>
+<ul>
+<li>GET  : find all entities by query</li>
+</ul>
+</li>
+<li><p><strong>singular</strong> :</p>
+<ul>
+<li>GET  : entity metadata</li>
+<li>POST : insert entity</li>
+</ul>
+</li>
+<li><p><strong>id</strong> :</p>
+<ul>
+<li>GET     : find entity by id</li>
+<li>DELETE  : delete entity by id</li>
+<li>PUT     : udpate entity by id</li>
+</ul>
+</li>
+<li><p><strong>increment</strong> :</p>
+<ul>
+<li>PUT : increment a specific property</li>
+</ul>
+</li>
+<li><p><strong>decrement</strong> :</p>
+<ul>
+<li>PUT : decrement a specific property</li>
+</ul>
+</li>
+<li><p><strong>count</strong> :</p>
+<ul>
+<li>GET : find the cout of entities by query</li>
+</ul>
+</li>
+<li><p><strong>relation</strong> :</p>
+<ul>
+<li>GET    :  get the relation data by entity id and relation name</li>
+<li>DELETE :  delete  the relation by entity id and relation name.</li>
+</ul>
+</li>
+<li><p><strong>relationId</strong> :</p>
+<ul>
+<li>GET    : get the relation data by enetity id and relation id</li>
+<li>DELETE : delete the relation  by enetity id and relation id</li>
+<li>PUT    : add the relation by enetity id and relation id</li>
+</ul>
+</li>
+<li><p><strong>file</strong> :</p>
+<ul>
+<li>GET    : get file</li>
+<li>POST   : upload file</li>
+</ul>
+</li>
+<li><p><strong>img</strong> :</p>
+<ul>
+<li>GET    : get image file</li>
+<li>POST   : upload image file</li>
+</ul>
+</li>
+</ul>
 </div>
 
                             <div class="io-description">
@@ -435,7 +497,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>name</td>
+                                                <td>resourceName</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
@@ -448,10 +510,6 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                             </td>
 
                                             <td>
-                                                    <ul>
-<li>The name of the resource for which to generate paths.</li>
-</ul>
-
                                             </td>
                                         </tr>
                                         <tr>
@@ -469,9 +527,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                             </td>
 
                                             <td>
-                                                    <ul>
-<li>An optional prefix to prepend to each path. Defaults to an empty string.</li>
-</ul>
+                                                    <p>prefix such as <code>api</code>, <code>resource</code>. Do not set the prefix here. It is recommended to do in main module.</p>
 
                                             </td>
                                         </tr>
@@ -479,18 +535,17 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#RestApiPaths" target="_self" >RestApiPaths</a></code>
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Paths" target="_self" >Paths</a></code>
 
                         </div>
                             <div class="io-description">
-                                <p>An object containing various REST API paths for the resource.</p>
-
+                                
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/pluralize.ts</h3>
+</section>    <h3>src/lib/names/pluralize.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -505,7 +560,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>pluralize(word: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>pluralize(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -514,7 +569,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Pluralize string (english)</p>
+                        <div class="io-description"><p>Pluralize the given string following (english) grammer</p>
 </div>
 
                             <div class="io-description">
@@ -526,11 +581,12 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>word</td>
+                                                <td>name</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
@@ -540,6 +596,10 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <p>name to pluralize</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

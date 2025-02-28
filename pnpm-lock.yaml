@@ -246,8 +246,8 @@ importers:
   libs/is:
     dependencies:
       '@puq/error':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.2.3
+        version: 0.2.3
     devDependencies:
       '@swc/helpers':
         specifier: ~0.5.11
@@ -283,7 +283,7 @@ importers:
         version: 0.5.15
 
   libs/names:
-    devDependencies:
+    dependencies:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
@@ -1840,6 +1840,9 @@ packages:
 
   '@puq/error@0.2.0':
     resolution: {integrity: sha512-iCTgR6YCumXq2tlFuDzZDMlMif1U7bg0W6/zoieqJxCT1y4kCaOe8AD5QpUuBttuQrURPqGXTJ3DAEuUTth7UQ==}
+
+  '@puq/error@0.2.3':
+    resolution: {integrity: sha512-/H/005sDOjyuMmpJaot+kTD86/X2Ex5RFWBRx/RkidrGQZACJQYQsW7u8uu6ieorXUQwTg2aFdLso5XbujcvxA==}
 
   '@puq/fs@0.0.2':
     resolution: {integrity: sha512-D898lmyTILFvAuXUpgUYjQgl8i4P0nrnvcC122GS2s7kOUvai+DsQIQ5z0R4FP4CZ6VDxeox5/eqQs1Vl1HrCA==}
@@ -8579,6 +8582,8 @@ snapshots:
   '@puq/debug@0.2.0': {}
 
   '@puq/error@0.2.0': {}
+
+  '@puq/error@0.2.3': {}
 
   '@puq/fs@0.0.2(@puq/debug@0.0.1)':
     dependencies:

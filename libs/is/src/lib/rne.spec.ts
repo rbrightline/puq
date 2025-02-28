@@ -1,5 +1,6 @@
-import { RequiredValueError } from '@puq/error';
+import { BaseError, ErrorCode } from '@puq/error';
 import { rne } from './rne.js';
+import { fail } from 'assert';
 
 describe('rne: not empty check', () => {
   it.each`
@@ -15,7 +16,15 @@ describe('rne: not empty check', () => {
     ${{ some: undefined }}
     ${NaN}
   `('should rne($value) should throw', ({ value }) => {
-    expect(() => rne(value)).toThrowError(RequiredValueError);
+    try {
+      rne(value);
+      fail(`rne(${value}) should throw errror`);
+    } catch (error: any) {
+      const e = error as BaseError;
+      expect(e.code).toEqual(ErrorCode.EmptyField);
+      expect(e.message).toEqual(ErrorCode[ErrorCode.EmptyField]);
+      expect((e.metadata?.data as any)?.['params']).toEqual([value, undefined]);
+    }
   });
 
   it.each`

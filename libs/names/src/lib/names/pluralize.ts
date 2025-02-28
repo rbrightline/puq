@@ -1,10 +1,10 @@
 /**
- * Pluralize string (english)
- * @param word
+ * Pluralize the given string following (english) grammer
+ * @param name name to pluralize
  * @returns
  */
-export function pluralize(word: string): string {
-  const lowercase = word.toLowerCase();
+export function pluralize(name: string): string {
+  const lowercase = name.toLowerCase();
 
   const irregularPlurals: Record<string, string> = {
     child: 'children',
@@ -38,7 +38,7 @@ export function pluralize(word: string): string {
 
   // Check for uncountable words
   if (uncountableWords.includes(lowercase)) {
-    return word;
+    return name;
   }
 
   // Check for irregular plurals
@@ -49,7 +49,7 @@ export function pluralize(word: string): string {
   // Regular pluralization rules
   if (lowercase.endsWith('y') && !/[aeiou]y$/i.test(lowercase)) {
     // If the word ends with "y" and is preceded by a consonant
-    return word.slice(0, -1) + 'ies';
+    return name.slice(0, -1) + 'ies';
   } else if (
     lowercase.endsWith('s') ||
     lowercase.endsWith('x') ||
@@ -58,15 +58,15 @@ export function pluralize(word: string): string {
     lowercase.endsWith('ch')
   ) {
     // If the word ends with "s", "x", "z", "sh", or "ch"
-    return word + 'es';
+    return name + 'es';
   } else if (lowercase.endsWith('f')) {
     // If the word ends with "f"
-    return word.slice(0, -1) + 'ves';
+    return name.slice(0, -1) + 'ves';
   } else if (lowercase.endsWith('fe')) {
     // If the word ends with "fe"
-    return word.slice(0, -2) + 'ves';
+    return name.slice(0, -2) + 'ves';
   } else {
     // Default rule: just add "s"
-    return word + 's';
+    return name + 's';
   }
 }

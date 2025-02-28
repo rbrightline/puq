@@ -1,10 +1,7 @@
-import { names } from './names.js';
-import { pluralize } from './pluralize.js';
-
 /**
  * Represents the paths used in REST API endpoints.
  */
-export type RestApiPaths = {
+export type Paths = {
   /**
    * The plural form of the resource path.
    * @example
@@ -82,40 +79,3 @@ export type RestApiPaths = {
    */
   img: string;
 };
-
-/**
- * Generates REST API paths for a given resource name with an optional prefix.
- *
- * @param name - The name of the resource for which to generate paths.
- * @param prefix - An optional prefix to prepend to each path. Defaults to an empty string.
- * @returns An object containing various REST API paths for the resource.
- *
- * @property plural - The plural form of the resource path.
- * @property singular - The singular form of the resource path.
- * @property id - The path for accessing a specific resource by its ID.
- * @property plus - The path for accessing a specific resource by its ID with an additional 'plus' segment.
- * @property count - The path for accessing the count of the resources.
- * @property relation - The path for accessing a relation of a specific resource by its ID.
- * @property relationId - The path for accessing a specific relation of a specific resource by its ID and the relation's ID.
- */
-export function paths(name: string, prefix = ''): RestApiPaths {
-  const pf = prefix ? `${prefix}/` : '';
-  const singularName = names(name).kebabCase;
-  const pluralName = pluralize(singularName);
-  const singularPath = `${pf}${singularName}`;
-  const pluralPath = `${pf}${pluralName}`;
-  const idPath = `${singularPath}/:id`;
-
-  return {
-    plural: pluralPath,
-    singular: singularPath,
-    id: `${idPath}`,
-    increment: `${idPath}/increment`,
-    decrement: `${idPath}/decrement`,
-    count: `${pluralPath}/count`,
-    relation: `${idPath}/:relationName`,
-    relationId: `${idPath}/:relationName/:relationId`,
-    file: `${idPath}/file`,
-    img: `${idPath}/img`,
-  };
-}

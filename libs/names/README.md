@@ -11,8 +11,11 @@ The String Names Library provides a simple names function that takes a string in
 ## Features
 
 - **names**: Generates all variations of names based on a provided string.
-- **auths**: Generates common authentication and authorization paths with an optional prefix.
+
+- **authPaths**: Generates common authentication and authorization paths with an optional prefix.
+
 - **paths**: Generates commonly used REST paths for database entity CRUD operations and relations, including count endpoints.
+
 - **plurize**: Converts a given string between singular and plural forms. This function is used internally by all other functions to ensure consistent singular and plural naming.
 
 ## Install

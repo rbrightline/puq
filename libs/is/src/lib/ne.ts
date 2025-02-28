@@ -1,4 +1,5 @@
 import { def } from './def.js';
+import { udef } from './udef.js';
 
 /**
  * Check the value is not empty string, array, object, undefined, or null
@@ -6,32 +7,34 @@ import { def } from './def.js';
  * @returns
  */
 export function ne<T>(value: T | undefined | null): value is T {
-  if (def(value)) {
-    const type = typeof value;
-    switch (type) {
-      case 'string':
-        return (value as string).trim().length > 0;
-      case 'number':
-        return !isNaN(value as number);
-      case 'bigint':
-        return true;
+  if (udef(value)) return false;
 
-      case 'object': {
-        if (Array.isArray(value)) {
-          return value.length > 0 && value.some((e) => def(e));
-        } else {
-          return (
-            Object.keys(value as Record<any, any>).length > 0 &&
-            Object.values(value as Record<any, any>).some((e) => def(e))
-          );
-        }
+  const type = typeof value;
+
+  switch (type) {
+    case 'string':
+      return (value as string).trim().length > 0;
+    case 'number':
+      return !isNaN(value as number);
+    case 'bigint':
+      return true;
+
+    case 'object': {
+      if (Array.isArray(value)) {
+        return value.length > 0 && value.some((e) => def(e));
+      } else {
+        return (
+          Object.keys(value as any).length > 0 &&
+          Object.values(value as any).some((e) => def(e))
+        );
       }
-      case 'boolean':
-      case 'symbol':
-      case 'function':
-        return true;
     }
-  }
+    case 'boolean':
+    case 'symbol':
+    case 'function':
+      return true;
 
-  return false;
+    default:
+      return false;
+  }
 }
