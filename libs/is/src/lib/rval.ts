@@ -2,7 +2,7 @@ import { RequiredValueError } from '@puq/error';
 import { def } from './def.js';
 
 /**
- * Ensures the value is neither `undefined` nor `null`, otherwise return {@link defaultValue} if defined or throws {@link RequiredValueError}.
+ * Ensures the value is neither `undefined` nor `null` and return the value, otherwise {@link RequiredValueError}.
  * @param value - The value to validate.
  * @returns The input value if it is defined.
  * @throws {@link RequiredValueError} if the value is `undefined` or `null`.

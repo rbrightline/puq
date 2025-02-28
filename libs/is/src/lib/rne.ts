@@ -2,7 +2,7 @@ import { RequiredValueError } from '@puq/error';
 import { ne } from './ne.js';
 
 /**
- * Ensure the `value` or `defaultValue` is not neither `undefined` or `null`, ot throw {@link RequiredValueError}
+ * Ensure the `value` or `defaultValue` is neither `undefined`, `null`, or empty (check {@link ne}), and return the value, or throw {@link RequiredValueError}
  * @param value any value
  * @param defaultValue default value
  * @throws if the value is undefined, null, or empty throws {@link RequiredValueError}

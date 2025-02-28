@@ -1,12 +1,12 @@
 {
   "name": "@puq/is",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "is",
+  "description": "A set of utility functions to check the value is undefined, null, or empty",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

@@ -1,4 +1,3 @@
-import { RequiredValueError } from '@puq/error';
 import { rval } from './rval.js';
 describe('rval: check the value is defined or throw error', () => {
   describe('rval with defined values', () => {
@@ -23,11 +22,11 @@ describe('rval: check the value is defined or throw error', () => {
   describe('rval with undefined values', () => {
     it.each`
       value        | defaultValue | expected
-      ${undefined} | ${undefined} | ${'Value is required but found undefined'}
-      ${null}      | ${undefined} | ${'Value is required but found null'}
+      ${undefined} | ${undefined} | ${'value is not defined: undefined'}
+      ${null}      | ${undefined} | ${'value is not defined: null'}
     `('rval($value) should throw $expected', ({ value, expected }) => {
       expect(() => rval(value)).toThrowError(expected);
-      expect(() => rval(value)).toThrowError(RequiredValueError);
+      expect(() => rval(value)).toThrowError(expected);
     });
   });
 });

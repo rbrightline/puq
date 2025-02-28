@@ -115,6 +115,12 @@
                             <a href="#def" title="src/lib/def.ts" ><b>def</b>&nbsp;&nbsp;&nbsp;(src/.../def.ts)</a>
                         </li>
                         <li>
+                            <a href="#ne" title="src/lib/ne.ts" ><b>ne</b>&nbsp;&nbsp;&nbsp;(src/.../ne.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#rne" title="src/lib/rne.ts" ><b>rne</b>&nbsp;&nbsp;&nbsp;(src/.../rne.ts)</a>
+                        </li>
+                        <li>
                             <a href="#rval" title="src/lib/rval.ts" ><b>rval</b>&nbsp;&nbsp;&nbsp;(src/.../rval.ts)</a>
                         </li>
                         <li>
@@ -151,7 +157,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Check the value is defined.</p>
+                        <div class="io-description"><p>Checks if the given value is neither <code>undefined</code> nor <code>null</code>.
+Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 </div>
 
                             <div class="io-description">
@@ -175,7 +182,9 @@
 
 
                                             <td>
-                                                    <p>T | null| undefined</p>
+                                                    <ul>
+<li>The value to check.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -187,29 +196,29 @@
 
                         </div>
                             <div class="io-description">
-                                <p>boolean</p>
+                                <p><code>true</code> if the value is defined (not <code>undefined</code> or <code>null</code>), otherwise <code>false</code>.</p>
 
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/rval.ts</h3>
+</section>    <h3>src/lib/ne.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="rval"></a>
+                    <a name="ne"></a>
                     <span class="name">
-                        <span ><b>rval</b></span>
-                        <a href="#rval"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>ne</b></span>
+                        <a href="#ne"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>rval(value)</code>
+<code>ne(value)</code>
                 </td>
             </tr>
 
@@ -218,7 +227,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Return the value unless undefined, or throw <a href="RequiredValueError">RequiredValueError</a></p>
+                        <div class="io-description"><p>Check the value is not empty string, array, object, undefined, or null</p>
 </div>
 
                             <div class="io-description">
@@ -249,7 +258,165 @@
 
                         </div>
                             <div class="io-description">
-                                <p>T</p>
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/rne.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rne"></a>
+                    <span class="name">
+                        <span ><b>rne</b></span>
+                        <a href="#rne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rne(value, defaultValue?)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ensure the <code>value</code> or <code>defaultValue</code> is neither <code>undefined</code>, <code>null</code>, or empty (check <a href="../miscellaneous/functions.html#ne">ne</a>), and return the value, or throw <a href="RequiredValueError">RequiredValueError</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>any value</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>defaultValue</td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>default value</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>T</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/rval.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rval"></a>
+                    <span class="name">
+                        <span ><b>rval</b></span>
+                        <a href="#rval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rval(value, defaultValue?)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ensures the value is neither <code>undefined</code> nor <code>null</code> and return the value, otherwise <a href="RequiredValueError">RequiredValueError</a>.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The value to validate.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>defaultValue</td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>T</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The input value if it is defined.</p>
 
                             </div>
                 </td>
@@ -280,7 +447,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Check the value is undefined.</p>
+                        <div class="io-description"><p>Checks if the given value is <code>null</code> or <code>undefined</code>.</p>
 </div>
 
                             <div class="io-description">
@@ -304,7 +471,9 @@
 
 
                                             <td>
-                                                    <p>T | null| undefined</p>
+                                                    <ul>
+<li>The value to check.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -312,11 +481,11 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../miscellaneous/functions.html#def" target="_self" >undefined</a></code>
+                            <b>Returns : </b>    <code>undefined | null</code>
 
                         </div>
                             <div class="io-description">
-                                <p>boolean</p>
+                                <p><code>true</code> if the value is <code>null</code> or <code>undefined</code>, otherwise <code>false</code>.</p>
 
                             </div>
                 </td>

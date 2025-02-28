@@ -6,7 +6,13 @@
 
 ## Summary
 
-Type, undefined, and null checkers
+A set of utility functions to check the value is undefined, null, or empty
+
+- **def**: check the value is defined
+- **udef**: check the value is not defined
+- **ne**: check the value is not empty in any means
+- **rne**: check the value is not empty in any means and return it or throw error
+- **rval**: check the value is neither undefined nor null and return it or throw error
 
 ## Install
 

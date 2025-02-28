@@ -88,7 +88,14 @@
 
 <h1>@puq/is</h1>
 <h2>Summary</h2>
-<p>Type, undefined, and null checkers</p>
+<p>A set of utility functions to check the value is undefined, null, or empty</p>
+<ul>
+<li><strong>def</strong>: check the value is defined</li>
+<li><strong>udef</strong>: check the value is not defined</li>
+<li><strong>ne</strong>: check the value is not empty in any means</li>
+<li><strong>rne</strong>: check the value is not empty in any means and return it or throw error</li>
+<li><strong>rval</strong>: check the value is neither undefined nor null and return it or throw error</li>
+</ul>
 <h2>Install</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/is</code></pre></div><h2>Examples</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">if (def(value))   // Value is defined
