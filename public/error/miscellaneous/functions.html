@@ -79,7 +79,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content miscellaneous-typealiases">
+               <div class="content miscellaneous-functions">
                    <div class="content-data">
 
 
@@ -101,7 +101,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Miscellaneous</li>
-  <li class="breadcrumb-item">Type aliases</li>
+  <li class="breadcrumb-item">Functions</li>
 </ol>
 
 <section data-compodoc="block-index">
@@ -112,10 +112,10 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#ErrorMetadata" title="src/lib/common/error-metadata.ts" ><b>ErrorMetadata</b>&nbsp;&nbsp;&nbsp;(src/.../error-metadata.ts)</a>
+                            <a href="#createThrower" title="src/lib/common/create-thrower.ts" ><b>createThrower</b>&nbsp;&nbsp;&nbsp;(src/.../create-thrower.ts)</a>
                         </li>
                         <li>
-                            <a href="#ErrorThrower" title="src/lib/common/error-thrower.ts" ><b>ErrorThrower</b>&nbsp;&nbsp;&nbsp;(src/.../error-thrower.ts)</a>
+                            <a href="#createThrowers" title="src/lib/common/create-throwers.ts" ><b>createThrowers</b>&nbsp;&nbsp;&nbsp;(src/.../create-throwers.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -124,50 +124,122 @@
     </table>
 </section>
 
-    <h3>src/lib/common/error-metadata.ts</h3>
-    <section data-compodoc="block-typealias">
-    <table class="table table-sm table-bordered">
+    <h3>src/lib/common/create-thrower.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ErrorMetadata"></a>
-                    <span class="name "><b>ErrorMetadata</b><a href="#ErrorMetadata"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="createThrower"></a>
+                    <span class="name">
+                        <span ><b>createThrower</b></span>
+                        <a href="#createThrower"><span class="icon ion-ios-link"></span></a>
+                    </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Error metadata to improve debugging</p>
+<code>createThrower(code: <a href="../undefineds/ErrorCode.html" target="_self">ErrorCode</a>, message)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create a function that always throws the desired error code and error message</p>
 </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>    <code>literal type</code>
-</code>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>code</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#ErrorCode" target="_self" >ErrorCode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>ErrorCode[code]</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ErrorThrower" target="_self" >ErrorThrower</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/common/error-thrower.ts</h3>
-    <section data-compodoc="block-typealias">
-    <table class="table table-sm table-bordered">
+</section>    <h3>src/lib/common/create-throwers.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ErrorThrower"></a>
-                    <span class="name "><b>ErrorThrower</b><a href="#ErrorThrower"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="createThrowers"></a>
+                    <span class="name">
+                        <span ><b>createThrowers</b></span>
+                        <a href="#createThrowers"><span class="icon ion-ios-link"></span></a>
+                    </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Error thrower function type</p>
+<code>createThrowers()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create <a href="../miscellaneous/typealiases.html#ErrorThrower">ErrorThrower</a>s and map them by corresponding key.</p>
 </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-</code>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ErrorThrower" target="_self" >Record&lt;string, ErrorThrower&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -200,8 +272,8 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
-            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
+            var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

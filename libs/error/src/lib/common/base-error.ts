@@ -1,15 +1,25 @@
-import { ErrorCode } from './error-codes.js';
+import { ErrorCode } from './error-code.js';
+import { ErrorMetadata } from './error-metadata.js';
 
-export type ErrorMetadata = Record<string, unknown>;
-
-export class PuqError extends Error {
+/**
+ * Error class to create errors
+ */
+export class BaseError extends Error {
+  /**
+   * Unique error code to identify the cause of the error
+   */
   public readonly code: ErrorCode;
+
+  /**
+   * Metadata to clearify the cuase
+   */
   public readonly metadata?: ErrorMetadata;
 
   constructor(code: ErrorCode, message: string, metadata?: ErrorMetadata) {
     super(message);
     this.code = code;
     this.metadata = metadata;
+    this.cause = this.metadata?.cause;
 
     // Fix prototype chain for proper instanceof checks
     Object.setPrototypeOf(this, new.target.prototype);

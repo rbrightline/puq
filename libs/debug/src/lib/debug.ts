@@ -11,8 +11,10 @@ export function debug(...message: any[]): void {
       return typeof e != 'object';
     })
   ) {
-    console.log(...message);
+    console.log('[ DEBUG  ', ...message, '  ]');
   } else {
+    console.log('[ DEBUG ');
     console.table(message);
+    console.log(' ]');
   }
 }

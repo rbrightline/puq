@@ -6,7 +6,15 @@
 
 ## Summary
 
-Errors used accross the **puq** project
+This library provides a structured collection of error functions for handling various error types in your application. Each error function includes a unique error code, a message, and optional metadata, allowing for efficient error tracking and debugging.
+
+## Features
+
+- **Error Categorization**: Each error has a unique numeric code to easily identify and track error types.
+
+- **Descriptive Messages**: Each error includes a meaningful message for better debugging.
+
+- **Metadata Support**: Additional context can be attached to each error using metadata records.
 
 ## Install
 

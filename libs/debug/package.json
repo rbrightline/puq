@@ -1,12 +1,12 @@
 {
   "name": "@puq/debug",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "debug",
+  "description": "The debug logger utilize the `console.log` and `console.table` (for objects). The function only runs if the `process.env.DEBUG_MODE` is `true`.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

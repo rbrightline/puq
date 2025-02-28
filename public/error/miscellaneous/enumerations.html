@@ -112,7 +112,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#ErrorCode" title="src/lib/error-codes.ts" ><b>ErrorCode</b>&nbsp;&nbsp;&nbsp;(src/.../error-codes.ts)</a>
+                            <a href="#ErrorCode" title="src/lib/common/error-code.ts" ><b>ErrorCode</b>&nbsp;&nbsp;&nbsp;(src/.../error-code.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -121,7 +121,7 @@
     </table>
 </section>
 
-    <h3>src/lib/error-codes.ts</h3>
+    <h3>src/lib/common/error-code.ts</h3>
     <section data-compodoc="block-enums">
         <table class="table table-sm table-bordered">
             <tbody>
@@ -131,69 +131,260 @@
                         <span class="name "><b>ErrorCode</b><a href="#ErrorCode"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Error codes</p>
+</div>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;UNAUTORIZED
+                                &nbsp;Unauthorized
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>10001</code>
+                                <i>Value : </i><code>1000</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;SYSTEM_IS_DOWN
+                                &nbsp;SessionNotFound
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>20001</code>
+                                &nbsp;InvalidToken
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;OFFLINE
+                                &nbsp;ExpiredToken
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;LOW_LATENCY
+                                &nbsp;FileNotFound
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;REQURIED_VALUE
+                                <i>Value : </i><code>1100</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>50001</code>
+                                &nbsp;DirectoryNotFound
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;INVALID_VALUE
+                                &nbsp;OutOfScope
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;ACCESS_DENIED
+                                &nbsp;SystemOffline
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>60001</code>
+                                <i>Value : </i><code>3000</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;FILE_NOT_FOUND
+                                &nbsp;LowLatency
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;DIRECTORY_NOT_FOUND
+                                &nbsp;RequiredFieldMissing
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>5000</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidString
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidInteger
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidBoolean
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidObject
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArray
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArrayString
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArrayNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArrayInteger
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArrayBoolean
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidArrayObject
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredString
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredInteger
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredBoolean
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredObject
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RequiredArray
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyField
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>5100</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyString
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyInteger
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyBoolean
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyObject
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EmptyArray
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;InvalidField
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>5200</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MinLength
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MaxLength
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MinNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MaxNumber
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MinArraySize
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MaxArraySize
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MissingProperty
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MinProperties
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MaxProperties
                             </td>
                         </tr>
             </tbody>

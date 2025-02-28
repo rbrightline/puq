@@ -1,12 +1,12 @@
 {
   "name": "@puq/error",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "Errors used accross the **puq** project",
+  "description": "This library provides a structured collection of error functions for handling various error types in your application. Each error function includes a unique error code, a message, and optional metadata, allowing for efficient error tracking and debugging.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

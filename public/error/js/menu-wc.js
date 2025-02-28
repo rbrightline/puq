@@ -49,34 +49,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/AccessDeniedError.html" data-type="entity-link" >AccessDeniedError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/DirectoryNotFoundError.html" data-type="entity-link" >DirectoryNotFoundError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/FileNotFoundError.html" data-type="entity-link" >FileNotFoundError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/InvalidValueError.html" data-type="entity-link" >InvalidValueError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/LowLatencyError.html" data-type="entity-link" >LowLatencyError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/OfflineError.html" data-type="entity-link" >OfflineError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/PuqError.html" data-type="entity-link" >PuqError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/RequiredValueError.html" data-type="entity-link" >RequiredValueError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/SystemIsDownError.html" data-type="entity-link" >SystemIsDownError</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/UnautorizedError.html" data-type="entity-link" >UnautorizedError</a>
+                                <a href="classes/BaseError.html" data-type="entity-link" >BaseError</a>
                             </li>
                         </ul>
                     </li>
@@ -92,7 +65,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
                             </li>
                             <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
                                 <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
                         </ul>
                     </li>

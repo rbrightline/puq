@@ -1,12 +1,12 @@
 {
   "name": "@puq/crypto",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "A TypeScript library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along with robust hashing methods for data integrity verification. Ideal for protecting sensitive information, implementing password storage, and ensuring data confidentiality in modern web applications.",
+  "description": "Crypto library offering powerful encryption and hashing utilities for secure data handling. It provides functions to encrypt and decrypt sensitive data using industry-standard algorithms, along with robust hashing methods for data integrity verification. Ideal for protecting sensitive information, implementing password storage, and ensuring data confidentiality in modern web applications.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",

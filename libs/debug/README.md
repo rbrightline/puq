@@ -6,9 +6,7 @@
 
 ## Summary
 
-The library privides 3 functions, `start`, `end`, and `debug`. These function only work when the `process.env.DEBUG_MODE` is `true`.
-
-`start` function is for indicating context of the debug such as `operationName` and the `end` function is for indicating the closing of the context.
+The debug logger utilize the `console.log` and `console.table` (for objects). The function only runs if the `process.env.DEBUG_MODE` is `true`.
 
 ## Install
 
