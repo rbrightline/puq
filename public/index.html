@@ -203,6 +203,7 @@
 
     <script>
         async function fetchLibraries() {
+            console.log("Fetching libraries")
             const response = await fetch("https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/content/libs.json");
             const data = await response.json();
             const libraries = data;
@@ -249,7 +250,7 @@
 
                 card.appendChild(icon);
                 card.appendChild(title);
-                card.appendChild(description);
+                card.appendChild(summary);
                 card.appendChild(version);
                 card.appendChild(linksContainer);
                 libraryList.appendChild(card);
