@@ -1,12 +1,12 @@
 {
   "name": "@puq/names",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "names",
+  "description": "The String Names Library provides a simple names function that takes a string input and returns all possible naming convention variants, such as camelCase, snake_case, CONSTANT_CASE, and more. Perfect for tasks like code generation, formatting standardization, or testing naming conventions.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -14,7 +14,17 @@
   },
   "keywords": [
     "puq",
-    "names"
+    "names",
+    "UPPERCASE",
+    "lowercase",
+    "kebab-case",
+    "pascalCase",
+    "CamelCase",
+    "dot.case",
+    "Title case",
+    "className",
+    "fileName",
+    "propertyName"
   ],
   "repository": {
     "directory": "libs/names",
@@ -77,7 +87,7 @@
       }
     }
   },
-  "devDependencies": {
+  "dependencies": {
     "@swc/helpers": "~0.5.11"
   }
 }
