@@ -13,7 +13,7 @@ import {
   EntityReadService,
   CreateQueryCountDto,
   TableNamingStrategy,
-} from '../../src/index.js';
+} from '../../index.js';
 import { toWhereQueryString, QueryOperator } from '@puq/query';
 
 @Entity()
@@ -53,7 +53,7 @@ describe('EntityReadService', () => {
   beforeAll(async () => {
     ds = await new DataSource({
       type: 'better-sqlite3',
-      database: ':memory:',
+      database: 'tmp/service/read.sqlite',
       entities: [Sample],
       namingStrategy: new TableNamingStrategy(),
       synchronize: true,

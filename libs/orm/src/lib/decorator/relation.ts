@@ -12,7 +12,7 @@ import {
 /**
  * Relation decorator
  * @param options relation options {@link RelationOptions}
- * @returns
+ * @returns - {@link PropertyDecorator}
  */
 export function Relation(options: RelationOptions): PropertyDecorator {
   return (t, p) => {

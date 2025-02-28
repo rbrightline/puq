@@ -12,7 +12,7 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "test/**/*.ts"
+    "src/**/*.spec.ts",
   ],
   "references": [
     {

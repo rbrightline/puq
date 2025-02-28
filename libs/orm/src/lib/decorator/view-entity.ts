@@ -5,10 +5,10 @@ import {
 } from 'typeorm';
 
 /**
- * TypeORM view entity decorator
+ * TypeORM {@link __ViewEntity} decorator with prebuilt query builder that coverts id and timestamp columns.
  * @param expression {@link SelectQueryBuilder<T>} query builder
- * @param selectBaseEntity if false, the id, and timestamp columns are not selected by default. if not false, the view entity should extends the {@link BaseView} or provide the id, and timestamp view columns manually.
- * @returns
+ * @param selectBaseEntity defined whether the fields of {@link BaseEntity} class are added or not to the view
+ * @returns class decorator {@link ClassDecorator}
  */
 export function ViewEntity<T extends ObjectLiteral>(
   expression: (builder: SelectQueryBuilder<T>) => SelectQueryBuilder<T>,

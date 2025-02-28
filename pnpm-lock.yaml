@@ -144,7 +144,7 @@ importers:
         version: 0.2.0
       '@puq/orm':
         specifier: 0.2.0
-        version: 0.2.0(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(pg@8.13.3)(reflect-metadata@0.2.2)(sqlite3@5.1.7)(typeorm@0.3.20(pg@8.13.3)(sqlite3@5.1.7)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.7.3)))
+        version: 0.2.0(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(better-sqlite3@11.8.1)(class-transformer@0.5.1)(class-validator@0.14.1)(pg@8.13.3)(reflect-metadata@0.2.2)(sqlite3@5.1.7)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(sqlite3@5.1.7)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.7.3)))
       '@puq/property':
         specifier: ^0.2.0
         version: 0.2.0(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
@@ -297,8 +297,8 @@ importers:
         specifier: ^11.0.3
         version: 11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@puq/names':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.2.2
+        version: 0.2.2
       '@puq/property':
         specifier: ^0.2.0
         version: 0.2.0(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
@@ -308,24 +308,15 @@ importers:
       '@puq/type':
         specifier: ^0.2.0
         version: 0.2.0
-      better-sqlite3:
-        specifier: ^11.8.1
-        version: 11.8.1
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
       class-validator:
         specifier: ^0.14.1
         version: 0.14.1
-      pg:
-        specifier: ^8.13.3
-        version: 8.13.3
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
-      sqlite3:
-        specifier: ^5.1.7
-        version: 5.1.7
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(sqlite3@5.1.7)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.7.3))
@@ -336,6 +327,12 @@ importers:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
+      better-sqlite3:
+        specifier: ^11.8.1
+        version: 11.8.1
+      pg:
+        specifier: ^8.13.3
+        version: 8.13.3
 
   libs/printer:
     dependencies:
@@ -1865,6 +1862,9 @@ packages:
 
   '@puq/names@0.2.0':
     resolution: {integrity: sha512-a5993K6lOLyODAp/XMsAPlLdTLNz5OWS6nqk9+fetnhcD9WOMIIqvDMonVNmWnrK3Ov6luwRIkFmiPwYXypDcw==}
+
+  '@puq/names@0.2.2':
+    resolution: {integrity: sha512-7/1o7nSeW5sC4XJDjNtQiuPFr+qxTAWjkkZckTm9DYrTv0S9YV/6qIvbNq195B453jRSf+4OprM8SuGwPxDfMg==}
 
   '@puq/orm@0.2.0':
     resolution: {integrity: sha512-ygKmtW25SYpANFUGn9MqjbM9gbbj9jkgn8nwrTKk215g7AI/ZFXp6Vve5eohTNq6j8ii10V50PwoDzIWD7vZ0g==}
@@ -8613,7 +8613,11 @@ snapshots:
 
   '@puq/names@0.2.0': {}
 
-  '@puq/orm@0.2.0(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(pg@8.13.3)(reflect-metadata@0.2.2)(sqlite3@5.1.7)(typeorm@0.3.20(pg@8.13.3)(sqlite3@5.1.7)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.7.3)))':
+  '@puq/names@0.2.2':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/orm@0.2.0(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(better-sqlite3@11.8.1)(class-transformer@0.5.1)(class-validator@0.14.1)(pg@8.13.3)(reflect-metadata@0.2.2)(sqlite3@5.1.7)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(sqlite3@5.1.7)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.15))(@types/node@18.16.9)(typescript@5.7.3)))':
     dependencies:
       '@nestjs/common': 11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/swagger': 11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
@@ -8621,6 +8625,7 @@ snapshots:
       '@puq/property': 0.2.0(@nestjs/swagger@11.0.3(@nestjs/common@11.0.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.10)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@puq/query': 0.2.0
       '@puq/type': 0.2.0
+      better-sqlite3: 11.8.1
       class-transformer: 0.5.1
       class-validator: 0.14.1
       pg: 8.13.3

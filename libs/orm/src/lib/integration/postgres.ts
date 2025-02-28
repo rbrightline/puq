@@ -1,5 +1,6 @@
 import { Dto, Property } from '@puq/property';
-import { Column, Entity, Relation, BaseEntity } from '../../src/index.js';
+import { Column, Entity, Relation } from '../decorator/index.js';
+import { BaseEntity } from '../entity/index.js';
 
 @Dto()
 export class TestObject {
@@ -38,33 +39,43 @@ export class TestEntity extends BaseEntity {
   @Column({ type: 'array', items: { type: 'string' } }) array: string[];
   @Column({ type: 'date' }) date: string;
 
-  @Relation('many-to-one', () => OneRelation, {
+  @Relation({
+    type: 'many-to-one',
+    target: () => OneRelation,
     eager: true,
-    nullable: true,
+    required: false,
     onDelete: 'SET NULL',
     join: true,
   })
   one: OneRelation;
 
-  @Relation('many-to-many', () => ManyRelation, {
+  @Relation({
+    type: 'many-to-many',
+    target: () => ManyRelation,
     eager: true,
-    nullable: true,
+    required: false,
     onDelete: 'SET NULL',
     join: true,
   })
   many: ManyRelation[];
 
-  @Relation('many-to-one', () => OwnerRelation, {
+  @Relation({
+    type: 'many-to-one',
+    target: () => OwnerRelation,
     eager: true,
+    required: false,
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
     join: true,
   })
   owner: OwnerRelation;
 
-  @Relation('many-to-many', () => AttributeRelation, {
+  @Relation({
+    type: 'many-to-many',
+    target: () => AttributeRelation,
     eager: true,
-    onDelete: 'SET NULL',
+    required: false,
+    cascade: ['insert'],
     join: true,
   })
   attributes: AttributeRelation[];

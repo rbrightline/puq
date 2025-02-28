@@ -8,8 +8,8 @@ import {
   OwnerRelation,
   TestEntity,
   TestObject,
-} from './postgres-entities.js';
-import { TableNamingStrategy } from '../../src/index.js';
+} from './postgres.js';
+import { TableNamingStrategy } from '../factory/naming-strategy.js';
 
 describe('Postgres Integration', () => {
   let ds: DataSource;

@@ -1,7 +1,7 @@
 {
   "name": "@puq/orm",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -79,23 +79,22 @@
   },
   "devDependencies": {
     "@nx/devkit": "20.4.4",
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "better-sqlite3": "^11.8.1",
+    "pg": "^8.13.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.10",
     "@nestjs/swagger": "^11.0.3",
-    "better-sqlite3": "^11.8.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
-    "pg": "^8.13.3",
     "reflect-metadata": "^0.2.2",
-    "sqlite3": "^5.1.7",
     "typeorm": "^0.3.20"
   },
   "dependencies": {
-    "@puq/names": "^0.2.0",
-    "@puq/query": "^0.2.0",
+    "@puq/names": "^0.2.2",
     "@puq/property": "^0.2.0",
+    "@puq/query": "^0.2.0",
     "@puq/type": "^0.2.0"
   }
 }
