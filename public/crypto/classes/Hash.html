@@ -198,6 +198,11 @@
                                     <span class="modifier">Async</span>
                                 <a href="#hash" >hash</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#validateData" >validateData</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -416,8 +421,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">src/lib/hash.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/lib/hash.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -526,8 +531,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/lib/hash.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/lib/hash.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -581,6 +586,78 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateData(key?: string | undefined | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/lib/hash.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Check the key has at 256 bits</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                        <code>string | undefined | null</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -604,6 +681,16 @@ export class Hash {
   private static readonly ALGORITHM &#x3D; &#x27;sha256&#x27;;
   private static readonly SALT_LENGTH &#x3D; 16; // 128 bits
   private static readonly ENCODING &#x3D; &#x27;hex&#x27;;
+
+  /**
+   * Check the key has at 256 bits
+   * @param key
+   */
+  protected static validateData(key?: string | undefined | null) {
+    if (key?.length !&#x3D;&#x3D; this.KEY_LENGTH) {
+      throw new Error(&#x60;Key must be ${this.KEY_LENGTH} bytes&#x60;);
+    }
+  }
 
   /**
    * Generates a secure hash from input data

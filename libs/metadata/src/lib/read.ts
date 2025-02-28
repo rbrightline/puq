@@ -2,4 +2,6 @@
  * Return the text `metadata`
  * @returns
  */
-export function metadata(): string {}
+export function metadata(): string {
+  return '';
+}

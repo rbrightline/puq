@@ -1,7 +1,7 @@
 {
   "name": "@puq/property",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -86,7 +86,7 @@
     "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "^0.1.0",
-    "@puq/validation": "^0.1.0"
+    "@puq/type": "^0.2.0",
+    "@puq/validation": "^0.2.0"
   }
 }

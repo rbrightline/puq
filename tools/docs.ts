@@ -7,16 +7,17 @@ import { join } from 'path';
 
 chdir(join(__dirname, '..'));
 
+export async function doc(library: string) {
+  return new Promise((res, rej) => {
+    exec(`npx nx doc @puq/${library}`, (err, stdout, stderr) => {
+      if (stdout) res(stdout);
+      if (err) rej(err);
+      if (stderr) rej(stderr);
+    });
+  });
+}
 export async function docs() {
-  await Promise.all(
-    DIRS.map((e) => {
-      exec(`npx nx doc @puq/${e}`, (err, stdout, stderr) => {
-        if (stdout) console.log(stdout);
-        if (err) console.error(err);
-        if (stderr) console.error(stderr);
-      });
-    })
-  );
+  await Promise.all(DIRS.map(doc));
 }
 
 docs();

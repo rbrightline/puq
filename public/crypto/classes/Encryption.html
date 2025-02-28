@@ -686,7 +686,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validateKey(key: Buffer)</code>
+                    <code>validateKey(key: Buffer | undefined | null)</code>
                 </td>
             </tr>
 
@@ -719,7 +719,7 @@
                                         <tr>
                                                 <td>key</td>
                                             <td>
-                                                        <code>Buffer</code>
+                                                        <code>Buffer | undefined | null</code>
                                             </td>
 
                                             <td>
@@ -768,8 +768,8 @@ export class Encryption {
    * Check the key has at 256 bits
    * @param key
    */
-  protected static validateKey(key: Buffer) {
-    if (key.length !&#x3D;&#x3D; this.KEY_LENGTH) {
+  protected static validateKey(key: Buffer | undefined | null) {
+    if (key?.length !&#x3D;&#x3D; this.KEY_LENGTH) {
       throw new Error(&#x60;Key must be ${this.KEY_LENGTH} bytes&#x60;);
     }
   }

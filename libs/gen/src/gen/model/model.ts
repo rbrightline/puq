@@ -23,19 +23,11 @@ export async function modelGenerator(
   const source = join(__dirname, 'files');
   const target = resolve(cwd(), options.directory);
 
-  console.table({ target });
   const modelName = getName(options.directory);
-
-  console.table({ modelName });
 
   const ns = names(modelName);
 
-  console.table({
-    ...ns,
-  });
   const packageJSON = await readProjectPackageJSON();
-
-  console.table({ modelName });
 
   const modelFilePath = join(
     workspaceRoot,
@@ -43,10 +35,8 @@ export async function modelGenerator(
     `${modelName}.model.yaml`
   );
 
-  console.table({ modelFilePath });
   const yamlContent = await readYamlFile<Model>(modelFilePath);
 
-  console.log(yamlContent);
   const modelManager = new ModelManager(yamlContent);
 
   generateFiles(tree, source, target, {
