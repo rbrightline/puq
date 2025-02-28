@@ -11,6 +11,7 @@ import { readYamlFile } from '@puq/fs';
 import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
 import { cwd } from 'process';
 import { Model } from '@puq/type';
+
 /**
  * Generate model type
  * @param tree

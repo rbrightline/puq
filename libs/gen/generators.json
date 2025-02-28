@@ -25,11 +25,6 @@
       "schema": "./dist/gen/generator/schema.json",
       "description": "generator generator"
     },
-    "hello": {
-      "factory": "./dist/gen/hello/hello",
-      "schema": "./dist/gen/hello/schema.json",
-      "description": "hello hello"
-    },
     "library": {
       "factory": "./dist/gen/library/library",
       "schema": "./dist/gen/library/schema.json",
@@ -44,6 +39,11 @@
       "factory": "./dist/gen/module/module",
       "schema": "./dist/gen/module/schema.json",
       "description": "module module"
+    },
+    "hello": {
+      "factory": "./dist/gen/hello/hello",
+      "schema": "./dist/gen/hello/schema.json",
+      "description": "hello generator"
     }
   }
 }

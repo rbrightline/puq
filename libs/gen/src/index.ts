@@ -9,8 +9,6 @@ export * from './gen/entity/entity.js';
 export * from './gen/entity/schema.d.js';
 export * from './gen/generator/generator.js';
 export * from './gen/generator/schema.d.js';
-export * from './gen/hello/hello.js';
-export * from './gen/hello/schema.d.js';
 export * from './gen/library/library.js';
 export * from './gen/library/schema.d.js';
 export * from './gen/model/model.js';
