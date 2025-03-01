@@ -68,7 +68,7 @@
           "outputPath": "libs/core/dist",
           "main": "libs/core/src/index.ts",
           "tsConfig": "libs/core/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         },
         "dependsOn": [
@@ -81,7 +81,9 @@
     }
   },
   "peerDependencies": {
-    "@swc/helpers": "~0.5.11",
-    "@nestjs/common": "^11.0.10"
+    "@nestjs/common": "11.0.11"
+  },
+  "dependencies": {
+    "@swc/helpers": "^0.5.15"
   }
 }

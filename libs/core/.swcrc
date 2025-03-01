@@ -18,5 +18,8 @@
     "type": "es6"
   },
   "sourceMaps": true,
-  "exclude": [".*\\.spec.tsx?$", ".*\\.test.tsx?$", ".*.js$"]
+  "exclude": [
+    ".*\\.spec.ts$",
+    ".*\\.test.ts$"
+  ]
 }

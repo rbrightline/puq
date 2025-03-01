@@ -4,11 +4,7 @@ export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
-  {
-    ignores: ['**/dist', '**/node_modues', '**/*.spec.ts'],
-  },
-
-  // Module boundries
+  // Boundries
   {
     files: ['libs/**/*.ts', 'services/**/*.ts'],
     rules: {
@@ -28,7 +24,7 @@ export default [
     },
   },
 
-  // Type check
+  // Make use `import type` is used for type imports
   {
     files: ['libs/**/*.ts', 'services/**/*.ts'],
     rules: {
@@ -41,24 +37,21 @@ export default [
         },
       ],
     },
+    languageOptions: {
+      parser: await import('@typescript-eslint/parser'),
+    },
   },
 
-  // Dependency check
+  // Ignore patterns
   {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        {
-          ignoredFiles: [
-            '{projectRoot}/eslint.config.mjs',
-            '{projectRoot}/vite.config.ts',
-          ],
-        },
-      ],
-    },
-    languageOptions: {
-      parser: await import('jsonc-eslint-parser'),
-    },
+    ignores: [
+      '**/dist',
+      '**/node_modules',
+      '**/*.md',
+      '**/public',
+      '**/bin',
+      '**/tmp',
+      '**/vite.config.ts',
+    ],
   },
 ];
