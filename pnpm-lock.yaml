@@ -115,13 +115,13 @@ importers:
   libs/crypto:
     dependencies:
       '@swc/helpers':
-        specifier: ~0.5.11
+        specifier: ^0.5.15
         version: 0.5.15
 
   libs/debug:
     dependencies:
       '@swc/helpers':
-        specifier: ~0.5.11
+        specifier: ^0.5.15
         version: 0.5.15
 
   libs/entity:
@@ -138,16 +138,16 @@ importers:
       '@puq/type':
         specifier: ^0.3.2
         version: 0.3.2
+      '@swc/helpers':
+        specifier: ^0.5.15
+        version: 0.5.15
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
     devDependencies:
       '@faker-js/faker':
-        specifier: ^9.5.0
+        specifier: ^9.5.1
         version: 9.5.1
-      '@swc/helpers':
-        specifier: ~0.5.11
-        version: 0.5.15
 
   libs/error:
     devDependencies:

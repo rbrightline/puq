@@ -81,17 +81,17 @@
     }
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.5.0",
+    "@faker-js/faker": "^9.5.1",
     "@swc/helpers": "~0.5.11"
   },
   "peerDependencies": {
-    "typeorm": "^0.3.20",
-    "@swc/helpers": "~0.5.15"
+    "typeorm": "^0.3.20"
   },
   "dependencies": {
     "@puq/model": "^0.3.2",
     "@puq/orm": "^0.3.2",
     "@puq/property": "^0.3.2",
-    "@puq/type": "^0.3.2"
+    "@puq/type": "^0.3.2",
+    "@swc/helpers": "^0.5.15"
   }
 }

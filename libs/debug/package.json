@@ -77,7 +77,7 @@
       }
     }
   },
-  "peerDependencies": {
-    "@swc/helpers": "~0.5.11"
+  "dependencies": {
+    "@swc/helpers": "^0.5.15"
   }
 }
