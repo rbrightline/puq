@@ -129,7 +129,7 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="../classes/CategoryView.html" target="_self" >CategoryViewModel</a></code>
+                            <code><a href="../entitys/Category.html" target="_self" >CategoryModel</a></code>
             </p>
 
 
@@ -216,12 +216,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CategoryViewModel } from &#x27;@puq/model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CategoryModel } from &#x27;@puq/model&#x27;;
 import { ViewEntity, BaseView, ViewColumn } from &#x27;@puq/orm&#x27;;
 import { Category } from &#x27;./category.entity.js&#x27;;
 
 @ViewEntity((q) &#x3D;&gt; q.addSelect(&#x27;m.name&#x27;, &#x27;name&#x27;).from(Category, &#x27;m&#x27;))
-export class CategoryView extends BaseView implements CategoryViewModel {
+export class CategoryView extends BaseView implements CategoryModel {
   @ViewColumn({ type: &#x27;string&#x27; }) name: string;
 }
 </code></pre>

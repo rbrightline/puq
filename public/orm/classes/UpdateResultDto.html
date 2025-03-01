@@ -119,7 +119,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/dto/update.ts</code>
+            <code>src/lib/dto/update-result.dto.ts</code>
         </p>
 
 
@@ -198,13 +198,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: &#x27;integer&#x27;, description: &#x27;The number of items affected by the update operation&#x27;})<br />
+                            @Property({type: &#x27;integer&#x27;, description: &#x27;The number of items affected by the update operation&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/lib/dto/update.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/lib/dto/update-result.dto.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -223,16 +223,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@puq/property&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Dto, Property } from &#x27;@puq/property&#x27;;
 import { UpdateResult } from &#x27;@puq/type&#x27;;
-import { Exclude } from &#x27;class-transformer&#x27;;
 
 /**
  * Update result
  */
-@Exclude()
+@Dto()
 export class UpdateResultDto implements UpdateResult {
-  @ApiProperty({
+  @Property({
     type: &#x27;integer&#x27;,
     description: &#x27;The number of items affected by the update operation&#x27;,
   })

@@ -1,4 +1,3 @@
-import { debug, start, end } from '@puq/debug';
 import { dirs, files } from '@puq/fs';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
@@ -34,15 +33,9 @@ export async function replace(options: ReplaceOptions) {
   const RX = new RegExp(expression);
   const directory = options.directory ?? '';
 
-  start('replace');
-
-  debug(options);
-
   const foundFiles = await files(directory);
-  debug({ foundFiles });
 
   const matchedFiles = foundFiles.filter((filename) => RX.test(filename));
-  debug({ matchedFiles });
 
   if (matchedFiles.length == 0)
     throw new Error(`No files found in the directory ${directory}`);
@@ -80,6 +73,4 @@ export async function replace(options: ReplaceOptions) {
       await e;
     }
   }
-
-  end();
 }

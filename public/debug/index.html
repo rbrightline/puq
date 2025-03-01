@@ -88,8 +88,7 @@
 
 <h1>@puq/debug</h1>
 <h2>Summary</h2>
-<p>The library privides 3 functions, <code>start</code>, <code>end</code>, and <code>debug</code>. These function only work when the <code>process.env.DEBUG_MODE</code> is <code>true</code>.</p>
-<p><code>start</code> function is for indicating context of the debug such as <code>operationName</code> and the <code>end</code> function is for indicating the closing of the context.</p>
+<p>The debug logger utilize the <code>console.log</code> and <code>console.table</code> (for objects). The function only runs if the <code>process.env.DEBUG_MODE</code> is <code>true</code>.</p>
 <h2>Install</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">  pnpm add &#64;puq/debug</code></pre></div><h3>Useage</h3>
 <h2>Funding</h2>

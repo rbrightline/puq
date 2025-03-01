@@ -127,10 +127,10 @@
                             <a href="#CreateQueryOneDto" title="src/lib/query/create-query-one-dto.ts" ><b>CreateQueryOneDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-query-one-dto.ts)</a>
                         </li>
                         <li>
-                            <a href="#CreateRelationParamDto" title="src/lib/dto/relation.ts" ><b>CreateRelationParamDto</b>&nbsp;&nbsp;&nbsp;(src/.../relation.ts)</a>
+                            <a href="#CreateRelationParamDto" title="src/lib/dto/create-relation-param-dto.ts" ><b>CreateRelationParamDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-relation-param-dto.ts)</a>
                         </li>
                         <li>
-                            <a href="#CreateUnsetRelationParamDto" title="src/lib/dto/relation.ts" ><b>CreateUnsetRelationParamDto</b>&nbsp;&nbsp;&nbsp;(src/.../relation.ts)</a>
+                            <a href="#CreateUnsetRelationParamDto" title="src/lib/dto/create-unset-relation-param-dto.ts" ><b>CreateUnsetRelationParamDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-unset-relation-param-dto.ts)</a>
                         </li>
                         <li>
                             <a href="#CreateWhereOptionDto" title="src/lib/query/create-where-option-dto.ts" ><b>CreateWhereOptionDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-where-option-dto.ts)</a>
@@ -139,10 +139,10 @@
                             <a href="#Entity" title="src/lib/decorator/entity.ts" ><b>Entity</b>&nbsp;&nbsp;&nbsp;(src/.../entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#pickDataType" title="src/lib/decorator/column.ts" ><b>pickDataType</b>&nbsp;&nbsp;&nbsp;(src/.../column.ts)</a>
+                            <a href="#pickColumnType" title="src/lib/common/pick-column-type.ts" ><b>pickColumnType</b>&nbsp;&nbsp;&nbsp;(src/.../pick-column-type.ts)</a>
                         </li>
                         <li>
-                            <a href="#pickTransformer" title="src/lib/decorator/column.ts" ><b>pickTransformer</b>&nbsp;&nbsp;&nbsp;(src/.../column.ts)</a>
+                            <a href="#pickTransformer" title="src/lib/common/pick-transformer.ts" ><b>pickTransformer</b>&nbsp;&nbsp;&nbsp;(src/.../pick-transformer.ts)</a>
                         </li>
                         <li>
                             <a href="#Relation" title="src/lib/decorator/relation.ts" ><b>Relation</b>&nbsp;&nbsp;&nbsp;(src/.../relation.ts)</a>
@@ -190,7 +190,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Typeorm Column decorator with validation and documentaion capability</p>
+                        <div class="io-description"><p>Typeorm Column decorator with <code>validation</code> and <code>documentation</code> capabilities.</p>
 </div>
 
                             <div class="io-description">
@@ -202,6 +202,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -216,6 +217,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>proeprty options <a href="PropertyOptions">PropertyOptions</a></p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -225,133 +230,8 @@
 
                         </div>
                             <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="pickDataType"></a>
-                    <span class="name">
-                        <span ><b>pickDataType</b></span>
-                        <a href="#pickDataType"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>pickDataType(options: PropertyOptions)</code>
-                </td>
-            </tr>
+                                <p>proeprty decorator {@link PropertyDecorator}</p>
 
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Pick column data type based on provided data type and database driver</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>options</td>
-                                            <td>
-                                                        <code>PropertyOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../miscellaneous/functions.html#Column" target="_self" >ColumnType</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="pickTransformer"></a>
-                    <span class="name">
-                        <span ><b>pickTransformer</b></span>
-                        <a href="#pickTransformer"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>pickTransformer(options: PropertyOptions)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Pick transformer based on the given data type and database driver</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>options</td>
-                                            <td>
-                                                        <code>PropertyOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>ValueTransformer | undefined</code>
-
-                        </div>
-                            <div class="io-description">
-                                
                             </div>
                 </td>
             </tr>
@@ -637,7 +517,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/dto/relation.ts</h3>
+</section>    <h3>src/lib/dto/create-relation-param-dto.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -661,7 +541,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Create <a href="RelationParam">RelationParam</a> dto for the entity</p>
+                        <div class="io-description"><p>Create <code>DTO</code> for <a href="RelationParam">RelationParam</a></p>
 </div>
 
                             <div class="io-description">
@@ -689,7 +569,7 @@
 
 
                                             <td>
-                                                    <p>relation names</p>
+                                                    <p>relation names of the entity</p>
 
                                             </td>
                                         </tr>
@@ -701,13 +581,16 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Class {@link Type}</p>
+
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
+</section>    <h3>src/lib/dto/create-unset-relation-param-dto.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
@@ -729,7 +612,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Create <a href="UnsetRelationParam">UnsetRelationParam</a> dto for the entity</p>
+                        <div class="io-description"><p>Create <code>DTO</code> for <a href="UnsetRelationParam">UnsetRelationParam</a></p>
 </div>
 
                             <div class="io-description">
@@ -757,7 +640,7 @@
 
 
                                             <td>
-                                                    <p>relation names</p>
+                                                    <p>relation names of the entity</p>
 
                                             </td>
                                         </tr>
@@ -769,7 +652,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Class {@link Type}</p>
+
                             </div>
                 </td>
             </tr>
@@ -905,7 +789,147 @@
 
                         </div>
                             <div class="io-description">
+                                <ul>
+<li>{@link ClassDecorator}</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/common/pick-column-type.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pickColumnType"></a>
+                    <span class="name">
+                        <span ><b>pickColumnType</b></span>
+                        <a href="#pickColumnType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pickColumnType(options: PropertyOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pick column type based on provided data type and database driver</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
                                 
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>PropertyOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/functions.html#Column" target="_self" >ColumnType</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/common/pick-transformer.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pickTransformer"></a>
+                    <span class="name">
+                        <span ><b>pickTransformer</b></span>
+                        <a href="#pickTransformer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pickTransformer(options: PropertyOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Some databases does not support a certain data types such as sqlite does not suppor <code>array</code> type.
+This function picks the <code>transformer</code> to make none-primitive data types compatible with the provided database driver</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>PropertyOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>property options <a href="PropertyOptions">PropertyOptions</a></p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValueTransformer | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>the {@link ValueTransformer}</p>
+
                             </div>
                 </td>
             </tr>
@@ -975,7 +999,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>{@link PropertyDecorator}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -1043,6 +1070,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>TypeORM <a href="___ViewColumn">___ViewColumn</a> decorator with <code>documentation</code> capability</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1053,6 +1082,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1067,6 +1097,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>property options <a href="PropertyOptions">PropertyOptions</a></p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1076,7 +1110,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>{@link PropertyDecorator}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -1106,7 +1143,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>TypeORM view entity decorator</p>
+                        <div class="io-description"><p>TypeORM <a href="___ViewEntity">___ViewEntity</a> decorator with prebuilt query builder that coverts id and timestamp columns.</p>
 </div>
 
                             <div class="io-description">
@@ -1149,7 +1186,7 @@
                                             </td>
 
                                             <td>
-                                                    <p>if false, the id, and timestamp columns are not selected by default. if not false, the view entity should extends the <a href="../classes/BaseView.html">BaseView</a> or provide the id, and timestamp view columns manually.</p>
+                                                    <p>defined whether the fields of <a href="../classes/BaseEntity.html">BaseEntity</a> class are added or not to the view</p>
 
                                             </td>
                                         </tr>
@@ -1161,7 +1198,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>class decorator {@link ClassDecorator}</p>
+
                             </div>
                 </td>
             </tr>

@@ -1,7 +1,7 @@
 {
   "name": "@puq/gen",
   "license": "MIT",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -97,11 +97,11 @@
   "generators": "./generators.json",
   "dependencies": {
     "@nx/devkit": "20.4.4",
-    "@puq/debug": "^0.3.0",
-    "@puq/fs": "^0.3.0",
-    "@puq/gen-helper": "^0.3.0",
-    "@puq/printer": "^0.3.0",
-    "@puq/type": "^0.3.0",
+    "@puq/debug": "^0.3.1",
+    "@puq/fs": "^0.3.1",
+    "@puq/gen-helper": "^0.3.1",
+    "@puq/printer": "^0.3.1",
+    "@puq/type": "^0.3.1",
     "@swc/helpers": "~0.5.15"
   }
 }

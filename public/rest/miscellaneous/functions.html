@@ -112,7 +112,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#rest" title="src/lib/rest.ts" ><b>rest</b>&nbsp;&nbsp;&nbsp;(src/.../rest.ts)</a>
+                            <a href="#CommonMethod" title="src/lib/method/common.ts" ><b>CommonMethod</b>&nbsp;&nbsp;&nbsp;(src/.../common.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Controller" title="src/lib/controller/controller.ts" ><b>Controller</b>&nbsp;&nbsp;&nbsp;(src/.../controller.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FindAllMethod" title="src/lib/method/find-all.ts" ><b>FindAllMethod</b>&nbsp;&nbsp;&nbsp;(src/.../find-all.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -121,22 +127,22 @@
     </table>
 </section>
 
-    <h3>src/lib/rest.ts</h3>
+    <h3>src/lib/method/common.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="rest"></a>
+                    <a name="CommonMethod"></a>
                     <span class="name">
-                        <span ><b>rest</b></span>
-                        <a href="#rest"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>CommonMethod</b></span>
+                        <a href="#CommonMethod"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>rest()</code>
+<code>CommonMethod()</code>
                 </td>
             </tr>
 
@@ -145,11 +151,126 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Return the text <code>rest</code></p>
-</div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/controller/controller.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controller"></a>
+                    <span class="name">
+                        <span ><b>Controller</b></span>
+                        <a href="#Controller"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Controller(entity)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>entity</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ClassDecorator</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/find-all.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FindAllMethod"></a>
+                    <span class="name">
+                        <span ><b>FindAllMethod</b></span>
+                        <a href="#FindAllMethod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>FindAllMethod(entity)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Find all entities</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>entity</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
 
                         </div>
                             <div class="io-description">

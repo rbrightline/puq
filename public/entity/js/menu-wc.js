@@ -56,27 +56,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <li class="link">
                                     <a href="entities/Category.html" data-type="entity-link" >Category</a>
                                 </li>
-                                <li class="link">
-                                    <a href="entities/Permission.html" data-type="entity-link" >Permission</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/Role.html" data-type="entity-link" >Role</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/Scope.html" data-type="entity-link" >Scope</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/Session.html" data-type="entity-link" >Session</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/SessionLog.html" data-type="entity-link" >SessionLog</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/User.html" data-type="entity-link" >User</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/UserProfile.html" data-type="entity-link" >UserProfile</a>
-                                </li>
                             </ul>
                         </li>
                     <li class="chapter">
