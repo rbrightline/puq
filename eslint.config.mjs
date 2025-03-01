@@ -13,7 +13,7 @@ export default [
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
   {
-    ignores: ['**/dist', '**/*.spec.ts'],
+    ignores: ['**/dist', '**/node_modues', '**/*.spec.ts'],
   },
   {
     files: ['**/*.ts'],
@@ -23,6 +23,7 @@ export default [
         'error',
         {
           prefer: 'type-imports',
+          disallowTypeAnnotations: false,
           fixStyle: 'separate-type-imports',
         },
       ],

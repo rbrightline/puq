@@ -1,4 +1,4 @@
-import { CreateCategoryModel } from '@puq/model';
+import type { CreateCategoryModel } from '@puq/model';
 import { Dto, Property } from '@puq/property';
 
 @Dto()
