@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
 import { readFileSync } from 'fs';
-import { LIBS } from './common/libs';
+import { LIBS } from './common';
 import { join } from 'path';
 
 for (const lib of LIBS) {

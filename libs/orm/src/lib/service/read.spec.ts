@@ -53,7 +53,7 @@ describe('EntityReadService', () => {
   beforeAll(async () => {
     ds = await new DataSource({
       type: 'better-sqlite3',
-      database: 'tmp/service/read.sqlite',
+      database: ':memory:',
       entities: [Sample],
       namingStrategy: new TableNamingStrategy(),
       synchronize: true,
