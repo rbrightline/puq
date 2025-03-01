@@ -1,6 +1,6 @@
 import { createThrower } from './create-thrower.js';
 import { ErrorCode } from './error-code.js';
-import { ErrorThrower } from './error-thrower.js';
+import type { ErrorThrower } from './error-thrower.js';
 
 /**
  * Create {@link ErrorThrower}s and map them by corresponding key.

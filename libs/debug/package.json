@@ -70,7 +70,10 @@
           "tsConfig": "libs/debug/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/debug && npx compodoc -d ../../public/debug  -p tsconfig.lib.json -n debug"

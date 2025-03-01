@@ -70,14 +70,15 @@
           "tsConfig": "libs/error/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/error && npx compodoc -d ../../public/error  -p tsconfig.lib.json -n error"
       }
     }
   },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
-  }
+  "dependencies": {}
 }

@@ -31,7 +31,6 @@ export * from './lib/property/string.js';
 export * from './lib/ui/icon.js';
 export * from './lib/ui/input-type.js';
 export * from './lib/utils/key-of.js';
-export * from './lib/utils/keys.js';
 export * from './lib/utils/optional.js';
 export * from './lib/utils/pick-optional.js';
 export * from './lib/utils/pick-required.js';

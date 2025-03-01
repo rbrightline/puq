@@ -1,7 +1,7 @@
 import { BaseError } from './base-error.js';
 import { ErrorCode } from './error-code.js';
-import { ErrorMetadata } from './error-metadata.js';
-import { ErrorThrower } from './error-thrower.js';
+import type { ErrorMetadata } from './error-metadata.js';
+import type { ErrorThrower } from './error-thrower.js';
 
 /**
  * Create a function that always throws the desired error code and error message
@@ -11,11 +11,11 @@ import { ErrorThrower } from './error-thrower.js';
  */
 export function createThrower(
   code: ErrorCode,
-  message = ErrorCode[code]
+  message = ErrorCode[code],
 ): ErrorThrower {
   return function throwError(
     errorMessage = message,
-    metadata?: ErrorMetadata
+    metadata?: ErrorMetadata,
   ): never {
     throw new BaseError(code, errorMessage, metadata);
   };

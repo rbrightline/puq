@@ -22,3 +22,7 @@ export async function pgTestDataSource(entities: Type[]) {
     dropSchema: true,
   }).initialize();
 }
+
+describe('test utility', () => {
+  it('shold work ', () => expect(1).toBe(1));
+});

@@ -1,4 +1,4 @@
-import { createThrowers } from './common/index.js';
+import { createThrowers } from './common/create-throwers.js';
 
 /**
  * Mapped throwers

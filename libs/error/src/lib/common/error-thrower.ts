@@ -1,9 +1,9 @@
-import { ErrorMetadata } from './error-metadata.js';
+import type { ErrorMetadata } from './error-metadata.js';
 
 /**
  * Error thrower function type
  */
 export type ErrorThrower = (
   message?: string,
-  metadata?: ErrorMetadata
+  metadata?: ErrorMetadata,
 ) => never;

@@ -1,10 +1,10 @@
 import { DataSource, Repository } from 'typeorm';
 import { faker, it } from '@faker-js/faker';
-import { describe } from 'node:test';
-import { sqliteTestDataSource } from 'src/lib/test/test-utils.js';
 import { Category } from './category.entity.js';
 import { CategoryView } from './category.view.js';
 import { CreateCategoryDto } from './create-category.dto.js';
+
+import { sqliteTestDataSource } from './test-utils.spec.js';
 
 /**
  * Generate {@link CreateCategoryDto} data

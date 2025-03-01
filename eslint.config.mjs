@@ -5,6 +5,7 @@ export default [
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
 
+  // Dependency check
   {
     files: ['**/*.json'],
     rules: {
@@ -15,6 +16,7 @@ export default [
             '{projectRoot}/eslint.config.{js,cjs,mjs}',
             '{projectRoot}/vite.config.{js,ts,mjs,mts}',
           ],
+          ignoredDependencies: ['@swc/helpers'],
         },
       ],
     },
@@ -65,6 +67,7 @@ export default [
   // Ignore patterns
   {
     ignores: [
+      '**/eslint.config.mjs',
       '**/dist',
       '**/node_modules',
       '**/*.md',

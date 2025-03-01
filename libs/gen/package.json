@@ -84,7 +84,10 @@
               "output": "."
             }
           ]
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/gen && npx compodoc -d ../../public/gen  -p tsconfig.lib.json -n gen"

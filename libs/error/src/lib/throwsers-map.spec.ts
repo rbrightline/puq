@@ -2,6 +2,7 @@
 import { fail } from 'assert';
 import { ErrorCode } from './common/error-code.js';
 import * as ThrowsersMap from './throwers-map.js';
+
 describe('Throwsers Map', () => {
   it('should map each error code', () => {
     Object.values(ErrorCode)

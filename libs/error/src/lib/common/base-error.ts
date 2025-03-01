@@ -1,5 +1,5 @@
-import { ErrorCode } from './error-code.js';
-import { ErrorMetadata } from './error-metadata.js';
+import type { ErrorCode } from './error-code.js';
+import type { ErrorMetadata } from './error-metadata.js';
 
 /**
  * Error class to create errors
