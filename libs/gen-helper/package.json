@@ -1,7 +1,7 @@
 {
   "name": "@puq/gen-helper",
   "license": "MIT",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -84,8 +84,8 @@
     "@nx/devkit": "20.4.4"
   },
   "dependencies": {
-    "@puq/fs": "^0.3.1",
-    "@puq/printer": "0.3.1",
-    "@puq/type": "^0.3.1"
+    "@puq/fs": "^0.3.2",
+    "@puq/printer": "0.3.2",
+    "@puq/type": "^0.3.2"
   }
 }
