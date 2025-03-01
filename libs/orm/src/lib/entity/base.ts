@@ -1,20 +1,12 @@
 import { Property } from '@puq/property';
 import { BaseModel } from '@puq/type';
-import {
-  CreateDateColumn,
-  DeleteDateColumn,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseIdEntity } from './base-id.js';
 
 /**
  * All entities extends this entity. The entity provides id, createdAt, updatedAt, and deletedAt columns
  */
-export class BaseEntity implements BaseModel {
-  @Property({ type: 'integer' })
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class BaseEntity extends BaseIdEntity implements BaseModel {
   @Property({ type: 'date' })
   @CreateDateColumn()
   createdAt: Date;

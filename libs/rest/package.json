@@ -79,6 +79,14 @@
     }
   },
   "devDependencies": {
+    "@nestjs/common": "^11.0.10",
+    "@nestjs/core": "^11.0.10",
+    "@nestjs/swagger": "^11.0.3",
     "@swc/helpers": "~0.5.11"
+  },
+  "dependencies": {
+    "@puq/names": "^0.2.2",
+    "@puq/orm": "workspace:^",
+    "@puq/type": "workspace:^"
   }
 }

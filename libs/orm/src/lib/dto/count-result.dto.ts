@@ -1,13 +1,12 @@
-import { ApiProperty } from '@puq/property';
+import { Dto, Property } from '@puq/property';
 import { CountResult } from '@puq/type';
-import { Exclude } from 'class-transformer';
 
 /**
  * Count result
  */
-@Exclude()
+@Dto()
 export class CountResultDto implements CountResult {
-  @ApiProperty({
+  @Property({
     type: 'integer',
     description: 'The number of items mached the query',
   })

@@ -1,13 +1,12 @@
-import { ApiProperty } from '@puq/property';
+import { Dto, Property } from '@puq/property';
 import { UpdateResult } from '@puq/type';
-import { Exclude } from 'class-transformer';
 
 /**
  * Update result
  */
-@Exclude()
+@Dto()
 export class UpdateResultDto implements UpdateResult {
-  @ApiProperty({
+  @Property({
     type: 'integer',
     description: 'The number of items affected by the update operation',
   })

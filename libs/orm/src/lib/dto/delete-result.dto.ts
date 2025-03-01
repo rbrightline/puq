@@ -1,12 +1,12 @@
-import { ApiProperty } from '@puq/property';
+import { Dto, Property } from '@puq/property';
 import { DeleteResult } from '@puq/type';
-import { Exclude } from 'class-transformer';
+
 /**
- * Delete result
+ * Delete result dto
  */
-@Exclude()
+@Dto()
 export class DeleteResultDto implements DeleteResult {
-  @ApiProperty({
+  @Property({
     type: 'integer',
     description: 'The number of items affected by the delete operation',
   })
