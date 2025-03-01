@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/core',
+  cacheDir: `../../node_modules/.vite/libs/${__dirname}`,
   plugins: [],
   test: {
     watch: false,

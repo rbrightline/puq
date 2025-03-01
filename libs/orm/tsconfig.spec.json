@@ -12,7 +12,8 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*.spec.ts",
+    "vite.config.ts",
+    "src/**/*.spec.ts"
   ],
   "references": [
     {

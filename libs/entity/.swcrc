@@ -19,8 +19,6 @@
   },
   "sourceMaps": true,
   "exclude": [
-    ".*\\.spec.tsx?$",
-    ".*\\.test.tsx?$",
-    ".*.js$"
+    ".*\\.spec.ts$"
   ]
 }

@@ -4,6 +4,26 @@ export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+
+  {
+    files: ['**/*.json'],
+    rules: {
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredFiles: [
+            '{projectRoot}/eslint.config.{js,cjs,mjs}',
+            '{projectRoot}/vite.config.{js,ts,mjs,mts}',
+          ],
+        },
+      ],
+    },
+
+    languageOptions: {
+      parser: await import('jsonc-eslint-parser'),
+    },
+  },
+
   // Boundries
   {
     files: ['libs/**/*.ts', 'services/**/*.ts'],

@@ -74,7 +74,10 @@
           "tsConfig": "libs/crypto/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/crypto && npx compodoc -d ../../public/crypto  -p tsconfig.lib.json -n crypto"
