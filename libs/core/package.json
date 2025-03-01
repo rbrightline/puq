@@ -70,7 +70,10 @@
           "tsConfig": "libs/core/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/core && npx compodoc -d ../../public/core  -p tsconfig.lib.json -n core"

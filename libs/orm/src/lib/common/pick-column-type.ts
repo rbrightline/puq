@@ -1,5 +1,5 @@
-import { type PropertyOptions } from '@puq/type';
-import { type ColumnType } from 'typeorm';
+import type { PropertyOptions } from '@puq/type';
+import type { ColumnType } from 'typeorm';
 
 /**
  * Pick column type based on provided data type and database driver

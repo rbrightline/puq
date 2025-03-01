@@ -70,7 +70,10 @@
           "tsConfig": "libs/orm/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/orm && npx compodoc -d ../../public/orm  -p tsconfig.lib.json -n orm"
@@ -84,15 +87,11 @@
     "pg": "^8.13.3"
   },
   "peerDependencies": {
-    "@nestjs/common": "^11.0.10",
-    "@nestjs/swagger": "^11.0.3",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.1",
-    "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "@swc/helpers": "~0.5.15"
   },
   "dependencies": {
-    "@puq/names": "^0.3.2",
     "@puq/property": "^0.3.2",
     "@puq/query": "^0.3.2",
     "@puq/type": "^0.3.2"

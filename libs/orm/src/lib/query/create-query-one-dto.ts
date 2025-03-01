@@ -1,8 +1,8 @@
 import { ApiProperty, Dto, Property } from '@puq/property';
-import { Keys, Type } from '@puq/type';
+import type { Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
-import { QueryOne } from '@puq/query';
+import type { QueryOne } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryOneDtoOptions<T> = {

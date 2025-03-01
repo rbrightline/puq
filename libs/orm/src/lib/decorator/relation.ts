@@ -17,8 +17,7 @@ export function Relation(options: RelationOptions): PropertyDecorator {
   return (t, p) => {
     const { type, target } = options;
 
-    const pickColumn = (e: ObjectLiteral) =>
-      e[(options as any)['refColumn'] ?? 'id'];
+    const pickColumn = (e: ObjectLiteral) => e[options.refColumn ?? 'id'];
 
     switch (type) {
       case 'one-to-one':

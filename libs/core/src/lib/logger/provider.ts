@@ -1,6 +1,5 @@
-import { Inject, Logger, } from '@nestjs/common';
+import { Inject, Logger } from '@nestjs/common';
 import type { Provider, Type } from '@nestjs/common';
-
 
 export function getLoggerToken(target: Type): string {
   return `${target.name}Logger`;
@@ -8,7 +7,7 @@ export function getLoggerToken(target: Type): string {
 
 export function provideLogger(
   target: Type,
-  logger: Type<Logger> = Logger
+  logger: Type<Logger> = Logger,
 ): Provider {
   return {
     provide: getLoggerToken(target),

@@ -1,5 +1,5 @@
 import { type PropertyOptions } from '@puq/type';
-import { ValueTransformer } from 'typeorm';
+import type { ValueTransformer } from 'typeorm';
 
 /**
  * Some databases does not support a certain data types such as sqlite does not suppor `array` type.

@@ -77,7 +77,7 @@
         }
       },
       "doc": {
-         "command": "cd <%- target %> && npx compodoc -d ../../public/<%- fileName %>  -p tsconfig.lib.json -n <%- fileName %>"
+         "command": "cd <%- target %> && npx compodoc -d <%- segments %>public/<%- fileName %>  -p tsconfig.lib.json -n <%- fileName %>"
       }
     }
   },

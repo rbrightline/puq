@@ -1,4 +1,4 @@
-import { BaseEntity } from '../entity/base.js';
+import type { BaseEntity } from '../entity/base.js';
 import type { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
 import type {
   RelationParam,

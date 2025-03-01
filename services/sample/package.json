@@ -114,7 +114,7 @@
     "@nestjs/throttler": "^6.4.0",
     "@nestjs/typeorm": "^11.0.0",
     "@puq/core": "^0.3.2",
-    "@puq/orm": "^",
+    "@puq/orm": "^0.3.2",
     "@puq/property": "0.3.2",
     "@puq/rest": "0.3.2",
     "@puq/type": "0.3.2",

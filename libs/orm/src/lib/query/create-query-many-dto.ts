@@ -3,7 +3,8 @@ import type { KeyOf, Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { SelectTransformer } from './select-transformer.js';
-import { OrderDirection, OrderNulls, QueryMany } from '@puq/query';
+import type { QueryMany } from '@puq/query';
+import { OrderDirection, OrderNulls } from '@puq/query';
 import type { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { CommonQueryDto } from './common-query-dto.js';
 

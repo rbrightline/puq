@@ -70,7 +70,10 @@
           "tsConfig": "<%- target %>/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd <%- target %> && npx compodoc -d ../../public/<%- fileName %>  -p tsconfig.lib.json -n <%- fileName %>"

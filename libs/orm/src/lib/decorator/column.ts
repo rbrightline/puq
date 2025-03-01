@@ -1,5 +1,5 @@
 import { Property } from '@puq/property';
-import { type PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 import { Column as __Column } from 'typeorm';
 import { pickColumnType } from '../common/pick-column-type.js';
 import { pickTransformer } from '../common/pick-transformer.js';

@@ -1,5 +1,5 @@
-import type { ObjectLiteral } from 'typeorm';
-import { ViewEntity as __ViewEntity, SelectQueryBuilder } from 'typeorm';
+import type { ObjectLiteral , SelectQueryBuilder } from 'typeorm';
+import { ViewEntity as __ViewEntity } from 'typeorm';
 /**
  * TypeORM {@link __ViewEntity} decorator with prebuilt query builder that coverts id and timestamp columns.
  * @param expression {@link SelectQueryBuilder<T>} query builder

@@ -68,9 +68,12 @@
           "outputPath": "libs/entity/dist",
           "main": "libs/entity/src/index.ts",
           "tsConfig": "libs/entity/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/entity && npx compodoc -d ../../public/entity  -p tsconfig.lib.json -n entity"
@@ -82,7 +85,6 @@
     "@swc/helpers": "~0.5.11"
   },
   "peerDependencies": {
-    "@nestjs/swagger": "^11.0.3",
     "typeorm": "^0.3.20",
     "@swc/helpers": "~0.5.15"
   },

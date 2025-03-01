@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Type } from '@puq/type';
+import type { Type } from '@puq/type';
 
 export async function sqliteTestDataSource(entities: Type[]) {
   return new DataSource({
