@@ -1,10 +1,10 @@
 import { ApiProperty, Dto, Property } from '@puq/property';
-import { KeyOf, Keys, Type } from '@puq/type';
-import { FindOptionsWhere } from 'typeorm';
+import type { KeyOf, Keys, Type } from '@puq/type';
+import type { FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { SelectTransformer } from './select-transformer.js';
 import { OrderDirection, OrderNulls, QueryMany } from '@puq/query';
-import { QueryOneDtoOptions } from './create-query-one-dto.js';
+import type { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {

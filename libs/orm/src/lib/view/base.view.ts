@@ -1,4 +1,4 @@
-import { ViewColumn } from './../decorator/index.js';
+import { ViewColumn } from './../decorator/view-column.js';
 
 export class BaseView {
   @ViewColumn({ type: 'integer' }) id: number;

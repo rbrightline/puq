@@ -1,10 +1,9 @@
-import { RelationOptions } from '@puq/type';
+import type { RelationOptions, ObjectLiteral } from '@puq/type';
 import {
   JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
-  ObjectLiteral,
   OneToMany,
   OneToOne,
 } from 'typeorm';

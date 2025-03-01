@@ -1,7 +1,8 @@
 import { Property } from '@puq/property';
-import { PropertyOptions } from '@puq/type';
+import { type PropertyOptions } from '@puq/type';
 import { Column as __Column } from 'typeorm';
-import { pickColumnType, pickTransformer } from '../common/index.js';
+import { pickColumnType } from '../common/pick-column-type.js';
+import { pickTransformer } from '../common/pick-transformer.js';
 
 /**
  * Typeorm Column decorator with `validation` and `documentation` capabilities.

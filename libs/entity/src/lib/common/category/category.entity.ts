@@ -1,4 +1,4 @@
-import { CategoryModel } from '@puq/model';
+import type { CategoryModel } from '@puq/model';
 import { Entity, Column, BaseEntity } from '@puq/orm';
 
 @Entity()

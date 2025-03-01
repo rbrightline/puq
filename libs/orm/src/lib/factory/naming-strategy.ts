@@ -5,33 +5,20 @@ import { DefaultNamingStrategy } from 'typeorm';
 export class TableNamingStrategy extends DefaultNamingStrategy {
   override joinTableName(
     firstTableName: string,
-    secondTableName: string,
-    _firstPropertyName: string,
-    _secondPropertyName: string
+    secondTableName: string
   ): string {
     return `${firstTableName}_${secondTableName}`;
   }
 
-  override joinColumnName(
-    relationName: string,
-    _referencedColumnName: string
-  ): string {
+  override joinColumnName(relationName: string): string {
     return relationName;
   }
 
-  override joinTableColumnName(
-    _tableName: string,
-    _propertyName: string,
-    _columnName?: string
-  ): string {
+  override joinTableColumnName(_tableName: string): string {
     return _tableName;
   }
 
-  override joinTableInverseColumnName(
-    _tableName: string,
-    _propertyName: string,
-    _columnName?: string
-  ): string {
+  override joinTableInverseColumnName(_tableName: string): string {
     return _tableName;
   }
 }

@@ -1,4 +1,6 @@
-import { Inject, Logger, Provider, Type } from '@nestjs/common';
+import { Inject, Logger, } from '@nestjs/common';
+import type { Provider, Type } from '@nestjs/common';
+
 
 export function getLoggerToken(target: Type): string {
   return `${target.name}Logger`;

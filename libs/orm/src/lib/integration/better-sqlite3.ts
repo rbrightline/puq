@@ -1,6 +1,8 @@
 import { Dto, Property } from '@puq/property';
-import { Column, Entity, Relation } from '../decorator/index.js';
-import { BaseEntity } from '../entity/index.js';
+import { Relation } from '../decorator/relation.js';
+import { Entity } from '../decorator/entity.js';
+import { Column } from '../decorator/column.js';
+import { BaseEntity } from '../entity/base.js';
 
 @Dto()
 export class TestObject {

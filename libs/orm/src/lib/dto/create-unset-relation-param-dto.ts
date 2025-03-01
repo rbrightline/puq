@@ -1,5 +1,5 @@
 import { Dto, Property } from '@puq/property';
-import { Keys, Type, UnsetRelationParam } from '@puq/type';
+import type { Keys, Type, UnsetRelationParam } from '@puq/type';
 
 /**
  * Create `DTO` for {@link UnsetRelationParam}

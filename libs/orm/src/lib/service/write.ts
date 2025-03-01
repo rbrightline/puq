@@ -1,6 +1,10 @@
 import { BaseEntity } from '../entity/base.js';
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
-import { RelationParam, UnsetRelationParam, UpdateResult } from '@puq/type';
+import type { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
+import type {
+  RelationParam,
+  UnsetRelationParam,
+  UpdateResult,
+} from '@puq/type';
 import { EntityReadService } from './read.js';
 
 /**

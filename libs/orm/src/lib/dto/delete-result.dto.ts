@@ -1,5 +1,5 @@
 import { Dto, Property } from '@puq/property';
-import { DeleteResult } from '@puq/type';
+import { type DeleteResult } from '@puq/type';
 
 /**
  * Delete result dto

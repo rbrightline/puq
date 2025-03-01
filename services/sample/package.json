@@ -105,19 +105,20 @@
     }
   },
   "dependencies": {
-    "@nestjs/common": "^11.0.10",
+    "@nestjs/common": "^11.0.11",
     "@nestjs/config": "^4.0.0",
-    "@nestjs/core": "^11.0.10",
-    "@nestjs/platform-express": "^11.0.10",
+    "@nestjs/core": "^11.0.11",
+    "@nestjs/platform-express": "^11.0.11",
     "@nestjs/schedule": "^5.0.1",
-    "@nestjs/swagger": "^11.0.3",
+    "@nestjs/swagger": "^11.0.6",
     "@nestjs/throttler": "^6.4.0",
     "@nestjs/typeorm": "^11.0.0",
     "@puq/core": "^0.3.2",
-    "@puq/orm": "^0.3.2",
+    "@puq/orm": "^",
     "@puq/property": "0.3.2",
     "@puq/rest": "0.3.2",
     "@puq/type": "0.3.2",
+    "@swc/helpers": "~0.5.15",
     "better-sqlite3": "^11.8.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
@@ -126,8 +127,5 @@
     "pg": "^8.13.3",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20"
-  },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
   }
 }

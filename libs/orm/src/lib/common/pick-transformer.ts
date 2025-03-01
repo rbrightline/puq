@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import { type PropertyOptions } from '@puq/type';
 import { ValueTransformer } from 'typeorm';
 
 /**

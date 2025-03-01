@@ -1,7 +1,7 @@
 import { parseWhereQueryString, validateWhereQueryString } from '@puq/query';
 import { Transform } from 'class-transformer';
 import { createFindOperator } from './create-find-operator.js';
-import { Keys } from '@puq/type';
+import type { Keys } from '@puq/type';
 
 export type WhereQueryTransformerOptions = {
   /**

@@ -1,5 +1,5 @@
 import { Dto, Property } from '@puq/property';
-import {
+import type {
   SingleValidationError,
   ValidationConstraints,
   ValidationErrorResult,

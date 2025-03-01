@@ -1,6 +1,6 @@
 import { Dto, Property } from '@puq/property';
-import { QueryOperator, WhereOption } from '@puq/query';
-import { KeyOf, Keys, Type } from '@puq/type';
+import { QueryOperator, type WhereOption } from '@puq/query';
+import type { KeyOf, Keys, Type } from '@puq/type';
 
 /**
  * Create {@link WhereOption} dto for the entity

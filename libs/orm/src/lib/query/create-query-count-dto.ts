@@ -1,9 +1,9 @@
 import { ApiProperty, Dto } from '@puq/property';
-import { FindOptionsWhere } from 'typeorm';
+import { type FindOptionsWhere } from 'typeorm';
 import { WhereQueryTransformer } from './where-query-transformer.js';
-import { QueryCount } from '@puq/query';
+import { type QueryCount } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
-import { Keys, Type } from '@puq/type';
+import type { Keys, Type } from '@puq/type';
 
 export type CreateQueryCountDtoOptions<T> = {
   columns: Keys<T>;

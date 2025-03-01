@@ -1,7 +1,7 @@
-import { FindOptionsWhere } from 'typeorm';
-import { BaseEntity } from '../entity/base.js';
+import type { FindOptionsWhere } from 'typeorm';
+import type { CountResult } from '@puq/type';
 import { QueryCount, QueryMany, QueryOne } from '@puq/query';
-import { CountResult } from '@puq/type';
+import { BaseEntity } from '../entity/base.js';
 import { BaseEntityService } from './base.js';
 
 /**

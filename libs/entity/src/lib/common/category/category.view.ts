@@ -1,4 +1,4 @@
-import { CategoryModel } from '@puq/model';
+import type { CategoryModel } from '@puq/model';
 import { ViewEntity, BaseView, ViewColumn } from '@puq/orm';
 import { Category } from './category.entity.js';
 

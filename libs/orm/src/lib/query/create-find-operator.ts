@@ -1,4 +1,5 @@
-import { QueryOperator, WhereOption } from '@puq/query';
+import type { WhereOption } from '@puq/query';
+import { QueryOperator } from '@puq/query';
 import {
   Equal,
   FindOperator,
