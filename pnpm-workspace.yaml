@@ -1,3 +1,14 @@
 packages:
-  - 'libs/*'
-  - 'services/*'
+  - libs/*
+  - services/*
+onlyBuiltDependencies:
+  - '@compodoc/compodoc'
+  - '@nestjs/core'
+  - '@scarf/scarf'
+  - '@swc/core'
+  - better-sqlite3
+  - core-js
+  - esbuild
+  - libxmljs
+  - nx
+  - sqlite3

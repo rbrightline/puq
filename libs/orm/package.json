@@ -79,7 +79,9 @@
   },
   "devDependencies": {
     "@nx/devkit": "20.4.4",
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "better-sqlite3": "^11.8.1",
+    "pg": "^8.13.3"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.10",
@@ -93,8 +95,6 @@
     "@puq/names": "^0.2.2",
     "@puq/property": "^0.2.0",
     "@puq/query": "^0.2.0",
-    "@puq/type": "^0.2.0",
-    "better-sqlite3": "^11.8.1",
-    "pg": "^8.13.3"
+    "@puq/type": "^0.2.0"
   }
 }
