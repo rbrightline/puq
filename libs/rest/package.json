@@ -2,7 +2,7 @@
   "name": "@puq/rest",
   "displayName": "@puq/rest",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -85,8 +85,8 @@
     "@swc/helpers": "~0.5.11"
   },
   "dependencies": {
-    "@puq/names": "^0.2.2",
-    "@puq/orm": "workspace:^",
-    "@puq/type": "workspace:^"
+    "@puq/names": "^0.3.0",
+    "@puq/orm": "0.3.0",
+    "@puq/type": "0.3.0"
   }
 }

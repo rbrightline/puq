@@ -1,10 +1,10 @@
 import { resolve } from 'path';
-import { AccessDeniedError } from '@puq/error';
+import { ErrorCode, throwUnauthorizedError } from '@puq/error';
 import { cwd } from 'process';
 import { ScopeResolver } from './scope-resolver.js';
 
 /**
- * Create a scoped path resolver that prevents access to outer directories by throwing {@link AccessDeniedError}.
+ * Create a scoped path resolver that prevents access to outer directories by throwing {@link ErrorCode.Unauthorized}.
  * @param root scoped directory path
  * @returns scoped resolver {@link ScopeResolver}
  */
@@ -14,8 +14,8 @@ export function scope(root = cwd()): ScopeResolver {
   return (...paths: string[]) => {
     const resolved = resolve(...paths);
     if (!resolved.startsWith(root))
-      throw new AccessDeniedError(
-        `Access denied to ${resolved} becuase it is out of the scope: ${root}`
+      throwUnauthorizedError(
+        `You do not have a permission to access outside the ${root} directory`
       );
 
     return resolved;

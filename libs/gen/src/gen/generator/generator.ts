@@ -7,7 +7,8 @@ import {
 } from '@nx/devkit';
 import * as path from 'path';
 import { GeneratorGeneratorSchema } from './schema.js';
-import { filename } from '@puq/fs';
+import { segments } from '@puq/fs';
+
 /**
  * Genereate a generator
  * @param tree
@@ -25,9 +26,11 @@ export async function generatorGenerator(
     sourceRoot: `${projectRoot}/src`,
     targets: {},
   });
+  const filename = segments(options.directory).slice(0, -1).pop();
 
+  if (!filename) throw new Error('filename not extracted!');
   generateFiles(tree, path.join(__dirname, 'files'), projectRoot, {
-    ...names(filename(options.directory)),
+    ...names(filename),
   });
   await formatFiles(tree);
 }

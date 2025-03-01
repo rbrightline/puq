@@ -6,7 +6,14 @@
 
 ## Summary
 
-sample CLI
+This package provides a fully portable NestJS service that can be easily installed and run as a standalone application. Designed for flexibility and ease of use, it includes its own CLI tool to manage execution seamlessly.
+
+## Features
+
+- 📦 Installable via npm
+- 🚀 Standalone execution with CLI
+- ⚡ Lightweight and portable
+- 🛠 Built with NestJS for scalability
 
 ## Install
 

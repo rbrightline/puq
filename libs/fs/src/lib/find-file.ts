@@ -1,5 +1,9 @@
 import { files } from './files.js';
-import { FileNotFoundError, InvalidValueError } from '@puq/error';
+import {
+  ErrorCode,
+  throwFileNotFoundError,
+  throwInvalidFieldError,
+} from '@puq/error';
 import { segments } from './segments.js';
 import { resolve } from 'path';
 import { IOptions } from './io-options.js';
@@ -9,7 +13,7 @@ import { IOptions } from './io-options.js';
  * @param filepath filepath to search under the directory
  * @param options {@link IOptions}
  * @returns file path
- * @throw {@link FileNotFoundError} if the file not found
+ * @throw {@link ErrorCode.FileNotFound} if the file not found
  */
 export async function findFile(
   filepath: string,
@@ -28,12 +32,12 @@ export async function findFile(
   const rx = new RegExp(`${filename}`);
 
   if (filename == undefined)
-    throw new InvalidValueError(
+    throwInvalidFieldError(
       `Could not extract the last segment from the ${filepath}`
     );
 
   if (foundFiles.length == 0)
-    throw new FileNotFoundError(`File not found: ${filepath}`);
+    throwFileNotFoundError(`File not found: ${filepath}`);
 
   for (const filepath of foundFiles) {
     const __segments = segments(filepath);
@@ -45,5 +49,5 @@ export async function findFile(
     return filepath;
   }
 
-  throw new FileNotFoundError(`File not found: ${filepath}`);
+  throwFileNotFoundError(`File not found: ${filepath}`);
 }

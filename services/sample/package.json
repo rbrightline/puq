@@ -1,12 +1,12 @@
 {
   "name": "@puq/sample",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "Sample service",
+  "description": "This package provides a fully portable NestJS service that can be easily installed and run as a standalone application. Designed for flexibility and ease of use, it includes its own CLI tool to manage execution seamlessly.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -113,11 +113,11 @@
     "@nestjs/swagger": "^11.0.3",
     "@nestjs/throttler": "^6.4.0",
     "@nestjs/typeorm": "^11.0.0",
-    "@puq/core": "^0.0.6",
-    "@puq/orm": "^0.2.3",
-    "@puq/property": "workspace:^",
-    "@puq/rest": "workspace:^",
-    "@puq/type": "workspace:^",
+    "@puq/core": "^0.3.0",
+    "@puq/orm": "^0.3.0",
+    "@puq/property": "0.3.0",
+    "@puq/rest": "0.3.0",
+    "@puq/type": "0.3.0",
     "better-sqlite3": "^11.8.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",

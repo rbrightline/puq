@@ -1,6 +1,6 @@
 import { normalize, resolve } from 'path';
 import { files } from './files.js';
-import { InvalidValueError, FileNotFoundError } from '@puq/error';
+import { throwFileNotFoundError } from '@puq/error';
 import { segments } from './segments.js';
 import { IOptions } from './io-options.js';
 
@@ -26,12 +26,12 @@ export async function findFiles(
   const rx = new RegExp(`${filename}`);
 
   if (filename == undefined)
-    throw new InvalidValueError(
+    throwFileNotFoundError(
       `Could not extract the last segment from the ${filepath}`
     );
 
   if (foundFiles.length == 0)
-    throw new FileNotFoundError(`File not found: ${filepath}`);
+    throwFileNotFoundError(`File not found: ${filepath}`);
 
   const result: string[] = [];
 
@@ -47,8 +47,7 @@ export async function findFiles(
     result.push(filepath);
   }
 
-  if (result.length == 0)
-    throw new FileNotFoundError(`File not found: ${filepath}`);
+  if (result.length == 0) throwFileNotFoundError(`File not found: ${filepath}`);
 
   if (options?.fullpath) return result;
 

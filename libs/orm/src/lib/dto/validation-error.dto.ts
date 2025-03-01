@@ -1,7 +1,7 @@
 import { Dto, Property } from '@puq/property';
 import {
-  ValidationConstraints,
   SingleValidationError,
+  ValidationConstraints,
   ValidationErrorResult,
 } from '@puq/type';
 
@@ -25,7 +25,7 @@ export class ValidationConstraintsDto implements ValidationConstraints {
 export class SingleValidationErrorDto implements SingleValidationError {
   @Property({ type: 'string' }) property?: string;
   @Property({ type: 'object', target: () => ValidationConstraintsDto })
-  constraints?: ValidationConstraints;
+  constraints?: ValidationConstraintsDto;
 }
 
 @Dto()

@@ -7,7 +7,7 @@ import {
 } from '@nx/devkit';
 import { ModelGeneratorSchema } from './schema.js';
 import { join, resolve } from 'path';
-import { readYamlFile } from '@puq/fs';
+import { readYAMLFile } from '@puq/fs';
 import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
 import { cwd } from 'process';
 import { Model } from '@puq/type';
@@ -36,7 +36,7 @@ export async function modelGenerator(
     `${modelName}.model.yaml`
   );
 
-  const yamlContent = await readYamlFile<Model>(modelFilePath);
+  const yamlContent = await readYAMLFile<Model>(modelFilePath);
 
   const modelManager = new ModelManager(yamlContent);
 
