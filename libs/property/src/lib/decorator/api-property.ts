@@ -29,7 +29,19 @@ export function ApiProperty(options: PropertyOptions): PropertyDecorator {
 
       case 'bigint': {
         const { ...rest } = options as Omit<PropertyOptions, 'type'>;
-        __ApiProperty({ ...rest, type: 'string' })(t, p);
+        __ApiProperty({ ...rest, type: 'string', required, nullable })(t, p);
+        break;
+      }
+
+      case 'date': {
+        const { ...rest } = options as Omit<PropertyOptions, 'type'>;
+        __ApiProperty({
+          ...rest,
+          type: 'string',
+          format: 'date',
+          required,
+          nullable,
+        });
         break;
       }
 
@@ -45,18 +57,21 @@ export function ApiProperty(options: PropertyOptions): PropertyDecorator {
           __ApiProperty({
             ...optionsRest,
             type: [target()],
+            items: {
+              ...(itemsRest as SchemaObject),
+              nullable: items.required !== true,
+            },
             required,
             nullable,
-            items: { ...(itemsRest as SchemaObject) },
           })(t, p);
         } else {
-          const { required } = options.items;
-
           __ApiProperty({
             ...options,
-            nullable,
+            items: {
+              ...(options.items as SchemaObject),
+            },
             required,
-            items: { ...(options.items as SchemaObject) },
+            nullable,
           })(t, p);
         }
         break;
