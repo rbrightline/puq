@@ -1,7 +1,7 @@
 {
   "name": "@puq/validation",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -81,7 +81,7 @@
     }
   },
   "devDependencies": {
-    "@puq/type": "^0.4.0"
+    "@puq/type": "^0.4.1"
   },
   "peerDependencies": {
     "class-validator": "^0.14.1",

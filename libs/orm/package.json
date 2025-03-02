@@ -1,7 +1,7 @@
 {
   "name": "@puq/orm",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "@nx/devkit": "20.4.4",
-    "@puq/type": "^0.4.0",
+    "@puq/type": "^0.4.1",
     "@swc/helpers": "~0.5.11",
     "better-sqlite3": "^11.8.1",
     "pg": "^8.13.3"
@@ -94,6 +94,6 @@
     "@puq/property": "^0.4.0"
   },
   "dependencies": {
-    "@puq/query": "^0.4.0"
+    "@puq/query": "^0.4.1"
   }
 }
