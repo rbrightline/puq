@@ -3,6 +3,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResourceMetadataManager } from '../meta/resource-metadata.js';
 
 /**
+ * Define resource controller
  * @returns -  {@link ClassDecorator}
  */
 export function Controller(): ClassDecorator {

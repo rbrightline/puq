@@ -72,6 +72,11 @@ export class ResourceMetadataManager {
     Reflect.defineMetadata(this.PUBLIC, !!options.isPublic, constructor);
   }
 
+  /**
+   *
+   * @param target decorator target (just pass the decorator target)
+   * @returns
+   */
   static get<T extends object>(target: T): ResourceMetadata {
     return {
       entity: this.entity(target),

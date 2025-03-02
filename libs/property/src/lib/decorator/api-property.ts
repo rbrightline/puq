@@ -41,7 +41,7 @@ export function ApiProperty(options: PropertyOptions): PropertyDecorator {
           format: 'date',
           required,
           nullable,
-        });
+        })(t, p);
         break;
       }
 

@@ -3,15 +3,10 @@ import { ApiOkResponse } from '@nestjs/swagger';
 import { CommonMethod } from './common.js';
 import { ResourceMetadataManager } from '../meta/resource-metadata.js';
 
-export type MethodDecoratorParam<T> = [
-  object,
-  string | symbol,
-  TypedPropertyDescriptor<T>,
-];
 /**
- * Find all entities by query
- * @param entity function that return entity class
- * @returns
+ * Decorates a method to define a GET endpoint that returns all instances of a resource.
+ * Applies common REST API configurations using metadata from ResourceMetadataManager.
+ * @returns A method decorator that configures the endpoint with GET and Swagger response metadata.
  */
 export function FindAll(): MethodDecorator {
   return (target, property, descriptor) => {
