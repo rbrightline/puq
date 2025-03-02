@@ -1,5 +1,5 @@
 import { PropertyOptions } from '@puq/type';
-import { PropertyValidation } from '../decorator/property.js';
+import { PropertyValidation } from './property.js';
 import { Exclude, plainToInstance } from 'class-transformer';
 import { validateSync, ValidationError } from 'class-validator';
 
@@ -45,7 +45,7 @@ export const testDateValue = new Date().toISOString();
  */
 export function __validateTestClass(
   options: PropertyOptions,
-  value: any
+  value: any,
 ): string[] {
   @Exclude()
   class SampleTestClass {
@@ -67,3 +67,9 @@ export function __validateTestClass(
 
   return ___extractConstraints(foundErrors);
 }
+
+describe('test-utilities', () => {
+  it('should work', () => {
+    expect(1).toEqual(1);
+  });
+});

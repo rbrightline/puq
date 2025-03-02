@@ -1,4 +1,4 @@
-import { PuqOptions } from './puq-options.js';
+import type { PuqOptions } from './puq-options.js';
 
 export type PackageJSON = {
   name: string;

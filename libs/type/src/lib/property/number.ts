@@ -1,6 +1,6 @@
-import { CommonNumberOptions } from './common-number.js';
-import { CommonOptions } from './common.js';
-import { NumberFormat } from './number-format.js';
+import type { CommonNumberOptions } from './common-number.js';
+import type { CommonOptions } from './common.js';
+import type { NumberFormat } from './number-format.js';
 
 export type __NumberOptions = {
   type: 'number';

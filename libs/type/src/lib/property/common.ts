@@ -1,7 +1,7 @@
-import { Icon } from '../ui/icon.js';
-import { InputType } from '../ui/input-type.js';
-import { DatabaseType } from './database-type.js';
-import { PropertyType } from './property-type.js';
+import type { Icon } from '../ui/icon.js';
+import type { InputType } from '../ui/input-type.js';
+import type { DatabaseType } from './database-type.js';
+import type { PropertyType } from './property-type.js';
 
 /**
  * Common property options

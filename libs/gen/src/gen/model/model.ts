@@ -12,6 +12,9 @@ import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
 import { cwd } from 'process';
 import { Model } from '@puq/type';
 
+import * as Printer from '@puq/printer';
+
+console.log(Printer);
 /**
  * Generate model type
  * @param tree
@@ -19,7 +22,7 @@ import { Model } from '@puq/type';
  */
 export async function modelGenerator(
   tree: Tree,
-  options: ModelGeneratorSchema
+  options: ModelGeneratorSchema,
 ) {
   const source = join(__dirname, 'files');
   const target = resolve(cwd(), options.directory);
@@ -33,7 +36,7 @@ export async function modelGenerator(
   const modelFilePath = join(
     workspaceRoot,
     packageJSON.puq.metadataRoot,
-    `${modelName}.model.yaml`
+    `${modelName}.model.yaml`,
   );
 
   const yamlContent = await readYAMLFile<Model>(modelFilePath);

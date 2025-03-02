@@ -3,7 +3,7 @@ import {
   __validateTestClass,
   TestClass as T,
   testDateValue,
-} from '../utils/test-utils.js';
+} from './test-utils.spec.js';
 import { __assertErrors } from './common-utilities.spec.js';
 let line = 12;
 describe('Date property validation', () => {

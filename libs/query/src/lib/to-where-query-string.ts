@@ -1,5 +1,5 @@
 import { ARRAY_DELIMETER, OBJECT_PROPERTY_DELIMETER } from './delimeter.js';
-import { WhereOption } from './where.js';
+import type { WhereOption } from './where.js';
 
 /**
  * Transform the query objects into url query string

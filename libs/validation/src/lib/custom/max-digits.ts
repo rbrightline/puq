@@ -1,10 +1,11 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
+
+import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * @ignore
@@ -41,7 +42,7 @@ export class MaxDigitsConstraint implements ValidatorConstraintInterface {
 export function MaxDigits(
   wholeCount: number,
   decimalCount: number,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

@@ -1,5 +1,5 @@
-import { CommonOptions } from './common.js';
-import { StringFormat } from './string-format.js';
+import type { CommonOptions } from './common.js';
+import type { StringFormat } from './string-format.js';
 
 export type __StringOptions = {
   type: 'string';

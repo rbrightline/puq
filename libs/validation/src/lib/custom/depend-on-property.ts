@@ -1,10 +1,10 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
+import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * Validate that the property does not exist without the target property
@@ -35,7 +35,7 @@ export class DependOnPropertyConstraint
  */
 export function DependOnProperty(
   targetPropertyName: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

@@ -1,3 +1,3 @@
-export async function tools(...args: any[]): Promise<void> {
-  //
+export async function tools<T>(...args: T[]): Promise<void> {
+  console.log(args);
 }

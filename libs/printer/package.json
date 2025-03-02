@@ -70,7 +70,10 @@
           "tsConfig": "libs/printer/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/printer && npx compodoc -d ../../public/printer  -p tsconfig.lib.json -n printer"
@@ -78,10 +81,10 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@puq/type": "^0.3.2"
   },
   "dependencies": {
-    "@puq/is": "^0.3.2",
-    "@puq/type": "^0.3.2"
+    "@swc/helpers": "^0.5.15",
+    "@puq/is": "^0.3.2"
   }
 }

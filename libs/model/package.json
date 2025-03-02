@@ -70,7 +70,10 @@
           "tsConfig": "libs/model/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/model && npx compodoc -d ../../public/model  -p tsconfig.lib.json -n model"
@@ -78,9 +81,9 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@puq/type": "^0.3.2"
   },
   "dependencies": {
-    "@puq/type": "^0.3.2"
+    "@swc/helpers": "^0.5.15"
   }
 }

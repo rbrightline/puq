@@ -72,7 +72,7 @@
           "outputPath": "libs/crypto/dist",
           "main": "libs/crypto/src/index.ts",
           "tsConfig": "libs/crypto/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         },
         "dependsOn": [

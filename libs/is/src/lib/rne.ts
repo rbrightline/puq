@@ -1,4 +1,6 @@
-import { ErrorCode, throwEmptyFieldError } from '@puq/error';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { ErrorCode } from '@puq/error';
+import { throwEmptyFieldError } from '@puq/error';
 import { ne } from './ne.js';
 
 /**
@@ -10,7 +12,7 @@ import { ne } from './ne.js';
  */
 export function rne<T>(
   value: T | undefined | null,
-  defaultValue?: T | undefined | null
+  defaultValue?: T | undefined | null,
 ): T {
   if (ne(value)) return value;
   if (ne(defaultValue)) return defaultValue;

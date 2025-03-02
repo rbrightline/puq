@@ -1,10 +1,6 @@
-import { DateOptions } from '@puq/type';
-import {
-  IsISO8601,
-  MaxDate,
-  MinDate,
-  ValidationOptions,
-} from 'class-validator';
+import type { DateOptions } from '@puq/type';
+import type { ValidationOptions } from 'class-validator';
+import { IsISO8601, MaxDate, MinDate } from 'class-validator';
 import { BeforeProperty } from '../custom/before-property.js';
 import { AfterProperty } from '../custom/after-property.js';
 import { SameDayProperty } from '../custom/same-day-property.js';
@@ -24,7 +20,7 @@ import { MaxISODate } from '../custom/max-iso-date.js';
  */
 export function DateValidation(
   options: DateOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     IsISO8601({ strict: true, strictSeparator: true }, validationOptions)(t, p);

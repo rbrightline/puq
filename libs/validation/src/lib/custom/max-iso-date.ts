@@ -1,9 +1,13 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
+} from 'class-validator';
+
+import {
+  registerDecorator,
+  ValidatorConstraint,
   isISO8601,
 } from 'class-validator';
 
@@ -41,7 +45,7 @@ export class MaxISODateConstraint implements ValidatorConstraintInterface {
  */
 export function MaxISODate(
   isoDate: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

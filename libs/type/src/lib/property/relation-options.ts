@@ -1,4 +1,4 @@
-import { Type } from '../utils/type.js';
+import type { Type } from '../utils/type.js';
 
 export type RelationType =
   | 'many-to-many'

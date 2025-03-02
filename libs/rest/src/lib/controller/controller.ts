@@ -1,11 +1,14 @@
 import { Controller as __Controller } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { names } from '@puq/names';
-import { ObjectLiteral, Type } from '@puq/type';
+import type { Type } from '@puq/type';
 
-export function Controller<T extends ObjectLiteral>(
-  entity: () => Type
-): ClassDecorator {
+/**
+ *
+ * @param entity Entity class
+ * @returns -  {@link ClassDecorator}
+ */
+export function Controller<T>(entity: () => Type<T>): ClassDecorator {
   return (t) => {
     __Controller()(t);
     ApiBearerAuth()(t);

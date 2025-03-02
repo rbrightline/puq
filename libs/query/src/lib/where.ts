@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { QueryOperator } from './operator.js';
+import type { QueryOperator } from './operator.js';
 
 export type WhereOption<T = any, Query = any> = {
   /**

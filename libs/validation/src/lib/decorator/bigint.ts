@@ -1,11 +1,12 @@
-import { isNumberString, ValidationOptions } from 'class-validator';
+import type { BigIntegerOptions } from '@puq/type';
+import type { ValidationOptions } from 'class-validator';
+import { isNumberString } from 'class-validator';
 import { MaxDigits } from '../custom/max-digits.js';
-import { BigIntegerOptions } from '@puq/type';
 import { Transform } from 'class-transformer';
 
 export function BigIntValiation(
   options: BigIntegerOptions,
-  valiationOptions?: Readonly<ValidationOptions>
+  valiationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     if (options.acceptString == true) {

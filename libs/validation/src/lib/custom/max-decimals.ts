@@ -1,10 +1,11 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
+
+import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * Validate the maximum allowed decimals
@@ -37,7 +38,7 @@ export class MaxDecimalsConstraint implements ValidatorConstraintInterface {
  */
 export function MaxDecimals(
   maxDecimal: number,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

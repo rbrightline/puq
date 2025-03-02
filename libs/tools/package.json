@@ -76,21 +76,22 @@
           "tsConfig": "libs/tools/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/tools && npx compodoc -d ../../public/tools  -p tsconfig.lib.json -n tools"
       }
     }
   },
-  "dependencies": {
-    "@puq/debug": "^0.3.2",
-    "@puq/error": "^0.3.2",
-    "@puq/fs": "^0.3.2",
-    "@puq/is": "^0.3.2",
-    "commander": "^13.1.0"
+  "peerDependencies": {
+    "@puq/debug": "^0.3.2"
   },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+  "dependencies": {
+    "@swc/helpers": "^0.5.15",
+    "@puq/fs": "^0.3.2",
+    "commander": "^13.1.0"
   }
 }

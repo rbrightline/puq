@@ -1,5 +1,6 @@
 import { BooleanOptions } from '@puq/type';
-import { IsBoolean, ValidationOptions } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
+import { IsBoolean } from 'class-validator';
 import { Transform } from 'class-transformer';
 
 /**
@@ -10,7 +11,7 @@ import { Transform } from 'class-transformer';
  */
 export function BooleanValidation(
   options: BooleanOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     IsBoolean(validationOptions)(t, p);

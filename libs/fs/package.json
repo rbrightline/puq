@@ -70,7 +70,10 @@
           "tsConfig": "libs/fs/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/fs && npx compodoc -d ../../public/fs  -p tsconfig.lib.json -n fs"
@@ -78,11 +81,13 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11",
     "@types/js-yaml": "^4.0.9"
   },
+  "peerDependencies": {
+    "@puq/debug": "^0.3.2"
+  },
   "dependencies": {
-    "@puq/debug": "^0.3.2",
+    "@swc/helpers": "~0.5.11",
     "@puq/error": "^0.3.2",
     "@puq/is": "^0.3.2",
     "js-yaml": "^4.1.0"

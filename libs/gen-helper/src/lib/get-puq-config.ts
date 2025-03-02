@@ -1,6 +1,6 @@
 import { workspaceRoot } from '@nx/devkit';
 import { readJSONFile } from '@puq/fs';
-import { PuqOptions } from '@puq/type';
+import type { PuqOptions } from '@puq/type';
 import { join } from 'path';
 
 /**

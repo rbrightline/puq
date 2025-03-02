@@ -1,5 +1,6 @@
-import { IntegerOptions } from '@puq/type';
-import { IsInt, isNumberString, ValidationOptions } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
+import type { IntegerOptions } from '@puq/type';
+import { IsInt, isNumberString } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { CommonNumberValidation } from './common-number.js';
 import { NumberFormatValidation } from './number-format.js';
@@ -12,7 +13,7 @@ import { NumberFormatValidation } from './number-format.js';
  */
 export function IntegerValidation(
   options: IntegerOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const { integerFormat } = options;

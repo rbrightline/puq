@@ -1,6 +1,5 @@
-import { PropertyOptions } from '@puq/type';
 import { StringValidation } from './string.js';
-import { ValidationOptions } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
 import { NumberValidation } from './number.js';
 import { IntegerValidation } from './integer.js';
 import { BooleanValidation } from './boolean.js';
@@ -10,6 +9,7 @@ import { BigIntValiation } from './bigint.js';
 import { DateValidation } from './date.js';
 import { CommonValidation } from './common.js';
 import { Exclude, Expose } from 'class-transformer';
+import type { PropertyOptions } from '@puq/type';
 
 /**
  * @exclude
@@ -19,7 +19,7 @@ import { Exclude, Expose } from 'class-transformer';
  */
 export function __PropertyValidation(
   options: PropertyOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const type = options.type;
@@ -59,7 +59,7 @@ export function __PropertyValidation(
         ArrayValidation(options, validationOptions)(t, p);
         __PropertyValidation(
           { ...options.items, required: options.required },
-          { each: true }
+          { each: true },
         )(t, p);
         break;
     }
@@ -92,7 +92,7 @@ export function __PropertyValidation(
  *````
  */
 export function PropertyValidation(
-  options: PropertyOptions
+  options: PropertyOptions,
 ): PropertyDecorator {
   return (t, p) => {
     // Exclude or expose

@@ -1,11 +1,13 @@
-import { ArrayOptions } from './array.js';
-import { BigIntegerOptions } from './big-integer.js';
-import { BooleanOptions } from './boolean.js';
-import { DateOptions } from './date.js';
-import { IntegerOptions } from './integer.js';
-import { NumberOptions } from './number.js';
-import { ObjectOptions } from './object.js';
-import { StringOptions } from './string.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import type { ArrayOptions } from './array.js';
+import type { BigIntegerOptions } from './big-integer.js';
+import type { BooleanOptions } from './boolean.js';
+import type { DateOptions } from './date.js';
+import type { IntegerOptions } from './integer.js';
+import type { NumberOptions } from './number.js';
+import type { ObjectOptions } from './object.js';
+import type { StringOptions } from './string.js';
 
 export type __PropertyOptions<T = any> =
   | StringOptions

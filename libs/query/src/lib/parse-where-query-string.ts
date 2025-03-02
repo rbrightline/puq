@@ -1,5 +1,5 @@
 import { ARRAY_DELIMETER, OBJECT_PROPERTY_DELIMETER } from './delimeter.js';
-import { WhereOption } from './where.js';
+import type { WhereOption } from './where.js';
 
 export function parseWhereQueryString(queryString: string): WhereOption[] {
   return queryString.split(ARRAY_DELIMETER).map((e) => {

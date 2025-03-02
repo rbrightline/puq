@@ -1,4 +1,5 @@
-import { CommonOptions } from './common.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { CommonOptions } from './common.js';
 
 export type __ArrayOptions<P> = {
   type: 'array';

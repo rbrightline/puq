@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ErrorCode } from '@puq/error';
+import type { ErrorCode } from '@puq/error';
 import { throwRequiredFieldMissingError } from '@puq/error';
 import { def } from './def.js';
 
@@ -11,7 +11,7 @@ import { def } from './def.js';
  */
 export function rval<T>(
   value: T | undefined | null,
-  defaultValue?: T | undefined | null
+  defaultValue?: T | undefined | null,
 ): T {
   if (def(value)) return value;
   if (def(defaultValue)) return defaultValue;

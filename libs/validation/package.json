@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "Validation decorators",
+  "description": "A powerful and flexible TypeScript decorator designed to streamline data validation across your application. This tool provides a robust solution for ensuring data integrity by enforcing validation rules on class properties, making it ideal for APIs, forms, or any data-driven project.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -70,7 +70,10 @@
           "tsConfig": "libs/validation/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/validation && npx compodoc -d ../../public/validation  -p tsconfig.lib.json -n validation"
@@ -78,14 +81,13 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@puq/type": "^0.3.2"
   },
   "peerDependencies": {
-    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
-    "reflect-metadata": "^0.2.2"
+    "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "^0.3.2"
+    "@swc/helpers": "~0.5.15"
   }
 }

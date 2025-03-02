@@ -29,4 +29,3 @@ export * from './lib/decorator/object.js';
 export * from './lib/decorator/property.js';
 export * from './lib/decorator/string-format.js';
 export * from './lib/decorator/string.js';
-export * from './lib/utils/test-utils.js';

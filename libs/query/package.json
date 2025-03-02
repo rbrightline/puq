@@ -70,14 +70,17 @@
           "tsConfig": "libs/query/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/query && npx compodoc -d ../../public/query  -p tsconfig.lib.json -n query"
       }
     }
   },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+  "dependencies": {
+    "@swc/helpers": "^0.5.15"
   }
 }

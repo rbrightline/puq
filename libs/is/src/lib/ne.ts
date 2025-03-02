@@ -3,7 +3,7 @@ import { udef } from './udef.js';
 
 /**
  * Check the value is not empty string, array, object, undefined, or null
- * @param value
+ * @param value any value
  * @returns
  */
 export function ne<T>(value: T | undefined | null): value is T {

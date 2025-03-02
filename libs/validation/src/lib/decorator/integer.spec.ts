@@ -1,5 +1,5 @@
-import { PropertyOptions as O } from '@puq/type';
-import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
+import type { PropertyOptions as O } from '@puq/type';
+import { __validateTestClass, TestClass as T } from './test-utils.spec.js';
 import { __assertErrors } from './common-utilities.spec.js';
 
 describe('Integer property validation', () => {

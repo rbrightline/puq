@@ -1,6 +1,7 @@
 import { debug } from '@puq/debug';
 import { Command } from 'commander';
-import { rename, RenameOptions } from './rename.js';
+import type { RenameOptions } from './rename.js';
+import { rename } from './rename.js';
 
 export function parseRename(command: Command) {
   command
@@ -10,7 +11,7 @@ export function parseRename(command: Command) {
 
     .requiredOption(
       '-e, --expression <string>',
-      'regular expression to match files (optional)'
+      'regular expression to match files (optional)',
     )
     .option('-d, --directory <string>', 'root directory (optional)', '.')
 

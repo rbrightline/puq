@@ -1,6 +1,6 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 import { ApiProperty as __ApiProperty } from '@nestjs/swagger';
-import { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface.js';
+import type { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface.js';
 import { Exclude, Expose } from 'class-transformer';
 
 /**

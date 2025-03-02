@@ -70,7 +70,10 @@
           "tsConfig": "libs/property/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/property && npx compodoc -d ../../public/property  -p tsconfig.lib.json -n property"
@@ -78,15 +81,14 @@
     }
   },
   "devDependencies": {
-    "@swc/helpers": "~0.5.11"
+    "@puq/type": "^0.3.2"
   },
   "peerDependencies": {
     "@nestjs/swagger": "^11.0.3",
-    "@swc/helpers": "~0.5.11",
     "class-transformer": "^0.5.1"
   },
   "dependencies": {
-    "@puq/type": "^0.3.2",
+    "@swc/helpers": "^0.5.15",
     "@puq/validation": "^0.3.2"
   }
 }

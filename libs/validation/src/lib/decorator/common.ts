@@ -1,6 +1,7 @@
-import { CommonOptions } from '@puq/type';
+import type { CommonOptions } from '@puq/type';
 import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsOptional, ValidationOptions } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 import { EqualToProperty } from '../custom/equal-to-property.js';
 import { DependOnProperty } from '../custom/depend-on-property.js';
 import { NotWithProperty } from '../custom/not-with-property.js';
@@ -16,7 +17,7 @@ import { NotWithProperty } from '../custom/not-with-property.js';
  */
 export function CommonValidation<T>(
   options: CommonOptions<T>,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const { equalToProperty, dependOnProperty, notWithProperty } = options;

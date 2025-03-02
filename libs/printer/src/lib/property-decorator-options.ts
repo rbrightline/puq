@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 
 /**
  * Serializes property decorator options to a JSON-CODE string with special handling for target properties
@@ -7,10 +7,11 @@ import { PropertyOptions } from '@puq/type';
  */
 export function propertyDecoratorOptions(options: PropertyOptions): string {
   // Destructure options, excluding 'name'
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { name, ...restOptions } = options;
 
   // Convert remaining options to JSON string
-  let optionsString = JSON.stringify(restOptions);
+  const optionsString = JSON.stringify(restOptions);
 
   // Handle target conversion for specific types
   const target = getTargetString(options);

@@ -1,4 +1,4 @@
-import { StringFormat } from '@puq/type';
+import type { StringFormat } from '@puq/type';
 import {
   IsAlpha,
   IsAlphanumeric,
@@ -58,7 +58,7 @@ import {
 
 export function StringFormatValidation(
   format: StringFormat,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     if (format == undefined) return;

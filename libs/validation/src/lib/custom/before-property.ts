@@ -1,12 +1,15 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
-  isISO8601,
 } from 'class-validator';
 
+import {
+  registerDecorator,
+  ValidatorConstraint,
+  isISO8601,
+} from 'class-validator';
 /**
  * * Validate that the property is before the target property
  * @ignore
@@ -40,7 +43,7 @@ export class BeforePropertyConstraint implements ValidatorConstraintInterface {
  */
 export function BeforeProperty(
   targetPropertyName: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

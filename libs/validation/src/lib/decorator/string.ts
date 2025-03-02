@@ -1,4 +1,5 @@
-import { StringOptions } from '@puq/type';
+import type { StringOptions } from '@puq/type';
+import type { ValidationOptions } from 'class-validator';
 import {
   Contains,
   isArray,
@@ -10,7 +11,6 @@ import {
   MaxLength,
   MinLength,
   NotContains,
-  ValidationOptions,
 } from 'class-validator';
 import { StringFormatValidation } from './string-format.js';
 
@@ -22,7 +22,7 @@ import { StringFormatValidation } from './string-format.js';
  */
 export function StringValidation(
   options: StringOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const {

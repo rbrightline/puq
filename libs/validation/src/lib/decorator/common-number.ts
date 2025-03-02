@@ -1,4 +1,4 @@
-import { IntegerOptions, NumberOptions } from '@puq/type';
+import type { IntegerOptions, NumberOptions } from '@puq/type';
 import {
   isArray,
   IsEnum,
@@ -7,8 +7,8 @@ import {
   IsNumber,
   Max,
   Min,
-  ValidationOptions,
 } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
 import { MaxDigits } from '../custom/max-digits.js';
 import { EqualToProperty } from '../custom/equal-to-property.js';
 import { LessThanProperty } from '../custom/less-than-property.js';
@@ -17,7 +17,7 @@ import { DependOnProperty } from '../custom/depend-on-property.js';
 
 export function CommonNumberValidation(
   options: NumberOptions | IntegerOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const {
@@ -33,7 +33,7 @@ export function CommonNumberValidation(
 
     IsNumber({ allowNaN: false, allowInfinity: false }, validationOptions)(
       t,
-      p
+      p,
     );
 
     // Max digits are here by default! It checks the number is in the safe range

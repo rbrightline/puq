@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApiInternalServerErrorResponse as __InternalError } from '@nestjs/swagger';
 
 export function CommonMethod(): MethodDecorator {

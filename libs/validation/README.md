@@ -6,7 +6,7 @@
 
 ## Summary
 
-Validation decorators
+A powerful and flexible TypeScript decorator designed to streamline data validation across your application. This tool provides a robust solution for ensuring data integrity by enforcing validation rules on class properties, making it ideal for APIs, forms, or any data-driven project.
 
 ## Install
 

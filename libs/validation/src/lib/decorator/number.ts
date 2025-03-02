@@ -1,5 +1,6 @@
-import { NumberOptions } from '@puq/type';
-import { isNumberString, ValidationOptions } from 'class-validator';
+import type { ValidationOptions } from 'class-validator';
+import type { NumberOptions } from '@puq/type';
+import { isNumberString } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { CommonNumberValidation } from './common-number.js';
 import { NumberFormatValidation } from './number-format.js';
@@ -13,7 +14,7 @@ import { MaxDecimals } from '../custom/max-decimals.js';
  */
 export function NumberValidation(
   options: NumberOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     const { numberFormat, maxDecimals } = options;

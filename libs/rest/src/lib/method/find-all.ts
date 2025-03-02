@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Get } from '@nestjs/common';
 import { ApiOkResponse, ApiUnprocessableEntityResponse } from '@nestjs/swagger';
 import { paths } from '@puq/names';
@@ -11,7 +12,7 @@ import { CommonMethod } from './common.js';
  * @returns
  */
 export function FindAllMethod<T extends IDModel>(
-  entity: () => Type<T>
+  entity: () => Type<T>,
 ): MethodDecorator {
   return (...args: [any, any, any]) => {
     const N = paths(entity().name);

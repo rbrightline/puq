@@ -1,6 +1,6 @@
 import { PropertyOptions as O } from '@puq/type';
 import { __assertErrors } from './common-utilities.spec.js';
-import { __validateTestClass, TestClass as T } from '../utils/test-utils.js';
+import { __validateTestClass, TestClass as T } from './test-utils.spec.js';
 
 describe('Common property validation', () => {
   it.each`

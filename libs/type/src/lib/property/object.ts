@@ -1,5 +1,6 @@
-import { Type } from '../utils/type.js';
-import { CommonOptions } from './common.js';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Type } from '../utils/type.js';
+import type { CommonOptions } from './common.js';
 
 export type __ObjectOptions = {
   type: 'object';

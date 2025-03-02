@@ -1,6 +1,7 @@
 import { debug } from '@puq/debug';
 import { Command } from 'commander';
-import { replace, ReplaceOptions } from './replace.js';
+import type { ReplaceOptions } from './replace.js';
+import { replace } from './replace.js';
 
 export function parseReplace(command: Command) {
   command
@@ -12,7 +13,7 @@ export function parseReplace(command: Command) {
     .option(
       '-e, --expression <string>',
       'regular expression to match files (optional)',
-      ''
+      '',
     )
     .requiredOption('-f, --from <items...>', 'placeholders (requried)')
     .requiredOption('-t, --to <items...>', 'replacements (requried)')

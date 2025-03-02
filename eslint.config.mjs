@@ -1,6 +1,22 @@
 import nx from '@nx/eslint-plugin';
 
 export default [
+  // Ignore patterns
+  {
+    ignores: [
+      '**/dist',
+      '**/node_modules',
+      '**/public',
+      '**/bin',
+      '**/tmp',
+      '**/eslint.config.mjs',
+      '**/vite.config.ts',
+      '**/*.spec.ts',
+      '**/*.md',
+      '**/*.js',
+    ],
+  },
+
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
@@ -16,7 +32,12 @@ export default [
             '{projectRoot}/eslint.config.{js,cjs,mjs}',
             '{projectRoot}/vite.config.{js,ts,mjs,mts}',
           ],
-          ignoredDependencies: ['@swc/helpers'],
+          ignoredDependencies: [
+            '@swc/helpers',
+            '@puq/type',
+            '@nx/dependency-checks',
+            '@puq/debug',
+          ],
         },
       ],
     },
@@ -62,19 +83,5 @@ export default [
     languageOptions: {
       parser: await import('@typescript-eslint/parser'),
     },
-  },
-
-  // Ignore patterns
-  {
-    ignores: [
-      '**/eslint.config.mjs',
-      '**/dist',
-      '**/node_modules',
-      '**/*.md',
-      '**/public',
-      '**/bin',
-      '**/tmp',
-      '**/vite.config.ts',
-    ],
   },
 ];

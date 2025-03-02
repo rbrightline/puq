@@ -1,6 +1,6 @@
 import { names } from '../names/names.js';
 import { pluralize } from '../names/pluralize.js';
-import { Paths } from './paths-type.js';
+import type { Paths } from './paths-type.js';
 
 /**
  * Create rest-api resource paths for each operations including

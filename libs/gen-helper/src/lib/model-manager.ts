@@ -1,4 +1,4 @@
-import { Model, PropertyOptions, RelationOptions } from '@puq/type';
+import type { Model, PropertyOptions, RelationOptions } from '@puq/type';
 import {
   propertyType,
   propertyDefinition,
@@ -12,7 +12,7 @@ export class ModelManager {
 
   protected entries<
     V extends PropertyOptions | RelationOptions,
-    T extends Record<string, V>
+    T extends Record<string, V>,
   >(options?: T): V[] | undefined {
     if (!options) return;
     return Object.entries(options).map(([name, value]) => ({ name, ...value }));
@@ -45,13 +45,13 @@ export class ModelManager {
   entityProperties() {
     const __properies = this.properties()
       ?.map((e) =>
-        [propertyDecorator('Column', e), propertyDefinition(e)].join('\n')
+        [propertyDecorator('Column', e), propertyDefinition(e)].join('\n'),
       )
       .join('\n');
 
     const __relations = this.relations()
       ?.map((e) =>
-        [relationDecorator('Relation', e), relationDefinition(e)].join('\n')
+        [relationDecorator('Relation', e), relationDefinition(e)].join('\n'),
       )
       .join('\n');
 
@@ -61,7 +61,7 @@ export class ModelManager {
   viewProperties() {
     const __properies = this.properties()
       ?.map((e) =>
-        [propertyDecorator('ViewColumn', e), propertyDefinition(e)].join('\n')
+        [propertyDecorator('ViewColumn', e), propertyDefinition(e)].join('\n'),
       )
       .join('\n');
 

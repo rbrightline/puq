@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   registerDecorator,
   ValidationOptions,
@@ -13,8 +14,7 @@ import {
  */
 @ValidatorConstraint({ name: 'sameYearProperty', async: false })
 export class SameYearPropertyConstraint
-  implements ValidatorConstraintInterface
-{
+  implements ValidatorConstraintInterface {
   validate(valueRaw: any, args: ValidationArguments) {
     const targetRaw = (args.object as any)[args.constraints[0]];
 

@@ -1,4 +1,4 @@
-import { RelationOptions } from '@puq/type';
+import type { RelationOptions } from '@puq/type';
 
 /**
  * Converts relation options into a JSON-Code string for use in a decorator.
@@ -8,6 +8,7 @@ import { RelationOptions } from '@puq/type';
  */
 export function relationDecoratorOptions(options: RelationOptions): string {
   // Destructure options, excluding 'name'
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { name, ...restOptions } = options;
 
   // Convert remaining options to JSON string

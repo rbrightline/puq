@@ -1,4 +1,4 @@
-import { CommonOptions } from './common.js';
+import type { CommonOptions } from './common.js';
 
 export type __BigIntegerOptions = {
   type: 'bigint';

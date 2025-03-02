@@ -70,17 +70,19 @@
           "tsConfig": "libs/is/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/is && npx compodoc -d ../../public/is  -p tsconfig.lib.json -n is"
       }
     }
   },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "@swc/helpers": "^0.5.15",
     "@puq/error": "^0.3.2"
   }
 }

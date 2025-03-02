@@ -1,10 +1,11 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
+
+import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * @ignore
@@ -34,7 +35,7 @@ export class MoreThanPropertyConstraint
  */
 export function MoreThanProperty(
   targetPropertyName: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

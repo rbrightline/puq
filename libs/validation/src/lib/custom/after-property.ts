@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   registerDecorator,
-  ValidationOptions,
   ValidatorConstraint,
-  ValidatorConstraintInterface,
-  ValidationArguments,
   isISO8601,
 } from 'class-validator';
 
+import type {
+  ValidationOptions,
+  ValidatorConstraintInterface,
+  ValidationArguments,
+} from 'class-validator';
 /**
  * * Validate that the property is after the target property
  * @ignore
@@ -40,7 +43,7 @@ export class AfterPropertyConstraint implements ValidatorConstraintInterface {
  */
 export function AfterProperty(
   targetPropertyName: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

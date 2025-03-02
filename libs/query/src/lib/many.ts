@@ -1,4 +1,4 @@
-import { OrderDirection, OrderNulls } from './order.js';
+import type { OrderDirection, OrderNulls } from './order.js';
 
 export class QueryMany<Entity, Where> {
   skip?: number;

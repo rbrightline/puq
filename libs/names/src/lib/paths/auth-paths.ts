@@ -1,4 +1,4 @@
-import { AuthPaths } from './auth-paths-type.js';
+import type { AuthPaths } from './auth-paths-type.js';
 
 /**
  * Generate the standard authorization and authentication rest-api paths with (optional) prefix

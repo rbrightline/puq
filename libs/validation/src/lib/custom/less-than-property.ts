@@ -1,10 +1,10 @@
-import {
-  registerDecorator,
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
   ValidationOptions,
-  ValidatorConstraint,
   ValidatorConstraintInterface,
   ValidationArguments,
 } from 'class-validator';
+import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * Validate that the property is less that the target property
@@ -37,7 +37,7 @@ export class LessThanPropertyConstraint
  */
 export function LessThanProperty(
   targetPropertyName: string,
-  validationOptions?: ValidationOptions
+  validationOptions?: ValidationOptions,
 ): PropertyDecorator {
   return (t, p) => {
     registerDecorator({

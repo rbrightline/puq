@@ -1,9 +1,10 @@
-import { NumberFormat } from '@puq/type';
-import { IsIn, Max, Min, ValidationOptions } from 'class-validator';
+import type { NumberFormat } from '@puq/type';
+import type { ValidationOptions } from 'class-validator';
+import { IsIn, Max, Min } from 'class-validator';
 
 export function NumberFormatValidation(
   format: NumberFormat,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     if (format == undefined) return;

@@ -69,24 +69,28 @@
           "outputPath": "libs/rest/dist",
           "main": "libs/rest/src/index.ts",
           "tsConfig": "libs/rest/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/rest && npx compodoc -d ../../public/rest  -p tsconfig.lib.json -n rest"
       }
     }
   },
-  "devDependencies": {
+  "peerDependencies": {
     "@nestjs/common": "^11.0.10",
-    "@nestjs/core": "^11.0.10",
-    "@nestjs/swagger": "^11.0.3",
-    "@swc/helpers": "~0.5.11"
+    "@nestjs/swagger": "^11.0.3"
+  },
+  "devDependencies": {
+    "@puq/type": "0.3.2"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.15",
     "@puq/names": "^0.3.2",
-    "@puq/orm": "0.3.2",
-    "@puq/type": "0.3.2"
+    "@puq/orm": "0.3.2"
   }
 }

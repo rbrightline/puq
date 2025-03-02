@@ -1,6 +1,6 @@
-import { DatabaseType } from './database-type.js';
-import { PropertyOptions } from './property.js';
-import { RelationOptions } from './relation-options.js';
+import type { DatabaseType } from './database-type.js';
+import type { PropertyOptions } from './property.js';
+import type { RelationOptions } from './relation-options.js';
 
 export type Model = {
   databaseType?: DatabaseType;

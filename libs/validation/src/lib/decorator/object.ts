@@ -1,11 +1,11 @@
-import { ObjectOptions } from '@puq/type';
+import type { ValidationOptions } from 'class-validator';
+import type { ObjectOptions } from '@puq/type';
 import {
   isJSON,
   IsNotEmptyObject,
   IsObject,
   IsOptional,
   ValidateNested,
-  ValidationOptions,
 } from 'class-validator';
 import { Transform, Type } from 'class-transformer';
 
@@ -17,7 +17,7 @@ import { Transform, Type } from 'class-transformer';
  */
 export function ObjectValidation(
   options: ObjectOptions,
-  validationOptions?: Readonly<ValidationOptions>
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     IsObject(validationOptions)(t, p);

@@ -98,9 +98,11 @@
     "@types/js-yaml": "^4.0.9"
   },
   "generators": "./generators.json",
+  "peerDependencies": {
+    "@puq/debug": "^0.3.2"
+  },
   "dependencies": {
     "@nx/devkit": "20.4.4",
-    "@puq/debug": "^0.3.2",
     "@puq/fs": "^0.3.2",
     "@puq/gen-helper": "^0.3.2",
     "@puq/printer": "^0.3.2",

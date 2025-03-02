@@ -1,6 +1,6 @@
 import { normalize } from '../common/normalize.js';
-import { NamesOption } from './names-option.js';
-import { Names } from './names-type.js';
+import type { NamesOption } from './names-option.js';
+import type { Names } from './names-type.js';
 
 /**
  * Generates various case formats for a given resource name.
@@ -27,14 +27,14 @@ export function names(resourceName: string, options?: NamesOption): Names {
 
   const camelCase = value
     .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
-      index === 0 ? word.toLowerCase() : word.toUpperCase()
+      index === 0 ? word.toLowerCase() : word.toUpperCase(),
     )
     .replace(/\s+/g, '');
 
   const constCase = value.toUpperCase().replace(/\s/g, '_');
 
   const titleCase = value.replace(/(?:^\w|[A-Z]|\b\w)/g, (word) =>
-    word.toUpperCase()
+    word.toUpperCase(),
   );
 
   const kebabCase = value.replace(/\s/g, '-');

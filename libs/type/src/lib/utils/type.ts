@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export interface Type<T = any> extends Function {
-  new (...args: any[]): T;
+  new(...args: any[]): T;
 }
