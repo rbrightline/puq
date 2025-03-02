@@ -74,10 +74,7 @@
           "tsConfig": "services/sample/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        },
-        "dependsOn": [
-          "lint"
-        ]
+        }
       },
       "build-watch": {
         "executor": "@nx/js:swc",
