@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 import { propertyType } from './property-type.js';
 import { rval } from '@puq/is';
 import { getOptionalMarker } from './get-optional-marker.js';

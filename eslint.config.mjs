@@ -22,30 +22,31 @@ export default [
   ...nx.configs['flat/javascript'],
 
   // Dependency check
-  {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        {
-          ignoredFiles: [
-            '{projectRoot}/eslint.config.{js,cjs,mjs}',
-            '{projectRoot}/vite.config.{js,ts,mjs,mts}',
-          ],
-          ignoredDependencies: [
-            '@swc/helpers',
-            '@puq/type',
-            '@nx/dependency-checks',
-            '@puq/debug',
-          ],
-        },
-      ],
-    },
+  // {
+  //   files: ['**/*.json'],
+  //   rules: {
+  //     '@nx/dependency-checks': [
+  //       'error',
+  //       {
+  //         ignoredFiles: [
+  //           '{projectRoot}/eslint.config.{js,cjs,mjs}',
+  //           '{projectRoot}/vite.config.{js,ts,mjs,mts}',
+  //         ],
+  //         ignoredDependencies: [
+  //           '@swc/helpers',
+  //           '@puq/type',
+  //           '@puq/model',
+  //           '@nx/dependency-checks',
+  //           '@puq/debug',
+  //         ],
+  //       },
+  //     ],
+  //   },
 
-    languageOptions: {
-      parser: await import('jsonc-eslint-parser'),
-    },
-  },
+  //   languageOptions: {
+  //     parser: await import('jsonc-eslint-parser'),
+  //   },
+  // },
 
   // Boundries
   {

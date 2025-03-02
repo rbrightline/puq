@@ -1,5 +1,5 @@
 import { DataSource, Repository } from 'typeorm';
-import { faker, it } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import { Category } from './category.entity.js';
 import { CategoryView } from './category.view.js';
 import { CreateCategoryDto } from './create-category.dto.js';

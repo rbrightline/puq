@@ -1,9 +1,9 @@
+import type { HelloGeneratorSchema } from './schema.js';
 import { Tree } from '@nx/devkit';
-import { HelloGeneratorSchema } from './schema.js';
 
 export async function helloGenerator(
   tree: Tree,
-  options: HelloGeneratorSchema
+  options: HelloGeneratorSchema,
 ) {
   console.log(options);
 }

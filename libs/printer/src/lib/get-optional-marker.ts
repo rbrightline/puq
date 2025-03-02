@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 
 /**
  * Determines if a property is optional based on its required status
@@ -6,7 +6,7 @@ import { PropertyOptions } from '@puq/type';
  * @returns '' if required, '?' if optional
  */
 export function getOptionalMarker<T extends Pick<PropertyOptions, 'required'>>(
-  options: T
+  options: T,
 ): '' | '?' {
   return options.required === true ? '' : '?';
 }

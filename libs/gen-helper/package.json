@@ -1,7 +1,7 @@
 {
   "name": "@puq/gen-helper",
   "license": "MIT",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -70,7 +70,10 @@
           "tsConfig": "libs/gen-helper/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/gen-helper && npx compodoc -d ../../public/gen-helper  -p tsconfig.lib.json -n gen-helper"
@@ -78,14 +81,15 @@
     }
   },
   "devDependencies": {
-    "@puq/type": "^0.3.3"
+    "@puq/type": "^0.4.0"
   },
   "peerDependencies": {
     "@nx/devkit": "^20.4.4"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",
-    "@puq/fs": "^0.3.3",
-    "@puq/printer": "0.3.3"
+    "@puq/fs": "^0.4.0",
+    "@puq/is": "^0.4.0",
+    "@puq/printer": "^0.4.0"
   }
 }

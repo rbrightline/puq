@@ -1,5 +1,6 @@
+import type { RelationOptions } from '@puq/type';
 import { rval } from '@puq/is';
-import { RelationOptions } from '@puq/type';
+import { throwInvalidFieldError } from '@puq/error';
 
 /**
  * Determines the relation type string based on the provided options.
@@ -9,6 +10,9 @@ import { RelationOptions } from '@puq/type';
  */
 export function relationType(options: RelationOptions): string {
   rval(options);
+  rval(options.type);
+  rval(options.target);
+
   switch (options.type) {
     case 'many-to-one':
     case 'one-to-one':
@@ -16,5 +20,9 @@ export function relationType(options: RelationOptions): string {
     case 'many-to-many':
     case 'one-to-many':
       return options.target.toString() + '[]';
+    default:
+      throwInvalidFieldError(
+        `${options.type} is should be one of 'many-to-one', 'one-to-one', 'many-to-many', 'one-to-many'`,
+      );
   }
 }

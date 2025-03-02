@@ -1,4 +1,5 @@
 import { normalize } from 'path';
+import { rval } from '@puq/is';
 
 /**
  * Extract the filename from the url
@@ -6,5 +7,5 @@ import { normalize } from 'path';
  * @returns
  */
 export function getName(directory: string): string {
-  return normalize(directory).split('\\').pop()!;
+  return rval(normalize(directory).split('\\').pop());
 }

@@ -1,3 +1,4 @@
+import type { GeneratorGeneratorSchema } from './schema.js';
 import {
   addProjectConfiguration,
   formatFiles,
@@ -6,7 +7,6 @@ import {
   Tree,
 } from '@nx/devkit';
 import * as path from 'path';
-import { GeneratorGeneratorSchema } from './schema.js';
 import { segments } from '@puq/fs';
 
 /**
@@ -16,7 +16,7 @@ import { segments } from '@puq/fs';
  */
 export async function generatorGenerator(
   tree: Tree,
-  options: GeneratorGeneratorSchema
+  options: GeneratorGeneratorSchema,
 ) {
   const projectRoot = `${options.directory}`;
 

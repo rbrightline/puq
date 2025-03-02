@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 import { propertyDecoratorOptions } from './property-decorator-options.js';
 
 /**
@@ -10,7 +10,7 @@ import { propertyDecoratorOptions } from './property-decorator-options.js';
  */
 export function propertyDecorator(
   decoratorName: string,
-  options: PropertyOptions
+  options: PropertyOptions,
 ): string {
   return `@${decoratorName}(${propertyDecoratorOptions(options)})`;
 }

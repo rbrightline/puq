@@ -1,5 +1,5 @@
+import type { CliGeneratorSchema } from './schema.js';
 import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
-import { CliGeneratorSchema } from './schema.js';
 import { getName, updateTsconfigReferences } from '@puq/gen-helper';
 import { join } from 'path';
 

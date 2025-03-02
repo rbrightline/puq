@@ -1,3 +1,4 @@
+import type { Model } from '@puq/type';
 import {
   formatFiles,
   generateFiles,
@@ -5,13 +6,11 @@ import {
   Tree,
   workspaceRoot,
 } from '@nx/devkit';
-import { ModelGeneratorSchema } from './schema.js';
+import type { ModelGeneratorSchema } from './schema.js';
 import { join, resolve } from 'path';
 import { readYAMLFile } from '@puq/fs';
 import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
 import { cwd } from 'process';
-import { Model } from '@puq/type';
-
 import * as Printer from '@puq/printer';
 
 console.log(Printer);

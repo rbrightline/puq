@@ -1,4 +1,4 @@
-import { PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 
 /**
  * Determines the TypeScript-compatible property type based on the given options.

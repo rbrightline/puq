@@ -2,6 +2,10 @@
   "name": "@puq/source",
   "version": "0.3.3",
   "private": true,
+  "scripts": {
+    "lint:all": "npx nx run-many --target=build --all",
+    "build:all": "npx nx run-many --target=build --all"
+  },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.26",
     "@eslint/js": "^9.21.0",

@@ -1,4 +1,4 @@
-import { RelationOptions } from '@puq/type';
+import type { RelationOptions } from '@puq/type';
 import { relationDecoratorOptions } from './relation-decorator-options.js';
 
 /**
@@ -10,7 +10,7 @@ import { relationDecoratorOptions } from './relation-decorator-options.js';
  */
 export function relationDecorator(
   decoratorName: string,
-  options: RelationOptions
+  options: RelationOptions,
 ): string {
   return `@${decoratorName}(${relationDecoratorOptions(options)})`;
 }

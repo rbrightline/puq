@@ -1,4 +1,4 @@
-import { RelationOptions } from '@puq/type';
+import type { RelationOptions } from '@puq/type';
 import { rval } from '@puq/is';
 import { getOptionalMarker } from './get-optional-marker.js';
 import { relationType } from './relation-type.js';
