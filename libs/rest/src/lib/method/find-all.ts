@@ -1,27 +1,27 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { IDModel } from '@puq/type';
 import { Get } from '@nestjs/common';
 import { ApiOkResponse } from '@nestjs/swagger';
-import { paths } from '@puq/names';
 import { CommonMethod } from './common.js';
-import { getEntityMetadata } from '../common/metadata.js';
+import { ResourceMetadataManager } from '../meta/resource-metadata.js';
 
+export type MethodDecoratorParam<T> = [
+  object,
+  string | symbol,
+  TypedPropertyDescriptor<T>,
+];
 /**
  * Find all entities by query
  * @param entity function that return entity class
  * @returns
  */
-export function FindAll<T extends IDModel>(): MethodDecorator {
-  return (...args: [any, any, any]) => {
-    const classConstructor = args[0].constructor;
-    const entity = getEntityMetadata(classConstructor);
-    const P = paths(entity().name);
-    //
-    console.log(entity, '<<FindAll');
-    console.log(entity().name, '<<FindAll');
-    //
-    CommonMethod()(...args);
-    Get(P.plural)(...args);
-    ApiOkResponse({ type: entity(), isArray: true })(...args);
+export function FindAll(): MethodDecorator {
+  return (target, property, descriptor) => {
+    const { entity, paths } = ResourceMetadataManager.get(target.constructor);
+    CommonMethod()(target, property, descriptor);
+    Get(paths.plural)(target, property, descriptor);
+    ApiOkResponse({ type: entity(), isArray: true })(
+      target,
+      property,
+      descriptor,
+    );
   };
 }

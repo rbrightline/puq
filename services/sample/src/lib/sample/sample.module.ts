@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SampleController } from './sample.controller.js';
+import { OtherController, SampleController } from './sample.controller.js';
 import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -18,7 +18,7 @@ import { provideLogger } from '@puq/core';
 
     ConfigModule.forRoot(),
   ],
-  controllers: [SampleController],
+  controllers: [SampleController, OtherController],
   providers: [provideLogger(SampleCron), SampleCron],
 })
 export class SampleModule {}

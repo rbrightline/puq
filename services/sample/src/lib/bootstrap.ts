@@ -38,8 +38,8 @@ export async function bootstrap() {
         .setTitle('Sample Service')
         .setDescription('Sample Service')
         .build(),
-      {}
-    )
+      {},
+    ),
   );
 
   // Start the app

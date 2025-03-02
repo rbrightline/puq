@@ -1,23 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { IDModel, Type } from '@puq/type';
 import { Put } from '@nestjs/common';
 import { ApiOkResponse } from '@nestjs/swagger';
-import { paths } from '@puq/names';
 import { CommonMethod } from './common.js';
 import { UpdateResultDto } from '@puq/orm';
-
+import { ResourceMetadataManager } from '../meta/resource-metadata.js';
 /**
  * Add relation (many-to-many)
  * @param entity function that return entity class
  * @returns
  */
-export function AddRelation<T extends IDModel>(
-  entity: () => Type<T>,
-): MethodDecorator {
+export function AddRelation(): MethodDecorator {
   return (...args: [any, any, any]) => {
-    const P = paths(entity().name);
+    const paths = ResourceMetadataManager.paths(args[0]);
     CommonMethod()(...args);
-    Put(P.relationId)(...args);
+    Put(paths.relationId)(...args);
     ApiOkResponse({ type: UpdateResultDto })(...args);
   };
 }

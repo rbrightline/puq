@@ -12,7 +12,7 @@
 
 ## Summary
 
-Welcome to **NestJS Auto-Routes Decorators** – a powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.
+A powerful library designed to streamline the creation of RESTful APIs in NestJS by reducing boilerplate code and minimizing the risk of bugs. This library introduces custom decorators for Controllers and methods, automatically generating plural and singular resource paths, as well as handling complex relational routes. It is perfect for developers looking to speed up their development process, eliminate redundancy, and ensure consistency across API endpoints.
 
 ### Key Features
 

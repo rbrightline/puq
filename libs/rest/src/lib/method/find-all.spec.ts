@@ -7,7 +7,9 @@ describe('FindAll', () => {
     class Sample {
       id: number;
     }
-    @Controller(() => Sample)
+
+    console.log(Object.keys(Sample));
+    @Controller()
     class SampleController {
       @FindAll()
       some() {

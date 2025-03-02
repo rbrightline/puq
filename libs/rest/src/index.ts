@@ -1,5 +1,7 @@
 // @index(['./**/*.ts', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
 export * from './lib/controller/controller.js';
+export * from './lib/meta/resource-metadata.js';
+export * from './lib/meta/set-resource-metadata.decorator.js';
 export * from './lib/method/add-relation.js';
 export * from './lib/method/common.js';
 export * from './lib/method/delete-one-by-id .js';
