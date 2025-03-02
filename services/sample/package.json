@@ -79,7 +79,7 @@
           "lint"
         ]
       },
-      "build:watch": {
+      "build-watch": {
         "executor": "@nx/js:swc",
         "outputs": [
           "{options.outputPath}"
@@ -98,7 +98,7 @@
       },
       "serve": {
         "dependsOn": [
-          "build:watch",
+          "build-watch",
           "start"
         ]
       },

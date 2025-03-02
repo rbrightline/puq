@@ -1,11 +1,11 @@
-import { ApiProperty, Dto, Property } from '@puq/property';
-import type { KeyOf, Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
+import type { KeyOf, Keys, Type } from '@puq/type';
+import type { QueryMany } from '@puq/query';
+import type { QueryOneDtoOptions } from './create-query-one-dto.js';
+import { ApiProperty, Dto, Property } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { SelectTransformer } from './select-transformer.js';
-import type { QueryMany } from '@puq/query';
 import { OrderDirection, OrderNulls } from '@puq/query';
-import type { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
@@ -30,7 +30,7 @@ export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
  * @returns
  */
 export function CreateQueryManyDto<T>(
-  options: QueryManyDtoOptions<T>
+  options: QueryManyDtoOptions<T>,
 ): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
   const {
     columns,

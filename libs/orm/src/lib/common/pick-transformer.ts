@@ -1,4 +1,4 @@
-import { type PropertyOptions } from '@puq/type';
+import type { PropertyOptions } from '@puq/type';
 import type { ValueTransformer } from 'typeorm';
 
 /**
@@ -8,7 +8,7 @@ import type { ValueTransformer } from 'typeorm';
  * @returns the {@link ValueTransformer}
  */
 export function pickTransformer(
-  options: PropertyOptions
+  options: PropertyOptions,
 ): ValueTransformer | undefined {
   if (options.databaseType?.includes('sqlite')) {
     if (options.type === 'object' || options.type === 'array') {

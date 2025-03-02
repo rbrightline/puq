@@ -1,4 +1,4 @@
-import type { ObjectLiteral , SelectQueryBuilder } from 'typeorm';
+import type { ObjectLiteral, SelectQueryBuilder } from 'typeorm';
 import { ViewEntity as __ViewEntity } from 'typeorm';
 /**
  * TypeORM {@link __ViewEntity} decorator with prebuilt query builder that coverts id and timestamp columns.
@@ -8,7 +8,7 @@ import { ViewEntity as __ViewEntity } from 'typeorm';
  */
 export function ViewEntity<T extends ObjectLiteral>(
   expression: (builder: SelectQueryBuilder<T>) => SelectQueryBuilder<T>,
-  selectBaseEntity = true
+  selectBaseEntity = true,
 ): ClassDecorator {
   return (t) => {
     __ViewEntity({

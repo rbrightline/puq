@@ -1,7 +1,6 @@
 import type { WhereOption } from '@puq/query';
+import type { FindOperator } from 'typeorm';
 import { QueryOperator } from '@puq/query';
-import type {
-  FindOperator} from 'typeorm';
 import {
   Equal,
   ILike,
@@ -18,7 +17,7 @@ import {
  * @returns
  */
 export function createFindOperator(
-  query: WhereOption
+  query: WhereOption,
 ): Record<string, FindOperator<unknown>> {
   switch (query.operator) {
     case QueryOperator.EQUAL:

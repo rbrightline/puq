@@ -82,18 +82,18 @@
   },
   "devDependencies": {
     "@nx/devkit": "20.4.4",
+    "@puq/type": "^0.3.5",
     "@swc/helpers": "~0.5.11",
     "better-sqlite3": "^11.8.1",
     "pg": "^8.13.3"
   },
   "peerDependencies": {
+    "@swc/helpers": "~0.5.15",
     "class-transformer": "^0.5.1",
-    "typeorm": "^0.3.20",
-    "@swc/helpers": "~0.5.15"
+    "typeorm": "^0.3.20"
   },
   "dependencies": {
     "@puq/property": "^0.3.3",
-    "@puq/query": "^0.3.3",
-    "@puq/type": "^0.3.3"
+    "@puq/query": "^0.3.3"
   }
 }

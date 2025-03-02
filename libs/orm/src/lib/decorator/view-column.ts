@@ -1,5 +1,5 @@
+import type { PropertyOptions } from '@puq/type';
 import { Property } from '@puq/property';
-import { type PropertyOptions } from '@puq/type';
 import { ViewColumn as __ViewColumn } from 'typeorm';
 
 /**

@@ -1,5 +1,5 @@
+import type { CountResult } from '@puq/type';
 import { Dto, Property } from '@puq/property';
-import { type CountResult } from '@puq/type';
 
 /**
  * Count result

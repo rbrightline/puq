@@ -81,11 +81,11 @@
     "@puq/type": "^0.3.3"
   },
   "peerDependencies": {
-    "@nx/devkit": "20.4.4"
+    "@nx/devkit": "^20.4.4"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",
     "@puq/fs": "^0.3.3",
-    "@puq/printer": "0.3.3",
+    "@puq/printer": "0.3.3"
   }
 }

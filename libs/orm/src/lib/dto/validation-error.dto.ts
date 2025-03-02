@@ -1,9 +1,9 @@
-import { Dto, Property } from '@puq/property';
 import type {
   SingleValidationError,
   ValidationConstraints,
   ValidationErrorResult,
 } from '@puq/type';
+import { Dto, Property } from '@puq/property';
 
 @Dto()
 export class ValidationConstraintsDto implements ValidationConstraints {

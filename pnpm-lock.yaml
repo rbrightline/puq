@@ -126,44 +126,44 @@ importers:
 
   libs/entity:
     dependencies:
-      '@puq/model':
-        specifier: ^0.3.2
-        version: 0.3.2
       '@puq/orm':
-        specifier: ^0.3.2
-        version: 0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
+        specifier: ^0.3.3
+        version: 0.3.4(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
       '@puq/property':
         specifier: ^0.3.2
         version: 0.3.2(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
+      typeorm:
+        specifier: ^0.3.20
+        version: 0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
     devDependencies:
       '@faker-js/faker':
         specifier: ^9.5.1
         version: 9.5.1
+      '@puq/model':
+        specifier: ^0.3.3
+        version: 0.3.3
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
-      typeorm:
-        specifier: ^0.3.20
-        version: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
+        specifier: ^0.3.3
+        version: 0.3.3
 
   libs/error: {}
 
   libs/fs:
     dependencies:
       '@puq/debug':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@puq/error':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@puq/is':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@swc/helpers':
-        specifier: ~0.5.11
+        specifier: ^0.5.15
         version: 0.5.15
       js-yaml:
         specifier: ^4.1.0
@@ -179,22 +179,22 @@ importers:
         specifier: 20.4.4
         version: 20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
       '@puq/debug':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@puq/fs':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3(@puq/debug@0.3.3)
       '@puq/gen-helper':
-        specifier: ^0.3.2
-        version: 0.3.2(@nx/devkit@20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15))))
+        specifier: ^0.3.3
+        version: 0.3.3(@nx/devkit@20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15))))(@puq/debug@0.3.3)
       '@puq/printer':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@swc/helpers':
-        specifier: ~0.5.15
+        specifier: ^0.5.15
         version: 0.5.15
     devDependencies:
       '@types/js-yaml':
@@ -204,27 +204,27 @@ importers:
   libs/gen-helper:
     dependencies:
       '@nx/devkit':
-        specifier: 20.4.4
-        version: 20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
+        specifier: ^20.4.4
+        version: 20.4.6(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
       '@puq/fs':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3(@puq/debug@0.3.3)
       '@puq/printer':
-        specifier: 0.3.2
-        version: 0.3.2
-      '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
-    devDependencies:
+        specifier: 0.3.3
+        version: 0.3.3
       '@swc/helpers':
-        specifier: ~0.5.11
+        specifier: ^0.5.15
         version: 0.5.15
+    devDependencies:
+      '@puq/type':
+        specifier: ^0.3.3
+        version: 0.3.3
 
   libs/is:
     dependencies:
       '@puq/error':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
@@ -236,8 +236,8 @@ importers:
         version: 0.5.15
     devDependencies:
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.4
+        version: 0.3.4
 
   libs/names:
     dependencies:
@@ -248,14 +248,11 @@ importers:
   libs/orm:
     dependencies:
       '@puq/property':
-        specifier: ^0.3.2
-        version: 0.3.2(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+        specifier: ^0.3.3
+        version: 0.3.3(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)(class-validator@0.14.1)
       '@puq/query':
-        specifier: ^0.3.2
-        version: 0.3.2
-      '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -266,6 +263,9 @@ importers:
       '@nx/devkit':
         specifier: 20.4.4
         version: 20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
+      '@puq/type':
+        specifier: ^0.3.5
+        version: 0.3.5
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.15
@@ -279,15 +279,15 @@ importers:
   libs/printer:
     dependencies:
       '@puq/is':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
     devDependencies:
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
 
   libs/property:
     dependencies:
@@ -295,8 +295,8 @@ importers:
         specifier: ^11.0.3
         version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@puq/validation':
-        specifier: ^0.3.2
-        version: 0.3.2(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+        specifier: ^0.3.3
+        version: 0.3.3(class-transformer@0.5.1)(class-validator@0.14.1)
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
@@ -305,8 +305,8 @@ importers:
         version: 0.5.1
     devDependencies:
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
 
   libs/query:
     dependencies:
@@ -323,18 +323,18 @@ importers:
         specifier: ^11.0.3
         version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@puq/names':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.4
+        version: 0.3.4
       '@puq/orm':
-        specifier: 0.3.2
-        version: 0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
+        specifier: ^0.3.3
+        version: 0.3.4(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
     devDependencies:
       '@puq/type':
-        specifier: 0.3.2
-        version: 0.3.2
+        specifier: ^0.3.4
+        version: 0.3.4
 
   libs/tools:
     dependencies:
@@ -342,8 +342,8 @@ importers:
         specifier: ^0.3.2
         version: 0.3.2
       '@puq/fs':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3(@puq/debug@0.3.2)
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
@@ -360,7 +360,7 @@ importers:
   libs/validation:
     dependencies:
       '@swc/helpers':
-        specifier: ~0.5.15
+        specifier: ^0.5.15
         version: 0.5.15
       class-transformer:
         specifier: ^0.5.1
@@ -370,8 +370,8 @@ importers:
         version: 0.14.1
     devDependencies:
       '@puq/type':
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.3
+        version: 0.3.3
 
   services/sample:
     dependencies:
@@ -384,9 +384,6 @@ importers:
       '@nestjs/core':
         specifier: ^11.0.11
         version: 11.0.11(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/platform-express':
-        specifier: ^11.0.11
-        version: 11.0.11(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)
       '@nestjs/schedule':
         specifier: ^5.0.1
         version: 5.0.1(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)
@@ -396,51 +393,24 @@ importers:
       '@nestjs/throttler':
         specifier: ^6.4.0
         version: 6.4.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)
-      '@nestjs/typeorm':
-        specifier: ^11.0.0
-        version: 11.0.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
       '@puq/core':
-        specifier: ^0.3.2
-        version: 0.3.2(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+        specifier: ^0.3.3
+        version: 0.3.3(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))
       '@puq/orm':
-        specifier: ^0.3.2
-        version: 0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
-      '@puq/property':
-        specifier: 0.3.2
-        version: 0.3.2(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+        specifier: ^0.3.4
+        version: 0.3.4(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
       '@puq/rest':
-        specifier: 0.3.2
-        version: 0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
-      '@puq/type':
-        specifier: 0.3.2
-        version: 0.3.2
+        specifier: 0.3.3
+        version: 0.3.3(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
       '@swc/helpers':
-        specifier: ~0.5.15
+        specifier: ^0.5.15
         version: 0.5.15
-      better-sqlite3:
-        specifier: ^11.8.1
-        version: 11.8.1
-      class-transformer:
-        specifier: ^0.5.1
-        version: 0.5.1
-      class-validator:
-        specifier: ^0.14.1
-        version: 0.14.1
       commander:
         specifier: ^13.1.0
         version: 13.1.0
       helmet:
         specifier: ^8.0.0
         version: 8.0.0
-      pg:
-        specifier: ^8.13.3
-        version: 8.13.3
-      reflect-metadata:
-        specifier: ^0.2.2
-        version: 0.2.2
-      typeorm:
-        specifier: ^0.3.20
-        version: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
 
 packages:
 
@@ -1663,15 +1633,6 @@ packages:
       '@nestjs/core': ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
       reflect-metadata: ^0.1.13 || ^0.2.0
 
-  '@nestjs/typeorm@11.0.0':
-    resolution: {integrity: sha512-SOeUQl70Lb2OfhGkvnh4KXWlsd+zA08RuuQgT7kKbzivngxzSo1Oc7Usu5VxCxACQC9wc2l9esOHILSJeK7rJA==}
-    peerDependencies:
-      '@nestjs/common': ^10.0.0 || ^11.0.0
-      '@nestjs/core': ^10.0.0 || ^11.0.0
-      reflect-metadata: ^0.1.13 || ^0.2.0
-      rxjs: ^7.2.0
-      typeorm: ^0.3.0
-
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1870,44 +1831,48 @@ packages:
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
-  '@puq/core@0.3.2':
-    resolution: {integrity: sha512-SE5xpjb3qDMTqHwp+3a+Hk72oFu0A92iM2BDBY/HSlOL9s17euMbJ6Ct/n3KdIQt/P94Owb5MLEl4WDetchEsg==}
+  '@puq/core@0.3.3':
+    resolution: {integrity: sha512-fpjhWcs+rK67kb2ewqR5ddfRpaTqWEUttmymcAU/c+8puNXWa2VxrnkJEK7WEU64365dwZZiD/F9nSZAhHKIPA==}
+    peerDependencies:
+      '@nestjs/common': 11.0.11
 
   '@puq/debug@0.3.2':
     resolution: {integrity: sha512-+k/ceOYFLCveEn5ut4uax6cQZ6A59SCnlDlO93dPCGNlbWoWwOcb6015iP/cELLfKKZRLecI3BH9F5QiaAFhOw==}
 
-  '@puq/error@0.3.2':
-    resolution: {integrity: sha512-KhBj8jyqwWI76mFqiQD/o+EY5wL/mURyX4nbeomejaI+leQ33wYTB/BIx1CjAdu9befYoNkG+eg/jrktV+e8Rw==}
+  '@puq/debug@0.3.3':
+    resolution: {integrity: sha512-+P5zWJmI32acWJNie/Ns82eZ0vQEZmmIQBmqmNXDaq5ivImxunyjX5wpsAwQr5xjWGUlHihxOOJ8vtHSxesLGQ==}
 
-  '@puq/fs@0.3.2':
-    resolution: {integrity: sha512-j0u23InpLeXFtUqHYw1sUPccSmwlT87tUW5FPvKVeXXnpds0hibt/l8yr7OBOAJV1M7x3lCjsYPdMUWk20Qw7Q==}
+  '@puq/error@0.3.3':
+    resolution: {integrity: sha512-PhsfS14fbfekO506RV+jY2flmpJXhO6YkBSrnDSwqioV+PaiXI5GkJs79uFkZhTejJdiPj8VHebMp4tKS9dFXg==}
 
-  '@puq/gen-helper@0.3.2':
-    resolution: {integrity: sha512-ju6oXmeDpNAkh9mhXNX6bS7Vk5OfriSuWMBZUGP20SGc3b05RvlIXtJsOIndmR1Sq38CxhhbTLedW387h2VXAA==}
+  '@puq/fs@0.3.3':
+    resolution: {integrity: sha512-J8H78QdJhfqF5C2iKP1JrQLl9xcS6jHAZS9J7JnOmmzwT8LmqZUHXRG36Z1+xiW4u8rMtHpHkf3cBQWhGEhHGg==}
     peerDependencies:
-      '@nx/devkit': 20.4.4
+      '@puq/debug': ^0.3.3
 
-  '@puq/is@0.3.2':
-    resolution: {integrity: sha512-ven47lp9A2HfWMDAziRczB6hFyD+4Jesft9MYybPgcc3aO9Fdnxs40IRHmQa8ENbDL9HCigwJ4asbSD2sXrzHQ==}
-
-  '@puq/model@0.3.2':
-    resolution: {integrity: sha512-AUzDujTnhiKgC9zvUbss4Mmj2pjtouCpO5NVD/kLtHzh8VIresVBMUnndHvWMaMySFUsh7Ha5SprPI0kCIuqdg==}
-
-  '@puq/names@0.3.2':
-    resolution: {integrity: sha512-hSdWGmMt0sxo9vs/ZpHzOm5+15QXCqyx9I9qgf2lFkk97ZaXmHgabYjIi51y5mYYz/hqm1QICfCnBQH1qbtr6w==}
-
-  '@puq/orm@0.3.2':
-    resolution: {integrity: sha512-fRT2qRjA4hK/jPxq6menMaTeO0CB69AJrTzF+a+cJr8Dr40hgYsOhWhJOl6VXQtRoyRgK3NZv82ErwWIj+8sYg==}
+  '@puq/gen-helper@0.3.3':
+    resolution: {integrity: sha512-r8ZOtZb0n3Zrp31okgSSRsTYkvm3Qk4D7iRD268GEgVqvcEAtwEi1/MywS73qEwM1O6LqQcfGvUdLMd2+G989Q==}
     peerDependencies:
-      '@nestjs/common': ^11.0.10
-      '@nestjs/swagger': ^11.0.3
+      '@nx/devkit': ^20.4.4
+
+  '@puq/is@0.3.3':
+    resolution: {integrity: sha512-Xq5/Wj9hFg20ez4M2XzOmNGL39wq2X084osk7x389h7qrUrcebvGQoPMf+7Nv1CkXygCGXZAOA6YVWjzB7gsGA==}
+
+  '@puq/model@0.3.3':
+    resolution: {integrity: sha512-Z5BvMH/YQ+QEvhiL9Z52rZV1YkRmqifscvMFJFUfSZwNf6x+wV4m9tgfMxnh10iGb8NAiABVr0r9PcJVx+R78A==}
+
+  '@puq/names@0.3.4':
+    resolution: {integrity: sha512-IqtExYPyqWZkRFsf2c06CF331YilaX1URybS/F/Z9T5OFW+gH0TCiHFDhCaWTk/vqkrNWoaabWA0cek9FFB+MA==}
+
+  '@puq/orm@0.3.4':
+    resolution: {integrity: sha512-2qKWtrSOk4XJ1ueOuI4U80hBMuw4h1VVo8W22juHd7e9ZT0XIe/aCLoCdbUC/pzyHYwcfqUUDsSLx6JzVtJ68w==}
+    peerDependencies:
+      '@swc/helpers': ~0.5.15
       class-transformer: ^0.5.1
-      class-validator: ^0.14.1
-      reflect-metadata: ^0.2.2
       typeorm: ^0.3.20
 
-  '@puq/printer@0.3.2':
-    resolution: {integrity: sha512-EuQDCjGxdRRVngpyYuD5en6slZ3PACJjXhtEW+4f7V3Lbg5cHpK2Ubt5NW/dbnRiOpoF8G8S9IxkJL/En6277g==}
+  '@puq/printer@0.3.3':
+    resolution: {integrity: sha512-azjjqD03ZvnlWAcIaOa9gI755j/u646L1SbaTvnZc1dnueaLyR/OkdOg/ULEjxMc7Z45K1kFxX1Mi1nuwrtTrA==}
 
   '@puq/property@0.3.2':
     resolution: {integrity: sha512-HqEwj/85oV1nqd9ekCeqWXv1Rwx7FGbHI8g5CpzuL4n7cGoM4C/FCr6OU4yfRaRtFZdIYl1xwkILnyMQoVOIug==}
@@ -1916,14 +1881,29 @@ packages:
       '@swc/helpers': ~0.5.11
       class-transformer: ^0.5.1
 
-  '@puq/query@0.3.2':
-    resolution: {integrity: sha512-qTXLhcdWFQrv8xnKqMx+9nX/ZtblI1vtXaf4d9FA9lRkgcx/dzIsZQ4fJbb4Q8/tTLfGihW2lXOOxvB3JTVWeQ==}
+  '@puq/property@0.3.3':
+    resolution: {integrity: sha512-bssNUJCVIMe59ElcO1dQpcsVb5yYKXEw+FNXAiOGb2Hg9f9GuYkUMV91q7IWtkkMNc8yb9WT20ND8iPea5GsGg==}
+    peerDependencies:
+      '@nestjs/swagger': ^11.0.3
+      class-transformer: ^0.5.1
 
-  '@puq/rest@0.3.2':
-    resolution: {integrity: sha512-fIZohIkso7ksovhbSTeSxoj1MbYd29yCKoCoGLSQf93opMYHeyR6EhnA6ck6nlVHPTnDyEohOlKfBFzV5Khldg==}
+  '@puq/query@0.3.3':
+    resolution: {integrity: sha512-sfE8w84FUiLuryXTRd/8iVmVTUd3mUSB68vnq+QnN0xEtv6YITgL77A6xFucd1L8D2FltTuUumxDwEiY65vhOA==}
 
-  '@puq/type@0.3.2':
-    resolution: {integrity: sha512-dCeiZXbyZ9k5c6bxefyP2Hw5QYzQPEGSoZWBgLqkf6AHJ1150T6qTOwJLsgcOGrlknFV+ANZnNxyNQmVE5KkXw==}
+  '@puq/rest@0.3.3':
+    resolution: {integrity: sha512-JCMDeFCJMMvWPxjXO6pxdxi/qWf0gN5P8MBsAeZq+wb1XJNRStVpLxs34zOHl73nBKtqa5pyTrn/bxLRcygNTw==}
+    peerDependencies:
+      '@nestjs/common': ^11.0.10
+      '@nestjs/swagger': ^11.0.3
+
+  '@puq/type@0.3.3':
+    resolution: {integrity: sha512-pnEpMWIOvBrkQQzJrKh1/5q+i7lKkCc1xDH3U9K0bCxIgVpPB1RlAUZSosCvtv7cABkCiui6MIakJY9XxMWKbg==}
+
+  '@puq/type@0.3.4':
+    resolution: {integrity: sha512-Svp1EdXMLiiZpn4TwlLBG3fx0L2fx7AWCOpS+f2iVaZ4530XlRfICDsIGxKRmzrAzjBl1TRLmFBJ5GphloE3PA==}
+
+  '@puq/type@0.3.5':
+    resolution: {integrity: sha512-G5msg3rygIIZAKJvkfpzAAEUdtmld36tOzRFyNM/662SXtpDOoPKyP6WGBPhLxkaNu9WnZPvYFt8uHRpIRORcA==}
 
   '@puq/validation@0.3.2':
     resolution: {integrity: sha512-st4ysAaVfggZ+Cd2BByrVWPAlp7HhhyyOvoZWc5pLbm2ot4w5JcYT3914VlM3wMM8B1A/8G/BubhFDqxUpcDAQ==}
@@ -1931,6 +1911,12 @@ packages:
       class-transformer: ^0.5.1
       class-validator: ^0.14.1
       reflect-metadata: ^0.2.2
+
+  '@puq/validation@0.3.3':
+    resolution: {integrity: sha512-DUj0FSRA88C7ujCXY1JSbxDA911dRVQpgQcA6fdrPUbDrf+0PHZUkuLcwAg2FN4eqrz4nTFgl8jxdHTjbU+i/w==}
+    peerDependencies:
+      class-transformer: ^0.5.1
+      class-validator: ^0.14.1
 
   '@rollup/rollup-android-arm-eabi@4.34.9':
     resolution: {integrity: sha512-qZdlImWXur0CFakn2BJ2znJOdqYZKiedEPEVNTBrpfPjc/YuTGcaYZcdmNFTkUj3DU0ZM/AElcM8Ybww3xVLzA==}
@@ -8026,6 +8012,7 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@nestjs/schedule@5.0.1(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)':
     dependencies:
@@ -8053,14 +8040,6 @@ snapshots:
       '@nestjs/common': 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core': 11.0.11(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       reflect-metadata: 0.2.2
-
-  '@nestjs/typeorm@11.0.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))':
-    dependencies:
-      '@nestjs/common': 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/core': 11.0.11(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      reflect-metadata: 0.2.2
-      rxjs: 7.8.1
-      typeorm: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -8428,69 +8407,78 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@puq/core@0.3.2(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)':
+  '@puq/core@0.3.3(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))':
     dependencies:
       '@nestjs/common': 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-    transitivePeerDependencies:
-      - class-transformer
-      - class-validator
-      - reflect-metadata
-      - rxjs
+      '@swc/helpers': 0.5.15
 
   '@puq/debug@0.3.2': {}
 
-  '@puq/error@0.3.2': {}
-
-  '@puq/fs@0.3.2':
-    dependencies:
-      '@puq/debug': 0.3.2
-      '@puq/error': 0.3.2
-      '@puq/is': 0.3.2
-      js-yaml: 4.1.0
-
-  '@puq/gen-helper@0.3.2(@nx/devkit@20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15))))':
-    dependencies:
-      '@nx/devkit': 20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
-      '@puq/fs': 0.3.2
-      '@puq/printer': 0.3.2
-      '@puq/type': 0.3.2
-
-  '@puq/is@0.3.2':
-    dependencies:
-      '@puq/error': 0.3.2
-
-  '@puq/model@0.3.2':
-    dependencies:
-      '@puq/type': 0.3.2
-
-  '@puq/names@0.3.2':
+  '@puq/debug@0.3.3':
     dependencies:
       '@swc/helpers': 0.5.15
 
-  '@puq/orm@0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))':
-    dependencies:
-      '@nestjs/common': 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/swagger': 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/names': 0.3.2
-      '@puq/property': 0.3.2(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/query': 0.3.2
-      '@puq/type': 0.3.2
-      class-transformer: 0.5.1
-      class-validator: 0.14.1
-      reflect-metadata: 0.2.2
-      typeorm: 0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
-    transitivePeerDependencies:
-      - '@swc/helpers'
+  '@puq/error@0.3.3': {}
 
-  '@puq/printer@0.3.2':
+  '@puq/fs@0.3.3(@puq/debug@0.3.2)':
     dependencies:
-      '@puq/is': 0.3.2
-      '@puq/type': 0.3.2
+      '@puq/debug': 0.3.2
+      '@puq/error': 0.3.3
+      '@puq/is': 0.3.3
+      '@swc/helpers': 0.5.15
+      js-yaml: 4.1.0
+
+  '@puq/fs@0.3.3(@puq/debug@0.3.3)':
+    dependencies:
+      '@puq/debug': 0.3.3
+      '@puq/error': 0.3.3
+      '@puq/is': 0.3.3
+      '@swc/helpers': 0.5.15
+      js-yaml: 4.1.0
+
+  '@puq/gen-helper@0.3.3(@nx/devkit@20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15))))(@puq/debug@0.3.3)':
+    dependencies:
+      '@nx/devkit': 20.4.4(nx@20.4.6(@swc-node/register@1.10.9(@swc/core@1.11.5(@swc/helpers@0.5.15))(@swc/types@0.1.19)(typescript@5.8.2))(@swc/core@1.11.5(@swc/helpers@0.5.15)))
+      '@puq/fs': 0.3.3(@puq/debug@0.3.3)
+      '@puq/printer': 0.3.3
+      '@swc/helpers': 0.5.15
+    transitivePeerDependencies:
+      - '@puq/debug'
+
+  '@puq/is@0.3.3':
+    dependencies:
+      '@puq/error': 0.3.3
+      '@swc/helpers': 0.5.15
+
+  '@puq/model@0.3.3':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/names@0.3.4':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/orm@0.3.4(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))':
+    dependencies:
+      '@puq/property': 0.3.3(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)(class-validator@0.14.1)
+      '@puq/query': 0.3.3
+      '@puq/type': 0.3.5
+      '@swc/helpers': 0.5.15
+      class-transformer: 0.5.1
+      typeorm: 0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2))
+    transitivePeerDependencies:
+      - '@nestjs/swagger'
+      - class-validator
+
+  '@puq/printer@0.3.3':
+    dependencies:
+      '@puq/is': 0.3.3
+      '@swc/helpers': 0.5.15
 
   '@puq/property@0.3.2(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:
       '@nestjs/swagger': 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/type': 0.3.2
+      '@puq/type': 0.3.5
       '@puq/validation': 0.3.2(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
       '@swc/helpers': 0.5.15
       class-transformer: 0.5.1
@@ -8498,30 +8486,55 @@ snapshots:
       - class-validator
       - reflect-metadata
 
-  '@puq/query@0.3.2': {}
-
-  '@puq/rest@0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))':
+  '@puq/property@0.3.3(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)(class-validator@0.14.1)':
     dependencies:
-      '@puq/names': 0.3.2
-      '@puq/orm': 0.3.2(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
-      '@puq/type': 0.3.2
+      '@nestjs/swagger': 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+      '@puq/validation': 0.3.3(class-transformer@0.5.1)(class-validator@0.14.1)
+      '@swc/helpers': 0.5.15
+      class-transformer: 0.5.1
     transitivePeerDependencies:
-      - '@nestjs/common'
-      - '@nestjs/swagger'
-      - '@swc/helpers'
+      - class-validator
+
+  '@puq/query@0.3.3':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/rest@0.3.3(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))':
+    dependencies:
+      '@nestjs/common': 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/swagger': 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+      '@puq/names': 0.3.4
+      '@puq/orm': 0.3.4(@nestjs/swagger@11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2))(@swc/helpers@0.5.15)(class-transformer@0.5.1)(class-validator@0.14.1)(typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)))
+      '@swc/helpers': 0.5.15
+    transitivePeerDependencies:
       - class-transformer
       - class-validator
-      - reflect-metadata
       - typeorm
 
-  '@puq/type@0.3.2': {}
+  '@puq/type@0.3.3':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/type@0.3.4':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
+  '@puq/type@0.3.5':
+    dependencies:
+      '@swc/helpers': 0.5.15
 
   '@puq/validation@0.3.2(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)':
     dependencies:
-      '@puq/type': 0.3.2
+      '@puq/type': 0.3.5
       class-transformer: 0.5.1
       class-validator: 0.14.1
       reflect-metadata: 0.2.2
+
+  '@puq/validation@0.3.3(class-transformer@0.5.1)(class-validator@0.14.1)':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      class-transformer: 0.5.1
+      class-validator: 0.14.1
 
   '@rollup/rollup-android-arm-eabi@4.34.9':
     optional: true
@@ -9193,6 +9206,7 @@ snapshots:
     dependencies:
       mime-types: 3.0.0
       negotiator: 1.0.0
+    optional: true
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
@@ -9265,7 +9279,8 @@ snapshots:
 
   app-root-path@3.1.0: {}
 
-  append-field@1.0.0: {}
+  append-field@1.0.0:
+    optional: true
 
   arch@3.0.0: {}
 
@@ -9527,6 +9542,7 @@ snapshots:
       type-is: 2.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   boolbase@1.0.0: {}
 
@@ -9583,6 +9599,7 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
+    optional: true
 
   bytes@3.1.2: {}
 
@@ -9782,6 +9799,7 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 2.3.8
       typedarray: 0.0.6
+    optional: true
 
   confusing-browser-globals@1.0.11: {}
 
@@ -9803,6 +9821,7 @@ snapshots:
   content-disposition@1.0.0:
     dependencies:
       safe-buffer: 5.2.1
+    optional: true
 
   content-type@1.0.5: {}
 
@@ -9810,7 +9829,8 @@ snapshots:
 
   cookie-signature@1.0.6: {}
 
-  cookie-signature@1.2.2: {}
+  cookie-signature@1.2.2:
+    optional: true
 
   cookie@0.7.1: {}
 
@@ -9902,6 +9922,7 @@ snapshots:
   debug@4.3.6:
     dependencies:
       ms: 2.1.2
+    optional: true
 
   debug@4.3.7:
     dependencies:
@@ -10333,6 +10354,7 @@ snapshots:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   ext-list@2.2.2:
     dependencies:
@@ -10457,6 +10479,7 @@ snapshots:
       unpipe: 1.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   find-up@4.1.0:
     dependencies:
@@ -10503,7 +10526,8 @@ snapshots:
 
   fresh@0.5.2: {}
 
-  fresh@2.0.0: {}
+  fresh@2.0.0:
+    optional: true
 
   from2@2.3.0:
     dependencies:
@@ -10820,6 +10844,7 @@ snapshots:
   iconv-lite@0.5.2:
     dependencies:
       safer-buffer: 2.1.2
+    optional: true
 
   iconv-lite@0.6.3:
     dependencies:
@@ -10902,7 +10927,8 @@ snapshots:
 
   is-promise@2.2.2: {}
 
-  is-promise@4.0.0: {}
+  is-promise@4.0.0:
+    optional: true
 
   is-stream@2.0.1: {}
 
@@ -11348,7 +11374,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.6.3
+      semver: 7.7.1
 
   jsprim@2.0.2:
     dependencies:
@@ -11492,11 +11518,13 @@ snapshots:
 
   media-typer@0.3.0: {}
 
-  media-typer@1.1.0: {}
+  media-typer@1.1.0:
+    optional: true
 
   merge-descriptors@1.0.3: {}
 
-  merge-descriptors@2.0.0: {}
+  merge-descriptors@2.0.0:
+    optional: true
 
   merge-stream@2.0.0: {}
 
@@ -11520,6 +11548,7 @@ snapshots:
   mime-types@3.0.0:
     dependencies:
       mime-db: 1.53.0
+    optional: true
 
   mime@1.6.0: {}
 
@@ -11600,6 +11629,7 @@ snapshots:
       object-assign: 4.1.1
       type-is: 1.6.18
       xtend: 4.0.2
+    optional: true
 
   multistream@4.1.0:
     dependencies:
@@ -11624,7 +11654,8 @@ snapshots:
 
   negotiator@0.6.4: {}
 
-  negotiator@1.0.0: {}
+  negotiator@1.0.0:
+    optional: true
 
   neo-async@2.6.2: {}
 
@@ -12168,6 +12199,7 @@ snapshots:
       http-errors: 2.0.0
       iconv-lite: 0.6.3
       unpipe: 1.0.0
+    optional: true
 
   rc@1.2.8:
     dependencies:
@@ -12300,6 +12332,7 @@ snapshots:
       is-promise: 4.0.0
       parseurl: 1.3.3
       path-to-regexp: 8.2.0
+    optional: true
 
   rrweb-cssom@0.8.0: {}
 
@@ -12405,6 +12438,7 @@ snapshots:
       send: 1.1.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   setprototypeof@1.1.0: {}
 
@@ -12555,7 +12589,8 @@ snapshots:
 
   stream-shift@1.0.3: {}
 
-  streamsearch@1.1.0: {}
+  streamsearch@1.1.0:
+    optional: true
 
   streamx@2.22.0:
     dependencies:
@@ -12826,8 +12861,10 @@ snapshots:
       content-type: 1.0.5
       media-typer: 1.1.0
       mime-types: 3.0.0
+    optional: true
 
-  typedarray@0.0.6: {}
+  typedarray@0.0.6:
+    optional: true
 
   typeorm@0.3.20(better-sqlite3@11.8.1)(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)):
     dependencies:
@@ -12848,6 +12885,29 @@ snapshots:
       yargs: 17.7.2
     optionalDependencies:
       better-sqlite3: 11.8.1
+      pg: 8.13.3
+      ts-node: 10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)
+    transitivePeerDependencies:
+      - supports-color
+
+  typeorm@0.3.20(pg@8.13.3)(ts-node@10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)):
+    dependencies:
+      '@sqltools/formatter': 1.2.5
+      app-root-path: 3.1.0
+      buffer: 6.0.3
+      chalk: 4.1.2
+      cli-highlight: 2.1.11
+      dayjs: 1.11.13
+      debug: 4.4.0
+      dotenv: 16.4.7
+      glob: 10.4.5
+      mkdirp: 2.1.6
+      reflect-metadata: 0.2.2
+      sha.js: 2.4.11
+      tslib: 2.8.1
+      uuid: 9.0.1
+      yargs: 17.7.2
+    optionalDependencies:
       pg: 8.13.3
       ts-node: 10.9.1(@swc/core@1.11.5(@swc/helpers@0.5.15))(@types/node@22.13.8)(typescript@5.8.2)
     transitivePeerDependencies:

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { IDModel, Type } from '@puq/type';
 import { Get } from '@nestjs/common';
 import { ApiOkResponse, ApiUnprocessableEntityResponse } from '@nestjs/swagger';
 import { paths } from '@puq/names';
 import { ValidationErrorDto } from '@puq/orm';
-import { IDModel, Type } from '@puq/type';
 import { CommonMethod } from './common.js';
 
 /**

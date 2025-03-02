@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Keys } from '@puq/type';
 import { parseWhereQueryString, validateWhereQueryString } from '@puq/query';
 import { Transform } from 'class-transformer';
 import { createFindOperator } from './create-find-operator.js';
-import type { Keys } from '@puq/type';
 
-export type WhereQueryTransformerOptions = {
+export type WhereQueryTransformerOptions<T = any> = {
   /**
    * Entity columns to be allowed to query
    */
-  columns: Keys;
+  columns: Keys<T>;
 };
 
 /**
@@ -15,7 +16,9 @@ export type WhereQueryTransformerOptions = {
  * @param options queriable columns
  * @returns
  */
-export function WhereQueryTransformer(columns: Keys): PropertyDecorator {
+export function WhereQueryTransformer<T = any>(
+  columns: Keys<T>,
+): PropertyDecorator {
   return (t, p) => {
     Transform(({ value }) => {
       if (typeof value == 'string') {

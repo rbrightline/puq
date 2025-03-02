@@ -1,6 +1,6 @@
 {
   "name": "@puq/type",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "license": "MIT",
   "publishConfig": {
     "access": "public",
@@ -69,7 +69,7 @@
           "outputPath": "libs/type/dist",
           "main": "libs/type/src/index.ts",
           "tsConfig": "libs/type/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         },
         "dependsOn": [

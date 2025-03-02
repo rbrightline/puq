@@ -1,9 +1,9 @@
-import { ApiProperty, Dto } from '@puq/property';
-import { type FindOptionsWhere } from 'typeorm';
-import { WhereQueryTransformer } from './where-query-transformer.js';
-import { type QueryCount } from '@puq/query';
-import { CommonQueryDto } from './common-query-dto.js';
+import type { FindOptionsWhere } from 'typeorm';
 import type { Keys, Type } from '@puq/type';
+import type { QueryCount } from '@puq/query';
+import { ApiProperty, Dto } from '@puq/property';
+import { WhereQueryTransformer } from './where-query-transformer.js';
+import { CommonQueryDto } from './common-query-dto.js';
 
 export type CreateQueryCountDtoOptions<T> = {
   columns: Keys<T>;
@@ -15,7 +15,7 @@ export type CreateQueryCountDtoOptions<T> = {
  * @returns
  */
 export function CreateQueryCountDto<Entity>(
-  options: CreateQueryCountDtoOptions<Entity>
+  options: CreateQueryCountDtoOptions<Entity>,
 ): Type {
   const { columns } = options;
 

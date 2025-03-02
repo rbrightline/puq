@@ -1,7 +1,7 @@
 {
   "name": "@puq/names",
   "license": "MIT",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -78,9 +78,12 @@
           "outputPath": "libs/names/dist",
           "main": "libs/names/src/index.ts",
           "tsConfig": "libs/names/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
         "command": "cd libs/names && npx compodoc -d ../../public/names  -p tsconfig.lib.json -n names"

@@ -1,5 +1,5 @@
+import type { BaseModel } from '@puq/type';
 import { Property } from '@puq/property';
-import { type BaseModel } from '@puq/type';
 import { CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
 import { BaseIdEntity } from './base-id.js';
 

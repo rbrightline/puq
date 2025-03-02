@@ -1,5 +1,5 @@
+import type { UpdateResult } from '@puq/type';
 import { Dto, Property } from '@puq/property';
-import { type UpdateResult } from '@puq/type';
 
 /**
  * Update result

@@ -1,8 +1,8 @@
-import { ApiProperty, Dto, Property } from '@puq/property';
 import type { Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
-import { WhereQueryTransformer } from './where-query-transformer.js';
 import type { QueryOne } from '@puq/query';
+import { ApiProperty, Dto, Property } from '@puq/property';
+import { WhereQueryTransformer } from './where-query-transformer.js';
 import { CommonQueryDto } from './common-query-dto.js';
 
 export type QueryOneDtoOptions<T> = {
@@ -17,7 +17,7 @@ export type QueryOneDtoOptions<T> = {
  * @returns
  */
 export function CreateQueryOneDto<T>(
-  options: QueryOneDtoOptions<T>
+  options: QueryOneDtoOptions<T>,
 ): Type<QueryOne<T, FindOptionsWhere<T>[]>> {
   const { columns, maxColumns, isSelectRequired } = options;
 

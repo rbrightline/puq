@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { keys, Keys } from '@puq/type';
+import type { Keys } from '@puq/type';
 import { DataSource, Repository } from 'typeorm';
 import { Dto } from '@puq/property';
 import { plainToInstance } from 'class-transformer';
@@ -25,7 +25,7 @@ class Sample extends BaseEntity {
   @Column({ type: 'date', databaseType: 'sqlite' }) date: Date;
 }
 
-const SAMPLE_COLUMNS: Keys<Sample> = keys(new Sample());
+const SAMPLE_COLUMNS: Keys<Sample> = Object.keys(new Sample());
 
 @Dto()
 class QueryManySampDto extends CreateQueryManyDto<Sample>({

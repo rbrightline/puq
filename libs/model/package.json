@@ -68,7 +68,7 @@
           "outputPath": "libs/model/dist",
           "main": "libs/model/src/index.ts",
           "tsConfig": "libs/model/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
         },
         "dependsOn": [
@@ -81,7 +81,7 @@
     }
   },
   "devDependencies": {
-    "@puq/type": "^0.3.3"
+    "@puq/type": "^0.3.4"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15"

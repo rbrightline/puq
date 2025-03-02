@@ -86,11 +86,11 @@
     "@nestjs/swagger": "^11.0.3"
   },
   "devDependencies": {
-    "@puq/type": "^0.3.3"
+    "@puq/type": "^0.3.4"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",
-    "@puq/names": "^0.3.3",
+    "@puq/names": "^0.3.4",
     "@puq/orm": "^0.3.3"
   }
 }
