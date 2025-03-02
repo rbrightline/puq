@@ -85,7 +85,7 @@
     "@nestjs/common": "^11.0.10",
     "@nestjs/swagger": "^11.0.3",
     "reflect-metadata": "^0.2.2",
-    "@puq/orm": "^0.4.0"
+    "@puq/orm": "^0.4.1"
   },
   "devDependencies": {
     "@puq/type": "^0.4.1"

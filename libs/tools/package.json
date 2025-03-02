@@ -87,7 +87,7 @@
     }
   },
   "peerDependencies": {
-    "@puq/debug": "^0.3.2"
+    "@puq/debug": "^0.4.1"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",

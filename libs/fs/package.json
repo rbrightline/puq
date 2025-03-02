@@ -84,7 +84,7 @@
     "@types/js-yaml": "^4.0.9"
   },
   "peerDependencies": {
-    "@puq/debug": "^0.3.3"
+    "@puq/debug": "^0.4.1"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",

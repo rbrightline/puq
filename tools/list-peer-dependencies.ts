@@ -9,5 +9,5 @@ for (const lib of LIBS) {
 
   const o = JSON.parse(c.toString());
 
-  console.log(o.peerDependencies);
+  if (o.peerDependencies) console.log(o.name, o.peerDependencies);
 }

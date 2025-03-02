@@ -88,12 +88,12 @@
     "pg": "^8.13.3"
   },
   "peerDependencies": {
-    "@swc/helpers": "~0.5.15",
     "class-transformer": "^0.5.1",
     "typeorm": "^0.3.20",
-    "@puq/property": "^0.4.0"
+    "@puq/property": "^0.4.1"
   },
   "dependencies": {
+    "@swc/helpers": "~0.5.15",
     "@puq/query": "^0.4.1"
   }
 }

@@ -103,13 +103,13 @@
     "@puq/debug": "^0.3.3"
   },
   "devDependency": {
-    "@puq/type": "^0.3.5"
+    "@puq/type": "^0.4.1"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.15",
     "@nx/devkit": "20.4.4",
     "@puq/fs": "^0.4.1",
     "@puq/gen-helper": "^0.4.1",
-    "@puq/printer": "^0.4.1",
-    "@swc/helpers": "^0.5.15"
+    "@puq/printer": "^0.4.1"
   }
 }
