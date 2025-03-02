@@ -1,7 +1,7 @@
 {
   "name": "@puq/sample",
   "license": "MIT",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -115,9 +115,9 @@
     "@nestjs/schedule": "^5.0.1",
     "@nestjs/swagger": "^11.0.6",
     "@nestjs/throttler": "^6.4.0",
-    "@puq/core": "^0.3.2",
-    "@puq/orm": "^0.3.2",
-    "@puq/rest": "0.3.2",
+    "@puq/core": "^0.3.3",
+    "@puq/orm": "^0.3.4",
+    "@puq/rest": "0.3.3",
     "commander": "^13.1.0",
     "helmet": "^8.0.0"
   }

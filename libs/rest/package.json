@@ -2,7 +2,7 @@
   "name": "@puq/rest",
   "displayName": "@puq/rest",
   "license": "MIT",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -86,11 +86,11 @@
     "@nestjs/swagger": "^11.0.3"
   },
   "devDependencies": {
-    "@puq/type": "0.3.2"
+    "@puq/type": "^0.3.3"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",
-    "@puq/names": "^0.3.2",
-    "@puq/orm": "0.3.2"
+    "@puq/names": "^0.3.3",
+    "@puq/orm": "^0.3.3"
   }
 }

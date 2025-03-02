@@ -1,7 +1,7 @@
 {
   "name": "@puq/is",
   "license": "MIT",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -80,9 +80,8 @@
       }
     }
   },
-  "devDependencies": {},
   "dependencies": {
     "@swc/helpers": "^0.5.15",
-    "@puq/error": "^0.3.2"
+    "@puq/error": "^0.3.3"
   }
 }

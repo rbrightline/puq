@@ -1,7 +1,7 @@
 {
   "name": "@puq/entity",
   "license": "MIT",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -80,17 +80,17 @@
       }
     }
   },
-  "devDependencies": {
-    "@faker-js/faker": "^9.5.1",
-    "@puq/type": "^0.3.2",
+  "peerDependencies": {
     "typeorm": "^0.3.20"
   },
-  "peerDependencies": {
-    "@puq/orm": "^0.3.2",
-    "@puq/property": "^0.3.2"
+  "devDependencies": {
+    "@faker-js/faker": "^9.5.1",
+    "@puq/type": "^0.3.3",
+    "@puq/model": "^0.3.3",
   },
   "dependencies": {
-    "@puq/model": "^0.3.2",
-    "@swc/helpers": "^0.5.15"
+    "@swc/helpers": "^0.5.15",
+    "@puq/orm": "^0.3.3",
+    "@puq/property": "^0.3.2"
   }
 }
