@@ -4,29 +4,25 @@ import { argv } from 'process';
 import { LIBS } from './common';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
+import type { PackageJSON } from '@puq/type' with { 'resolution-mode': 'import' };
 
-const [, , lib, version] = argv;
+const [, , __lib, __version] = argv;
 
-export async function updateVersionOf(
-  lib: Readonly<string>,
-  version: Readonly<string>,
-) {
+export async function updateVersionOf(lib: string, version: string) {
   const preResult = LIBS.map(async (e) => {
-    const packageJSON = JSON.parse(
+    const P: PackageJSON = JSON.parse(
       (
         await readFile(join(__dirname, '..', 'libs', lib, 'package.json'))
       ).toString(),
     );
 
-    ['dependencies', 'devDependencies', 'peerDependencies'].forEach(
-      (dependencyBlock) => {
-        const version = '';
-        const dependency = packageJSON[dependencyBlock];
+    [P.dependencies, P.devDependencies, P.peerDependencies].forEach(
+      (dependency) => {
         if (dependency) {
           const entries = Object.entries(dependency);
           for (const [key] of entries) {
             if (key === lib) {
-              packageJSON.dependencies[key] = version;
+              dependency[key] = version;
             }
           }
         }
@@ -36,3 +32,5 @@ export async function updateVersionOf(
 
   await Promise.all(preResult);
 }
+
+updateVersionOf(__lib, __version);

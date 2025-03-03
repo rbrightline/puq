@@ -70,7 +70,7 @@ export default [
 
   // Make use `import type` is used for type imports
   {
-    files: ['libs/**/*.ts', 'services/**/*.ts'],
+    files: ['libs/**/*.ts', 'services/**/*.ts', 'tools/**/*.ts'],
     rules: {
       '@typescript-eslint/no-shadow': ['error'],
       '@typescript-eslint/consistent-type-imports': [
