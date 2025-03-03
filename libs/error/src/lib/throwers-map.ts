@@ -14,6 +14,8 @@ export const {
   SystemOffline: throwSystemOfflineError,
   LowLatency: throwLowLatencyError,
   RequiredFieldMissing: throwRequiredFieldMissingError,
+  InvalidType: throwInvalidTypeError,
+  InvalidParameter: throwInvalidParameterError,
   InvalidString: throwInvalidStringError,
   InvalidNumber: throwInvalidNumberError,
   InvalidInteger: throwInvalidIntegerError,

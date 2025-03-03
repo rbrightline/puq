@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { ErrorCode } from '@puq/error';
 import { throwRequiredFieldMissingError } from '@puq/error';
-import { def } from './def.js';
+import { def } from '../defined/def.js';
 
 /**
  * Ensures the value is neither `undefined` nor `null` and return the value, otherwise {@link ErrorCode.RequiredFieldMissing}.

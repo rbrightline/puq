@@ -13,7 +13,7 @@ export enum ErrorCode {
   SessionNotFound,
 
   /**
-   * Invalid token provided
+   * Invalid token
    */
   InvalidToken,
 
@@ -53,32 +53,39 @@ export enum ErrorCode {
   RequiredFieldMissing = 5000,
 
   /**
-   * Invalid string value provided
+   * Invalid parameter
+   */
+  InvalidParameter,
+
+  InvalidType,
+
+  /**
+   * Invalid string
    */
   InvalidString,
 
   /**
-   * Invalid number provided
+   * Invalid number
    */
   InvalidNumber,
 
   /**
-   * Invalid integer value provided
+   * Invalid integer
    */
   InvalidInteger,
 
   /**
-   * Invalid boolean value provided
+   * Invalid boolean
    */
   InvalidBoolean,
 
   /**
-   * Invalid object provided
+   * Invalid object
    */
   InvalidObject,
 
   /**
-   * Invalid array provided
+   * Invalid array
    */
   InvalidArray,
 

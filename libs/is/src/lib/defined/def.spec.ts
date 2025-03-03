@@ -1,6 +1,7 @@
 import { def } from './def.js';
 describe('def: check the value is defined', () => {
-  describe('def with defined values', () => {
+  //
+  describe('def(defined-value) test', () => {
     it.each`
       value          | expected
       ${''}          | ${true}
@@ -23,8 +24,9 @@ describe('def: check the value is defined', () => {
       expect(def(value)).toEqual(expected);
     });
   });
+  //
 
-  describe('def with undefined values', () => {
+  describe('def(undefiend-value) test', () => {
     it.each`
       value        | expected
       ${undefined} | ${false}
@@ -33,4 +35,6 @@ describe('def: check the value is defined', () => {
       expect(def(value)).toEqual(expected);
     });
   });
+
+  //
 });

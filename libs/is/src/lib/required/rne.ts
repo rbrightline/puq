@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { ErrorCode } from '@puq/error';
 import { throwEmptyFieldError } from '@puq/error';
-import { ne } from './ne.js';
+import { ne } from '../defined/ne.js';
 
 /**
  * Ensure the `value` or `defaultValue` is neither `undefined`, `null`, or empty (check {@link ne}), and return the value, or throw {@link RequiredValueError}

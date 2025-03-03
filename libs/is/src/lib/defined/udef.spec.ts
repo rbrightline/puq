@@ -1,6 +1,6 @@
 import { udef } from './udef.js';
 describe('udef: check the value is not defined', () => {
-  describe('udef with udefined values', () => {
+  describe('udef(defined-value) ', () => {
     it.each`
       value          | expected
       ${''}          | ${false}
@@ -19,12 +19,12 @@ describe('udef: check the value is not defined', () => {
       ${{}}          | ${false}
       ${[]}          | ${false}
       ${NaN}         | ${false}
-    `('udef($value) should return $expected', ({ value, expected }) => {
+    `('udef($value) should return false', ({ value, expected }) => {
       expect(udef(value)).toEqual(expected);
     });
   });
 
-  describe('udef with undefined values', () => {
+  describe('udef(undefiend-value)', () => {
     it.each`
       value        | expected
       ${undefined} | ${true}

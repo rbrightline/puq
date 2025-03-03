@@ -1,8 +1,12 @@
 // @index(['./**/*.ts', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
 export * from './lib/common/decorator-param.js';
+export * from './lib/common/empty-class.js';
+export * from './lib/common/key.js';
 export * from './lib/common/object-literal.js';
 export * from './lib/common/package-json.js';
 export * from './lib/common/puq-options.js';
+export * from './lib/common/some-record.js';
+export * from './lib/common/some.js';
 export * from './lib/dto/count-result.js';
 export * from './lib/dto/delete-result.js';
 export * from './lib/dto/relation-param.js';

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
+import type { SomeRecord, None } from '@puq/type';
 import { throwInvalidObjectError } from '@puq/error';
 
 /**
@@ -7,7 +6,7 @@ import { throwInvalidObjectError } from '@puq/error';
  * @param instance - the object value to extract the values from
  * @returns Array of values of the object
  */
-export function values<T extends Record<any, any>>(instance: T): any[] {
+export function values<T extends SomeRecord>(instance: T): None[] {
   if (typeof instance !== 'object' || Array.isArray(instance))
     throwInvalidObjectError();
 
