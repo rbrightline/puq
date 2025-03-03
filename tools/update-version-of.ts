@@ -2,35 +2,46 @@
 
 import { argv } from 'process';
 import { LIBS } from './common';
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import type { PackageJSON } from '@puq/type' with { 'resolution-mode': 'import' };
 
-const [, , __lib, __version] = argv;
+const [, , library, version] = argv;
 
-export async function updateVersionOf(lib: string, version: string) {
-  const preResult = LIBS.map(async (e) => {
-    const P: PackageJSON = JSON.parse(
-      (
-        await readFile(join(__dirname, '..', 'libs', lib, 'package.json'))
-      ).toString(),
+export async function updateVersionOf(lib: string, ver: string) {
+  const preResult = LIBS.map(async (currenctLibrary) => {
+    // Map
+    const filepath = join(
+      __dirname,
+      '..',
+      'libs',
+      currenctLibrary,
+      'package.json',
+    );
+    const content: PackageJSON = JSON.parse(
+      (await readFile(filepath)).toString(),
     );
 
-    [P.dependencies, P.devDependencies, P.peerDependencies].forEach(
-      (dependency) => {
-        if (dependency) {
-          const entries = Object.entries(dependency);
-          for (const [key] of entries) {
-            if (key === lib) {
-              dependency[key] = version;
-            }
+    [
+      content.dependencies,
+      content.devDependencies,
+      content.peerDependencies,
+    ].forEach((dependency) => {
+      if (dependency) {
+        const entries = Object.entries(dependency);
+        for (const [key] of entries) {
+          if (key === lib) {
+            dependency[key] = ver;
           }
         }
-      },
-    );
+      }
+    });
+
+    await writeFile(filepath, JSON.stringify(content));
+    // Map end
   });
 
   await Promise.all(preResult);
 }
 
-updateVersionOf(__lib, __version);
+updateVersionOf(library, version);
