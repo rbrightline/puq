@@ -116,7 +116,7 @@
     "@puq/meta": "^0.4.6",
     "@puq/orm": "^0.4.6",
     "@puq/property": "^0.4.6",
-    "@puq/rest": "0.4.7",
+    "@puq/rest": "0.4.8",
     "@swc/helpers": "^0.5.15",
     "commander": "^13.1.0",
     "helmet": "^8.0.0"

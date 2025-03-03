@@ -12,12 +12,25 @@ import {
   SetRelation,
   UnsetRelation,
 } from '@puq/rest';
-import { Entity, Column, BaseEntity } from '@puq/orm';
+import { Entity, Column, BaseEntity, CreateRelationParamDto } from '@puq/orm';
+import { Dto } from '@puq/property';
+import {
+  Body,
+  InternalServerErrorException,
+  NotFoundException,
+  Param,
+  Query,
+  UnauthorizedException,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 
 @Entity()
 export class Sample extends BaseEntity {
   @Column({ type: 'string' }) sample: string;
 }
+
+@Dto()
+export class AddRelationDto extends CreateRelationParamDto(['some', 'other']) {}
 
 @Entity()
 export class Other {
@@ -29,38 +42,38 @@ export class SampleController extends CreateController({
   entity: () => Sample,
 }) {
   @FindAll()
-  findAll() {
-    return [];
+  findAll(@Query('take') take: number) {
+    throw new NotFoundException();
   }
 
   @FindOneById()
-  FindOneById() {
+  FindOneById(@Param('id') id: number) {
     return 'FindOneById';
   }
 
   @Count()
   Count() {
-    return 'Count';
+    throw new InternalServerErrorException();
   }
 
   @SaveOne()
-  SaveOne() {
-    return 'SaveOne';
+  SaveOne(@Body() sample: Sample) {
+    throw new UnprocessableEntityException();
   }
 
   @UpdateOneById()
-  UpdateOneById() {
+  UpdateOneById(@Param('id') id: number, @Body() sample: Sample) {
     return 'UpdateOneById';
   }
 
   @DeleteOneById()
-  DeleteOneById() {
+  DeleteOneById(@Param('id') id: number) {
     return 'DeleteOneById';
   }
 
   @AddRelation()
-  AddRelation() {
-    return 'AddRelation';
+  AddRelation(@Query() params: AddRelationDto) {
+    throw new UnauthorizedException();
   }
 
   @RemoveRelation()

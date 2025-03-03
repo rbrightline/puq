@@ -10,6 +10,7 @@ export * from './lib/dto/count-result.dto.js';
 export * from './lib/dto/create-relation-param-dto.js';
 export * from './lib/dto/create-unset-relation-param-dto.js';
 export * from './lib/dto/delete-result.dto.js';
+export * from './lib/dto/http-error.dto.js';
 export * from './lib/dto/update-result.dto.js';
 export * from './lib/dto/validation-error.dto.js';
 export * from './lib/entity/base-id.js';

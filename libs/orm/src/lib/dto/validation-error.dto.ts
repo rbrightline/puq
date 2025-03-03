@@ -4,6 +4,7 @@ import type {
   ValidationErrorResult,
 } from '@puq/type';
 import { Dto, Property } from '@puq/property';
+import { HttpErrorDto } from './http-error.dto.js';
 
 @Dto()
 export class ValidationConstraintsDto implements ValidationConstraints {
@@ -29,7 +30,10 @@ export class SingleValidationErrorDto implements SingleValidationError {
 }
 
 @Dto()
-export class ValidationErrorDto implements ValidationErrorResult {
+export class ValidationErrorDto
+  extends HttpErrorDto
+  implements ValidationErrorResult
+{
   @Property({
     type: 'array',
     items: { type: 'object', target: () => SingleValidationErrorDto },
