@@ -14,21 +14,21 @@ async function udpate() {
     if (content.dependencies) {
       for (const name in content.dependencies) {
         if (name.startsWith('@puq')) {
-          content.dependencies[name] = `${version}`;
+          content.dependencies[name] = `^${version}`;
         }
       }
     }
     if (content.peerDependencies) {
       for (const name in content.peerDependencies) {
         if (name.startsWith('@puq')) {
-          content.peerDependencies[name] = `${version}`;
+          content.peerDependencies[name] = `^${version}`;
         }
       }
     }
     if (content.devDependencies) {
       for (const name in content.devDependencies) {
         if (name.startsWith('@puq')) {
-          content.devDependencies[name] = `${version}`;
+          content.devDependencies[name] = `^${version}`;
         }
       }
     }
