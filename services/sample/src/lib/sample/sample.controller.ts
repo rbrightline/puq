@@ -1,7 +1,18 @@
-import { FindAll, Controller } from '@puq/rest';
-import { SetResourceMetadata } from '@puq/meta';
+import {
+  Controller,
+  CreateController,
+  FindAll,
+  FindOneById,
+  Count,
+  SaveOne,
+  UpdateOneById,
+  DeleteOneById,
+  AddRelation,
+  RemoveRelation,
+  SetRelation,
+  UnsetRelation,
+} from '@puq/rest';
 import { Entity, Column, BaseEntity } from '@puq/orm';
-import { Type } from '@nestjs/common';
 
 @Entity()
 export class Sample extends BaseEntity {
@@ -13,26 +24,112 @@ export class Other {
   @Column({ type: 'string' }) other: string;
 }
 
-export function CreateControllerFor(entity: () => Type) {
-  class ControllerClass {
-    @SetResourceMetadata({ entity })
-    __metadata: unknown;
-  }
-  return ControllerClass;
-}
-
 @Controller()
-export class SampleController extends CreateControllerFor(() => Sample) {
+export class SampleController extends CreateController({
+  entity: () => Sample,
+}) {
   @FindAll()
   findAll() {
     return [];
   }
+
+  @FindOneById()
+  FindOneById() {
+    return 'FindOneById';
+  }
+
+  @Count()
+  Count() {
+    return 'Count';
+  }
+
+  @SaveOne()
+  SaveOne() {
+    return 'SaveOne';
+  }
+
+  @UpdateOneById()
+  UpdateOneById() {
+    return 'UpdateOneById';
+  }
+
+  @DeleteOneById()
+  DeleteOneById() {
+    return 'DeleteOneById';
+  }
+
+  @AddRelation()
+  AddRelation() {
+    return 'AddRelation';
+  }
+
+  @RemoveRelation()
+  RemoveRelation() {
+    return 'RemoveRelation';
+  }
+
+  @SetRelation()
+  SetRelation() {
+    return 'SetRelation';
+  }
+
+  @UnsetRelation()
+  UnsetRelation() {
+    return 'UnsetRelation';
+  }
 }
 
 @Controller()
-export class OtherController extends CreateControllerFor(() => Other) {
+export class OtherController extends CreateController({
+  entity: () => Other,
+}) {
   @FindAll()
   findAll() {
     return [];
+  }
+
+  @FindOneById()
+  FindOneById() {
+    return 'FindOneById';
+  }
+
+  @Count()
+  Count() {
+    return 'Count';
+  }
+
+  @SaveOne()
+  SaveOne() {
+    return 'SaveOne';
+  }
+
+  @UpdateOneById()
+  UpdateOneById() {
+    return 'UpdateOneById';
+  }
+
+  @DeleteOneById()
+  DeleteOneById() {
+    return 'DeleteOneById';
+  }
+
+  @AddRelation()
+  AddRelation() {
+    return 'AddRelation';
+  }
+
+  @RemoveRelation()
+  RemoveRelation() {
+    return 'RemoveRelation';
+  }
+
+  @SetRelation()
+  SetRelation() {
+    return 'SetRelation';
+  }
+
+  @UnsetRelation()
+  UnsetRelation() {
+    return 'UnsetRelation';
   }
 }

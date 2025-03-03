@@ -24,8 +24,8 @@ export function ne<T>(value: T | undefined | null): value is T {
         return value.length > 0 && value.some((e) => def(e));
       } else {
         return (
-          Object.keys(value as any).length > 0 &&
-          Object.values(value as any).some((e) => def(e))
+          Object.keys(value as object).length > 0 &&
+          Object.values(value as object).some((e) => def(e))
         );
       }
     }
