@@ -1,14 +1,15 @@
 // @index(['./**/*.ts', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
 export * from './lib/controller/controller.js';
-export * from './lib/meta/resource-metadata.js';
-export * from './lib/meta/set-resource-metadata.decorator.js';
-export * from './lib/method/add-relation.js';
-export * from './lib/method/common.js';
-export * from './lib/method/delete-one-by-id .js';
-export * from './lib/method/delete-relation.js';
-export * from './lib/method/find-all.js';
-export * from './lib/method/find-one-by-id.js';
-export * from './lib/method/save-one.js';
-export * from './lib/method/set-relation.js';
-export * from './lib/method/unset-relation.js';
-export * from './lib/method/update-one-by-id .js';
+export * from './lib/method/common/common.js';
+export * from './lib/method/delete/delete-one-by-id .js';
+export * from './lib/method/read/count.js';
+export * from './lib/method/read/find-all.js';
+export * from './lib/method/read/find-one-by-id.js';
+export * from './lib/method/relation/add-relation.js';
+export * from './lib/method/relation/remove-relation.js';
+export * from './lib/method/relation/set-relation.js';
+export * from './lib/method/relation/unset-relation.js';
+export * from './lib/method/write/decrement.js';
+export * from './lib/method/write/increment.js';
+export * from './lib/method/write/save-one.js';
+export * from './lib/method/write/update-one-by-id.js';

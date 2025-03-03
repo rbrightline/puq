@@ -6,7 +6,14 @@
 
 ## Summary
 
-Metadata manager
+A TypeScript utility for managing resource metadata using the reflect-metadata library. This module provides a way to define and retrieve metadata for resource entities, such as entity classes, names, paths, and public access flags, typically used in frameworks like REST APIs or ORMs.
+
+## Features
+
+- **Metadata Storage**: Store metadata (e.g., entity factory, resource names, paths) on target classes - using reflect-metadata.
+- **Type Safety**: Strongly typed with TypeScript generics and custom types (Names, Paths, Keys, Type).
+- **Public Access Control**: Mark resources as public to bypass authentication/authorization.
+- **Simple API**: Easy-to-use static methods for setting and retrieving metadata.
 
 ## Install
 

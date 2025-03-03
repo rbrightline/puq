@@ -188,8 +188,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Repository } from &#x27;typeorm&#x27;;
-import { BaseEntity } from &#x27;../entity/base.js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Repository } from &#x27;typeorm&#x27;;
+import type { BaseEntity } from &#x27;../entity/base.js&#x27;;
 
 export class BaseEntityService&lt;T extends BaseEntity&gt; {
   constructor(protected readonly repo: Repository&lt;T&gt;) {}

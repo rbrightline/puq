@@ -1,6 +1,6 @@
-import { Controller as __Controller } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResourceMetadataManager } from '../meta/resource-metadata.js';
+import { Controller as Resource } from '@nestjs/common';
+import { ApiBearerAuth as Bearer, ApiTags as Tags } from '@nestjs/swagger';
+import { ResourceMetadataManager as Meta } from '@puq/meta';
 
 /**
  * Define resource controller
@@ -8,11 +8,9 @@ import { ResourceMetadataManager } from '../meta/resource-metadata.js';
  */
 export function Controller(): ClassDecorator {
   return (target) => {
-    const {
-      names: { controllerName },
-    } = ResourceMetadataManager.get(target);
-    __Controller()(target);
-    ApiBearerAuth()(target);
-    ApiTags(controllerName)(target);
+    const M = Meta.get(target);
+    Resource()(target);
+    Bearer()(target);
+    Tags(M.names.controllerName)(target);
   };
 }

@@ -186,7 +186,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/lib/integration/better-sqlite3.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/lib/integration/better-sqlite3.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -222,7 +222,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/integration/better-sqlite3.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/lib/integration/better-sqlite3.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -235,8 +235,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Dto, Property } from &#x27;@puq/property&#x27;;
-import { Column, Entity, Relation } from &#x27;../decorator/index.js&#x27;;
-import { BaseEntity } from &#x27;../entity/index.js&#x27;;
+import { Relation } from &#x27;../decorator/relation.js&#x27;;
+import { Entity } from &#x27;../decorator/entity.js&#x27;;
+import { Column } from &#x27;../decorator/column.js&#x27;;
+import { BaseEntity } from &#x27;../entity/base.js&#x27;;
 
 @Dto()
 export class TestObject {

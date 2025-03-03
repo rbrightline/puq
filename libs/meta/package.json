@@ -1,12 +1,12 @@
 {
   "name": "@puq/meta",
   "license": "MIT",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "meta",
+  "description": "A TypeScript utility for managing resource metadata using the reflect-metadata library. This module provides a way to define and retrieve metadata for resource entities, such as entity classes, names, paths, and public access flags, typically used in frameworks like REST APIs or ORMs.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -80,7 +80,14 @@
       }
     }
   },
+  "devDependencies": {
+    "@puq/type": "^0.4.3"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.2.2"
+  },
   "dependencies": {
-    "@swc/helpers": "^0.5.15"
+    "@swc/helpers": "^0.5.15",
+    "@puq/names": "^0.4.3"
   }
 }

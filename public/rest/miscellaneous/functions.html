@@ -112,13 +112,46 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#CommonMethod" title="src/lib/method/common.ts" ><b>CommonMethod</b>&nbsp;&nbsp;&nbsp;(src/.../common.ts)</a>
+                            <a href="#AddRelation" title="src/lib/method/relation/add-relation.ts" ><b>AddRelation</b>&nbsp;&nbsp;&nbsp;(src/.../add-relation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CommonMethod" title="src/lib/method/common/common.ts" ><b>CommonMethod</b>&nbsp;&nbsp;&nbsp;(src/.../common.ts)</a>
                         </li>
                         <li>
                             <a href="#Controller" title="src/lib/controller/controller.ts" ><b>Controller</b>&nbsp;&nbsp;&nbsp;(src/.../controller.ts)</a>
                         </li>
                         <li>
-                            <a href="#FindAllMethod" title="src/lib/method/find-all.ts" ><b>FindAllMethod</b>&nbsp;&nbsp;&nbsp;(src/.../find-all.ts)</a>
+                            <a href="#Count" title="src/lib/method/read/count.ts" ><b>Count</b>&nbsp;&nbsp;&nbsp;(src/.../count.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Decrement" title="src/lib/method/write/decrement.ts" ><b>Decrement</b>&nbsp;&nbsp;&nbsp;(src/.../decrement.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteOneById" title="src/lib/method/delete/delete-one-by-id .ts" ><b>DeleteOneById</b>&nbsp;&nbsp;&nbsp;(src/.../delete-one-by-id .ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FindAll" title="src/lib/method/read/find-all.ts" ><b>FindAll</b>&nbsp;&nbsp;&nbsp;(src/.../find-all.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FindOneById" title="src/lib/method/read/find-one-by-id.ts" ><b>FindOneById</b>&nbsp;&nbsp;&nbsp;(src/.../find-one-by-id.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Increment" title="src/lib/method/write/increment.ts" ><b>Increment</b>&nbsp;&nbsp;&nbsp;(src/.../increment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RemoveRelation" title="src/lib/method/relation/remove-relation.ts" ><b>RemoveRelation</b>&nbsp;&nbsp;&nbsp;(src/.../remove-relation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SaveOne" title="src/lib/method/write/save-one.ts" ><b>SaveOne</b>&nbsp;&nbsp;&nbsp;(src/.../save-one.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SetRelation" title="src/lib/method/relation/set-relation.ts" ><b>SetRelation</b>&nbsp;&nbsp;&nbsp;(src/.../set-relation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UnsetRelation" title="src/lib/method/relation/unset-relation.ts" ><b>UnsetRelation</b>&nbsp;&nbsp;&nbsp;(src/.../unset-relation.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UpdateOneById" title="src/lib/method/write/update-one-by-id.ts" ><b>UpdateOneById</b>&nbsp;&nbsp;&nbsp;(src/.../update-one-by-id.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -127,7 +160,40 @@
     </table>
 </section>
 
-    <h3>src/lib/method/common.ts</h3>
+    <h3>src/lib/method/relation/add-relation.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AddRelation"></a>
+                    <span class="name">
+                        <span ><b>AddRelation</b></span>
+                        <a href="#AddRelation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>AddRelation()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/common/common.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -151,11 +217,19 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Common decorators for all method decorators</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>MethodDecorator</code>
 
                         </div>
+                            <div class="io-description">
+                                <ul>
+<li>{@link MethodDecorator}</li>
+</ul>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -175,7 +249,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>Controller(entity)</code>
+<code>Controller()</code>
                 </td>
             </tr>
 
@@ -184,57 +258,39 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Define resource controller</p>
+</div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>entity</td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
                             <b>Returns : </b>    <code>ClassDecorator</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>{@link ClassDecorator}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/method/find-all.ts</h3>
+</section>    <h3>src/lib/method/read/count.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="FindAllMethod"></a>
+                    <a name="Count"></a>
                     <span class="name">
-                        <span ><b>FindAllMethod</b></span>
-                        <a href="#FindAllMethod"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>Count</b></span>
+                        <a href="#Count"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>FindAllMethod(entity)</code>
+<code>Count()</code>
                 </td>
             </tr>
 
@@ -243,39 +299,341 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find all entities</p>
-</div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>entity</td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
                             <b>Returns : </b>    <code>MethodDecorator</code>
 
                         </div>
-                            <div class="io-description">
-                                
-                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/write/decrement.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Decrement"></a>
+                    <span class="name">
+                        <span ><b>Decrement</b></span>
+                        <a href="#Decrement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Decrement()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/delete/delete-one-by-id .ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteOneById"></a>
+                    <span class="name">
+                        <span ><b>DeleteOneById</b></span>
+                        <a href="#DeleteOneById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>DeleteOneById()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/read/find-all.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FindAll"></a>
+                    <span class="name">
+                        <span ><b>FindAll</b></span>
+                        <a href="#FindAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>FindAll()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/read/find-one-by-id.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FindOneById"></a>
+                    <span class="name">
+                        <span ><b>FindOneById</b></span>
+                        <a href="#FindOneById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>FindOneById()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/write/increment.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Increment"></a>
+                    <span class="name">
+                        <span ><b>Increment</b></span>
+                        <a href="#Increment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Increment()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/relation/remove-relation.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RemoveRelation"></a>
+                    <span class="name">
+                        <span ><b>RemoveRelation</b></span>
+                        <a href="#RemoveRelation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>RemoveRelation()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/write/save-one.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SaveOne"></a>
+                    <span class="name">
+                        <span ><b>SaveOne</b></span>
+                        <a href="#SaveOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SaveOne()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/relation/set-relation.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SetRelation"></a>
+                    <span class="name">
+                        <span ><b>SetRelation</b></span>
+                        <a href="#SetRelation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SetRelation()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/relation/unset-relation.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UnsetRelation"></a>
+                    <span class="name">
+                        <span ><b>UnsetRelation</b></span>
+                        <a href="#UnsetRelation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UnsetRelation()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/method/write/update-one-by-id.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateOneById"></a>
+                    <span class="name">
+                        <span ><b>UpdateOneById</b></span>
+                        <a href="#UpdateOneById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UpdateOneById()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>MethodDecorator</code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>

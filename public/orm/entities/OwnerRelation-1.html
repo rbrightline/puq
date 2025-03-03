@@ -182,7 +182,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/integration/postgres.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/lib/integration/postgres.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -195,8 +195,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Dto, Property } from &#x27;@puq/property&#x27;;
-import { Column, Entity, Relation } from &#x27;../decorator/index.js&#x27;;
-import { BaseEntity } from &#x27;../entity/index.js&#x27;;
+import { Relation } from &#x27;../decorator/relation.js&#x27;;
+import { Entity } from &#x27;../decorator/entity.js&#x27;;
+import { Column } from &#x27;../decorator/column.js&#x27;;
+import { BaseEntity } from &#x27;../entity/base.js&#x27;;
 
 @Dto()
 export class TestObject {

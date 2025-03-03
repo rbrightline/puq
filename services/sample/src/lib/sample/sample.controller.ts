@@ -1,7 +1,7 @@
-import { FindAll, SetResourceMetadata, Controller } from '@puq/rest';
+import { FindAll, Controller } from '@puq/rest';
+import { SetResourceMetadata } from '@puq/meta';
 import { Entity, Column, BaseEntity } from '@puq/orm';
 import { Type } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Sample extends BaseEntity {
@@ -10,8 +10,6 @@ export class Sample extends BaseEntity {
 
 @Entity()
 export class Other {
-  @ApiProperty({ type: 'array', items: { type: 'string' }, required: true })
-  createdAt: Date;
   @Column({ type: 'string' }) other: string;
 }
 

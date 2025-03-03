@@ -578,7 +578,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Model, PropertyOptions, RelationOptions } from &#x27;@puq/type&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Model, PropertyOptions, RelationOptions } from &#x27;@puq/type&#x27;;
 import {
   propertyType,
   propertyDefinition,
@@ -592,7 +592,7 @@ export class ModelManager {
 
   protected entries&lt;
     V extends PropertyOptions | RelationOptions,
-    T extends Record&lt;string, V&gt;
+    T extends Record&lt;string, V&gt;,
   &gt;(options?: T): V[] | undefined {
     if (!options) return;
     return Object.entries(options).map(([name, value]) &#x3D;&gt; ({ name, ...value }));
@@ -625,13 +625,13 @@ export class ModelManager {
   entityProperties() {
     const __properies &#x3D; this.properties()
       ?.map((e) &#x3D;&gt;
-        [propertyDecorator(&#x27;Column&#x27;, e), propertyDefinition(e)].join(&#x27;\n&#x27;)
+        [propertyDecorator(&#x27;Column&#x27;, e), propertyDefinition(e)].join(&#x27;\n&#x27;),
       )
       .join(&#x27;\n&#x27;);
 
     const __relations &#x3D; this.relations()
       ?.map((e) &#x3D;&gt;
-        [relationDecorator(&#x27;Relation&#x27;, e), relationDefinition(e)].join(&#x27;\n&#x27;)
+        [relationDecorator(&#x27;Relation&#x27;, e), relationDefinition(e)].join(&#x27;\n&#x27;),
       )
       .join(&#x27;\n&#x27;);
 
@@ -641,7 +641,7 @@ export class ModelManager {
   viewProperties() {
     const __properies &#x3D; this.properties()
       ?.map((e) &#x3D;&gt;
-        [propertyDecorator(&#x27;ViewColumn&#x27;, e), propertyDefinition(e)].join(&#x27;\n&#x27;)
+        [propertyDecorator(&#x27;ViewColumn&#x27;, e), propertyDefinition(e)].join(&#x27;\n&#x27;),
       )
       .join(&#x27;\n&#x27;);
 

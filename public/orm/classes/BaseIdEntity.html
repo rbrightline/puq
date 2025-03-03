@@ -125,6 +125,12 @@
 
 
 
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>IDModel</code>
+            </p>
 
 
             <section data-compodoc="block-index">
@@ -193,7 +199,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/lib/entity/base-id.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/lib/entity/base-id.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -212,10 +218,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Property } from &#x27;@puq/property&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { IDModel } from &#x27;@puq/type&#x27;;
+import { Property } from &#x27;@puq/property&#x27;;
 import { PrimaryGeneratedColumn } from &#x27;typeorm&#x27;;
 
-export class BaseIdEntity {
+export class BaseIdEntity implements IDModel {
   @Property({ type: &#x27;integer&#x27; })
   @PrimaryGeneratedColumn()
   id: number;

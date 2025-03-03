@@ -154,6 +154,9 @@
                             <a href="#Cascade" title="src/lib/property/relation-options.ts" ><b>Cascade</b>&nbsp;&nbsp;&nbsp;(src/.../relation-options.ts)</a>
                         </li>
                         <li>
+                            <a href="#ClassDecoratorParam" title="src/lib/common/decorator-param.ts" ><b>ClassDecoratorParam</b>&nbsp;&nbsp;&nbsp;(src/.../decorator-param.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CommonNumberOptions" title="src/lib/property/common-number.ts" ><b>CommonNumberOptions</b>&nbsp;&nbsp;&nbsp;(src/.../common-number.ts)</a>
                         </li>
                         <li>
@@ -190,7 +193,10 @@
                             <a href="#KeyOf" title="src/lib/utils/key-of.ts" ><b>KeyOf</b>&nbsp;&nbsp;&nbsp;(src/.../key-of.ts)</a>
                         </li>
                         <li>
-                            <a href="#Keys" title="src/lib/utils/keys.ts" ><b>Keys</b>&nbsp;&nbsp;&nbsp;(src/.../keys.ts)</a>
+                            <a href="#Keys" title="src/lib/utils/key-of.ts" ><b>Keys</b>&nbsp;&nbsp;&nbsp;(src/.../key-of.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MethodDecoratorParam" title="src/lib/common/decorator-param.ts" ><b>MethodDecoratorParam</b>&nbsp;&nbsp;&nbsp;(src/.../decorator-param.ts)</a>
                         </li>
                         <li>
                             <a href="#Model" title="src/lib/property/model.ts" ><b>Model</b>&nbsp;&nbsp;&nbsp;(src/.../model.ts)</a>
@@ -220,10 +226,16 @@
                             <a href="#PackageJSON" title="src/lib/common/package-json.ts" ><b>PackageJSON</b>&nbsp;&nbsp;&nbsp;(src/.../package-json.ts)</a>
                         </li>
                         <li>
+                            <a href="#ParameterDecoratorParam" title="src/lib/common/decorator-param.ts" ><b>ParameterDecoratorParam</b>&nbsp;&nbsp;&nbsp;(src/.../decorator-param.ts)</a>
+                        </li>
+                        <li>
                             <a href="#PickOptional" title="src/lib/utils/pick-optional.ts" ><b>PickOptional</b>&nbsp;&nbsp;&nbsp;(src/.../pick-optional.ts)</a>
                         </li>
                         <li>
                             <a href="#PickRequired" title="src/lib/utils/pick-required.ts" ><b>PickRequired</b>&nbsp;&nbsp;&nbsp;(src/.../pick-required.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PropertyDecoratorParam" title="src/lib/common/decorator-param.ts" ><b>PropertyDecoratorParam</b>&nbsp;&nbsp;&nbsp;(src/.../decorator-param.ts)</a>
                         </li>
                         <li>
                             <a href="#PropertyOptions" title="src/lib/property/property.ts" ><b>PropertyOptions</b>&nbsp;&nbsp;&nbsp;(src/.../property.ts)</a>
@@ -680,6 +692,96 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/lib/common/decorator-param.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ClassDecoratorParam"></a>
+                    <span class="name "><b>ClassDecoratorParam</b><a href="#ClassDecoratorParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Decorator param <code>(...args:ClassDecoratorParam)=&gt;</code></p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>[Function]</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MethodDecoratorParam"></a>
+                    <span class="name "><b>MethodDecoratorParam</b><a href="#MethodDecoratorParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Decorator param <code>(...args:MethodDecoratorParam)=&gt;</code></p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Type.html" target="_self" >[Object, , TypedPropertyDescriptor&lt;T&gt;]</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ParameterDecoratorParam"></a>
+                    <span class="name "><b>ParameterDecoratorParam</b><a href="#ParameterDecoratorParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Decorator param <code>(...args:ParameterDecoratorParam)=&gt;</code></p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>[Object, , number]</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PropertyDecoratorParam"></a>
+                    <span class="name "><b>PropertyDecoratorParam</b><a href="#PropertyDecoratorParam"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Decorator param <code>(...args:PropertyDecoratorParam)=&gt;</code></p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>[Object, ]</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/lib/property/common-number.ts</h3>
     <section data-compodoc="block-typealias">
     <table class="table table-sm table-bordered">
@@ -879,8 +981,6 @@ Used in the <code>type</code> field of a TypeORM connection configuration.</p>
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/utils/keys.ts</h3>
-    <section data-compodoc="block-typealias">
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
