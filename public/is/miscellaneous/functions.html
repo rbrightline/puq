@@ -115,6 +115,12 @@
                             <a href="#def" title="src/lib/def.ts" ><b>def</b>&nbsp;&nbsp;&nbsp;(src/.../def.ts)</a>
                         </li>
                         <li>
+                            <a href="#entries" title="src/lib/entries.ts" ><b>entries</b>&nbsp;&nbsp;&nbsp;(src/.../entries.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#keys" title="src/lib/keys.ts" ><b>keys</b>&nbsp;&nbsp;&nbsp;(src/.../keys.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ne" title="src/lib/ne.ts" ><b>ne</b>&nbsp;&nbsp;&nbsp;(src/.../ne.ts)</a>
                         </li>
                         <li>
@@ -125,6 +131,9 @@
                         </li>
                         <li>
                             <a href="#udef" title="src/lib/udef.ts" ><b>udef</b>&nbsp;&nbsp;&nbsp;(src/.../udef.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#values" title="src/lib/values.ts" ><b>values</b>&nbsp;&nbsp;&nbsp;(src/.../values.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -197,6 +206,152 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                         </div>
                             <div class="io-description">
                                 <p><code>true</code> if the value is defined (not <code>undefined</code> or <code>null</code>), otherwise <code>false</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/entries.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entries"></a>
+                    <span class="name">
+                        <span ><b>entries</b></span>
+                        <a href="#entries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>entries(instance: T)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extracts the enumerable key-value pairs of an object as a typed array of tuples.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The object to extract entries from.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>An array of <code>[key, value]</code> tuples, where <code>key</code> is a string and <code>value</code> is the corresponding value from <code>instance</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/keys.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keys"></a>
+                    <span class="name">
+                        <span ><b>keys</b></span>
+                        <a href="#keys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>keys(instance: T)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extract the keys of the object</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>the object value that the keys are extracted from</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Keys&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>the keys of the object as <code>string[]</code></p>
 
                             </div>
                 </td>
@@ -490,6 +645,79 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                         </div>
                             <div class="io-description">
                                 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/values.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="values"></a>
+                    <span class="name">
+                        <span ><b>values</b></span>
+                        <a href="#values"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>values(instance: T)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extract the values of an object</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>the object value to extract the values from</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>any[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array of values of the object</p>
+
                             </div>
                 </td>
             </tr>

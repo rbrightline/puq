@@ -118,16 +118,19 @@
                             <a href="#CommonMethod" title="src/lib/method/common/common.ts" ><b>CommonMethod</b>&nbsp;&nbsp;&nbsp;(src/.../common.ts)</a>
                         </li>
                         <li>
-                            <a href="#Controller" title="src/lib/controller/controller.ts" ><b>Controller</b>&nbsp;&nbsp;&nbsp;(src/.../controller.ts)</a>
+                            <a href="#Controller" title="src/lib/controller/decorator/controller.ts" ><b>Controller</b>&nbsp;&nbsp;&nbsp;(src/.../controller.ts)</a>
                         </li>
                         <li>
                             <a href="#Count" title="src/lib/method/read/count.ts" ><b>Count</b>&nbsp;&nbsp;&nbsp;(src/.../count.ts)</a>
                         </li>
                         <li>
+                            <a href="#CreateController" title="src/lib/controller/common/create-controller.ts" ><b>CreateController</b>&nbsp;&nbsp;&nbsp;(src/.../create-controller.ts)</a>
+                        </li>
+                        <li>
                             <a href="#Decrement" title="src/lib/method/write/decrement.ts" ><b>Decrement</b>&nbsp;&nbsp;&nbsp;(src/.../decrement.ts)</a>
                         </li>
                         <li>
-                            <a href="#DeleteOneById" title="src/lib/method/delete/delete-one-by-id .ts" ><b>DeleteOneById</b>&nbsp;&nbsp;&nbsp;(src/.../delete-one-by-id .ts)</a>
+                            <a href="#DeleteOneById" title="src/lib/method/delete/delete-one-by-id.ts" ><b>DeleteOneById</b>&nbsp;&nbsp;&nbsp;(src/.../delete-one-by-id.ts)</a>
                         </li>
                         <li>
                             <a href="#FindAll" title="src/lib/method/read/find-all.ts" ><b>FindAll</b>&nbsp;&nbsp;&nbsp;(src/.../find-all.ts)</a>
@@ -208,7 +211,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>CommonMethod()</code>
+<code>CommonMethod(options?: ApiOperationOptions)</code>
                 </td>
             </tr>
 
@@ -220,6 +223,33 @@
                         <div class="io-description"><p>Common decorators for all method decorators</p>
 </div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>ApiOperationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         <div class="io-description">
                             <b>Returns : </b>    <code>MethodDecorator</code>
 
@@ -234,7 +264,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/controller/controller.ts</h3>
+</section>    <h3>src/lib/controller/decorator/controller.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -308,6 +338,69 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/lib/controller/common/create-controller.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CreateController"></a>
+                    <span class="name">
+                        <span ><b>CreateController</b></span>
+                        <a href="#CreateController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CreateController(options: Readonly)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>Readonly</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/lib/method/write/decrement.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -341,7 +434,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/method/delete/delete-one-by-id .ts</h3>
+</section>    <h3>src/lib/method/delete/delete-one-by-id.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>

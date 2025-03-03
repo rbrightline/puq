@@ -199,7 +199,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/dto/validation-error.dto.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/lib/dto/validation-error.dto.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -224,6 +224,7 @@
   ValidationErrorResult,
 } from &#x27;@puq/type&#x27;;
 import { Dto, Property } from &#x27;@puq/property&#x27;;
+import { HttpErrorDto } from &#x27;./http-error.dto.js&#x27;;
 
 @Dto()
 export class ValidationConstraintsDto implements ValidationConstraints {
@@ -249,7 +250,10 @@ export class SingleValidationErrorDto implements SingleValidationError {
 }
 
 @Dto()
-export class ValidationErrorDto implements ValidationErrorResult {
+export class ValidationErrorDto
+  extends HttpErrorDto
+  implements ValidationErrorResult
+{
   @Property({
     type: &#x27;array&#x27;,
     items: { type: &#x27;object&#x27;, target: () &#x3D;&gt; SingleValidationErrorDto },

@@ -121,6 +121,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/EntityWriteService.html" data-type="entity-link" >EntityWriteService</a>
                             </li>
                             <li class="link">
+                                <a href="classes/HttpErrorDto.html" data-type="entity-link" >HttpErrorDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/SingleValidationErrorDto.html" data-type="entity-link" >SingleValidationErrorDto</a>
                             </li>
                             <li class="link">
