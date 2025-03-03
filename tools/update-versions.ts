@@ -10,6 +10,7 @@ async function udpate() {
   LIBS.map(async (lib) => {
     const filepath = join(__dirname, '..', 'libs', lib, 'package.json');
     const content = JSON.parse((await readFile(filepath)).toString());
+    content.version = version;
     if (content.dependencies) {
       for (const name in content.dependencies) {
         if (name.startsWith('@puq')) {
