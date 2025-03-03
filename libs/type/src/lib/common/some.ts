@@ -1,5 +1,5 @@
 /**
- * The type is desigend for guard functions
+ * The type is the improved version of `unkown` value
  * 
  * ```ts
  * function<T>requiredValue(value:Some<T>):T {

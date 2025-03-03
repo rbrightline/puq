@@ -1,3 +1,6 @@
+/**
+ * Google Font Icons
+ */
 export type Icon =
   | 'air'
   | 'air'

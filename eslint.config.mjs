@@ -72,6 +72,7 @@ export default [
   {
     files: ['libs/**/*.ts', 'services/**/*.ts'],
     rules: {
+      '@typescript-eslint/no-shadow': ['error'],
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
