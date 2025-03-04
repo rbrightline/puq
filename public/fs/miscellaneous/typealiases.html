@@ -112,7 +112,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#IOptions" title="src/lib/io-options.ts" ><b>IOptions</b>&nbsp;&nbsp;&nbsp;(src/.../io-options.ts)</a>
+                            <a href="#CommonFileOptions" title="src/lib/common-file-options.ts" ><b>CommonFileOptions</b>&nbsp;&nbsp;&nbsp;(src/.../common-file-options.ts)</a>
                         </li>
                         <li>
                             <a href="#ScopeResolver" title="src/lib/scope-resolver.ts" ><b>ScopeResolver</b>&nbsp;&nbsp;&nbsp;(src/.../scope-resolver.ts)</a>
@@ -124,14 +124,22 @@
     </table>
 </section>
 
-    <h3>src/lib/io-options.ts</h3>
+    <h3>src/lib/common-file-options.ts</h3>
     <section data-compodoc="block-typealias">
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="IOptions"></a>
-                    <span class="name "><b>IOptions</b><a href="#IOptions"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="CommonFileOptions"></a>
+                    <span class="name "><b>CommonFileOptions</b><a href="#CommonFileOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>File operation options to define output and operation types such as <code>recursive</code> and <code>absolutePath</code>.
+These options configure behaviors for file system operations like searching, listing, or processing files.
+For detailed information, refer to the individual property documentation below.</p>
+</div>
                 </td>
             </tr>
             <tr>
@@ -154,7 +162,10 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Resolver function type</p>
+                    <div class="io-description"><p>Defines a function type for resolving file paths within a specific scope.
+This type represents a utility function that takes one or more path segments
+and returns a single resolved path string, typically used to normalize or
+contextualize paths relative to a base directory or scope.</p>
 </div>
                 </td>
             </tr>

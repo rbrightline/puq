@@ -363,6 +363,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -377,6 +378,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p><a href="QueryOne">QueryOne</a></p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -479,30 +484,30 @@ import { BaseEntityService } from &#x27;./base.js&#x27;;
  * Read service
  */
 export class EntityReadService&lt;
-  T extends BaseEntity
+  T extends BaseEntity,
 &gt; extends BaseEntityService&lt;T&gt; {
   /**
    * Query all entities
    */
   find(query: QueryMany&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;) {
-    return this.repo.find(query);
+    return this.repository.find(query);
   }
 
   /**
    * Query one entity
-   * @param query {@linkk QueryOne}
+   * @param query {@link QueryOne}
    * @returns
    */
   findOne(query: QueryOne&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;) {
-    return this.repo.findOne(query);
+    return this.repository.findOne(query);
   }
 
   findOneById(id: number) {
-    return this.repo.findOneBy({ id } as FindOptionsWhere&lt;T&gt;);
+    return this.repository.findOneBy({ id } as FindOptionsWhere&lt;T&gt;);
   }
 
   async count(query: QueryCount&lt;FindOptionsWhere&lt;T&gt;[]&gt;): Promise&lt;CountResult&gt; {
-    return { count: await this.repo.count(query) };
+    return { count: await this.repository.count(query) };
   }
 }
 </code></pre>

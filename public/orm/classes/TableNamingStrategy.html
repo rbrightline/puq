@@ -127,7 +127,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Databaes table and column naming strategy</p>
+                <p>Database table and column naming strategy</p>
 
             </p>
 
@@ -488,12 +488,12 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DefaultNamingStrategy } from &#x27;typeorm&#x27;;
 /**
- * Databaes table and column naming strategy
+ * Database table and column naming strategy
  */
 export class TableNamingStrategy extends DefaultNamingStrategy {
   override joinTableName(
     firstTableName: string,
-    secondTableName: string
+    secondTableName: string,
   ): string {
     return &#x60;${firstTableName}_${secondTableName}&#x60;;
   }

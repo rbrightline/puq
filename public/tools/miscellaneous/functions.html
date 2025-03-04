@@ -115,7 +115,7 @@
                             <a href="#boot" title="src/lib/program.ts" ><b>boot</b>&nbsp;&nbsp;&nbsp;(src/.../program.ts)</a>
                         </li>
                         <li>
-                            <a href="#parseRename" title="src/lib/rename/parse-rename.ts" ><b>parseRename</b>&nbsp;&nbsp;&nbsp;(src/.../parse-rename.ts)</a>
+                            <a href="#createRenameCommand" title="src/lib/rename/create-rename-command.ts" ><b>createRenameCommand</b>&nbsp;&nbsp;&nbsp;(src/.../create-rename-command.ts)</a>
                         </li>
                         <li>
                             <a href="#parseReplace" title="src/lib/replace/parse-replace.ts" ><b>parseReplace</b>&nbsp;&nbsp;&nbsp;(src/.../parse-replace.ts)</a>
@@ -163,22 +163,22 @@
 
         </tbody>
     </table>
-</section>    <h3>src/lib/rename/parse-rename.ts</h3>
+</section>    <h3>src/lib/rename/create-rename-command.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="parseRename"></a>
+                    <a name="createRenameCommand"></a>
                     <span class="name">
-                        <span ><b>parseRename</b></span>
-                        <a href="#parseRename"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createRenameCommand</b></span>
+                        <a href="#createRenameCommand"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>parseRename(command: Command)</code>
+<code>createRenameCommand(command: Command)</code>
                 </td>
             </tr>
 
@@ -290,7 +290,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>rename(options: <a href="../undefineds/RenameOptions.html" target="_self">RenameOptions</a>)</code>
+<code>rename(options: <a href="../classes/RenameOptions.html" target="_self">RenameOptions</a>)</code>
                 </td>
             </tr>
 
@@ -299,7 +299,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Rename file</p>
+                        <div class="io-description"><p>Recursively(optional) rename files matched by the <a href="expression">expression</a> property in <a href="../classes/RenameOptions.html">RenameOptions</a>.</p>
 </div>
 
                             <div class="io-description">
@@ -318,7 +318,7 @@
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#RenameOptions" target="_self" >RenameOptions</a></code>
+                                                            <code><a href="../classess/RenameOptions.html" target="_self" >RenameOptions</a></code>
                                             </td>
 
                                             <td>
@@ -327,7 +327,7 @@
 
 
                                             <td>
-                                                    <p><a href="../miscellaneous/typealiases.html#RenameOptions">RenameOptions</a></p>
+                                                    <p><a href="../classes/RenameOptions.html">RenameOptions</a></p>
 
                                             </td>
                                         </tr>
@@ -339,7 +339,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li><void>{@link Promise}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>

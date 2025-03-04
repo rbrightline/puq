@@ -124,7 +124,7 @@
                             <a href="#BeforeProperty" title="src/lib/custom/before-property.ts" ><b>BeforeProperty</b>&nbsp;&nbsp;&nbsp;(src/.../before-property.ts)</a>
                         </li>
                         <li>
-                            <a href="#BigIntValiation" title="src/lib/decorator/bigint.ts" ><b>BigIntValiation</b>&nbsp;&nbsp;&nbsp;(src/.../bigint.ts)</a>
+                            <a href="#BigIntValidation" title="src/lib/decorator/bigint.ts" ><b>BigIntValidation</b>&nbsp;&nbsp;&nbsp;(src/.../bigint.ts)</a>
                         </li>
                         <li>
                             <a href="#BooleanValidation" title="src/lib/decorator/boolean.ts" ><b>BooleanValidation</b>&nbsp;&nbsp;&nbsp;(src/.../boolean.ts)</a>
@@ -309,7 +309,7 @@
             <tr>
                 <td class="col-md-4">
                         <div class="io-description"><p>Property validation decorator
-For more secure and reliable input validation, set <code>client_max_body_size</code> in the nginx server
+For more secure and reliable input validation, set <code>client_max_body_size</code> in the server configuration
 Also for Irregular, store and ban the IP addresses</p>
 </div>
 
@@ -626,16 +626,16 @@ Also for Irregular, store and ban the IP addresses</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="BigIntValiation"></a>
+                    <a name="BigIntValidation"></a>
                     <span class="name">
-                        <span ><b>BigIntValiation</b></span>
-                        <a href="#BigIntValiation"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>BigIntValidation</b></span>
+                        <a href="#BigIntValidation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>BigIntValiation(options: BigIntegerOptions, valiationOptions?: Readonly)</code>
+<code>BigIntValidation(options: BigIntegerOptions, validationOptions?: Readonly)</code>
                 </td>
             </tr>
 
@@ -670,7 +670,7 @@ Also for Irregular, store and ban the IP addresses</p>
 
                                         </tr>
                                         <tr>
-                                                <td>valiationOptions</td>
+                                                <td>validationOptions</td>
                                             <td>
                                                         <code>Readonly</code>
                                             </td>
@@ -872,7 +872,7 @@ Also for Irregular, store and ban the IP addresses</p>
                 <td class="col-md-4">
                         <div class="io-description"><p>The decorator controls the following properties.</p>
 <ul>
-<li><strong>requried or optional</strong>: All values are optional by default unless required is set true</li>
+<li><strong>required or optional</strong>: All values are optional by default unless required is set true</li>
 <li><strong>exclude or expose</strong>: Unless expose is set false, value is always exposed by default</li>
 <li><strong>default value</strong>: Default value is used when the input is undefined</li>
 </ul>
@@ -1557,7 +1557,7 @@ Also for Irregular, store and ban the IP addresses</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Vadliate the date is after the constraint date</p>
+                        <div class="io-description"><p>Validate the date is after the constraint date</p>
 </div>
 
                             <div class="io-description">
@@ -1643,7 +1643,7 @@ Also for Irregular, store and ban the IP addresses</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Vadliate the date is after the constraint date</p>
+                        <div class="io-description"><p>Validate the date is after the constraint date</p>
 </div>
 
                             <div class="io-description">
@@ -1806,7 +1806,7 @@ Also for Irregular, store and ban the IP addresses</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Valiate that the property and the target property are not allowed together</p>
+                        <div class="io-description"><p>Validate that the property and the target property are not allowed together</p>
 </div>
 
                             <div class="io-description">
@@ -2703,7 +2703,7 @@ Also for Irregular, store and ban the IP addresses</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Add string specific validation decorators such as <code>MinLength</code> and <code>MaxLength</code></p>
+                        <div class="io-description"><p>String property validation decorator</p>
 </div>
 
                             <div class="io-description">
@@ -2715,6 +2715,7 @@ Also for Irregular, store and ban the IP addresses</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2729,6 +2730,12 @@ Also for Irregular, store and ban the IP addresses</p>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li><a href="StringOptions">StringOptions</a></li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationOptions</td>
@@ -2741,6 +2748,12 @@ Also for Irregular, store and ban the IP addresses</p>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li><a href="ValidationOptions">ValidationOptions</a></li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2750,7 +2763,10 @@ Also for Irregular, store and ban the IP addresses</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>{@link PropertyDecorator}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>

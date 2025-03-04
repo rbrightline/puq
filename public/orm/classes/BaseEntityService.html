@@ -134,7 +134,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repo: Repository<T>)</code>
+<code>constructor(repository: Repository<T>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -157,7 +157,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>repo</td>
+                                                        <td>repository</td>
                                                   
                                                         <td>
                                                                     <code>Repository&lt;T&gt;</code>
@@ -192,7 +192,7 @@
 import type { BaseEntity } from &#x27;../entity/base.js&#x27;;
 
 export class BaseEntityService&lt;T extends BaseEntity&gt; {
-  constructor(protected readonly repo: Repository&lt;T&gt;) {}
+  constructor(protected readonly repository: Repository&lt;T&gt;) {}
 }
 </code></pre>
     </div>

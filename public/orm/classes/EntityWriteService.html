@@ -374,8 +374,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/lib/service/write.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/lib/service/write.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -577,8 +577,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/lib/service/write.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/lib/service/write.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -713,8 +713,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/lib/service/write.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/lib/service/write.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -1035,6 +1035,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1049,6 +1050,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p><a href="QueryOne">QueryOne</a></p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1160,49 +1165,65 @@ import { EntityReadService } from &#x27;./read.js&#x27;;
  * Write service
  */
 export class EntityWriteService&lt;
-  T extends BaseEntity
+  T extends BaseEntity,
 &gt; extends EntityReadService&lt;T&gt; {
   save(entity: T): Promise&lt;T&gt; {
-    return this.repo.save(entity);
+    return this.repository.save(entity);
   }
 
   saveMany(entities: T[]): Promise&lt;T[]&gt; {
-    return this.repo.save(entities);
+    return this.repository.save(entities);
   }
 
   update(id: number, entity: QueryDeepPartialEntity&lt;T&gt;) {
-    return this.repo.update(id, entity);
+    return this.repository.update(id, entity);
   }
 
   delete(id: number) {
-    return this.repo.delete(id);
+    return this.repository.delete(id);
   }
 
   softDelete(id: number) {
-    return this.repo.softDelete(id);
+    return this.repository.softDelete(id);
   }
 
   async addRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
-    const { id, rid, rn } &#x3D; relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).add(rid);
+    const { id, relationId, relationName } &#x3D; relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .add(relationId);
     return { affected: 1 };
   }
 
   async removeRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
-    const { id, rid, rn } &#x3D; relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).remove(rid);
+    const { id, relationId, relationName: relationName } &#x3D; relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .remove(relationId);
     return { affected: 1 };
   }
 
   async setRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
-    const { id, rid, rn } &#x3D; relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).set(rid);
+    const { id, relationId, relationName } &#x3D; relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .set(relationId);
     return { affected: 1 };
   }
 
   async unsetRelation(relation: UnsetRelationParam): Promise&lt;UpdateResult&gt; {
-    const { id, rn } &#x3D; relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).set(null);
+    const { id, relationName } &#x3D; relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .set(null);
     return { affected: 1 };
   }
 }

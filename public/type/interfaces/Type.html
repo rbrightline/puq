@@ -126,6 +126,22 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Represents a constructor function that creates instances of type <code>T</code>.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">```typescript
+class User {
+  constructor(name: string) {
+    this.name = name;
+  }
+  name: string;
+}
+const UserConstructor: Type&lt;User&gt; = User;
+const user = new UserConstructor(&#39;Alice&#39;);
+console.log(user.name); // &#39;Alice&#39;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-none"></code></pre></div>
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -141,8 +157,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Type&lt;T &#x3D; any&gt; extends Function {
-  new(...args: any[]): T;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Type&lt;T &#x3D; unknown&gt; extends Function {
+  new (...args: unknown[]): T;
 }
 </code></pre>
     </div>

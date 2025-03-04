@@ -112,13 +112,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#getLoggerToken" title="src/lib/logger/provider.ts" ><b>getLoggerToken</b>&nbsp;&nbsp;&nbsp;(src/.../provider.ts)</a>
+                            <a href="#getLoggerToken" title="src/lib/providers/logger.provider.ts" ><b>getLoggerToken</b>&nbsp;&nbsp;&nbsp;(src/.../logger.provider.ts)</a>
                         </li>
                         <li>
-                            <a href="#InjectLogger" title="src/lib/logger/provider.ts" ><b>InjectLogger</b>&nbsp;&nbsp;&nbsp;(src/.../provider.ts)</a>
+                            <a href="#InjectLogger" title="src/lib/providers/logger.provider.ts" ><b>InjectLogger</b>&nbsp;&nbsp;&nbsp;(src/.../logger.provider.ts)</a>
                         </li>
                         <li>
-                            <a href="#provideLogger" title="src/lib/logger/provider.ts" ><b>provideLogger</b>&nbsp;&nbsp;&nbsp;(src/.../provider.ts)</a>
+                            <a href="#provideLogger" title="src/lib/providers/logger.provider.ts" ><b>provideLogger</b>&nbsp;&nbsp;&nbsp;(src/.../logger.provider.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -127,7 +127,7 @@
     </table>
 </section>
 
-    <h3>src/lib/logger/provider.ts</h3>
+    <h3>src/lib/providers/logger.provider.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -142,7 +142,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getLoggerToken(target: Type)</code>
+<code>getLoggerToken(targetName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -151,6 +151,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Generates a unique logger token based on the target class name</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -161,13 +163,14 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>target</td>
+                                                <td>targetName</td>
                                             <td>
-                                                        <code>Type</code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
 
                                             <td>
@@ -175,6 +178,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Name of the target class</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -184,7 +193,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Unique logger token string</p>
+
                             </div>
                 </td>
             </tr>
@@ -203,7 +213,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>InjectLogger(target: Type)</code>
+<code>InjectLogger()</code>
                 </td>
             </tr>
 
@@ -212,40 +222,18 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Inject logger in constructor</p>
+</div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>target</td>
-                                            <td>
-                                                        <code>Type</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
                             <b>Returns : </b>    <code>ParameterDecorator</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>{@link ParameterDecorator}</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -273,6 +261,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Creates a logger provider for a specific class with customized logger implementation</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -284,6 +274,7 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -300,6 +291,12 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <ul>
+<li>Target class (service or controller)</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>logger</td>
@@ -315,6 +312,12 @@
                                                     <code>Logger</code>
                                             </td>
 
+                                            <td>
+                                                    <ul>
+<li>Custom logger implementation (defaults to NestJS Logger)</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -324,7 +327,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Configured logger provider</p>
+
                             </div>
                 </td>
             </tr>

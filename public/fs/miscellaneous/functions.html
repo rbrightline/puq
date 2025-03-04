@@ -141,6 +141,9 @@
                         <li>
                             <a href="#segments" title="src/lib/segments.ts" ><b>segments</b>&nbsp;&nbsp;&nbsp;(src/.../segments.ts)</a>
                         </li>
+                        <li>
+                            <a href="#toRelativePath" title="src/lib/to-relative-path.ts" ><b>toRelativePath</b>&nbsp;&nbsp;&nbsp;(src/.../to-relative-path.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -163,7 +166,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dirs(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
+<code>dirs(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/CommonFileOptions.html" target="_self">CommonFileOptions</a>)</code>
                 </td>
             </tr>
 
@@ -172,7 +175,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>List all directories under the provided <a href="root">root</a> directory</p>
+                        <div class="io-description"><p>Asynchronously retrieves an array of directory paths starting from a root directory.
+Can operate recursively and return either absolute or relative paths based on options.</p>
 </div>
 
                             <div class="io-description">
@@ -200,14 +204,16 @@
 
 
                                             <td>
-                                                    <p>root directory to search for sub directories</p>
+                                                    <ul>
+<li>The root directory path to start the search from</li>
+</ul>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#CommonFileOptions" target="_self" >CommonFileOptions</a></code>
                                             </td>
 
                                             <td>
@@ -216,6 +222,10 @@
 
 
                                             <td>
+                                                    <ul>
+<li>Optional configuration for directory traversal</li>
+</ul>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -226,7 +236,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>list of directory paths</p>
+                                <p>A promise that resolves to an array of directory paths</p>
 
                             </div>
                 </td>
@@ -248,7 +258,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>files(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
+<code>files(root: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/CommonFileOptions.html" target="_self">CommonFileOptions</a>)</code>
                 </td>
             </tr>
 
@@ -257,7 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>List all files under the provided <a href="root">root</a> directory</p>
+                        <div class="io-description"><p>Asynchronously retrieves an array of file paths starting from a root directory.
+Supports recursive searching and can return either absolute or relative paths.</p>
 </div>
 
                             <div class="io-description">
@@ -285,14 +296,16 @@
 
 
                                             <td>
-                                                    <p>root directory to search for files</p>
+                                                    <ul>
+<li>The root directory path to start the search from. Can be relative or absolute.</li>
+</ul>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#CommonFileOptions" target="_self" >CommonFileOptions</a></code>
                                             </td>
 
                                             <td>
@@ -301,6 +314,10 @@
 
 
                                             <td>
+                                                    <ul>
+<li>Optional configuration for file traversal</li>
+</ul>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -311,7 +328,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>list of file paths</p>
+                                <p>A promise that resolves to an array of file paths</p>
 
                             </div>
                 </td>
@@ -333,7 +350,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findFile(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/IOptions.html" target="_self">IOptions</a>)</code>
+<code>findFile(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/CommonFileOptions.html" target="_self">CommonFileOptions</a>)</code>
                 </td>
             </tr>
 
@@ -342,7 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find the first matching file with the <a href="filepath">filepath</a>. The filename in the <a href="filepath">filepath</a> might be <a href="RegExp">RegExp</a> string such as <code>\.ts</code></p>
+                        <div class="io-description"><p>Asynchronously finds the first file matching a given filepath pattern.
+The filename portion can include RegExp-style patterns (e.g., &#39;.ts$&#39;).</p>
 </div>
 
                             <div class="io-description">
@@ -370,14 +388,16 @@
 
 
                                             <td>
-                                                    <p>filepath to search under the directory</p>
+                                                    <ul>
+<li>The file path or pattern to search for. Can be absolute or relative.</li>
+</ul>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#CommonFileOptions" target="_self" >CommonFileOptions</a></code>
                                             </td>
 
                                             <td>
@@ -386,7 +406,9 @@
 
 
                                             <td>
-                                                    <p><a href="../miscellaneous/typealiases.html#IOptions">IOptions</a></p>
+                                                    <ul>
+<li>Optional configuration for file searching, extends CommonFileOptions</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -394,11 +416,11 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Promise&lt;string | never&gt;</code>
+                            <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
 
                         </div>
                             <div class="io-description">
-                                <p>file path</p>
+                                <p>A promise that resolves to the absolute path of the first matching file</p>
 
                             </div>
                 </td>
@@ -420,7 +442,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findFiles(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../miscellaneouss/IOptions.html" target="_self">IOptions</a>)</code>
+<code>findFiles(filepath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options?: <a href="../undefineds/CommonFileOptions.html" target="_self">CommonFileOptions</a>)</code>
                 </td>
             </tr>
 
@@ -429,7 +451,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Find all files matching with the <a href="filepath">filepath</a>.</p>
+                        <div class="io-description"><p>Asynchronously finds all files matching a given filepath pattern.
+The filename portion can include RegExp-style patterns (e.g., &#39;.ts$&#39;).</p>
 </div>
 
                             <div class="io-description">
@@ -457,14 +480,16 @@
 
 
                                             <td>
-                                                    <p>file path. Filename part might be regular expression such as <code>\.ts</code></p>
+                                                    <ul>
+<li>The file path or pattern to search for. Can be absolute or relative.</li>
+</ul>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#IOptions" target="_self" >IOptions</a></code>
+                                                            <code><a href="../miscellaneous/typealiases.html#CommonFileOptions" target="_self" >CommonFileOptions</a></code>
                                             </td>
 
                                             <td>
@@ -473,6 +498,10 @@
 
 
                                             <td>
+                                                    <ul>
+<li>Optional configuration for file searching, extends CommonFileOptions</li>
+</ul>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -483,7 +512,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A promise that resolves to an array of matching file paths</p>
+
                             </div>
                 </td>
             </tr>
@@ -513,7 +543,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Checkt he filepath is a directory</p>
+                        <div class="io-description"><p>Asynchronously checks if the provided filepath points to a directory.</p>
 </div>
 
                             <div class="io-description">
@@ -525,6 +555,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -539,6 +570,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The path to check. Can be absolute or relative.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -548,7 +585,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>if the {@link filepath} is a directory, then return true, else false</p>
+                                <p>A promise that resolves to true if the path is a directory, false otherwise</p>
 
                             </div>
                 </td>
@@ -579,7 +616,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Check the path is file</p>
+                        <div class="io-description"><p>Asynchronously checks if the provided filepath points to a file.</p>
 </div>
 
                             <div class="io-description">
@@ -591,6 +628,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -605,6 +643,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The path to check. Can be absolute or relative.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -614,7 +658,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>if the {@link filepath} is a file, then return <code>true</code>, else <code>false</code></p>
+                                <p>A promise that resolves to true if the path is a directory, false otherwise</p>
 
                             </div>
                 </td>
@@ -645,7 +689,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Read and parse <code>json</code> file</p>
+                        <div class="io-description"><p>Asynchronously reads and parses a JSON file, returning its contents as a typed object.</p>
 </div>
 
                             <div class="io-description">
@@ -673,7 +717,9 @@
 
 
                                             <td>
-                                                    <p>filepath</p>
+                                                    <ul>
+<li>The path to the JSON file. Can be absolute or relative.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -685,7 +731,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>object {@link T}</p>
+                                <p>A promise that resolves to the parsed JSON content typed as T</p>
 
                             </div>
                 </td>
@@ -716,7 +762,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Read and parse <code>yaml</code> file</p>
+                        <div class="io-description"><p>Asynchronously reads and parses a YAML file, returning its contents as a typed object.</p>
 </div>
 
                             <div class="io-description">
@@ -744,7 +790,9 @@
 
 
                                             <td>
-                                                    <p>file path</p>
+                                                    <ul>
+<li>The path to the YAML file. Can be absolute or relative.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -756,7 +804,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>object {@link T}</p>
+                                <p>A promise that resolves to the parsed YAML content typed as T</p>
 
                             </div>
                 </td>
@@ -787,7 +835,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Create a scoped path resolver that prevents access to outer directories by throwing <a href="ErrorCode.Unauthorized">ErrorCode.Unauthorized</a>.</p>
+                        <div class="io-description"><p>Creates a scoped path resolver that restricts path resolution to within a specified root directory.
+Prevents access to outer directories by throwing an error if resolution attempts to escape the scope.</p>
 </div>
 
                             <div class="io-description">
@@ -815,7 +864,9 @@
                                             </td>
 
                                             <td>
-                                                    <p>scoped directory path</p>
+                                                    <ul>
+<li>The root directory to scope path resolution to. Defaults to the current working directory.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -827,7 +878,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>scoped resolver {@link ScopeResolver}</p>
+                                <p>A scoped resolver function conforming to {@link ScopeResolver}</p>
 
                             </div>
                 </td>
@@ -858,7 +909,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Split path into segments</p>
+                        <div class="io-description"><p>Splits a file path into an array of path segments.
+Normalizes the path before splitting to ensure consistent separators and formatting.</p>
 </div>
 
                             <div class="io-description">
@@ -886,7 +938,9 @@
 
 
                                             <td>
-                                                    <p>filepath</p>
+                                                    <ul>
+<li>The file path to split into segments. Can be absolute or relative.</li>
+</ul>
 
                                             </td>
                                         </tr>
@@ -894,12 +948,98 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>string[]</code>
+                            <b>Returns : </b>    <code>Array&lt;string&gt;</code>
 
                         </div>
                             <div class="io-description">
-                                <p>segment string array</p>
+                                <ul>
+<li><string>{@link Array} An array of path segments</li>
+</ul>
 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/to-relative-path.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toRelativePath"></a>
+                    <span class="name">
+                        <span ><b>toRelativePath</b></span>
+                        <a href="#toRelativePath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toRelativePath(rootPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, childPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Converts an absolute child path to a relative path based on a root path.
+Ensures the child path is within the root path and returns a normalized relative path.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rootPath</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The root directory path to base the relative path on</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>childPath</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The absolute path to convert to relative form</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                 </td>
             </tr>

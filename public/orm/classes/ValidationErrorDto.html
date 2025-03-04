@@ -123,6 +123,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Validation error dto</p>
+
+            </p>
 
 
             <p class="comment">
@@ -199,10 +206,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/lib/dto/validation-error.dto.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/lib/dto/validation-error.dto.ts:60</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>List of validation errors <a href="../classes/SingleValidationErrorDto.html">SingleValidationErrorDto</a></p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -226,6 +239,9 @@
 import { Dto, Property } from &#x27;@puq/property&#x27;;
 import { HttpErrorDto } from &#x27;./http-error.dto.js&#x27;;
 
+/**
+ * Validation error constraints dto
+ */
 @Dto()
 export class ValidationConstraintsDto implements ValidationConstraints {
   @Property({ type: &#x27;string&#x27; }) min?: string;
@@ -242,18 +258,34 @@ export class ValidationConstraintsDto implements ValidationConstraints {
   @Property({ type: &#x27;string&#x27; }) arrayMaxSize?: string;
 }
 
+/**
+ * Single validation error dto
+ */
 @Dto()
 export class SingleValidationErrorDto implements SingleValidationError {
+  /**
+   * The related property of the error
+   */
   @Property({ type: &#x27;string&#x27; }) property?: string;
+
+  /**
+   * The error constraints {@link ValidationConstraintsDto}
+   */
   @Property({ type: &#x27;object&#x27;, target: () &#x3D;&gt; ValidationConstraintsDto })
   constraints?: ValidationConstraintsDto;
 }
 
+/**
+ * Validation error dto
+ */
 @Dto()
 export class ValidationErrorDto
   extends HttpErrorDto
   implements ValidationErrorResult
 {
+  /**
+   * List of validation errors {@link SingleValidationErrorDto}
+   */
   @Property({
     type: &#x27;array&#x27;,
     items: { type: &#x27;object&#x27;, target: () &#x3D;&gt; SingleValidationErrorDto },

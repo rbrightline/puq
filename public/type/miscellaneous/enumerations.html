@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>core</title>
+        <title>type</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">core</a>
+                    <a href="../" class="navbar-brand">type</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -79,7 +79,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content miscellaneous-variables">
+               <div class="content miscellaneous-enumerations">
                    <div class="content-data">
 
 
@@ -101,7 +101,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Miscellaneous</li>
-  <li class="breadcrumb-item">Variables</li>
+  <li class="breadcrumb-item">Enumerations</li>
 </ol>
 
 <section data-compodoc="block-index">
@@ -112,10 +112,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#GlobalValidationPipe" title="src/lib/pipes/global-validation-pipe.ts" ><b>GlobalValidationPipe</b>&nbsp;&nbsp;&nbsp;(src/.../global-validation-pipe.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#LOGGER_TOKEN_SUFFIX" title="src/lib/providers/logger.provider.ts" ><b>LOGGER_TOKEN_SUFFIX</b>&nbsp;&nbsp;&nbsp;(src/.../logger.provider.ts)</a>
+                            <a href="#InputType" title="src/lib/ui/input-type.ts" ><b>InputType</b>&nbsp;&nbsp;&nbsp;(src/.../input-type.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -124,70 +121,169 @@
     </table>
 </section>
 
-    <h3>src/lib/pipes/global-validation-pipe.ts</h3>
-    <section data-compodoc="block-properties">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="GlobalValidationPipe"></a>
-                    <span class="name">
-                        <span ><b>GlobalValidationPipe</b></span>
-                        <a href="#GlobalValidationPipe"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
+    <h3>src/lib/ui/input-type.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new ValidationPipe({
-  transform: true,
-  stopAtFirstError: true,
-  transformOptions: {
-    exposeUnsetFields: false,
-  },
-  validationError: {
-    target: false,
-    value: false,
-  },
-  exceptionFactory(errors) {
-    throw new UnprocessableEntityException({ errors });
-  },
-})</code>
+                        <a name="InputType"></a>
+                        <span class="name "><b>InputType</b><a href="#InputType"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>src/lib/providers/logger.provider.ts</h3>
-    <section data-compodoc="block-properties">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="LOGGER_TOKEN_SUFFIX"></a>
-                    <span class="name">
-                        <span ><b>LOGGER_TOKEN_SUFFIX</b></span>
-                        <a href="#LOGGER_TOKEN_SUFFIX"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Logger&#x27;</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Represents all valid <code>type</code> attribute values for an HTML <code>&lt;input&gt;</code> element.</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEXT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>1</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEXTAREA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEXT_EDITOR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;AUTOCOMPLETE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PASSWORD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CHECKBOX
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CHECKBOX_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RADIO
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SUBMIT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RESET
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;BUTTON
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;FILE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;HIDDEN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;IMAGE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NUMBER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RANGE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COLOR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DATE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DATETIME_LOCAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TIME
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MONTH
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;WEEK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EMAIL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;URL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SEARCH
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SELECT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SELECT_MULTIPLE
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
 </section>
 
 
@@ -217,8 +313,8 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
-            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-enumerations';
+            var COMPODOC_CURRENT_PAGE_URL = 'enumerations.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
