@@ -12,7 +12,7 @@ import {
 } from 'class-validator';
 
 /**
- * Vadliate the date is after the constraint date
+ * Validate the date is after the constraint date
  * @ignore
  */
 @ValidatorConstraint({ name: 'minISODate', async: false })
@@ -38,7 +38,7 @@ export class MinISODateConstraint implements ValidatorConstraintInterface {
 }
 
 /**
- * Vadliate the date is after the constraint date
+ * Validate the date is after the constraint date
  * @param isoDate ISO8601 date string new Date().toISOString()
  * @param validationOptions {@link ValidationOptions}
  * @returns

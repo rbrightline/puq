@@ -16,9 +16,9 @@ export class MaxDigitsConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: ValidationArguments) {
     if (typeof value != 'bigint') return true;
 
-    const strValue = value + '';
+    const stringValue = value + '';
 
-    const [w, d] = strValue.split('.');
+    const [w, d] = stringValue.split('.');
 
     if (w && w.length > args.constraints[0]) return false;
 

@@ -8,7 +8,7 @@ import { NotWithProperty } from '../custom/not-with-property.js';
 
 /**
  * The decorator controls the following properties.
- * - **requried or optional**: All values are optional by default unless required is set true
+ * - **required or optional**: All values are optional by default unless required is set true
  * - **exclude or expose**: Unless expose is set false, value is always exposed by default
  * - **default value**: Default value is used when the input is undefined
  * @param options

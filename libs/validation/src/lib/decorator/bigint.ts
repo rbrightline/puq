@@ -6,7 +6,7 @@ import { Transform } from 'class-transformer';
 
 export function BigIntValidation(
   options: BigIntegerOptions,
-  valiationOptions?: Readonly<ValidationOptions>,
+  validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (t, p) => {
     if (options.acceptString == true) {
@@ -27,6 +27,6 @@ export function BigIntValidation(
       })(t, p);
     }
 
-    MaxDigits(50, 50, valiationOptions)(t, p);
+    MaxDigits(50, 50, validationOptions)(t, p);
   };
 }

@@ -9,7 +9,7 @@ import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
 /**
  * @ignore
- * Valiate that the property and the target property are not allowed together
+ * Validate that the property and the target property are not allowed together
  */
 @ValidatorConstraint({ name: 'notWithProperty', async: false })
 export class NotWithPropertyConstraint implements ValidatorConstraintInterface {
@@ -27,7 +27,7 @@ export class NotWithPropertyConstraint implements ValidatorConstraintInterface {
 }
 
 /**
- * Valiate that the property and the target property are not allowed together
+ * Validate that the property and the target property are not allowed together
  */
 export function NotWithProperty(
   targetPropertyName: string,

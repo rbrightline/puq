@@ -16,9 +16,9 @@ export class MaxDecimalsConstraint implements ValidatorConstraintInterface {
   validate(value: any, args: ValidationArguments) {
     if (typeof value != 'number') return true;
 
-    const strValue = value + '';
+    const stringValue = value + '';
 
-    const [, d] = strValue.split('.');
+    const [, d] = stringValue.split('.');
 
     if (d && d.length > args.constraints[0]) return false;
 
