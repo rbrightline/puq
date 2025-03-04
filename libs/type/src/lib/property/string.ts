@@ -47,6 +47,11 @@ export type __StringOptions = {
    * Check the string not contain
    */
   notContain?: string[];
+
+  /**
+   * Regular expression pattern {@link RegExp}
+   */
+  pattern?: string;
 };
 
 export type StringOptions = Readonly<CommonOptions<string> & __StringOptions>;

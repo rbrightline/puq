@@ -6,7 +6,7 @@
     "access": "public",
     "tag": "latest"
   },
-  "description": "<%- fileName %>",
+  "description": "- [ ] add description for <%- fileName %>",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -14,7 +14,8 @@
   },
   "keywords": [
     "puq",
-    "<%- fileName %>"
+    "<%- fileName %>",
+    "- [ ] add keywords for <%- fileName %>"
   ],
   "repository": {
     "directory": "<%- target %>",
@@ -27,7 +28,8 @@
     "url": "https://rbrightline.github.io"
   },
   "categories": [
-    "Other"
+    "Other",
+    "- [ ] add categories for <%- fileName %>"
   ],
   "contributors": [
     {
@@ -82,9 +84,8 @@
     }
   },
   "dependencies":{ 
+    "@swc/helpers": "^0.5.15",
+    "@puq/debug": "workspace:^",
     "commander": "^13.1.0"
-  },
-  "devDependencies": {
-    "@swc/helpers": "~0.5.11"
   }
 }

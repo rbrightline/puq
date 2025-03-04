@@ -1,4 +1,4 @@
-import { <%- className %>Model } from '@puq/model';
+import type { <%- className %>Model } from '@puq/model';
 import { Entity, Column, BaseEntity } from '@puq/orm';
 
 @Entity()

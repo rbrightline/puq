@@ -24,6 +24,7 @@ export async function entityGenerator(
     relations: '// relations',
     columns: '// columns',
     viewColumns: '// viewColumns',
+    actualGenerics: '/* generics */',
   });
   await formatFiles(tree);
 }

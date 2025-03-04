@@ -1,9 +1,9 @@
+import type { RenameOptions } from './rename-options.js';
 import { debug } from '@puq/debug';
 import { Command } from 'commander';
-import type { RenameOptions } from './rename.js';
 import { rename } from './rename.js';
 
-export function parseRename(command: Command) {
+export function createRenameCommand(command: Command) {
   command
 
     .command('rename')

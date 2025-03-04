@@ -1,6 +1,6 @@
 import type { KeyOf, SomeRecord } from '@puq/type';
 import { entries } from './entries.js';
-
+// - [ ] add unit test
 /**
  * Omit the list of properties from {@link SomeRecord}
  * @param value - {@link SomeRecord}

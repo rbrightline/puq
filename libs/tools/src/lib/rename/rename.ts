@@ -1,95 +1,86 @@
-import { dirs, files } from '@puq/fs';
+import { dirs, files, scope } from '@puq/fs';
 import { rename as __rename } from 'fs/promises';
 import { join } from 'path';
-
 import { debug } from '@puq/debug';
-export type RenameOptions = {
-  /**
-   * The root directory of the file
-   */
-  directory?: string;
-
-  /**
-   * Regular expression string that matches the file names
-   */
-  expression: string;
-
-  /**
-   * New file name or replacement string
-   */
-  to: string[];
-
-  /**
-   * placeholder string (optional)
-   */
-  from?: string[];
-
-  /**
-   * filename suffix
-   */
-  suffix?: string;
-
-  /**
-   * filename prefix
-   */
-  prefix?: string;
-};
+import { cwd } from 'process';
+import { RenameOptions } from './rename-options.js';
 
 /**
- * Rename file
+ * Recursively(optional) rename files matched by the {@link expression} property in {@link RenameOptions}.
  * @param options {@link RenameOptions}
- * @returns
+ * @returns - {@link Promise<void>}
  */
 export async function rename(options: RenameOptions): Promise<void> {
-  const RX = new RegExp(options.expression);
-  const directory = options.directory ?? '.';
+  const resolve = scope(cwd());
+  const regularExpression = new RegExp(options.expression);
+  const directory = resolve(options.directory ?? '.');
   const prefix = options.prefix ?? '';
   const suffix = options.suffix ?? '';
 
-  debug({ ...options });
+  // Check prefix and suffix have escaping out of scope
+  resolve(prefix);
+  resolve(suffix);
+
+  debug({ ...options, regularExpression });
+
   debug({ suffix, prefix, directory });
 
-  const matchedFiles = await files(directory);
+  const foundFiles = await files(directory);
 
-  debug({ matchedFiles });
+  debug({ foundFiles });
 
-  if (matchedFiles.length == 0)
-    throw new Error(`No files found in the directory ${directory}`);
-
-  const operations = matchedFiles
-    .map(async (filename) => {
-      if (!RX.test(filename)) {
-        debug(`${filename} does not pass the expression test`);
-        return undefined;
+  {
+    if (options.recursive == true) {
+      const foundDirs = await dirs(directory);
+      if (foundDirs.length > 0) {
+        await Promise.all(
+          foundDirs.map(
+            async (d) =>
+              await rename({ ...options, directory: join(directory, d) }),
+          ),
+        );
       }
+    }
+  }
 
-      let newFileName = options.to[0];
+  if (foundFiles.length == 0) {
+    debug(
+      `There is no maching files with ${regularExpression} in the directory ${directory}`,
+    );
+    return;
+  }
 
-      debug({ newFileName });
+  const matchedFiles = foundFiles.filter((e) => regularExpression.test(e));
 
-      if (options.from) {
-        options.from.forEach((f, i) => {
-          newFileName = filename.replace(f, options.to[i] ?? options.to[0]);
-        });
-        debug({ newFileName });
-      }
+  const operations = matchedFiles.map(async (filename) => {
+    let newFilename = options.to[0];
 
-      const source = join(directory, filename);
-      const target = join(directory, [prefix, newFileName, suffix].join(''));
-      debug({ source, target });
-      await __rename(source, target);
-    })
-    .map((e) => e);
+    debug({ newFilename });
+
+    if (options.from) {
+      options.from.forEach((f, i) => {
+        newFilename = filename.replace(f, options.to[i] ?? options.to[0]);
+        debug({ filename, newFilename });
+      });
+    }
+
+    const source = join(directory, filename);
+    const target = join(directory, [prefix, newFilename, suffix].join(''));
+
+    debug({ source, target });
+
+    await __rename(source, target);
+
+    if (options.recursive == true) {
+      const foundDirs = await dirs(directory);
+
+      await Promise.all(
+        foundDirs.map((childDirectory) => {
+          return rename({ ...options, directory: childDirectory });
+        }),
+      );
+    }
+  });
 
   await Promise.all(operations);
-
-  const foundDirs = await dirs(directory);
-
-  if (foundDirs.length > 0) {
-    await Promise.all(
-      foundDirs.map((d) =>
-        rename({ ...options, directory: join(directory, d) })
-      )
-    );
-  }
 }

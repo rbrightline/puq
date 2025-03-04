@@ -388,11 +388,17 @@ importers:
   libs/tools:
     dependencies:
       '@puq/debug':
-        specifier: ^0.4.11
-        version: 0.4.11
+        specifier: workspace:^
+        version: link:../debug
+      '@puq/error':
+        specifier: workspace:^
+        version: link:../error
       '@puq/fs':
-        specifier: ^0.4.11
-        version: 0.4.11(@puq/debug@0.4.11)
+        specifier: workspace:^
+        version: link:../fs
+      '@puq/validation':
+        specifier: workspace:^
+        version: link:../validation
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
@@ -408,6 +414,9 @@ importers:
 
   libs/validation:
     dependencies:
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15

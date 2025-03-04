@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: __dirname,
   cacheDir: `../../node_modules/.vite/libs/tools`,
-  plugins: [],
   test: {
     watch: false,
     globals: true,
@@ -13,6 +12,9 @@ export default defineConfig({
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
+    },
+    env: {
+      DEBUG_MODE: 'true',
     },
   },
 });

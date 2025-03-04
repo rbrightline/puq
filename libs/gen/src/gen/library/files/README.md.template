@@ -6,7 +6,7 @@
 
 ## Summary
 
-<%- fileName %>
+- [ ] add summary for <%- fileName %>
 
 ## Install
 

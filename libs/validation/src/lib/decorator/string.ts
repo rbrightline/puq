@@ -13,18 +13,21 @@ import {
   NotContains,
 } from 'class-validator';
 import { StringFormatValidation } from './string-format.js';
+import { isDefined } from '@puq/is';
+
+export const DEFAULT_MAX_STRING_LENGTH = 5000;
 
 /**
- * Add string specific validation decorators such as `MinLength` and `MaxLength`
- * @param options
- * @param validationOptions
- * @returns
+ * String property validation decorator
+ * @param options - {@link StringOptions}
+ * @param validationOptions - {@link ValidationOptions}
+ * @returns - {@link PropertyDecorator}
  */
 export function StringValidation(
   options: StringOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (target, property) => {
     const {
       minLength,
       maxLength,
@@ -35,49 +38,54 @@ export function StringValidation(
       notContain,
       startWith,
       endWith,
+      pattern,
     } = options;
 
-    IsString(validationOptions)(t, p);
+    IsString(validationOptions)(target, property);
 
-    if (minLength != undefined) MinLength(minLength, validationOptions)(t, p);
+    isDefined(minLength) &&
+      MinLength(minLength, validationOptions)(target, property);
 
-    if (maxLength != undefined) MaxLength(maxLength, validationOptions)(t, p);
-    else MaxLength(5000);
+    (isDefined(maxLength) &&
+      MaxLength(maxLength, validationOptions)(target, property)) ||
+      MaxLength(DEFAULT_MAX_STRING_LENGTH);
 
-    if (stringFormat != undefined)
-      StringFormatValidation(stringFormat, validationOptions)(t, p);
+    isDefined(stringFormat) &&
+      StringFormatValidation(stringFormat, validationOptions)(target, property);
 
-    if (enums != undefined) {
-      if (isArray(enums)) {
-        IsIn(enums, validationOptions)(t, p);
-      } else {
-        IsEnum(enums, validationOptions)(t, p);
-      }
-    }
+    isDefined(enums) &&
+      ((isArray(enums) && IsIn(enums, validationOptions)(target, property)) ||
+        IsEnum(enums, validationOptions)(target, property));
 
-    if (notIn != undefined) IsNotIn(notIn, validationOptions)(t, p);
+    isDefined(notIn) && IsNotIn(notIn, validationOptions)(target, property);
 
-    if (contain != undefined) {
-      contain.forEach((e) => {
-        if (e != undefined) Contains(e, validationOptions)(t, p);
-      });
-    }
-
-    if (notContain != undefined)
-      notContain.forEach((e) => {
-        if (e != undefined) NotContains(e, validationOptions)(t, p);
+    isDefined(contain) &&
+      contain.forEach((each) => {
+        isDefined(each) && Contains(each, validationOptions)(target, property);
       });
 
-    if (startWith != undefined)
+    isDefined(notContain) &&
+      notContain.forEach((each) => {
+        isDefined(each) &&
+          NotContains(each, validationOptions)(target, property);
+      });
+
+    isDefined(startWith) &&
       Matches(new RegExp(`/^${startWith}/`), {
         ...validationOptions,
         message: `$property should start with ${startWith}`,
-      })(t, p);
+      })(target, property);
 
-    if (endWith != undefined)
+    isDefined(endWith) &&
       Matches(new RegExp(`/${endWith}$/`), {
         ...validationOptions,
         message: `$property should end with ${endWith}`,
-      })(t, p);
+      })(target, property);
+
+    isDefined(pattern) &&
+      Matches(new RegExp(pattern), {
+        ...validationOptions,
+        message: `$property should match the regular expression ${pattern}`,
+      })(target, property);
   };
 }
