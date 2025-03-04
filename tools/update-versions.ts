@@ -25,13 +25,7 @@ async function udpate() {
         }
       }
     }
-    if (content.devDependencies) {
-      for (const name in content.devDependencies) {
-        if (name.startsWith('@puq')) {
-          content.devDependencies[name] = `^${version}`;
-        }
-      }
-    }
+
     await writeFile(filepath, JSON.stringify(content));
   });
 }

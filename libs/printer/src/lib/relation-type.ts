@@ -1,17 +1,16 @@
 import type { RelationOptions } from '@puq/type';
-import { rval } from '@puq/is';
+import { isDefinedOrThrow } from '@puq/is';
 import { throwInvalidFieldError } from '@puq/error';
 
 /**
- * Determines the relation type string based on the provided options.
- *
- * @param {RelationOptions} options - The relation options containing type and target.
- * @returns {string} A string representation of the relation type.
+ * Determine the actual typescript type for {@link RelationOptions}
+ * @param options - {@link RelationOptions}
+ * @returns - {@link string}
  */
 export function relationType(options: RelationOptions): string {
-  rval(options);
-  rval(options.type);
-  rval(options.target);
+  isDefinedOrThrow(options);
+  isDefinedOrThrow(options.type);
+  isDefinedOrThrow(options.target);
 
   switch (options.type) {
     case 'many-to-one':

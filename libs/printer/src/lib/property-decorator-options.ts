@@ -1,24 +1,16 @@
+import { omit } from '@puq/is';
 import type { PropertyOptions } from '@puq/type';
 
 /**
  * Serializes property decorator options to a JSON-CODE string with special handling for target properties
- * @param options Property decorator configuration
- * @returns Formatted JSON string with function notation for targets
+ * @param options - {@link PropertyOptions}
+ * @returns - {@link string} JSON string
  */
 export function propertyDecoratorOptions(options: PropertyOptions): string {
-  // Destructure options, excluding 'name'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { name, ...restOptions } = options;
-
-  // Convert remaining options to JSON string
-  const optionsString = JSON.stringify(restOptions);
-
-  // Handle target conversion for specific types
-  const target = getTargetString(options);
-
-  if (target) return replaceTargetWithFunction(optionsString, target);
-
-  return optionsString;
+  return replaceTargetWithFunction(
+    JSON.stringify(omit(options, ['name'])),
+    getTargetString(options),
+  );
 }
 
 /**
@@ -26,7 +18,7 @@ export function propertyDecoratorOptions(options: PropertyOptions): string {
  * @param options Property options to inspect
  * @returns Target string if applicable, undefined otherwise
  */
-function getTargetString(options: PropertyOptions): string | undefined {
+function getTargetString(options: PropertyOptions): string {
   if (options.type === 'object') {
     return options.target?.toString();
   }
@@ -35,14 +27,14 @@ function getTargetString(options: PropertyOptions): string | undefined {
     return options.items.target.toString();
   }
 
-  return undefined;
+  return '';
 }
 
 /**
- * Replaces target string with function notation in JSON
+ * Replaces target option string with factory function
  * @param json Original JSON string
- * @param target Target string to replace
- * @returns Modified JSON string
+ * @param target - {@link string} target option in {@link PropertyOptions}
+ * @returns - {@link string} JSON string
  */
 function replaceTargetWithFunction(json: string, target: string): string {
   const searchPattern = `"target":"${target}"`;

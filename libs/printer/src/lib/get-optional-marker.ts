@@ -1,12 +1,14 @@
 import type { PropertyOptions } from '@puq/type';
 
+export type OptionalOrRequiredMark = '' | '?';
+
 /**
- * Determines if a property is optional based on its required status
- * @param options Configuration object containing required property
- * @returns '' if required, '?' if optional
+ * Return optional mark for optional property or empty string
+ * @param options - {@link PropertyOptions}
+ * @returns - {@link OptionalOrRequiredMark }
  */
 export function getOptionalMarker<T extends Pick<PropertyOptions, 'required'>>(
   options: T,
-): '' | '?' {
+): OptionalOrRequiredMark {
   return options.required === true ? '' : '?';
 }

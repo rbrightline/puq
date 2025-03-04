@@ -1,3 +1,5 @@
-export type <%- className %>RawModel = {
+
+export type <%- className %>RawModel<%- generics %> = {
   <%- properties %>
+  <%- relations %>
 };

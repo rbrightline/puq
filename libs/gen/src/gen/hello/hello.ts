@@ -1,5 +1,5 @@
 import type { HelloGeneratorSchema } from './schema.js';
-import { Tree } from '@nx/devkit';
+import type { Tree } from '@nx/devkit';
 
 export async function helloGenerator(
   tree: Tree,

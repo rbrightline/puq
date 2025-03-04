@@ -1,5 +1,6 @@
 import type { ClientGeneratorSchema } from './schema.js';
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { getName } from '@puq/gen-helper';
 
@@ -14,8 +15,8 @@ export async function clientGenerator(
 ) {
   const source = join(__dirname, 'files');
   const target = options.directory;
-  const ns = names(getName(options.directory));
-  generateFiles(tree, source, target, { ...ns });
+  const __names = names(getName(options.directory));
+  generateFiles(tree, source, target, { ...__names });
   await formatFiles(tree);
 }
 

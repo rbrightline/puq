@@ -1,6 +1,6 @@
-export type IOptions = {
+export type CommonFileOptions = {
   /**
-   * Determine the operation will recusively run for the sub directories.
+   * Determine the operation will recursively run for the sub directories.
    */
   recursive?: boolean;
 

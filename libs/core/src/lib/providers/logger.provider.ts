@@ -15,7 +15,7 @@ export function getLoggerToken(targetName: string): string {
 }
 
 /**
- * Creates a logger provider for a specific class with customizable logger implementation
+ * Creates a logger provider for a specific class with customized logger implementation
  * @template T - Type that extends Logger
  * @param target - Target class (service or controller)
  * @param logger - Custom logger implementation (defaults to NestJS Logger)

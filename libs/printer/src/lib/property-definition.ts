@@ -1,16 +1,14 @@
 import type { PropertyOptions } from '@puq/type';
 import { propertyType } from './property-type.js';
-import { rval } from '@puq/is';
+import { isDefinedOrThrow } from '@puq/is';
 import { getOptionalMarker } from './get-optional-marker.js';
 
 /**
- * Generates a TypeScript-like property definition (e.g., `name: string;`).
- *
- * @param {PropertyOptions} options - The property options including name, type, and optionality.
- * @returns {string} A formatted property definition string.
+ * Return property definition
+ * @param options - {@link PropertyOptions}
+ * @returns - {@link string} property definition such as `name: string;`
  */
-
 export function propertyDefinition(options: PropertyOptions): string {
-  const name = rval(options.name);
+  const name = isDefinedOrThrow(options.name);
   return `${name}${getOptionalMarker(options)}: ${propertyType(options)};`;
 }

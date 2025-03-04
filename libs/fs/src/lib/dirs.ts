@@ -1,7 +1,7 @@
-import { def } from '@puq/is';
+import { isDefined } from '@puq/is';
 import { readdir, stat } from 'fs/promises';
 import { normalize, resolve } from 'path';
-import { IOptions } from './io-options.js';
+import type { CommonFileOptions } from './common-file-options.js';
 
 /**
  * List all directories under the provided {@link root} directory
@@ -10,7 +10,7 @@ import { IOptions } from './io-options.js';
  */
 export async function dirs(
   root: string,
-  options?: IOptions
+  options?: CommonFileOptions,
 ): Promise<string[]> {
   root = resolve(root);
   const __readdir = await readdir(root);
@@ -31,7 +31,7 @@ export async function dirs(
 
   const foundDirs = await Promise.all(__readdirAsync);
 
-  const preresult = foundDirs.flat().filter(def);
+  const preresult = foundDirs.flat().filter(isDefined);
 
   if (options?.fullpath == true) return preresult;
 

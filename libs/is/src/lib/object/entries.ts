@@ -13,7 +13,13 @@ export type EntriesReturnType<T> = T extends string
     ? Array<[`${number}`, `${number}`]>
     : T extends bigint
       ? Array<[`${bigint}`, `${bigint}`]>
-      : never;
+      : T extends SomeRecord
+        ? Array<[unknown, unknown]>
+        : T extends EmptyClass
+          ? Array<[unknown, unknown]>
+          : T extends Array<unknown>
+            ? Array<[unknown, unknown]>
+            : never;
 
 /**
  * Extracts the enumerable `key-value` pairs of the {@link value}

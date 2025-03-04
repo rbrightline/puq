@@ -8,54 +8,54 @@ export class SampleObjectDto implements SampleObj {
 
 @Dto()
 export class CreateSampleDto implements CreateSampleModel {
-  @Property({ type: 'string', required: true }) str: string;
+  @Property({ type: 'string', required: true }) stringValue: string;
 
-  @Property({ type: 'number', required: true }) num: number;
+  @Property({ type: 'number', required: true }) numberValue: number;
 
-  @Property({ type: 'integer', required: true }) int: number;
+  @Property({ type: 'integer', required: true }) integerValue: number;
 
-  @Property({ type: 'boolean', required: true }) bool: boolean;
+  @Property({ type: 'boolean', required: true }) booleanValue: boolean;
 
-  @Property({ type: 'date', required: true }) date: Date;
+  @Property({ type: 'date', required: true }) dateValue: Date;
 
   @Property({ type: 'object', required: true, target: () => SampleObjectDto })
-  obj: SampleObjectDto;
+  objectValue: SampleObjectDto;
 
   @Property({
     type: 'array',
     required: true,
     items: { type: 'string', required: true },
   })
-  strArr: string[];
+  stringArray: string[];
 
   @Property({
     type: 'array',
     required: true,
     items: { type: 'number', required: true },
   })
-  numArr: number[];
+  numberArray: number[];
 
   @Property({
     type: 'array',
     required: true,
     items: { type: 'number', required: true },
   })
-  intArr: number[];
+  integerArray: number[];
 
   @Property({
     type: 'array',
     required: true,
     items: { type: 'boolean', required: true },
   })
-  boolArr: boolean[];
+  booleanArray: boolean[];
 
   @Property({
     type: 'array',
     required: true,
     items: { type: 'object', required: true, target: () => SampleObjectDto },
   })
-  objArr: SampleObjectDto[];
+  objectArray: SampleObjectDto[];
 
   @Property({ type: 'array', required: true, items: { type: 'date' } })
-  dateArr: Date[];
+  dateArray: Date[];
 }

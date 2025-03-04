@@ -1,16 +1,16 @@
 import type { GeneratorGeneratorSchema } from './schema.js';
+import type { Tree } from '@nx/devkit';
 import {
   addProjectConfiguration,
   formatFiles,
   generateFiles,
   names,
-  Tree,
 } from '@nx/devkit';
 import * as path from 'path';
 import { segments } from '@puq/fs';
 
 /**
- * Genereate a generator
+ * Generate a generator
  * @param tree
  * @param options
  */

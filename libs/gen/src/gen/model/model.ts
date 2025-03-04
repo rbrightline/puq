@@ -1,15 +1,8 @@
-import type { Model } from '@puq/type';
-import {
-  formatFiles,
-  generateFiles,
-  names,
-  Tree,
-  workspaceRoot,
-} from '@nx/devkit';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import type { ModelGeneratorSchema } from './schema.js';
 import { join, resolve } from 'path';
-import { readYAMLFile } from '@puq/fs';
-import { getName, ModelManager, readProjectPackageJSON } from '@puq/gen-helper';
+import { getName } from '@puq/gen-helper';
 import { cwd } from 'process';
 import * as Printer from '@puq/printer';
 
@@ -28,23 +21,26 @@ export async function modelGenerator(
 
   const modelName = getName(options.directory);
 
-  const ns = names(modelName);
+  const __names = names(modelName);
 
-  const packageJSON = await readProjectPackageJSON();
+  // const packageJSON = await readProjectPackageJSON();
 
-  const modelFilePath = join(
-    workspaceRoot,
-    packageJSON.puq.metadataRoot,
-    `${modelName}.model.yaml`,
-  );
+  // const modelFilePath = join(
+  //   workspaceRoot,
+  //   packageJSON.puq.metadataRoot,
+  //   `${modelName}.model.yaml`,
+  // );
 
-  const yamlContent = await readYAMLFile<Model>(modelFilePath);
+  // const yamlContent = await readYAMLFile<Model>(modelFilePath);
 
-  const modelManager = new ModelManager(yamlContent);
+  // const modelManager = new ModelManager(yamlContent);
 
   generateFiles(tree, source, target, {
-    ...ns,
-    properties: modelManager.typeProperties(),
+    ...__names,
+    properties: '', //modelManager.typeProperties(),
+    relations: '',
+    generics: '',
+    actualGenerics: '',
   });
   await formatFiles(tree);
 }

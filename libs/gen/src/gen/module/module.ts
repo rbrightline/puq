@@ -1,5 +1,6 @@
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
-import { ModuleGeneratorSchema } from './schema.js';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
+import type { ModuleGeneratorSchema } from './schema.js';
 import { join } from 'path';
 import { getName } from '@puq/gen-helper';
 
@@ -10,12 +11,12 @@ import { getName } from '@puq/gen-helper';
  */
 export async function moduleGenerator(
   tree: Tree,
-  options: ModuleGeneratorSchema
+  options: ModuleGeneratorSchema,
 ) {
   const source = join(__dirname, 'files');
   const target = options.name;
-  const ns = names(getName(options.name));
-  generateFiles(tree, source, target, { ...ns });
+  const __names = names(getName(options.name));
+  generateFiles(tree, source, target, { ...__names });
   await formatFiles(tree);
 }
 

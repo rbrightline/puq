@@ -1,10 +1,12 @@
 import type { EntityGeneratorSchema } from './schema.js';
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
-import { join } from 'path';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
+import { join, resolve } from 'path';
 import { getName } from '@puq/gen-helper';
+import { cwd } from 'process';
 
 /**
- * Generate an entity and dtos
+ * Generate entity and dto
  * @param tree
  * @param options
  */
@@ -13,12 +15,13 @@ export async function entityGenerator(
   options: EntityGeneratorSchema,
 ) {
   const source = join(__dirname, 'files');
-  const target = options.directory;
-  const ns = names(getName(options.directory));
+  const target = resolve(cwd(), options.directory);
+  const __names = names(getName(options.directory));
 
   generateFiles(tree, source, target, {
-    ...ns,
+    ...__names,
     properties: '// properties',
+    relations: '// relations',
     columns: '// columns',
     viewColumns: '// viewColumns',
   });

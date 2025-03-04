@@ -1,10 +1,9 @@
 import type { PropertyOptions } from '@puq/type';
 
 /**
- * Determines the TypeScript-compatible property type based on the given options.
- *
- * @param {PropertyOptions} options - The property options including type and target.
- * @returns {string} A TypeScript-like type definition (e.g., 'string', 'number', 'SomeObject[]').
+ * Resolve the type options in {@link PropertyOptions} into actual typescript property type and return it
+ * @param options - {@link PropertyOptions}
+ * @returns - {@link string}
  */
 export function propertyType(options: PropertyOptions): string {
   switch (options.type) {

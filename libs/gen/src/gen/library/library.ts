@@ -1,5 +1,6 @@
 import type { LibraryGeneratorSchema } from './schema.js';
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { getName, updateTsconfigReferences } from '@puq/gen-helper';
 
@@ -14,8 +15,8 @@ export async function libraryGenerator(
 ) {
   const source = join(__dirname, 'files');
   const target = `${options.name}`;
-  const ns = names(getName(options.name));
-  generateFiles(tree, source, target, { ...ns, target });
+  const __names = names(getName(options.name));
+  generateFiles(tree, source, target, { ...__names, target });
   updateTsconfigReferences(options.name);
   await formatFiles(tree);
 }

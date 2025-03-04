@@ -1,4 +1,4 @@
 import { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
 import { BaseModel } from '@puq/type';
 
-export type <%- className %>Model = BaseModel & <%- className %>RawModel;
+export type <%- className %>Model = BaseModel & <%- className %>RawModel<%- actualGenerics %>;

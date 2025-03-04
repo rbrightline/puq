@@ -34,6 +34,14 @@ const projectKeywords = [
   'aes',
   'cbc',
   'utf8',
+  'Unprocessable',
+  'tsconfig',
+  'workspace',
+  'filepath',
+  'dirpath',
+  'fullpath',
+  'rootpath',
+  'readdir',
 ];
 const tsKeywords = [
   'nx',

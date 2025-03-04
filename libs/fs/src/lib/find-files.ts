@@ -2,7 +2,7 @@ import { normalize, resolve } from 'path';
 import { files } from './files.js';
 import { throwFileNotFoundError } from '@puq/error';
 import { segments } from './segments.js';
-import { IOptions } from './io-options.js';
+import type { CommonFileOptions } from './common-file-options.js';
 
 /**
  * Find all files matching with the {@link filepath}.
@@ -12,7 +12,7 @@ import { IOptions } from './io-options.js';
  */
 export async function findFiles(
   filepath: string,
-  options?: IOptions
+  options?: CommonFileOptions,
 ): Promise<string[]> {
   filepath = resolve(filepath);
   const __segments = segments(filepath);
@@ -23,11 +23,11 @@ export async function findFiles(
 
   const foundFiles = await files(rootpath, { ...options, fullpath: true });
 
-  const rx = new RegExp(`${filename}`);
+  const regularExpression = new RegExp(`${filename}`);
 
   if (filename == undefined)
     throwFileNotFoundError(
-      `Could not extract the last segment from the ${filepath}`
+      `Could not extract the last segment from the ${filepath}`,
     );
 
   if (foundFiles.length == 0)
@@ -35,16 +35,17 @@ export async function findFiles(
 
   const result: string[] = [];
 
-  for (const filepath of foundFiles) {
-    const __segments = segments(filepath);
+  for (const filepath1 of foundFiles) {
+    const __segments1 = segments(filepath1);
 
-    const relativeRoot = __segments.slice(0, -1).join('\\');
+    const relativeRoot = __segments1.slice(0, -1).join('\\');
 
-    const filename = __segments.at(-1);
+    const filename1 = __segments1.at(-1);
 
-    if (!filename || !relativeRoot || !rx.test(filename)) continue;
+    if (!filename1 || !relativeRoot || !regularExpression.test(filename1))
+      continue;
 
-    result.push(filepath);
+    result.push(filepath1);
   }
 
   if (result.length == 0) throwFileNotFoundError(`File not found: ${filepath}`);

@@ -3,16 +3,16 @@ export type SampleObj = {
 };
 
 export type SampleRawModel = {
-  str: string;
-  num: number;
-  int: number;
-  bool: boolean;
-  date: Date;
-  obj: SampleObj;
-  strArr: Array<string>;
-  numArr: Array<number>;
-  intArr: Array<number>;
-  boolArr: Array<boolean>;
-  objArr: Array<SampleObj>;
-  dateArr: Array<Date>;
+  stringValue: string;
+  numberValue: number;
+  integerValue: number;
+  booleanValue: boolean;
+  dateValue: Date;
+  objectValue: SampleObj;
+  stringArray: Array<string>;
+  numberArray: Array<number>;
+  integerArray: Array<number>;
+  booleanArray: Array<boolean>;
+  objectArray: Array<SampleObj>;
+  dateArray: Array<Date>;
 };

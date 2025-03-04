@@ -1,5 +1,4 @@
 import { readFile } from 'fs/promises';
-// eslint-disable-next-line @nx/enforce-module-boundaries
 import { load } from 'js-yaml';
 
 /**

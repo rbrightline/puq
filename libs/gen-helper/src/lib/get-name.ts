@@ -1,5 +1,5 @@
 import { normalize } from 'path';
-import { rval } from '@puq/is';
+import { isDefinedOrThrow } from '@puq/is';
 
 /**
  * Extract the filename from the url
@@ -7,5 +7,5 @@ import { rval } from '@puq/is';
  * @returns
  */
 export function getName(directory: string): string {
-  return rval(normalize(directory).split('\\').pop());
+  return isDefinedOrThrow(normalize(directory).split('\\').pop());
 }

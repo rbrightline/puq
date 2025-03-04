@@ -1,15 +1,14 @@
 import type { RelationOptions } from '@puq/type';
-import { rval } from '@puq/is';
+import { isDefinedOrThrow } from '@puq/is';
 import { getOptionalMarker } from './get-optional-marker.js';
 import { relationType } from './relation-type.js';
 
 /**
- * Generates a TypeScript-like relation definition (e.g., `product: Product;`).
- *
- * @param {RelationOptions} options - The relation options including name, type, and target.
- * @returns {string} A formatted relation definition.
+ * Return relation property definition such as `category: Category;`
+ * @param options - {@link RelationOptions}
+ * @returns - {@link string}
  */
 export function relationDefinition(options: RelationOptions): string {
-  const name = rval(options.name);
+  const name = isDefinedOrThrow(options.name);
   return `${name}${getOptionalMarker(options)}: ${relationType(options)};`;
 }

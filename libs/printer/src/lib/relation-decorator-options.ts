@@ -1,41 +1,34 @@
+import { omit } from '@puq/is';
 import type { RelationOptions } from '@puq/type';
 
 /**
- * Converts relation options into a JSON-Code string for use in a decorator.
- *
- * @param {RelationOptions} options - The relation options, including name, type, and target.
- * @returns {string} A JSON string representation of the relation options, with `target` formatted as a function.
+ * Convert {@link RelationOptions} into JSON string
+ * @param options - {@link RelationOptions}
+ * @returns - {@link string} JSON string
  */
 export function relationDecoratorOptions(options: RelationOptions): string {
-  // Destructure options, excluding 'name'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { name, ...restOptions } = options;
+  options = omit(options, ['name']);
 
-  // Convert remaining options to JSON string
-  let result = JSON.stringify(restOptions);
-
-  // Handle target conversion for specific types
-  const target = getTargetString(options);
-
-  result = replaceTargetWithFunction(result, target);
-
-  return result;
+  return replaceTargetWithFunction(
+    JSON.stringify(options),
+    getTargetClassName(options),
+  );
 }
 
 /**
- * Extracts target string from options based on type
- * @param options Property options to inspect
- * @returns Target string if applicable, undefined otherwise
+ * Return the relation's entity name
+ * @param options - {@link RelationOptions}
+ * @returns - {@link string } relation entity's name
  */
-function getTargetString(options: RelationOptions): string {
+function getTargetClassName(options: RelationOptions): string {
   return options.target.toString();
 }
 
 /**
- * Replaces target string with function notation in JSON
- * @param json Original JSON string
- * @param target Target string to replace
- * @returns Modified JSON string
+ * Replace target option in the {@link json} string with a factory function `()=>Target`
+ * @param json - {@link string} json string
+ * @param target-{@link string} current target option value in {@link json} string
+ * @returns - {@link string} JSON string with updated target option
  */
 function replaceTargetWithFunction(json: string, target: string): string {
   const searchPattern = `"target":"${target}"`;

@@ -22,11 +22,7 @@ export async function updateVersionOf(lib: string, ver: string) {
       (await readFile(filepath)).toString(),
     );
 
-    [
-      content.dependencies,
-      content.devDependencies,
-      content.peerDependencies,
-    ].forEach((dependency) => {
+    [content.dependencies, content.peerDependencies].forEach((dependency) => {
       if (dependency) {
         const entries = Object.entries(dependency);
         for (const [key] of entries) {

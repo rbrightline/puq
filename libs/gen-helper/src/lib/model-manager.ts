@@ -31,7 +31,7 @@ export class ModelManager {
   }
 
   typeProperties() {
-    const __properies = this.properties()
+    const __properties = this.properties()
       ?.map((e) => propertyDefinition(e))
       .join('\n');
 
@@ -39,11 +39,11 @@ export class ModelManager {
       ?.map((e) => relationDefinition(e))
       .join('\n');
 
-    return [__properies, __relations].join('\n');
+    return [__properties, __relations].join('\n');
   }
 
   entityProperties() {
-    const __properies = this.properties()
+    const __properties = this.properties()
       ?.map((e) =>
         [propertyDecorator('Column', e), propertyDefinition(e)].join('\n'),
       )
@@ -55,11 +55,11 @@ export class ModelManager {
       )
       .join('\n');
 
-    return [__properies, __relations].join('\n');
+    return [__properties, __relations].join('\n');
   }
 
   viewProperties() {
-    const __properies = this.properties()
+    const __properties = this.properties()
       ?.map((e) =>
         [propertyDecorator('ViewColumn', e), propertyDefinition(e)].join('\n'),
       )
@@ -69,6 +69,6 @@ export class ModelManager {
       ?.map((e) => [relationDefinition(e), relationDefinition(e)].join('\n'))
       .join('\n');
 
-    return [__properies, __relations].join('\n');
+    return [__properties, __relations].join('\n');
   }
 }

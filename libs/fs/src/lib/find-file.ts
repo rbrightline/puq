@@ -1,52 +1,49 @@
 import { files } from './files.js';
-import {
-  ErrorCode,
-  throwFileNotFoundError,
-  throwInvalidFieldError,
-} from '@puq/error';
+import { throwFileNotFoundError, throwInvalidFieldError } from '@puq/error';
 import { segments } from './segments.js';
 import { resolve } from 'path';
-import { IOptions } from './io-options.js';
+import type { CommonFileOptions } from './common-file-options.js';
 
 /**
  * Find the first matching file with the {@link filepath}. The filename in the {@link filepath} might be {@link RegExp} string such as `\.ts`
  * @param filepath filepath to search under the directory
- * @param options {@link IOptions}
- * @returns file path
- * @throw {@link ErrorCode.FileNotFound} if the file not found
+ * @param options {@link CommonFileOptions}
+ * @returns - {@link Promise<string>}
+ * @throws {@link throwInvalidFieldError } or {@link | throwFileNotFoundError}
  */
 export async function findFile(
   filepath: string,
-  options?: IOptions
-): Promise<string | never> {
+  options?: CommonFileOptions,
+): Promise<string> {
   filepath = resolve(filepath);
 
-  const rotopath = resolve(filepath, '..');
+  const rootpath = resolve(filepath, '..');
 
-  const __segments = segments(filepath);
+  const segments0 = segments(filepath);
 
-  const filename = __segments.at(-1);
+  const filename = segments0.at(-1);
 
-  const foundFiles = await files(rotopath, { ...options, fullpath: true });
+  const foundFiles = await files(rootpath, { ...options, fullpath: true });
 
-  const rx = new RegExp(`${filename}`);
+  const regularExpression = new RegExp(`${filename}`);
 
   if (filename == undefined)
     throwInvalidFieldError(
-      `Could not extract the last segment from the ${filepath}`
+      `Could not extract the last segment from the ${filepath}`,
     );
 
   if (foundFiles.length == 0)
     throwFileNotFoundError(`File not found: ${filepath}`);
 
-  for (const filepath of foundFiles) {
-    const __segments = segments(filepath);
-    const relativeRoot = __segments.slice(0, -1).join('\\');
-    const filename = __segments.at(-1);
+  for (const filepath1 of foundFiles) {
+    const segments1 = segments(filepath1);
+    const relativeRoot = segments1.slice(0, -1).join('\\');
+    const filename1 = segments1.at(-1);
 
-    if (!filename || !relativeRoot || !rx.test(filename)) continue;
+    if (!filename1 || !relativeRoot || !regularExpression.test(filename1))
+      continue;
 
-    return filepath;
+    return filepath1;
   }
 
   throwFileNotFoundError(`File not found: ${filepath}`);
