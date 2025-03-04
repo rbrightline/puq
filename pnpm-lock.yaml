@@ -176,6 +176,9 @@ importers:
 
   libs/fs:
     dependencies:
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
       '@puq/error':
         specifier: workspace:^
         version: link:../error

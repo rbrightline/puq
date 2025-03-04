@@ -1,9 +1,7 @@
 import { isDefined } from '@puq/is';
 import { readdir, stat } from 'fs/promises';
-import { normalize } from 'path';
+import { normalize, resolve } from 'path';
 import type { CommonFileOptions } from './common-file-options.js';
-import { scope } from './scope.js';
-import { cwd } from 'process';
 
 /**
  * Asynchronously retrieves an array of file paths starting from a root directory.
@@ -30,9 +28,10 @@ export async function files(
   root: string,
   options?: CommonFileOptions,
 ): Promise<string[]> {
-  const resolve = scope(cwd());
   root = resolve(root);
   const foundFilesAndDirectories = await readdir(root);
+
+  if (foundFilesAndDirectories.length === 0) return foundFilesAndDirectories;
 
   const foundFilesAndDirectoriesPromises = foundFilesAndDirectories.map(
     async (filepath) => {

@@ -1,7 +1,7 @@
 {
     "name": "@puq/fs",
     "license": "MIT",
-    "version": "0.4.11",
+    "version": "0.4.12",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -84,9 +84,10 @@
         "@types/js-yaml": "^4.0.9"
     },
     "dependencies": {
-        "@swc/helpers": "^0.5.15",
-        "js-yaml": "^4.1.0",
+        "@puq/debug": "workspace:^",
         "@puq/error": "workspace:^",
-        "@puq/is": "workspace:^"
+        "@puq/is": "workspace:^",
+        "@swc/helpers": "^0.5.15",
+        "js-yaml": "^4.1.0"
     }
 }
