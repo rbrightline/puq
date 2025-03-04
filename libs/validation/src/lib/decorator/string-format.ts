@@ -1,6 +1,8 @@
 /* eslint-disable spellcheck/spell-checker */
 
 import type { StringFormat } from '@puq/type';
+import type {
+  ValidationOptions} from 'class-validator';
 import {
   IsAlpha,
   IsAlphanumeric,
@@ -54,8 +56,7 @@ import {
   IsTimeZone,
   IsUrl,
   IsUUID,
-  IsVariableWidth,
-  ValidationOptions,
+  IsVariableWidth
 } from 'class-validator';
 
 export function StringFormatValidation(

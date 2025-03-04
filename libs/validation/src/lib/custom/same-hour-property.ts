@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type {
+  ValidationOptions,
+  ValidatorConstraintInterface,
+  ValidationArguments} from 'class-validator';
 import {
   registerDecorator,
-  ValidationOptions,
   ValidatorConstraint,
-  ValidatorConstraintInterface,
-  ValidationArguments,
   isISO8601,
 } from 'class-validator';
 

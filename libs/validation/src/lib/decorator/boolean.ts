@@ -1,4 +1,4 @@
-import { BooleanOptions } from '@puq/type';
+import type { BooleanOptions } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
 import { IsBoolean } from 'class-validator';
 import { Transform } from 'class-transformer';
