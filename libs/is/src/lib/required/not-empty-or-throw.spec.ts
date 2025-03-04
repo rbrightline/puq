@@ -1,8 +1,8 @@
 import { BaseError, ErrorCode } from '@puq/error';
-import { rne } from './rne.js';
+import { notEmptyOrThrow } from './not-empty-or-throw.js';
 import { fail } from 'assert';
 
-describe('rne: not empty check', () => {
+describe('notEmptyOrThrow: not empty check', () => {
   it.each`
     value
     ${undefined}
@@ -15,10 +15,10 @@ describe('rne: not empty check', () => {
     ${{}}
     ${{ some: undefined }}
     ${NaN}
-  `('should rne($value) should throw', ({ value }) => {
+  `('should notEmptyOrThrow($value) should throw', ({ value }) => {
     try {
-      rne(value);
-      fail(`rne(${value}) should throw errror`);
+      notEmptyOrThrow(value);
+      fail(`notEmptyOrThrow(${value}) should throw errror`);
     } catch (error: any) {
       const e = error as BaseError;
       expect(e.code).toEqual(ErrorCode.EmptyField);
@@ -39,8 +39,8 @@ describe('rne: not empty check', () => {
     ${{}}
     ${{ some: undefined }}
     ${NaN}
-  `('should rne($value) should throw', ({ value }) => {
-    expect(rne(value, 'some')).toEqual('some');
+  `('should notEmptyOrThrow($value) should throw', ({ value }) => {
+    expect(notEmptyOrThrow(value, 'some')).toEqual('some');
   });
 
   it.each`
@@ -53,7 +53,10 @@ describe('rne: not empty check', () => {
     ${500n}                | ${undefined} | ${500n}
     ${true}                | ${undefined} | ${true}
     ${false}               | ${undefined} | ${false}
-  `('should rne($value) should return true', ({ value, expected }) => {
-    expect(rne(value)).toEqual(expected);
-  });
+  `(
+    'should notEmptyOrThrow($value) should return true',
+    ({ value, expected }) => {
+      expect(notEmptyOrThrow(value)).toEqual(expected);
+    },
+  );
 });

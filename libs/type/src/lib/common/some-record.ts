@@ -1,4 +1,4 @@
-import { Key } from './key.js';
+import type { Key } from './key.js';
 
 /**
  * Improved version of {@link Record} type

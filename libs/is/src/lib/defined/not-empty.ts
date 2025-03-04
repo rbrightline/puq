@@ -1,13 +1,13 @@
-import { def } from './def.js';
-import { udef } from './udef.js';
+import { isDefined } from './is-defined.js';
+import { isNotDefined } from './is-not-defined.js';
 
 /**
  * Check the value is not empty string, array, object, undefined, or null
  * @param value any value
- * @returns
+ * @returns boolean
  */
-export function ne<T>(value: T | undefined | null): value is T {
-  if (udef(value)) return false;
+export function notEmpty<T>(value: T | undefined | null): value is T {
+  if (isNotDefined(value)) return false;
 
   const type = typeof value;
 
@@ -21,11 +21,11 @@ export function ne<T>(value: T | undefined | null): value is T {
 
     case 'object': {
       if (Array.isArray(value)) {
-        return value.length > 0 && value.some((e) => def(e));
+        return value.length > 0 && value.some((e) => isDefined(e));
       } else {
         return (
           Object.keys(value as object).length > 0 &&
-          Object.values(value as object).some((e) => def(e))
+          Object.values(value as object).some((e) => isDefined(e))
         );
       }
     }

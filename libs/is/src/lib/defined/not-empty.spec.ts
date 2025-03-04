@@ -1,4 +1,4 @@
-import { ne } from './ne.js';
+import { notEmpty } from './not-empty.js';
 
 describe('ne: check the value is not empty', () => {
   //
@@ -16,7 +16,7 @@ describe('ne: check the value is not empty', () => {
       ${{ some: undefined }} | ${false}
       ${NaN}                 | ${false}
     `('ne($value) should return false', ({ value, expected }) => {
-      expect(ne(value)).toEqual(expected);
+      expect(notEmpty(value)).toEqual(expected);
     });
   });
 
@@ -33,7 +33,7 @@ describe('ne: check the value is not empty', () => {
       ${true}                | ${true}
       ${false}               | ${true}
     `('ne($value) should return true', ({ value, expected }) => {
-      expect(ne(value)).toEqual(expected);
+      expect(notEmpty(value)).toEqual(expected);
     });
 
     //

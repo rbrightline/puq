@@ -1,3 +1,5 @@
+/* eslint-disable spellcheck/spell-checker */
+
 import type { Type } from '../utils/type.js';
 
 export type RelationType =

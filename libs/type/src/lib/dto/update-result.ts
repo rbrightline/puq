@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { SomeRecord } from '../common/some-record.js';
+
 export type UpdateResult = {
   affected: number;
-  data?: Record<string, any>;
+  data?: SomeRecord;
 };

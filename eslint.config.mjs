@@ -1,4 +1,63 @@
 import nx from '@nx/eslint-plugin';
+import spellcheck from 'eslint-plugin-spellcheck'; // Ensure this is installed
+
+const commonKeywords = [
+  'nullable',
+  'uniques',
+  'dto',
+  'api',
+  'apis',
+  'yaml',
+  'json',
+  'enums',
+];
+const projectKeywords = ['nx', 'typescript', 'eslint', 'vite', 'puq'];
+const tsKeywords = [
+  'nx',
+  'typescript',
+  'eslint',
+  'vite',
+  // Add TypeScript keywords
+  'interface',
+  'type',
+  'class',
+  'function',
+  'const',
+  'let',
+  'var',
+  'enum',
+  'export',
+  'import',
+  'default',
+  'extends',
+  'implements',
+  'public',
+  'private',
+  'protected',
+  'static',
+  'abstract',
+  'async',
+  'await',
+  'return',
+  'void',
+  'null',
+  'undefined',
+  'boolean',
+  'number',
+  'string',
+  'any',
+  'unknown',
+  'never',
+  'as',
+  'is',
+  'keyof',
+  'typeof',
+  'namespace',
+  'module',
+  'declare',
+  'readonly',
+  'override',
+];
 
 export default [
   // Ignore patterns
@@ -21,37 +80,58 @@ export default [
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
 
-  // Dependency check
-  // {
-  //   files: ['**/*.json'],
-  //   rules: {
-  //     '@nx/dependency-checks': [
-  //       'error',
-  //       {
-  //         ignoredFiles: [
-  //           '{projectRoot}/eslint.config.{js,cjs,mjs}',
-  //           '{projectRoot}/vite.config.{js,ts,mjs,mts}',
-  //         ],
-  //         ignoredDependencies: [
-  //           '@swc/helpers',
-  //           '@puq/type',
-  //           '@puq/model',
-  //           '@nx/dependency-checks',
-  //           '@puq/debug',
-  //         ],
-  //       },
-  //     ],
-  //   },
-
-  //   languageOptions: {
-  //     parser: await import('jsonc-eslint-parser'),
-  //   },
-  // },
-
-  // Boundries
   {
-    files: ['libs/**/*.ts', 'services/**/*.ts'],
+    files: ['**/package.json'],
     rules: {
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredFiles: [
+            '{projectRoot}/eslint.config.{js,cjs,mjs}',
+            '{projectRoot}/vite.config.{js,ts,mjs,mts}',
+          ],
+          ignoredDependencies: ['@puq/type', '@puq/model'],
+        },
+      ],
+    },
+    languageOptions: {
+      parser: await import('jsonc-eslint-parser'),
+    },
+  },
+
+  // Common rules
+  {
+    files: ['**/*.ts'],
+    plugins: {
+      spellcheck: spellcheck, // Register plugin here
+    },
+    rules: {
+      // Spell check
+      'spellcheck/spell-checker': [
+        'error',
+        {
+          comments: true,
+          strings: true,
+          identifiers: true,
+          lang: 'en_US',
+          skipWords: [...commonKeywords, ...projectKeywords, ...tsKeywords],
+        },
+      ],
+
+      // No shadow variable
+      '@typescript-eslint/no-shadow': ['error'],
+
+      // Type imports
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false,
+          fixStyle: 'separate-type-imports',
+        },
+      ],
+
+      // Module boundaries
       '@nx/enforce-module-boundaries': [
         'error',
         {
@@ -63,22 +143,6 @@ export default [
               onlyDependOnLibsWithTags: ['*'],
             },
           ],
-        },
-      ],
-    },
-  },
-
-  // Make use `import type` is used for type imports
-  {
-    files: ['libs/**/*.ts', 'services/**/*.ts', 'tools/**/*.ts'],
-    rules: {
-      '@typescript-eslint/no-shadow': ['error'],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        {
-          prefer: 'type-imports',
-          disallowTypeAnnotations: false,
-          fixStyle: 'separate-type-imports',
         },
       ],
     },

@@ -1,1 +1,95 @@
-{"name":"@puq/core","license":"MIT","version":"0.4.11","publishConfig":{"access":"public","tag":"latest"},"description":"The library provides common functionality, configurations for backend services.","author":{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"},"keywords":["puq","core"],"repository":{"directory":"libs/core","url":"https://github.com/rbrightline/puq/tree/main","type":"github"},"homepage":"https://rbrightline.github.io/puq/core","bugs":{"email":"robert.brightline@gmail.com","url":"https://rbrightline.github.io"},"categories":["Other"],"contributors":[{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"}],"funding":["https://cash.app/$puqlib"],"icon":"https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png","type":"module","main":"./dist/index.js","module":"./dist/index.js","types":"./dist/index.d.ts","exports":{"./package.json":"./package.json",".":{"types":"./dist/index.d.ts","import":"./dist/index.js","default":"./dist/index.js"}},"files":["dist","!**/*.tsbuildinfo"],"nx":{"sourceRoot":"libs/core/src","targets":{"build":{"executor":"@nx/js:swc","outputs":["{options.outputPath}"],"options":{"outputPath":"libs/core/dist","main":"libs/core/src/index.ts","tsConfig":"libs/core/tsconfig.lib.json","skipTypeCheck":false,"stripLeadingPaths":true},"dependsOn":["lint"]},"doc":{"command":"cd libs/core && npx compodoc -d ../../public/core  -p tsconfig.lib.json -n core"}}},"peerDependencies":{"@nestjs/common":"11.0.11"},"dependencies":{"@swc/helpers":"^0.5.15"}}
+{
+    "name": "@puq/core",
+    "license": "MIT",
+    "version": "0.4.12",
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+    },
+    "description": "The library provides common functionality, configurations for backend services.",
+    "author": {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+        "puq",
+        "core"
+    ],
+    "repository": {
+        "directory": "libs/core",
+        "url": "https://github.com/rbrightline/puq/tree/main",
+        "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/core",
+    "bugs": {
+        "email": "robert.brightline@gmail.com",
+        "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+        "Other"
+    ],
+    "contributors": [
+        {
+            "email": "robert.brightline@gmail.com",
+            "name": "Robert Brightline",
+            "url": "https://rbrightline.github.io"
+        }
+    ],
+    "funding": [
+        "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+        "sourceRoot": "libs/core/src",
+        "targets": {
+            "build": {
+                "executor": "@nx/js:swc",
+                "outputs": [
+                    "{options.outputPath}"
+                ],
+                "options": {
+                    "outputPath": "libs/core/dist",
+                    "main": "libs/core/src/index.ts",
+                    "tsConfig": "libs/core/tsconfig.lib.json",
+                    "skipTypeCheck": false,
+                    "stripLeadingPaths": true
+                },
+                "dependsOn": [
+                    "lint"
+                ]
+            },
+            "doc": {
+                "command": "cd libs/core && npx compodoc -d ../../public/core  -p tsconfig.lib.json -n core"
+            }
+        }
+    },
+    "devDependencies": {
+        "@nestjs/testing": "^11.0.11",
+        "@puq/type": "workspace:^"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "11.0.11"
+    },
+    "dependencies": {
+        "@puq/error": "workspace:^",
+        "@puq/is": "workspace:^",
+        "@swc/helpers": "^0.5.15"
+    }
+}

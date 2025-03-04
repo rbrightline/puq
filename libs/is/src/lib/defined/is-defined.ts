@@ -5,6 +5,6 @@
  * @param value - The value to check.
  * @returns `true` if the value is defined (not `undefined` or `null`), otherwise `false`.
  */
-export function def<T>(value: T | null | undefined): value is T {
+export function isDefined<T>(value: T | null | undefined): value is T {
   return value != undefined;
 }

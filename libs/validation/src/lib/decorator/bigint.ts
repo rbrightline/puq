@@ -4,7 +4,7 @@ import { isNumberString } from 'class-validator';
 import { MaxDigits } from '../custom/max-digits.js';
 import { Transform } from 'class-transformer';
 
-export function BigIntValiation(
+export function BigIntValidation(
   options: BigIntegerOptions,
   valiationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {

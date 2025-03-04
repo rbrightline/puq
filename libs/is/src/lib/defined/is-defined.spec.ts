@@ -1,4 +1,4 @@
-import { def } from './def.js';
+import { isDefined } from './is-defined.js';
 describe('def: check the value is defined', () => {
   //
   describe('def(defined-value) test', () => {
@@ -21,7 +21,7 @@ describe('def: check the value is defined', () => {
       ${[]}          | ${true}
       ${NaN}         | ${true}
     `('def($value) should return $expected', ({ value, expected }) => {
-      expect(def(value)).toEqual(expected);
+      expect(isDefined(value)).toEqual(expected);
     });
   });
   //
@@ -32,7 +32,7 @@ describe('def: check the value is defined', () => {
       ${undefined} | ${false}
       ${null}      | ${false}
     `('def($value) should throw $expected', ({ value, expected }) => {
-      expect(def(value)).toEqual(expected);
+      expect(isDefined(value)).toEqual(expected);
     });
   });
 

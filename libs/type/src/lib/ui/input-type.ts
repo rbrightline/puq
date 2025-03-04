@@ -1,7 +1,8 @@
+/* eslint-disable spellcheck/spell-checker */
+
 /**
  * Represents all valid `type` attribute values for an HTML `<input>` element.
  * @see https://html.spec.whatwg.org/multipage/input.html#attr-input-type
- *
  */
 export enum InputType {
   /**
@@ -38,7 +39,7 @@ export enum InputType {
 
   /**
    * A group of checkbox items to check.
-   * The return-value of the input element depends on the implemantation
+   * The return-value of the input element depends on the implementation
    * It might be Record<string,boolean> or Record<string,any>
    */
   CHECKBOX_GROUP,

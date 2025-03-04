@@ -57,6 +57,9 @@ export enum ErrorCode {
    */
   InvalidParameter,
 
+  /**
+   * Invalid type
+   */
   InvalidType,
 
   /**
@@ -105,7 +108,7 @@ export enum ErrorCode {
   InvalidArrayInteger,
 
   /**
-   * Invalid array of booleans
+   * Invalid array of array boolean
    */
   InvalidArrayBoolean,
 
@@ -228,4 +231,9 @@ export enum ErrorCode {
    * Object exceeds the maximum number of properties
    */
   MaxProperties,
+
+  /**
+   * The injectable is only allowed in constructor
+   */
+  ConstructorInjection = 6000,
 }

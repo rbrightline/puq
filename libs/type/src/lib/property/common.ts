@@ -58,7 +58,7 @@ export type CommonOptions<T> = {
   examples?: Readonly<T[]>;
 
   /**
-   * If ture, the string values are accepted and transformed
+   * If true, the string values are accepted and transformed
    */
   acceptString?: boolean;
 
@@ -103,7 +103,7 @@ export type CommonOptions<T> = {
   icon?: Icon;
 
   /**
-   * Inputt type
+   * Input type
    */
   inputType?: InputType;
 

@@ -34,12 +34,12 @@ export type __DateOptions = {
   afterProperty?: string;
 
   /**
-   * Check the property and targer property are in the same month
+   * Check the property and target property are in the same month
    */
   sameMonthAsProperty?: string;
 
   /**
-   * Check the property and targer property are in the same year
+   * Check the property and target property are in the same year
    */
   sameWeekAsProperty?: string;
 
@@ -49,7 +49,7 @@ export type __DateOptions = {
   sameYearAsProperty?: string;
 
   /**
-   * Check the property and targer property are on the same day
+   * Check the property and target property are on the same day
    */
   sameDayAsProperty?: string;
 
@@ -59,7 +59,7 @@ export type __DateOptions = {
   sameDayTypeAsProperty?: string;
 
   /**
-   * Check the property and targer property are in the same hour
+   * Check the property and target property are in the same hour
    */
   sameHourAsProperty?: string;
 };

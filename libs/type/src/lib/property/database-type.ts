@@ -1,3 +1,5 @@
+/* eslint-disable spellcheck/spell-checker */
+
 /**
  * Represents the database driver types supported by TypeORM.
  * Used in the `type` field of a TypeORM connection configuration.

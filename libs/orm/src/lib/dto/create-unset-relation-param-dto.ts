@@ -15,7 +15,7 @@ export function CreateUnsetRelationParamDto<T>(
     id: number;
 
     @Property({ type: 'string', required: true, enum: relations })
-    rn: string;
+    relationName: string;
   }
 
   return UnsetRelationParamDto;

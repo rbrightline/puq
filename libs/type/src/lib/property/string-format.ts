@@ -1,3 +1,5 @@
+/* eslint-disable spellcheck/spell-checker */
+
 export type StringFormat =
   | 'alpha'
   | 'alphanumeric'

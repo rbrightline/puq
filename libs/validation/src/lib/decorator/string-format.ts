@@ -1,3 +1,5 @@
+/* eslint-disable spellcheck/spell-checker */
+
 import type { StringFormat } from '@puq/type';
 import {
   IsAlpha,

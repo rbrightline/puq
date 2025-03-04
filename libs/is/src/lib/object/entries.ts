@@ -1,5 +1,5 @@
 import type { EmptyClass, SomeRecord } from '@puq/type';
-import { ibool, inum } from '../type/itype.js';
+import { isBoolean, isNumber } from '../type/is-type.js';
 import { throwInvalidParameterError } from '@puq/error';
 
 export type EntriesParameterType = Exclude<
@@ -23,13 +23,15 @@ export type EntriesReturnType<T> = T extends string
 export function entries<T extends EntriesParameterType>(
   value: T,
 ): EntriesReturnType<T> {
-  if (ibool(value))
-    throwInvalidParameterError(`Boolean value is not a valid paramter.`);
+  if (isBoolean(value))
+    throwInvalidParameterError(
+      `entries function does not support boolean input`,
+    );
 
   const run = (v: EntriesParameterType) =>
     Object.entries(v) as unknown as EntriesReturnType<T>;
 
-  if (inum(value)) return run(value.toString());
+  if (isNumber(value)) return run(value.toString());
 
   return run(value);
 }

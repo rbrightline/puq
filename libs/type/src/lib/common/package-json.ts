@@ -1,5 +1,8 @@
 import type { PuqOptions } from './puq-options.js';
 
+/**
+ * `package.json` type
+ */
 export type PackageJSON = {
   name: string;
   version: string;
@@ -38,7 +41,7 @@ export type PackageJSON = {
       email: string;
       name: string;
       url: string;
-    }
+    },
   ];
   exports: {
     './package.json': string;

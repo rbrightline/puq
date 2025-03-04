@@ -1,10 +1,21 @@
 export type RelationParam = {
-  rid: number;
-  rn: string;
+  /**
+   * Parent entity id
+   */
   id: number;
+
+  /**
+   * Relation entity id
+   */
+  relationId: number;
+
+  /**
+   * Relation name
+   */
+  relationName: string;
 };
 
 export type UnsetRelationParam = {
   id: number;
-  rn: string;
+  relationName: string;
 };

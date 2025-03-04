@@ -1,3 +1,6 @@
+/**
+ * Puq project specific configurations
+ */
 export type PuqOptions = {
   /**
    * Library directory such as `./libs`, `./packages`
@@ -5,7 +8,7 @@ export type PuqOptions = {
   libsRoot: string;
 
   /**
-   * Servce directory such as `./services`, `./apis`, `./apps`
+   * Service directory such as `./services`, `./apis`, `./apps`
    */
   servicesRoot: string;
 

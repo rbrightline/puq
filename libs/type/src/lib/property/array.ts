@@ -10,7 +10,7 @@ export type __ArrayOptions<P> = {
   items: Readonly<P>;
 
   /**
-   * Maximumm allowed size of the array
+   * Maximum allowed size of the array
    */
   minSize?: number;
 

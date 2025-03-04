@@ -1,7 +1,7 @@
 {
     "name": "@puq/error",
     "license": "MIT",
-    "version": "0.4.12",
+    "version": "0.4.13",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -79,5 +79,8 @@
                 "command": "cd libs/error && npx compodoc -d ../../public/error  -p tsconfig.lib.json -n error"
             }
         }
+    },
+    "dependencies": {
+        "@swc/helpers": "^0.5.15"
     }
 }

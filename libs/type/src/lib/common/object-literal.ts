@@ -3,6 +3,7 @@ import type { Key } from './key.js';
 import type { SomeRecord } from './some-record.js';
 
 /**
+ * Empty object type
  * @deprecated use {@link SomeRecord} instead
  */
 export type ObjectLiteral<V = unknown> = {

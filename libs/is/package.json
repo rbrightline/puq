@@ -1,7 +1,7 @@
 {
     "name": "@puq/is",
     "license": "MIT",
-    "version": "0.4.12",
+    "version": "0.4.13",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -84,7 +84,7 @@
         "@puq/type": "workspace:^"
     },
     "dependencies": {
-        "@puq/error": "workspace:^",
-        "@swc/helpers": "^0.5.15"
+        "@swc/helpers": "^0.5.15",
+        "@puq/error": "workspace:^"
     }
 }

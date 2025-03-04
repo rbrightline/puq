@@ -15,7 +15,7 @@ export function CreateRelationParamDto<T>(
     id: number;
 
     @Property({ type: 'string', required: true, enum: relations })
-    rn: string;
+    relationName: string;
 
     @Property({ type: 'integer', required: true, acceptString: true })
     rid: number;

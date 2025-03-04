@@ -50,4 +50,5 @@ export const {
   MissingProperty: throwMissingPropertyError,
   MinProperties: throwMinPropertiesError,
   MaxProperties: throwMaxPropertiesError,
+  ConstructorInjection: throwConstructorInjectionError,
 } = createThrowers();

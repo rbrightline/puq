@@ -28,3 +28,5 @@ export type ParameterDecoratorParam = [
   string | symbol | undefined,
   number,
 ];
+
+export type ConstructorDecoratorParam = [Function, undefined, number];

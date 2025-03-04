@@ -27,6 +27,7 @@
     "commander": "^13.1.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-spellcheck": "^0.0.20",
     "jsdom": "~26.0.0",
     "jsonc-eslint-parser": "^2.4.0",
     "nx": "20.4.6",

@@ -5,7 +5,7 @@ import { IntegerValidation } from './integer.js';
 import { BooleanValidation } from './boolean.js';
 import { ObjectValidation } from './object.js';
 import { ArrayValidation } from './array.js';
-import { BigIntValiation } from './bigint.js';
+import { BigIntValidation } from './bigint.js';
 import { DateValidation } from './date.js';
 import { CommonValidation } from './common.js';
 import { Exclude, Expose } from 'class-transformer';
@@ -43,7 +43,7 @@ export function __PropertyValidation(
         break;
       case 'bigint':
         CommonValidation(options, validationOptions)(t, p);
-        BigIntValiation(options, validationOptions)(t, p);
+        BigIntValidation(options, validationOptions)(t, p);
         break;
       case 'boolean':
         CommonValidation(options, validationOptions)(t, p);
@@ -68,7 +68,7 @@ export function __PropertyValidation(
 
 /**
  * Property validation decorator
- * For more secure and reliable input validation, set `client_max_body_size` in the nginx server
+ * For more secure and reliable input validation, set `client_max_body_size` in the server configuration
  * Also for Irregular, store and ban the IP addresses
  * @param options {@link PropertyOptions}
  * @returns propertyDecorator {@link PropertyDecorator}

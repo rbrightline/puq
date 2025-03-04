@@ -1,5 +1,5 @@
 import { BaseError, ErrorCode } from '@puq/error';
-import { rval } from './rval.js';
+import { isDefinedOrThrow } from './is-defined-or-throw.js';
 import { fail } from 'assert';
 describe('rval: check the value is defined or throw error', () => {
   describe('rval with defined values', () => {
@@ -16,8 +16,8 @@ describe('rval: check the value is defined or throw error', () => {
     `(
       'rval($value) should return $expected',
       ({ value, defaultValue, expected }) => {
-        expect(rval(value, defaultValue)).toEqual(expected);
-      }
+        expect(isDefinedOrThrow(value, defaultValue)).toEqual(expected);
+      },
     );
   });
 
@@ -28,7 +28,7 @@ describe('rval: check the value is defined or throw error', () => {
       ${null}      | ${undefined} | ${ErrorCode.RequiredFieldMissing}
     `('rval($value) should throw $expected', ({ value, expected }) => {
       try {
-        rval(value);
+        isDefinedOrThrow(value);
         fail(`rval(${value}) should fail!`);
       } catch (err) {
         const e = err as BaseError;

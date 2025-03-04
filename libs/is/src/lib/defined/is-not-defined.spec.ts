@@ -1,4 +1,4 @@
-import { udef } from './udef.js';
+import { isNotDefined } from './is-not-defined.js';
 describe('udef: check the value is not defined', () => {
   describe('udef(defined-value) ', () => {
     it.each`
@@ -20,7 +20,7 @@ describe('udef: check the value is not defined', () => {
       ${[]}          | ${false}
       ${NaN}         | ${false}
     `('udef($value) should return false', ({ value, expected }) => {
-      expect(udef(value)).toEqual(expected);
+      expect(isNotDefined(value)).toEqual(expected);
     });
   });
 
@@ -30,7 +30,7 @@ describe('udef: check the value is not defined', () => {
       ${undefined} | ${true}
       ${null}      | ${true}
     `('udef($value) should throw $expected', ({ value, expected }) => {
-      expect(udef(value)).toEqual(expected);
+      expect(isNotDefined(value)).toEqual(expected);
     });
   });
 });

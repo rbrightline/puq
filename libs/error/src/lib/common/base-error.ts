@@ -11,7 +11,7 @@ export class BaseError extends Error {
   public readonly code: ErrorCode;
 
   /**
-   * Metadata to clearify the cuase
+   * Detailed metadata for the error
    */
   public readonly metadata?: ErrorMetadata;
 
@@ -21,7 +21,7 @@ export class BaseError extends Error {
     this.metadata = metadata;
     this.cause = this.metadata?.cause;
 
-    // Fix prototype chain for proper instanceof checks
+    // Fix prototype chain for proper instance of checks
     Object.setPrototypeOf(this, new.target.prototype);
 
     // Capture the stack trace (Node.js and Chrome V8 engines)

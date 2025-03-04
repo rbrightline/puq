@@ -1,5 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { SomeRecord } from '../common/some-record.js';
+
+/**
+ * Http delete response body
+ */
 export type DeleteResult = {
   affected: number;
-  data?: Record<string, any>;
+  data?: SomeRecord;
 };
