@@ -46,7 +46,7 @@ export class Encryption {
   }
 
   /**
-   * Decrypts data encrypted with AES-256-CBC asynchronously with streams
+   * Decrypt data encrypted with AES-256-CBC asynchronously with streams
    * @param encryptedData Encrypted string (IV:encrypted_data)
    * @param key Original encryption key (32 bytes/256 bits)
    * @returns Promise resolving to decrypted string

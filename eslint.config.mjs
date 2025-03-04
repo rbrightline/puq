@@ -26,6 +26,14 @@ const projectKeywords = [
   'decrement',
   'signup',
   'otp',
+  'pbkdf2',
+  'decrypted',
+  'Decipheriv',
+  'Decrypt',
+  'Cipheriv',
+  'aes',
+  'cbc',
+  'utf8',
 ];
 const tsKeywords = [
   'nx',
