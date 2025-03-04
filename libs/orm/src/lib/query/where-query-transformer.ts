@@ -13,7 +13,7 @@ export type WhereQueryTransformerOptions<T = any> = {
 
 /**
  * Parse where-query string into typeorm where object.
- * @param options queriable columns
+ * @param options - {@link Keys<T>} columns that allows query operation
  * @returns
  */
 export function WhereQueryTransformer<T = any>(
@@ -29,7 +29,7 @@ export function WhereQueryTransformer<T = any>(
           .map((e) => {
             return createFindOperator(e);
           })
-          .reduce((p, c) => ({ ...p, ...c }), {});
+          .reduce((p1, c1) => ({ ...p1, ...c1 }), {});
       } else if (Array.isArray(value)) {
         if (value.every((e) => typeof e == 'string')) {
           return value.map((e) => {
@@ -38,10 +38,10 @@ export function WhereQueryTransformer<T = any>(
             const queryObjects = parseWhereQueryString(e);
 
             return queryObjects
-              .map((e) => {
-                return createFindOperator(e);
+              .map((e1) => {
+                return createFindOperator(e1);
               })
-              .reduce((p, c) => ({ ...p, ...c }), {});
+              .reduce((p1, c1) => ({ ...p1, ...c1 }), {});
           });
         }
       }

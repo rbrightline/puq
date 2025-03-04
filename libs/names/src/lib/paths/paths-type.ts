@@ -50,7 +50,7 @@ export type Paths = {
   /**
    * The path used to represent a relation between resources.
    * @example
-   * - DELETE `/user/1/category` ⭐ Set the user's cateogry relation null.
+   * - DELETE `/user/1/category` ⭐ Set the user's category relation null.
    */
   relation: string;
 

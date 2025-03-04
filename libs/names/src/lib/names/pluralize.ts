@@ -1,3 +1,4 @@
+/* eslint-disable spellcheck/spell-checker */
 /**
  * Pluralize the given string following (english) grammer
  * @param name name to pluralize

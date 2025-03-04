@@ -61,8 +61,8 @@ export function paths(resourceName: string, prefix = ''): Paths {
     increment: `${idPath}/increment`,
     decrement: `${idPath}/decrement`,
     count: `${pluralPath}/count`,
-    relation: `${idPath}/:rn`,
-    relationId: `${idPath}/:rn/:rid`,
+    relation: `${idPath}/:relationName`,
+    relationId: `${idPath}/:relationName/:relationId`,
     file: `${idPath}/file`,
     img: `${idPath}/img`,
   };

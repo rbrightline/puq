@@ -12,7 +12,8 @@ export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
   /**
    * Limit the number of columns to be selected. If set 1 for example, the user must select only 1 column such as id.
    */
-  maximumSelectableColumns?: number;
+  maximumSelectedColumns?: number;
+
   /**
    * Limit the maximum page length
    */
@@ -34,16 +35,16 @@ export function CreateQueryManyDto<T>(
 ): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
   const {
     columns,
-    maximumSelectableColumns,
+    maximumSelectedColumns,
     maximumTake,
     defaultTake,
     isSelectRequired,
   } = options;
 
   @Dto()
-  class QueryManyDto<T>
+  class QueryManyDto<T1>
     extends CommonQueryDto
-    implements QueryMany<T, FindOptionsWhere<T>[]>
+    implements QueryMany<T1, FindOptionsWhere<T1>[]>
   {
     @Property({
       type: 'integer',
@@ -68,7 +69,7 @@ export function CreateQueryManyDto<T>(
     @SelectTransformer()
     @Property({
       type: 'array',
-      maxSize: maximumSelectableColumns,
+      maxSize: maximumSelectedColumns,
       required: isSelectRequired,
       items: {
         type: 'string',
@@ -76,7 +77,7 @@ export function CreateQueryManyDto<T>(
         enum: columns,
       },
     })
-    select?: Keys<T>;
+    select?: Keys<T1>;
 
     @Property({
       type: 'string',
@@ -84,7 +85,7 @@ export function CreateQueryManyDto<T>(
       enum: columns,
       default: 'id',
     })
-    orderBy?: KeyOf<T>;
+    orderBy?: KeyOf<T1>;
 
     @Property({
       type: 'string',
@@ -104,7 +105,7 @@ export function CreateQueryManyDto<T>(
 
     @WhereQueryTransformer(columns)
     @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
-    where?: FindOptionsWhere<T>[];
+    where?: FindOptionsWhere<T1>[];
   }
 
   return QueryManyDto;

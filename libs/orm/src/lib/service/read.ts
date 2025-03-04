@@ -8,29 +8,29 @@ import { BaseEntityService } from './base.js';
  * Read service
  */
 export class EntityReadService<
-  T extends BaseEntity
+  T extends BaseEntity,
 > extends BaseEntityService<T> {
   /**
    * Query all entities
    */
   find(query: QueryMany<T, FindOptionsWhere<T>[]>) {
-    return this.repo.find(query);
+    return this.repository.find(query);
   }
 
   /**
    * Query one entity
-   * @param query {@linkk QueryOne}
+   * @param query {@link QueryOne}
    * @returns
    */
   findOne(query: QueryOne<T, FindOptionsWhere<T>[]>) {
-    return this.repo.findOne(query);
+    return this.repository.findOne(query);
   }
 
   findOneById(id: number) {
-    return this.repo.findOneBy({ id } as FindOptionsWhere<T>);
+    return this.repository.findOneBy({ id } as FindOptionsWhere<T>);
   }
 
   async count(query: QueryCount<FindOptionsWhere<T>[]>): Promise<CountResult> {
-    return { count: await this.repo.count(query) };
+    return { count: await this.repository.count(query) };
   }
 }

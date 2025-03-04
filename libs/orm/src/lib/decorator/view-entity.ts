@@ -12,8 +12,8 @@ export function ViewEntity<T extends ObjectLiteral>(
 ): ClassDecorator {
   return (t) => {
     __ViewEntity({
-      expression(ds) {
-        const builder = ds.createQueryBuilder();
+      expression(dataSource) {
+        const builder = dataSource.createQueryBuilder();
 
         if (selectBaseEntity)
           builder

@@ -11,7 +11,22 @@ const commonKeywords = [
   'json',
   'enums',
 ];
-const projectKeywords = ['nx', 'typescript', 'eslint', 'vite', 'puq'];
+const projectKeywords = [
+  'nx',
+  'typescript',
+  'eslint',
+  'vite',
+  'puq',
+  'typeorm',
+  'sqlite',
+  'better-sqlite3',
+  'varchar',
+  'jsonb',
+  'increment',
+  'decrement',
+  'signup',
+  'otp',
+];
 const tsKeywords = [
   'nx',
   'typescript',

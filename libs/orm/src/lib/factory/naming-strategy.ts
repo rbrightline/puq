@@ -1,11 +1,11 @@
 import { DefaultNamingStrategy } from 'typeorm';
 /**
- * Databaes table and column naming strategy
+ * Database table and column naming strategy
  */
 export class TableNamingStrategy extends DefaultNamingStrategy {
   override joinTableName(
     firstTableName: string,
-    secondTableName: string
+    secondTableName: string,
   ): string {
     return `${firstTableName}_${secondTableName}`;
   }

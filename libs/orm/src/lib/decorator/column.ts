@@ -6,8 +6,8 @@ import { pickTransformer } from '../common/pick-transformer.js';
 
 /**
  * Typeorm Column decorator with `validation` and `documentation` capabilities.
- * @param options proeprty options {@link PropertyOptions}
- * @returns proeprty decorator {@link PropertyDecorator}
+ * @param options property options {@link PropertyOptions}
+ * @returns property decorator {@link PropertyDecorator}
  */
 export function Column(options: PropertyOptions): PropertyDecorator {
   return (t, p) => {

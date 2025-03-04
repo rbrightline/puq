@@ -14,46 +14,58 @@ export class EntityWriteService<
   T extends BaseEntity,
 > extends EntityReadService<T> {
   save(entity: T): Promise<T> {
-    return this.repo.save(entity);
+    return this.repository.save(entity);
   }
 
   saveMany(entities: T[]): Promise<T[]> {
-    return this.repo.save(entities);
+    return this.repository.save(entities);
   }
 
   update(id: number, entity: QueryDeepPartialEntity<T>) {
-    return this.repo.update(id, entity);
+    return this.repository.update(id, entity);
   }
 
   delete(id: number) {
-    return this.repo.delete(id);
+    return this.repository.delete(id);
   }
 
   softDelete(id: number) {
-    return this.repo.softDelete(id);
+    return this.repository.softDelete(id);
   }
 
   async addRelation(relation: RelationParam): Promise<UpdateResult> {
-    const { id, rid, relationName: rn } = relation;
-    await this.repo.createQueryBuilder().relation(relationName).of(id).add(rid);
+    const { id, relationId, relationName } = relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .add(relationId);
     return { affected: 1 };
   }
 
   async removeRelation(relation: RelationParam): Promise<UpdateResult> {
-    const { id, rid, relationName: rn } = relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).remove(rid);
+    const { id, relationId, relationName: relationName } = relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .remove(relationId);
     return { affected: 1 };
   }
 
   async setRelation(relation: RelationParam): Promise<UpdateResult> {
-    const { id, rid, relationName: rn } = relation;
-    await this.repo.createQueryBuilder().relation(rn).of(id).set(rid);
+    const { id, relationId, relationName } = relation;
+    await this.repository
+      .createQueryBuilder()
+      .relation(relationName)
+      .of(id)
+      .set(relationId);
     return { affected: 1 };
   }
 
   async unsetRelation(relation: UnsetRelationParam): Promise<UpdateResult> {
-    const { id, relationName: rn } = relation;
-    await this.repo
+    const { id, relationName } = relation;
+    await this.repository
       .createQueryBuilder()
       .relation(relationName)
       .of(id)

@@ -15,7 +15,7 @@ import type { Names } from './names-type.js';
  * - `snakeCase`: snake_case format.
  * - `titleCase`: Title Case format.
  * - `controllerName`: NameController.
- * - `serviceName`: Nameservice.
+ * - `serviceName`: NameService.
  * - `moduleName`: NameModule.
  */
 export function names(resourceName: string, options?: NamesOption): Names {
@@ -71,12 +71,12 @@ export function names(resourceName: string, options?: NamesOption): Names {
 
   const { wrapper: w, prefix: p, suffix: s } = options || {};
 
-  Object.entries(result).map(([key, value]) => {
-    if (p) value = `${p}${value}`;
-    if (s) value = `${value}${s}`;
-    if (w) value = `${w}${value}${w}`;
+  Object.entries(result).map(([key1, value1]) => {
+    if (p) value1 = `${p}${value1}`;
+    if (s) value1 = `${value1}${s}`;
+    if (w) value1 = `${w}${value1}${w}`;
 
-    (result as any)[key] = value;
+    result[key1 as keyof Names] = value1;
   });
 
   return result;

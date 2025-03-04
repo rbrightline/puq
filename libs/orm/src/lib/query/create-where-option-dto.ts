@@ -4,8 +4,9 @@ import { Dto, Property } from '@puq/property';
 import { QueryOperator } from '@puq/query';
 
 /**
- * Create {@link WhereOption} dto for the entity
- * @param columns queriable columns
+ * Create {@link WhereOption} query dto for the entity
+ * @template - {@link T} target entity class
+ * @param columns - {@link Keys<T>} columns that allows query operations
  * @returns
  */
 export function CreateWhereOptionDto<T, V>(

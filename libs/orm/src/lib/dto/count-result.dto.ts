@@ -8,7 +8,7 @@ import { Dto, Property } from '@puq/property';
 export class CountResultDto implements CountResult {
   @Property({
     type: 'integer',
-    description: 'The number of items mached the query',
+    description: 'The number of items matched the query',
   })
   count: number;
 }

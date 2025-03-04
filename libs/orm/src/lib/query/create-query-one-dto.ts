@@ -22,9 +22,9 @@ export function CreateQueryOneDto<T>(
   const { columns, maxColumns, isSelectRequired } = options;
 
   @Dto()
-  class QueryOneDto<T>
+  class QueryOneDto<T1>
     extends CommonQueryDto
-    implements QueryOne<T, FindOptionsWhere<T>[]>
+    implements QueryOne<T1, FindOptionsWhere<T1>[]>
   {
     @Property({
       type: 'array',
@@ -36,11 +36,11 @@ export function CreateQueryOneDto<T>(
         enum: columns,
       },
     })
-    select?: Keys<T>;
+    select?: Keys<T1>;
 
     @WhereQueryTransformer(columns)
     @ApiProperty({ type: 'array', items: { type: 'string' } })
-    where?: FindOptionsWhere<T>[];
+    where?: FindOptionsWhere<T1>[];
   }
 
   return QueryOneDto;
