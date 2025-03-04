@@ -13,5 +13,8 @@ export default defineConfig({
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8',
     },
+    env: {
+      DEBUG_MODE: 'true',
+    },
   },
 });

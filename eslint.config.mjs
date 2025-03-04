@@ -42,6 +42,8 @@ const projectKeywords = [
   'fullpath',
   'rootpath',
   'readdir',
+  'txt',
+  'subdir',
 ];
 const tsKeywords = [
   'nx',

@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { scope } from './scope.js';
-import { mkdir, writeFile } from 'fs/promises';
+import { mkdir, rm, writeFile } from 'fs/promises';
+import { files } from './files.js';
 
 describe('files: list all files in the directory recursively (optional)', () => {
   const rootDirectory = join(__dirname, 'temp', 'files');
@@ -11,10 +12,12 @@ describe('files: list all files in the directory recursively (optional)', () => 
     'sample/dto/create-sample.dto.ts',
     'sample/dto/update-sample.dto.ts',
     'sample/entity/sample.entity.ts',
+    'sample/sample.controller.ts',
+    'sample/sample.module.ts',
   ].map((e) => resolve(e));
 
   beforeAll(async () => {
-    await mkdir(resolve(''));
+    await mkdir(resolve(''), { recursive: true });
     await mkdir(resolve('sample/dto'), { recursive: true });
     await mkdir(resolve('sample/entity'), { recursive: true });
     await Promise.all(
@@ -23,10 +26,20 @@ describe('files: list all files in the directory recursively (optional)', () => 
   });
 
   afterAll(async () => {
-    // Teardonw
+    await rm(resolve(), { recursive: true });
   });
 
   it('should find files', async () => {
-    expect(1).toEqual(1);
+    const foundFiles = await files(resolve(), { recursive: true });
+    expect(foundFiles.map((filepath) => resolve(filepath))).toEqual(
+      testFiles.map((filepath) => resolve(filepath)),
+    );
+  });
+
+  it('should find files with absolutepath', async () => {
+    const foundFiles = await files(resolve(), { recursive: true });
+    expect(foundFiles.map((filepath) => resolve(filepath))).toEqual(
+      testFiles.map((filepath) => resolve(filepath)),
+    );
   });
 });

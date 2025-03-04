@@ -6,7 +6,13 @@
 
 ## Summary
 
-A lightweight and efficient TypeScript utility library for handling file system operations. This library provides functions to work with directories, files, and structured data formats like JSON and YAML.
+`@puq/fs` is a lightweight, efficient TypeScript utility library designed for seamless file system operations. It offers a robust set of functions to manage directories, files, and structured data formats like JSON and YAML, making it an essential tool for developers working with file-based tasks.
+
+## Install
+
+```bash
+  pnpm add @puq/fs
+```
 
 ## Features
 
@@ -31,17 +37,11 @@ A lightweight and efficient TypeScript utility library for handling file system 
   - Handle file system scope (`scope.ts`)
   - Work with path segments (`segments.ts`)
 
-## Install
-
-```bash
-  pnpm add @puq/fs
-```
-
 ## Funding
 
 Thank you for using `@puq/fs` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
 
-[Instant Funding](https://cash.app/$puqlib)
+[💲💲 Instant Funding](https://cash.app/$puqlib)
 
 ### Your funding will go toward
 
@@ -52,4 +52,4 @@ Thank you for using `@puq/fs` It's an open-source project, and maintaining it ta
 
 Contact to the developer: [robert.brightline@gmail.com]
 
-[Support the developer](https://cash.app/$puqlib)
+[💰 Support the developer](https://cash.app/$puqlib)

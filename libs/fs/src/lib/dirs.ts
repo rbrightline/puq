@@ -4,9 +4,25 @@ import { normalize, resolve } from 'path';
 import type { CommonFileOptions } from './common-file-options.js';
 
 /**
- * List all directories under the provided {@link root} directory
- * @param root root directory to search for sub directories
- * @returns list of directory paths
+ * Asynchronously retrieves an array of directory paths starting from a root directory.
+ * Can operate recursively and return either absolute or relative paths based on options.
+ *
+ * @param root - The root directory path to start the search from
+ * @param options - Optional configuration for directory traversal
+ * @returns A promise that resolves to an array of directory paths
+ *
+ * @example
+ * // Basic usage - get immediate subdirectories with relative paths
+ * const dirsList = await dirs('/path/to/root');
+ * // Returns: ['./dir1', './dir2']
+ *
+ * @example
+ * // Recursive with absolute paths
+ * const allDirs = await dirs('/path/to/root', {
+ *   recursive: true,
+ *   absolutePath: true
+ * });
+ * // Returns: ['/path/to/root/dir1', '/path/to/root/dir1/sub directories', ...]
  */
 export async function dirs(
   root: string,
@@ -33,7 +49,7 @@ export async function dirs(
 
   const preresult = foundDirs.flat().filter(isDefined);
 
-  if (options?.fullpath == true) return preresult;
+  if (options?.absolutePath == true) return preresult;
 
   return preresult.map((e) => normalize(e.replace(root, './')));
 }

@@ -11,3 +11,4 @@ export * from './lib/read-yaml-file.js';
 export * from './lib/scope-resolver.js';
 export * from './lib/scope.js';
 export * from './lib/segments.js';
+export * from './lib/to-relative-path.js';

@@ -5,11 +5,24 @@ import { resolve } from 'path';
 import type { CommonFileOptions } from './common-file-options.js';
 
 /**
- * Find the first matching file with the {@link filepath}. The filename in the {@link filepath} might be {@link RegExp} string such as `\.ts`
- * @param filepath filepath to search under the directory
- * @param options {@link CommonFileOptions}
- * @returns - {@link Promise<string>}
- * @throws {@link throwInvalidFieldError } or {@link | throwFileNotFoundError}
+ * Asynchronously finds the first file matching a given filepath pattern.
+ * The filename portion can include RegExp-style patterns (e.g., '\.ts$').
+ *
+ * @param filepath - The file path or pattern to search for. Can be absolute or relative.
+ * @param options - Optional configuration for file searching, extends CommonFileOptions
+ * @returns A promise that resolves to the absolute path of the first matching file
+ * @throws - {@link Error} via {@link throwInvalidFieldError} - If the filepath cannot be segmented
+ * @throws - {@link Error} via {@link throwFileNotFoundError} - If no matching file is found
+ *
+ * @example
+ * // Find a specific file
+ * const file = await findFile('/path/to/file.txt');
+ * // Returns: '/path/to/file.txt' if found
+ *
+ * @example
+ * // Find first TypeScript file using regex pattern
+ * const tsFile = await findFile('/path/to/.*\.ts$', { recursive: true });
+ * // Returns: '/path/to/example.ts' if found
  */
 export async function findFile(
   filepath: string,
@@ -23,7 +36,7 @@ export async function findFile(
 
   const filename = segments0.at(-1);
 
-  const foundFiles = await files(rootpath, { ...options, fullpath: true });
+  const foundFiles = await files(rootpath, { ...options, absolutePath: true });
 
   const regularExpression = new RegExp(`${filename}`);
 
