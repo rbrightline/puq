@@ -4,8 +4,10 @@ import dependencyChecks from './.eslint/rules/dependency-checks.mjs';
 import enforceModuleBoundaries from './.eslint/rules/enforce-module-boundaries.mjs';
 import noShadow from './.eslint/rules/no-shadow.mjs';
 import spellChecker from './.eslint/rules/spell-checker.mjs';
+import ignores from '././.eslint/rules/ignores.mjs';
 
 export default [
+  ignores,
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],

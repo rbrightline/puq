@@ -1,12 +1,10 @@
-import eslintPluginSpellCheck from 'eslint-plugin-spellcheck';
-import ignores from '../common/ignores.mjs';
+import spellcheck from 'eslint-plugin-spellcheck';
 import skipWords from '../common/skip-words.mjs';
 
 export default {
   files: ['**/*.ts'],
-  ignores,
   plugins: {
-    spellcheck: eslintPluginSpellCheck,
+    spellcheck,
   },
   rules: {
     'spellcheck/spell-checker': [

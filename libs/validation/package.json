@@ -82,7 +82,8 @@
     },
     "devDependencies": {
         "@puq/testing": "workspace:^",
-        "@puq/type": "workspace:^"
+        "@puq/type": "workspace:^",
+        "reflect-metadata": "^0.2.2"
     },
     "peerDependencies": {
         "class-transformer": "^0.5.1",

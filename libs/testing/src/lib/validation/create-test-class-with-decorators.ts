@@ -1,14 +1,15 @@
-import type { PropertyOptions } from '@puq/type';
+import type { PropertyOptions, Type } from '@puq/type';
+import type { TestClassWithSingleProperty } from './test-class-with-single-property.js';
 
-export function createTestClassWithDecorators<T>(
+export function createTestClassWithWithSinglePropertyDecorators<V>(
   options: PropertyOptions,
-  ClassDecoratorFactory: (...args: unknown[]) => ClassDecorator,
-  PropertyDecoratorFactory: (...args: unknown[]) => PropertyDecorator,
-) {
+  ClassDecoratorFactory: <Args>(args?: Args) => ClassDecorator,
+  PropertyDecoratorFactory: <Args>(args?: Args) => PropertyDecorator,
+): Type<TestClassWithSingleProperty<V>> {
   @ClassDecoratorFactory()
   class Sample {
     @PropertyDecoratorFactory(options)
-    value: T;
+    value: V;
   }
 
   return Sample;
