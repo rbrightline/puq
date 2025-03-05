@@ -2,6 +2,9 @@ import type { CommonOptions } from './common.js';
 import type { StringFormat } from './string-format.js';
 
 export type __StringOptions = {
+  /**
+   * String property type
+   */
   type: 'string';
 
   /**

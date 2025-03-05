@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-/* eslint-disable @typescript-eslint/no-wrapper-object-types */
 
 /**
  * Decorator param `(...args:PropertyDecoratorParam)=>`
  */
-export type PropertyDecoratorParam = [Object, string | symbol];
+export type PropertyDecoratorParam = [object, string | symbol];
 
 /**
  * Decorator param `(...args:ClassDecoratorParam)=>`
@@ -15,7 +14,7 @@ export type ClassDecoratorParam = [Function];
  * Decorator param `(...args:MethodDecoratorParam)=>`
  */
 export type MethodDecoratorParam<T> = [
-  Object,
+  object,
   string | symbol,
   TypedPropertyDescriptor<T>,
 ];
@@ -24,7 +23,7 @@ export type MethodDecoratorParam<T> = [
  * Decorator param `(...args:ParameterDecoratorParam)=>`
  */
 export type ParameterDecoratorParam = [
-  Object,
+  object,
   string | symbol | undefined,
   number,
 ];

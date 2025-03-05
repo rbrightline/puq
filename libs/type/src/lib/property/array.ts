@@ -1,7 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CommonOptions } from './common.js';
 
+/**
+ * Array property options
+ */
 export type __ArrayOptions<P> = {
+  /**
+   * Property type
+   */
   type: 'array';
 
   /**
@@ -26,5 +31,5 @@ export type __ArrayOptions<P> = {
 };
 
 export type ArrayOptions<P> = Readonly<
-  CommonOptions<any[]> & __ArrayOptions<P>
+  CommonOptions<unknown[]> & __ArrayOptions<P>
 >;

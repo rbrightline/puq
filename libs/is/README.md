@@ -6,26 +6,12 @@
 
 ## Summary
 
-A set of utility functions to check the value is undefined, null, or empty
-
-- **def**: check the value is defined
-- **udef**: check the value is not defined
-- **ne**: check the value is not empty in any means
-- **rne**: check the value is not empty in any means and return it or throw error
-- **rval**: check the value is neither undefined nor null and return it or throw error
+A set of utility functions to check type of value.
 
 ## Install
 
 ```bash
   pnpm add @puq/is
-```
-
-## Examples
-
-```ts
-if (def(value))   // Value is defined
-if (udef(value))  // Value is undefined
-if (rval(value))  // Value is defined or throw RequiredValueError
 ```
 
 ## Funding

@@ -1,12 +1,11 @@
 import type { EmptyClass, SomeRecord } from '@puq/type';
 import { isBoolean, isNumber } from '../type/is-type.js';
 import { throwInvalidParameterError } from '@puq/error';
+import { EnumaratorParam } from './enumarator-param.js';
 
-export type EntriesParameterType = Exclude<
-  string | number | SomeRecord | EmptyClass | Array<unknown>,
-  boolean
->;
-
+/**
+ * The return type of the `entries` function
+ */
 export type EntriesReturnType<T> = T extends string
   ? Array<[`${number}`, string]>
   : T extends number
@@ -22,11 +21,11 @@ export type EntriesReturnType<T> = T extends string
             : never;
 
 /**
- * Extracts the enumerable `key-value` pairs of the {@link value}
- * @param value - one of `string`, `number`, `object`, `array`, or `(...class instance)`
+ * Extracts the enumerable `key-value` pairs of the `value`
+ * @param value - one of `string`, `number`, `object`, or `array`
  * @returns An array of `[key, value]` tuples
  */
-export function entries<T extends EntriesParameterType>(
+export function entries<T extends EnumaratorParam>(
   value: T,
 ): EntriesReturnType<T> {
   if (isBoolean(value))
@@ -34,7 +33,7 @@ export function entries<T extends EntriesParameterType>(
       `entries function does not support boolean input`,
     );
 
-  const run = (v: EntriesParameterType) =>
+  const run = (v: EnumaratorParam) =>
     Object.entries(v) as unknown as EntriesReturnType<T>;
 
   if (isNumber(value)) return run(value.toString());

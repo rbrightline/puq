@@ -1,14 +1,5 @@
 /**
- * The type is the improved version of `unkown` value
- * 
- * ```ts
- * function<T>requiredValue(value:Some<T>):T {
- *   if(type of value ==='string') return value;
- *   throw Error(`${value} is not a typeof string`)
- * }
- * ```
- * 
- * The function in the example accept all types of intput but only returns the T type, throw otherwise
- 
+ * The `Some` type utility makes the type compatible with `unknown` values.
+ * This type is useful when the expected type is known but the source is loose.
  */
 export type Some<T = unknown> = T | unknown;

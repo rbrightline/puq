@@ -1,4 +1,4 @@
 /**
- * The type is designed for type types like `number |undefined | null`
+ * Optional type creates a union type of T, undefined, and null
  */
 export type Optional<T> = T | undefined | null;
