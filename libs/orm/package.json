@@ -1,1 +1,99 @@
-{"name":"@puq/orm","license":"MIT","version":"0.4.11","publishConfig":{"access":"public","tag":"latest"},"description":"The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.","author":{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"},"keywords":["puq","orm"],"repository":{"directory":"libs/orm","url":"https://github.com/rbrightline/puq/tree/main","type":"github"},"homepage":"https://rbrightline.github.io/puq/orm","bugs":{"email":"robert.brightline@gmail.com","url":"https://rbrightline.github.io"},"categories":["Other"],"contributors":[{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"}],"funding":["https://cash.app/$puqlib"],"icon":"https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/orm/favicon.png","type":"module","main":"./dist/index.js","module":"./dist/index.js","types":"./dist/index.d.ts","exports":{"./package.json":"./package.json",".":{"types":"./dist/index.d.ts","import":"./dist/index.js","default":"./dist/index.js"}},"files":["dist","!**/*.tsbuildinfo"],"nx":{"sourceRoot":"libs/orm/src","targets":{"build":{"executor":"@nx/js:swc","outputs":["{options.outputPath}"],"options":{"outputPath":"libs/orm/dist","main":"libs/orm/src/index.ts","tsConfig":"libs/orm/tsconfig.lib.json","skipTypeCheck":false,"stripLeadingPaths":true},"dependsOn":["lint"]},"doc":{"command":"cd libs/orm && npx compodoc -d ../../public/orm  -p tsconfig.lib.json -n orm"}}},"devDependencies":{"@nx/devkit":"20.4.4","@puq/type":"workspace:^","@swc/helpers":"~0.5.11","better-sqlite3":"^11.8.1","pg":"^8.13.3"},"peerDependencies":{"class-transformer":"^0.5.1","typeorm":"^0.3.20","@puq/property":"^0.4.11"},"dependencies":{"@swc/helpers":"~0.5.15","@puq/query":"^0.4.11"}}
+{
+    "name": "@puq/orm",
+    "license": "MIT",
+    "version": "0.4.11",
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+    },
+    "description": "The custom TypeORM decorators extend standard entity definitions by seamlessly integrating validation and API documentation within a single decorator. These decorators ensure that database entities are not only mapped efficiently but also validated at the DTO level while providing clear API documentation using Swagger.",
+    "author": {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+        "puq",
+        "orm"
+    ],
+    "repository": {
+        "directory": "libs/orm",
+        "url": "https://github.com/rbrightline/puq/tree/main",
+        "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/orm",
+    "bugs": {
+        "email": "robert.brightline@gmail.com",
+        "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+        "Other"
+    ],
+    "contributors": [
+        {
+            "email": "robert.brightline@gmail.com",
+            "name": "Robert Brightline",
+            "url": "https://rbrightline.github.io"
+        }
+    ],
+    "funding": [
+        "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/orm/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+        "sourceRoot": "libs/orm/src",
+        "targets": {
+            "build": {
+                "executor": "@nx/js:swc",
+                "outputs": [
+                    "{options.outputPath}"
+                ],
+                "options": {
+                    "outputPath": "libs/orm/dist",
+                    "main": "libs/orm/src/index.ts",
+                    "tsConfig": "libs/orm/tsconfig.lib.json",
+                    "skipTypeCheck": false,
+                    "stripLeadingPaths": true
+                },
+                "dependsOn": [
+                    "lint"
+                ]
+            },
+            "doc": {
+                "command": "cd libs/orm && npx compodoc -d ../../public/orm  -p tsconfig.lib.json -n orm"
+            }
+        }
+    },
+    "devDependencies": {
+        "@nx/devkit": "20.4.4",
+        "@puq/type": "workspace:^",
+        "@swc/helpers": "~0.5.11",
+        "better-sqlite3": "^11.8.1",
+        "pg": "^8.13.3"
+    },
+    "peerDependencies": {
+        "class-transformer": "^0.5.1",
+        "typeorm": "^0.3.20",
+        "@puq/property": "^0.4.11"
+    },
+    "dependencies": {
+        "@swc/helpers": "~0.5.15",
+        "@puq/query": "^0.4.11"
+    }
+}

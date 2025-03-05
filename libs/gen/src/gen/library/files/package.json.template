@@ -84,6 +84,7 @@
   "devDependencies":{
     "@puq/type":"workspace:^",
     "@puq/model":"workspace:^",
+    "@puq/testing":"workspace:^"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15",

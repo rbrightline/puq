@@ -81,6 +81,7 @@
         }
     },
     "devDependencies": {
+        "@puq/testing": "workspace:^",
         "@puq/type": "workspace:^"
     },
     "peerDependencies": {

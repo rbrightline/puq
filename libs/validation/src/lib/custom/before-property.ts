@@ -18,16 +18,10 @@ import {
 export class BeforePropertyConstraint implements ValidatorConstraintInterface {
   validate(valueRaw: any, args: ValidationArguments) {
     const targetRaw = (args.object as any)[args.constraints[0]];
-
     if (!isISO8601(valueRaw) && !isISO8601(targetRaw)) return true;
     if (!isISO8601(valueRaw) || !isISO8601(targetRaw)) return false;
 
-    const value = new Date(valueRaw);
-    const target = new Date(targetRaw);
-
-    if (value < target) return true;
-
-    return false;
+    return new Date(valueRaw) < new Date(targetRaw);
   }
 
   defaultMessage(args: ValidationArguments) {

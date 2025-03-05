@@ -1,12 +1,12 @@
 {
-  "name": "@puq/<%- fileName %>",
+  "name": "@puq/testing",
   "license": "MIT",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "- [ ] add description for <%- fileName %>",
+  "description": "The library offers a collection of robust utilities designed to enhance test quality, streamline testing processes, and minimize the time and effort required for effective test implementation.",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -14,22 +14,22 @@
   },
   "keywords": [
     "puq",
-    "<%- fileName %>",
-    "- [ ] add keywords for <%- fileName %>"
+    "testing",
+    "test-utilities"
   ],
   "repository": {
-    "directory": "<%- target %>",
+    "directory": "libs/testing",
     "url": "https://github.com/rbrightline/puq/tree/main",
     "type": "github"
   },
-  "homepage": "https://rbrightline.github.io/puq/<%- fileName %>",
+  "homepage": "https://rbrightline.github.io/puq/testing",
   "bugs": {
     "email": "robert.brightline@gmail.com",
     "url": "https://rbrightline.github.io"
   },
   "categories": [
     "Other",
-    "- [ ] add categories for <%- fileName %>"
+    "- [ ] add categories for testing"
   ],
   "contributors": [
     {
@@ -41,10 +41,7 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/<%- target %>/favicon.png",
-  "bin": {
-    "<%- fileName %>": "./bin/<%- fileName %>.js"
-  },
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/testing/favicon.png",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -58,12 +55,11 @@
     }
   },
   "files": [
-    "bin",
     "dist",
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "<%- target %>/src",
+    "sourceRoot": "libs/testing/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -71,26 +67,35 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "<%- target %>/dist",
-          "main": "<%- target %>/src/index.ts",
-          "tsConfig": "<%- target %>/tsconfig.lib.json",
+          "outputPath": "libs/testing/dist",
+          "main": "libs/testing/src/index.ts",
+          "tsConfig": "libs/testing/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "lint"
+        ]
       },
       "doc": {
-         "command": "cd <%- target %> && npx compodoc -d <%- segments %>public/<%- fileName %>  -p tsconfig.lib.json -n <%- fileName %>"
+        "command": "cd libs/testing && npx compodoc -d ../../public/testing  -p tsconfig.lib.json -n testing"
       }
     }
   },
-  "devDependencies":{
-    "@puq/type":"workspace:^",
-    "@puq/model":"workspace:^",
-    "@puq/testing":"workspace:^"
+  "devDependencies": {
+    "@nestjs/testing": "^11.0.11",
+    "@nestjs/typeorm": "^11.0.0",
+    "@puq/model": "workspace:^",
+    "@puq/type": "workspace:^",
+    "better-sqlite3": "^11.8.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "pg": "^8.13.3",
+    "typeorm": "^0.3.20"
   },
-  "dependencies":{ 
-    "@swc/helpers": "^0.5.15",
+  "dependencies": {
     "@puq/debug": "workspace:^",
-    "commander": "^13.1.0"
+    "@puq/is": "workspace:^",
+    "@swc/helpers": "^0.5.15"
   }
 }
