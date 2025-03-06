@@ -7,9 +7,9 @@ export class Switch<T> {
   private constructor(private readonly value: T) {}
 
   /**
-   * Start function for switch-case
-   * @param switchValue - defined value
-   * @returns - this
+   * Start the swtich statement
+   * @param switchValue - value to check
+   * @returns this
    */
   public static switchValue<T>(switchValue: T): Switch<T> {
     isDefinedOrThrow(switchValue);

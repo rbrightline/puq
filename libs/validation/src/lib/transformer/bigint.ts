@@ -20,7 +20,7 @@ export function bigintTransformer(value: Some<bigint>) {
 export function BigintTransformer(): PropertyDecorator {
   return (...args: PropertyDecoratorParam) => {
     Transform(({ value }) => {
-      if (isString(value)) return bigintTransformer(value);
+      if (isString(value) || isNumber(value)) return bigintTransformer(value);
       if (isArray(value)) return value.map(bigintTransformer);
 
       return value;

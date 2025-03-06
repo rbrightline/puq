@@ -15,9 +15,9 @@ describe('PropertyValidation: Bigint', () => {
       index | options                          | value
       ${1}  | ${{ type: 'bigint' } as Options} | ${{ value: 1n }}
       ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: -100n }}
-      ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: 1 }}
-      ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: Number.MAX_SAFE_INTEGER }}
-      ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: Number.MIN_SAFE_INTEGER }}
+      ${3}  | ${{ type: 'bigint' } as Options} | ${{ value: 1 }}
+      ${4}  | ${{ type: 'bigint' } as Options} | ${{ value: Number.MAX_SAFE_INTEGER }}
+      ${5}  | ${{ type: 'bigint' } as Options} | ${{ value: Number.MIN_SAFE_INTEGER }}
     `(
       '$index - PropertyValidation($options) should validate $value with no errors',
       async ({ options, value }) => {
@@ -38,8 +38,8 @@ describe('PropertyValidation: Bigint', () => {
       index | options                          | value              | errors
       ${1}  | ${{ type: 'bigint' } as Options} | ${{ value: '' }}   | ${['isBigint']}
       ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: true }} | ${['isBigint']}
-      ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: [] }}   | ${['isBigint']}
-      ${2}  | ${{ type: 'bigint' } as Options} | ${{ value: {} }}   | ${['isBigint']}
+      ${3}  | ${{ type: 'bigint' } as Options} | ${{ value: [] }}   | ${['isBigint']}
+      ${4}  | ${{ type: 'bigint' } as Options} | ${{ value: {} }}   | ${['isBigint']}
     `(
       '$index - PropertyValidation($options) should validate $value and throw $errors',
       async ({ options, value, errors }) => {

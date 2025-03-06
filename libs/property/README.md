@@ -4,17 +4,17 @@
 
 # @puq/property
 
+## Summary
+
+The `@Property({...})` decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.
+
 ## Install
 
 ```bash
   pnpm add @puq/property
 ```
 
-## Summary
-
-The `@Property({...})` decorator is a powerful and versatile property decorator designed for NestJS applications. It seamlessly integrates validation and API documentation, ensuring that Data Transfer Objects (DTOs) are strongly typed, validated, and well-documented using Swagger. This decorator supports a wide range of data types, making it an essential tool for streamlining development, reducing boilerplate code, and enhancing API clarity.
-
-#### **Key Features**
+## **Key Features**
 
 - **Automatic Validation:** Leverages `class-validator` to enforce data integrity.
 - **Seamless Swagger Integration:** Uses `class-transformer` and `@nestjs/swagger` to generate API documentation automatically.
