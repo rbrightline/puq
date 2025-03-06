@@ -1,14 +1,15 @@
-import type { ArrayOptions } from '@puq/type';
+import type { ArrayOptions, PropertyDecoratorParam } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
 import {
   ArrayMaxSize,
   ArrayMinSize,
   ArrayNotEmpty,
+  ArrayUnique,
   IsArray,
-  isJSON,
   IsOptional,
 } from 'class-validator';
-import { Transform } from 'class-transformer';
+import { ArrayTransformer } from '../transformer/array.js';
+import { IsThen } from '@puq/is';
 
 /**
  * AAdd array validation capabilities to the {@link PropertyValidation}.
@@ -20,31 +21,31 @@ export function ArrayValidation<T>(
   options: ArrayOptions<T>,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
-    IsArray(validationOptions)(t, p);
+  return (...args: PropertyDecoratorParam) => {
+    const vo = validationOptions;
+    const { required, minSize, maxSize, uniqueItems, strict } = options;
 
-    const { required, minSize, maxSize } = options;
+    IsArray(vo)(...args);
 
-    if (required == true) {
-      ArrayNotEmpty(validationOptions)(t, p);
-    } else {
-      IsOptional(validationOptions)(t, p);
-    }
+    IsThen
 
-    if (minSize) ArrayMinSize(minSize, validationOptions)(t, p);
-    if (maxSize) ArrayMaxSize(maxSize, validationOptions)(t, p);
+      // is strict
+      .isTrue(strict !== true, () => ArrayTransformer()(...args))
 
-    if (options.acceptString === true) {
-      Transform(({ value }) => {
-        if (isJSON(value)) return JSON.parse(value);
-        else if (
-          typeof value === 'string' ||
-          typeof value == 'number' ||
-          typeof value === 'boolean'
-        )
-          return [value];
-        return value;
-      })(t, p);
-    }
+      // is requried
+      .isTrue(
+        required,
+        () => ArrayNotEmpty(vo)(...args),
+        () => IsOptional(vo)(...args),
+      )
+
+      // unique items
+      .isTrue(uniqueItems, () => ArrayUnique(vo)(...args))
+
+      // minSize
+      .ok(minSize, (value) => ArrayMinSize(value, vo)(...args))
+
+      // maxSize
+      .ok(maxSize, (value) => ArrayMaxSize(value, vo)(...args));
   };
 }

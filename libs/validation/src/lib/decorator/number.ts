@@ -1,10 +1,10 @@
-import type { ValidationOptions } from 'class-validator';
-import type { NumberOptions } from '@puq/type';
-import { isNumberString } from 'class-validator';
-import { Transform } from 'class-transformer';
+import { IsNumber, type ValidationOptions } from 'class-validator';
+import type { NumberOptions, PropertyDecoratorParam } from '@puq/type';
 import { CommonNumberValidation } from './common-number.js';
 import { NumberFormatValidation } from './number-format.js';
 import { MaxDecimals } from '../custom/max-decimals.js';
+import { MaxDigits } from '../custom/max-digits.js';
+import { NumberTransformer } from '../transformer/number.js';
 
 /**
  * Add Number specific validation decorators such as `Min` and `Max`
@@ -16,24 +16,22 @@ export function NumberValidation(
   options: NumberOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     const { numberFormat, maxDecimals } = options;
 
-    CommonNumberValidation(options, validationOptions)(t, p);
+    CommonNumberValidation(options, validationOptions)(...args);
+
+    IsNumber(undefined, validationOptions)(...args);
+
+    if (options.strict !== true) NumberTransformer()(...args);
+
+    MaxDigits(17, 20, validationOptions)(...args);
 
     if (numberFormat != undefined)
-      NumberFormatValidation(numberFormat, validationOptions)(t, p);
+      NumberFormatValidation(numberFormat, validationOptions)(...args);
 
     // Maximum decimal numbers
     if (maxDecimals != undefined)
-      MaxDecimals(maxDecimals, validationOptions)(t, p);
-
-    // If acceptString, the number-string is transformed into number
-    if (options.acceptString === true) {
-      Transform(({ value }) => {
-        if (isNumberString(value)) return parseFloat(value);
-        return value;
-      })(t, p);
-    }
+      MaxDecimals(maxDecimals, validationOptions)(...args);
   };
 }

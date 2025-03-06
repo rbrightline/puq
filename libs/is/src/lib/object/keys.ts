@@ -1,5 +1,5 @@
 import type { Keys } from '@puq/type';
-import type { EnumaratorParam } from './enumarator-param.js';
+import type { EnumeratorParam } from './enumerator-param.js';
 import { throwInvalidObjectError } from '@puq/error';
 
 /**
@@ -7,7 +7,7 @@ import { throwInvalidObjectError } from '@puq/error';
  * @param value - one of `object`, `array`
  * @returns the keys of the value such as [`some`, `other`]
  */
-export function keys<T extends EnumaratorParam>(value: T): Keys<T> {
+export function keys<T extends EnumeratorParam>(value: T): Keys<T> {
   if (typeof value !== 'object') throwInvalidObjectError();
   return Object.keys(value) as Keys<T>;
 }

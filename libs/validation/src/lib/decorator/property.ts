@@ -12,9 +12,9 @@ import { Exclude, Expose } from 'class-transformer';
 import type { PropertyOptions } from '@puq/type';
 
 /**
- * @exclude
- * @param options
- * @param validationOptions
+ * Transform and validate class properties
+ * @param options - property options
+ * @param validationOptions - validation options
  * @returns
  */
 export function __PropertyValidation(
@@ -57,6 +57,9 @@ export function __PropertyValidation(
       case 'array':
         CommonValidation(options, validationOptions)(t, p);
         ArrayValidation(options, validationOptions)(t, p);
+
+        if (options.items.type === 'array') break;
+
         __PropertyValidation(
           { ...options.items, required: options.required },
           { each: true },
@@ -67,11 +70,10 @@ export function __PropertyValidation(
 }
 
 /**
- * Property validation decorator
+ * Transform and validate class properties
  * For more secure and reliable input validation, set `client_max_body_size` in the server configuration
- * Also for Irregular, store and ban the IP addresses
- * @param options {@link PropertyOptions}
- * @returns propertyDecorator {@link PropertyDecorator}
+ * @param options - property options
+ * @returns - property decorator
  *
  *````ts
  * export class Sample {

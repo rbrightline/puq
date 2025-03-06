@@ -145,3 +145,16 @@ export function isArrayFunction(
 ): value is Array<(...args: unknown[]) => unknown> {
   return isArray<symbol>(value) && value.every(isFunction);
 }
+
+export function isPrimitive<T>(value: Some<T>): value is T {
+  if (
+    isString(value) ||
+    isNumber(value) ||
+    isBoolean(value) ||
+    isBigint(value)
+  ) {
+    return true;
+  }
+
+  return false;
+}

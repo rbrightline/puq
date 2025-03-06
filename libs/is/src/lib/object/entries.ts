@@ -1,7 +1,7 @@
 import type { EmptyClass, SomeRecord } from '@puq/type';
+import type { EnumeratorParam } from './enumerator-param.js';
 import { isBoolean, isNumber } from '../type/is-type.js';
 import { throwInvalidParameterError } from '@puq/error';
-import { EnumaratorParam } from './enumarator-param.js';
 
 /**
  * The return type of the `entries` function
@@ -25,18 +25,20 @@ export type EntriesReturnType<T> = T extends string
  * @param value - one of `string`, `number`, `object`, or `array`
  * @returns An array of `[key, value]` tuples
  */
-export function entries<T extends EnumaratorParam>(
+export function entries<T extends EnumeratorParam>(
   value: T,
 ): EntriesReturnType<T> {
   if (isBoolean(value))
-    throwInvalidParameterError(
-      `entries function does not support boolean input`,
-    );
+    throwInvalidParameterError(`Boolean value is not allowed`);
 
-  const run = (v: EnumaratorParam) =>
+  const run = (v: EnumeratorParam) =>
     Object.entries(v) as unknown as EntriesReturnType<T>;
 
-  if (isNumber(value)) return run(value.toString());
+  if (isNumber(value)) {
+    if (isNaN(value)) throwInvalidParameterError('NaN is not allowed');
+
+    return run(value.toString());
+  }
 
   return run(value);
 }

@@ -20,18 +20,23 @@ export async function transformAndValidate<T>(
 
   const constraints = extractConstraints(validationErrors);
 
-  if (expectedErrors.length > 0) {
-    assert.equal(constraints.length, expectedErrors.length);
+  try {
+    if (expectedErrors.length > 0) {
+      assert.equal(constraints.length, expectedErrors.length);
 
-    for (const e of constraints) {
-      assert.ok(expectedErrors.includes(e));
-    }
+      for (const e of constraints) {
+        assert.ok(expectedErrors.includes(e));
+      }
 
-    for (const e of expectedErrors) {
-      assert.ok(constraints.includes(e));
+      for (const e of expectedErrors) {
+        assert.ok(constraints.includes(e));
+      }
+    } else {
+      if (constraints.length > 0) console.error(constraints);
+      assert.equal(constraints.length, 0);
     }
-  } else {
-    if (constraints.length > 0) console.error(constraints);
-    assert.equal(constraints.length, 0);
+  } catch (err) {
+    console.table({ constraints });
+    throw err;
   }
 }

@@ -1,32 +1,20 @@
-import type { BigIntegerOptions } from '@puq/type';
+import type { BigIntegerOptions, PropertyDecoratorParam } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
-import { isNumberString } from 'class-validator';
 import { MaxDigits } from '../custom/max-digits.js';
-import { Transform } from 'class-transformer';
+import { IsBigint } from '../custom/is-bigint.js';
+import { BigintTransformer } from '../transformer/bigint.js';
+import { IsThen } from '@puq/is';
 
 export function BigIntValidation(
   options: BigIntegerOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
-    if (options.acceptString == true) {
-      Transform(({ value }) => {
-        if (typeof value === 'string') {
-          if (value.length <= 100) {
-            if (isNumberString(value)) {
-              return BigInt(value);
-            }
-          }
-          return 'NaN';
-        } else if (typeof value === 'bigint') {
-          if (value.toString().length > 100) {
-            return undefined;
-          }
-        }
-        return value;
-      })(t, p);
-    }
+  return (...args: PropertyDecoratorParam) => {
+    IsBigint(validationOptions)(...args);
+    MaxDigits(50, 50, validationOptions)(...args);
 
-    MaxDigits(50, 50, validationOptions)(t, p);
+    const { strict } = options;
+
+    IsThen.isTrue(strict !== true, () => BigintTransformer()(...args));
   };
 }

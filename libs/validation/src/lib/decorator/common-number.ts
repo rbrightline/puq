@@ -1,25 +1,21 @@
-import type { IntegerOptions, NumberOptions } from '@puq/type';
-import {
-  isArray,
-  IsEnum,
-  IsIn,
-  IsNotIn,
-  IsNumber,
-  Max,
-  Min,
-} from 'class-validator';
+import type {
+  IntegerOptions,
+  NumberOptions,
+  PropertyDecoratorParam,
+} from '@puq/type';
+import { isArray, IsEnum, IsIn, IsNotIn, Max, Min } from 'class-validator';
 import type { ValidationOptions } from 'class-validator';
-import { MaxDigits } from '../custom/max-digits.js';
 import { EqualToProperty } from '../custom/equal-to-property.js';
 import { LessThanProperty } from '../custom/less-than-property.js';
 import { MoreThanProperty } from '../custom/more-than-property.js';
 import { DependOnProperty } from '../custom/depend-on-property.js';
+import { IsThen } from '@puq/is';
 
 export function CommonNumberValidation(
   options: NumberOptions | IntegerOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     const {
       enum: enums,
       notIn,
@@ -31,40 +27,44 @@ export function CommonNumberValidation(
       dependOnProperty,
     } = options;
 
-    IsNumber({ allowNaN: false, allowInfinity: false }, validationOptions)(
-      t,
-      p,
-    );
+    IsThen
 
-    // Max digits are here by default! It checks the number is in the safe range
-    MaxDigits(17, 20, validationOptions)(t, p);
+      //
+      .ok(
+        minimum,
+        (minimum) => Min(minimum, validationOptions)(...args),
+        () => Min(Number.MIN_SAFE_INTEGER, validationOptions)(...args),
+      )
+      .ok(
+        maximum,
+        (maximum) => Max(maximum, validationOptions)(...args),
+        () => Max(Number.MAX_SAFE_INTEGER, validationOptions)(...args),
+      )
 
-    if (minimum != undefined) Min(minimum, validationOptions)(t, p);
-    else Min(Number.MIN_SAFE_INTEGER, validationOptions)(t, p);
+      .ok(enums, (enums) => {
+        if (isArray(enums)) {
+          IsIn(enums, validationOptions)(...args);
+        } else {
+          IsEnum(enums, validationOptions)(...args);
+        }
+      })
 
-    if (maximum != undefined) Max(maximum, validationOptions)(t, p);
-    else Max(Number.MAX_SAFE_INTEGER, validationOptions)(t, p);
+      .ok(notIn, (notIn) => IsNotIn(notIn, validationOptions))
 
-    if (enums != undefined) {
-      if (isArray(enums)) {
-        IsIn(enums, validationOptions)(t, p);
-      } else {
-        IsEnum(enums, validationOptions)(t, p);
-      }
-    }
+      .ok(moreThanProperty, (value) =>
+        MoreThanProperty(value, validationOptions)(...args),
+      )
 
-    if (notIn != undefined) IsNotIn(notIn, validationOptions);
+      .ok(lessThanProperty, (value) =>
+        LessThanProperty(value, validationOptions)(...args),
+      )
 
-    if (moreThanProperty != undefined)
-      MoreThanProperty(moreThanProperty, validationOptions)(t, p);
+      .ok(equalToProperty, (value) =>
+        EqualToProperty(value, validationOptions)(...args),
+      )
 
-    if (lessThanProperty != undefined)
-      LessThanProperty(lessThanProperty, validationOptions)(t, p);
-
-    if (equalToProperty != undefined)
-      EqualToProperty(equalToProperty, validationOptions)(t, p);
-
-    if (dependOnProperty != undefined)
-      DependOnProperty(dependOnProperty, validationOptions)(t, p);
+      .ok(dependOnProperty, (value) =>
+        DependOnProperty(value, validationOptions)(...args),
+      );
   };
 }

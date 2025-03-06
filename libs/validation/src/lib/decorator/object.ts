@@ -1,13 +1,14 @@
 import type { ValidationOptions } from 'class-validator';
-import type { ObjectOptions } from '@puq/type';
+import type { ObjectOptions, PropertyDecoratorParam } from '@puq/type';
 import {
-  isJSON,
   IsNotEmptyObject,
   IsObject,
   IsOptional,
   ValidateNested,
 } from 'class-validator';
-import { Transform, Type } from 'class-transformer';
+import { Type } from 'class-transformer';
+import { isDefinedOrThrow } from '@puq/is';
+import { ObjectTransformer } from '../transformer/object.js';
 
 /**
  * Add object specific validation decorators such as `IsObject`
@@ -19,22 +20,19 @@ export function ObjectValidation(
   options: ObjectOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
-    IsObject(validationOptions)(t, p);
-    Type(options.target)(t, p);
-    ValidateNested(validationOptions)(t, p);
+  return (...args: PropertyDecoratorParam) => {
+    IsObject(validationOptions)(...args);
+
+    Type(isDefinedOrThrow(options.target))(...args);
+
+    ValidateNested(validationOptions)(...args);
+
+    if (options.strict !== true) ObjectTransformer()(...args);
 
     if (options.required === true) {
-      IsNotEmptyObject({ nullable: false }, validationOptions)(t, p);
+      IsNotEmptyObject({ nullable: false }, validationOptions)(...args);
     } else {
-      IsOptional(validationOptions)(t, p);
-    }
-    // If acceptString, the object-string is transformed into object
-    if (options.acceptString === true) {
-      Transform(({ value }) => {
-        if (isJSON(value)) return JSON.parse(value);
-        return value;
-      })(t, p);
+      IsOptional(validationOptions)(...args);
     }
   };
 }

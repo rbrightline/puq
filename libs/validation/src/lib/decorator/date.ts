@@ -11,6 +11,7 @@ import { SameYearProperty } from '../custom/same-year-property.js';
 import { SameDayTypeProperty } from '../custom/same-day-type-property.js';
 import { MinISODate } from '../custom/min-iso-date.js';
 import { MaxISODate } from '../custom/max-iso-date.js';
+import { IsThen } from '@puq/is';
 
 /**
  * Add date specific validation decorators such as `IsDate`
@@ -40,37 +41,50 @@ export function DateValidation(
       sameYearAsProperty,
     } = options;
 
-    if (minDate != undefined) MinDate(minDate, validationOptions)(t, p);
-    if (maxDate != undefined) MaxDate(maxDate, validationOptions)(t, p);
+    IsThen
+      //
+      .ok(minDate, (value) => MinDate(value, validationOptions)(t, p))
 
-    if (future != undefined)
-      MinISODate(new Date().toISOString(), validationOptions)(t, p);
+      .ok(maxDate, (value) => MaxDate(value, validationOptions)(t, p))
 
-    if (past != undefined)
-      MaxISODate(new Date().toISOString(), validationOptions)(t, p);
+      .isTrue(future, () =>
+        MinISODate(new Date().toISOString(), validationOptions)(t, p),
+      )
 
-    if (beforeProperty != undefined)
-      BeforeProperty(beforeProperty, validationOptions)(t, p);
+      .isTrue(past, () =>
+        MaxISODate(new Date().toISOString(), validationOptions)(t, p),
+      )
 
-    if (afterProperty != undefined)
-      AfterProperty(afterProperty, validationOptions)(t, p);
+      .ok(beforeProperty, (value) =>
+        BeforeProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameDayAsProperty != undefined)
-      SameDayProperty(sameDayAsProperty, validationOptions)(t, p);
+      .ok(afterProperty, (value) =>
+        AfterProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameMonthAsProperty != undefined)
-      SameMonthProperty(sameMonthAsProperty, validationOptions)(t, p);
+      .ok(sameDayAsProperty, (value) =>
+        SameDayProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameHourAsProperty != undefined)
-      SameHourProperty(sameHourAsProperty, validationOptions)(t, p);
+      .ok(sameMonthAsProperty, (value) =>
+        SameMonthProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameWeekAsProperty != undefined)
-      SameWeekProperty(sameWeekAsProperty, validationOptions)(t, p);
+      .ok(sameHourAsProperty, (value) =>
+        SameHourProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameYearAsProperty != undefined)
-      SameYearProperty(sameYearAsProperty, validationOptions)(t, p);
+      .ok(sameWeekAsProperty, (value) =>
+        SameWeekProperty(value, validationOptions)(t, p),
+      )
 
-    if (sameDayTypeAsProperty != undefined)
-      SameDayTypeProperty(sameDayTypeAsProperty, validationOptions)(t, p);
+      .ok(sameYearAsProperty, (value) =>
+        SameYearProperty(value, validationOptions)(t, p),
+      )
+
+      .ok(sameDayTypeAsProperty, (value) =>
+        SameDayTypeProperty(value, validationOptions)(t, p),
+      );
   };
 }

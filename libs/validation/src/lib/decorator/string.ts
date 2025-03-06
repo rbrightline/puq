@@ -1,4 +1,4 @@
-import type { StringOptions } from '@puq/type';
+import type { PropertyDecoratorParam, StringOptions } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
 import {
   Contains,
@@ -14,6 +14,7 @@ import {
 } from 'class-validator';
 import { StringFormatValidation } from './string-format.js';
 import { isDefined } from '@puq/is';
+import { StringTransformer } from '../transformer/string.js';
 
 export const DEFAULT_MAX_STRING_LENGTH = 5000;
 
@@ -27,7 +28,7 @@ export function StringValidation(
   options: StringOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (target, property) => {
+  return (...args: PropertyDecoratorParam) => {
     const {
       minLength,
       maxLength,
@@ -41,51 +42,51 @@ export function StringValidation(
       pattern,
     } = options;
 
-    IsString(validationOptions)(target, property);
+    IsString(validationOptions)(...args);
 
-    isDefined(minLength) &&
-      MinLength(minLength, validationOptions)(target, property);
+    if (options.strict !== true) StringTransformer()(...args);
+
+    isDefined(minLength) && MinLength(minLength, validationOptions)(...args);
 
     (isDefined(maxLength) &&
-      MaxLength(maxLength, validationOptions)(target, property)) ||
+      MaxLength(maxLength, validationOptions)(...args)) ||
       MaxLength(DEFAULT_MAX_STRING_LENGTH);
 
     isDefined(stringFormat) &&
-      StringFormatValidation(stringFormat, validationOptions)(target, property);
+      StringFormatValidation(stringFormat, validationOptions)(...args);
 
     isDefined(enums) &&
-      ((isArray(enums) && IsIn(enums, validationOptions)(target, property)) ||
-        IsEnum(enums, validationOptions)(target, property));
+      ((isArray(enums) && IsIn(enums, validationOptions)(...args)) ||
+        IsEnum(enums, validationOptions)(...args));
 
-    isDefined(notIn) && IsNotIn(notIn, validationOptions)(target, property);
+    isDefined(notIn) && IsNotIn(notIn, validationOptions)(...args);
 
     isDefined(contain) &&
       contain.forEach((each) => {
-        isDefined(each) && Contains(each, validationOptions)(target, property);
+        isDefined(each) && Contains(each, validationOptions)(...args);
       });
 
     isDefined(notContain) &&
       notContain.forEach((each) => {
-        isDefined(each) &&
-          NotContains(each, validationOptions)(target, property);
+        isDefined(each) && NotContains(each, validationOptions)(...args);
       });
 
     isDefined(startWith) &&
       Matches(new RegExp(`/^${startWith}/`), {
         ...validationOptions,
         message: `$property should start with ${startWith}`,
-      })(target, property);
+      })(...args);
 
     isDefined(endWith) &&
       Matches(new RegExp(`/${endWith}$/`), {
         ...validationOptions,
         message: `$property should end with ${endWith}`,
-      })(target, property);
+      })(...args);
 
     isDefined(pattern) &&
       Matches(new RegExp(pattern), {
         ...validationOptions,
         message: `$property should match the regular expression ${pattern}`,
-      })(target, property);
+      })(...args);
   };
 }

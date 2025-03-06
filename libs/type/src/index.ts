@@ -6,6 +6,7 @@ export * from './lib/common/object-literal.js';
 export * from './lib/common/optional.js';
 export * from './lib/common/package-json.js';
 export * from './lib/common/puq-options.js';
+export * from './lib/common/some-function.js';
 export * from './lib/common/some-record.js';
 export * from './lib/common/some.js';
 export * from './lib/dto/count-result.js';

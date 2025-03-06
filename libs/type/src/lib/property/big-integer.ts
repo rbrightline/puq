@@ -1,3 +1,4 @@
+import type { CommonNumberOptions } from './common-number.js';
 import type { CommonOptions } from './common.js';
 /**
  * BigInteger property options
@@ -10,5 +11,5 @@ export type __BigIntegerOptions = {
  * BigInteger property options with {@link CommonOptions}
  */
 export type BigIntegerOptions = Readonly<
-  CommonOptions<bigint> & __BigIntegerOptions
+  CommonOptions<bigint> & __BigIntegerOptions & CommonNumberOptions
 >;

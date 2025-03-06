@@ -126,4 +126,9 @@ export type CommonOptions<T> = {
    * Hidden input
    */
   hidden?: boolean;
+
+  /**
+   * if set true, the `builtin` transformers is disabled
+   */
+  strict?: boolean;
 };
