@@ -1,4 +1,5 @@
-import type { NumberFormat } from '@puq/type';
+import { Switch } from '@puq/is';
+import type { NumberFormat, PropertyDecoratorParam } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
 import { IsIn, Max, Min } from 'class-validator';
 
@@ -6,31 +7,29 @@ export function NumberFormatValidation(
   format: NumberFormat,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     if (format == undefined) return;
 
-    switch (format) {
-      case 'digit':
-        IsIn([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], validationOptions)(t, p);
-        break;
+    Switch.switchValue(format)
 
-      case 'fraction':
-        Max(1, validationOptions)(t, p);
-        Min(-1, validationOptions)(t, p);
-        break;
+      .inCaseOf('digit', () =>
+        IsIn([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], validationOptions),
+      )
 
-      case 'percent':
-        Max(100, validationOptions)(t, p);
-        Min(0, validationOptions)(t, p);
-        break;
+      .inCaseOf('fraction', () => {
+        Max(1, validationOptions)(...args);
+        Min(-1, validationOptions)(...args);
+      })
 
-      case 'positive':
-        Min(0, validationOptions)(t, p);
-        break;
+      .inCaseOf('percent', () => {
+        Max(100, validationOptions)(...args);
+        Min(0, validationOptions)(...args);
+      })
 
-      case 'rate':
-        IsIn([1, 2, 3, 4, 5], validationOptions)(t, p);
-        break;
-    }
+      .inCaseOf('positive', () => Min(0, validationOptions)(...args))
+
+      .inCaseOf('rate', () =>
+        IsIn([1, 2, 3, 4, 5], validationOptions)(...args),
+      );
   };
 }

@@ -473,6 +473,9 @@ importers:
         specifier: ^0.14.1
         version: 0.14.1
     devDependencies:
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
       '@puq/testing':
         specifier: workspace:^
         version: link:../testing

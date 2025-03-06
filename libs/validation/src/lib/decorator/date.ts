@@ -1,4 +1,4 @@
-import type { DateOptions } from '@puq/type';
+import type { DateOptions, PropertyDecoratorParam } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
 import { IsISO8601, MaxDate, MinDate } from 'class-validator';
 import { BeforeProperty } from '../custom/before-property.js';
@@ -12,6 +12,7 @@ import { SameDayTypeProperty } from '../custom/same-day-type-property.js';
 import { MinISODate } from '../custom/min-iso-date.js';
 import { MaxISODate } from '../custom/max-iso-date.js';
 import { IsThen } from '@puq/is';
+import { DateTransformer } from '../transformer/date.js';
 
 /**
  * Add date specific validation decorators such as `IsDate`
@@ -23,10 +24,14 @@ export function DateValidation(
   options: DateOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
-    IsISO8601({ strict: true, strictSeparator: true }, validationOptions)(t, p);
+  return (...args: PropertyDecoratorParam) => {
+    IsISO8601(
+      { strict: true, strictSeparator: true },
+      validationOptions,
+    )(...args);
 
     const {
+      strict,
       minDate,
       maxDate,
       future,
@@ -41,50 +46,50 @@ export function DateValidation(
       sameYearAsProperty,
     } = options;
 
-    IsThen
+    IsThen.isNotFalse(strict, () => DateTransformer()(...args))
       //
-      .ok(minDate, (value) => MinDate(value, validationOptions)(t, p))
+      .ok(minDate, (value) => MinDate(value, validationOptions)(...args))
 
-      .ok(maxDate, (value) => MaxDate(value, validationOptions)(t, p))
+      .ok(maxDate, (value) => MaxDate(value, validationOptions)(...args))
 
       .isTrue(future, () =>
-        MinISODate(new Date().toISOString(), validationOptions)(t, p),
+        MinISODate(new Date().toISOString(), validationOptions)(...args),
       )
 
       .isTrue(past, () =>
-        MaxISODate(new Date().toISOString(), validationOptions)(t, p),
+        MaxISODate(new Date().toISOString(), validationOptions)(...args),
       )
 
       .ok(beforeProperty, (value) =>
-        BeforeProperty(value, validationOptions)(t, p),
+        BeforeProperty(value, validationOptions)(...args),
       )
 
       .ok(afterProperty, (value) =>
-        AfterProperty(value, validationOptions)(t, p),
+        AfterProperty(value, validationOptions)(...args),
       )
 
       .ok(sameDayAsProperty, (value) =>
-        SameDayProperty(value, validationOptions)(t, p),
+        SameDayProperty(value, validationOptions)(...args),
       )
 
       .ok(sameMonthAsProperty, (value) =>
-        SameMonthProperty(value, validationOptions)(t, p),
+        SameMonthProperty(value, validationOptions)(...args),
       )
 
       .ok(sameHourAsProperty, (value) =>
-        SameHourProperty(value, validationOptions)(t, p),
+        SameHourProperty(value, validationOptions)(...args),
       )
 
       .ok(sameWeekAsProperty, (value) =>
-        SameWeekProperty(value, validationOptions)(t, p),
+        SameWeekProperty(value, validationOptions)(...args),
       )
 
       .ok(sameYearAsProperty, (value) =>
-        SameYearProperty(value, validationOptions)(t, p),
+        SameYearProperty(value, validationOptions)(...args),
       )
 
       .ok(sameDayTypeAsProperty, (value) =>
-        SameDayTypeProperty(value, validationOptions)(t, p),
+        SameDayTypeProperty(value, validationOptions)(...args),
       );
   };
 }

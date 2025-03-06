@@ -81,6 +81,7 @@
         }
     },
     "devDependencies": {
+        "@puq/debug": "workspace:^",
         "@puq/testing": "workspace:^",
         "@puq/type": "workspace:^",
         "reflect-metadata": "^0.2.2"

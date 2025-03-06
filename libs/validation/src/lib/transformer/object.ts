@@ -8,7 +8,6 @@ export function ObjectTransformer(): PropertyDecorator {
     Transform(({ value }) => {
       if (isNotDefined(value)) return value;
       if (isJSON(value)) return JSON.parse(value);
-
       return value;
     })(...args);
   };

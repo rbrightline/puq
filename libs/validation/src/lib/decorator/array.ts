@@ -22,30 +22,29 @@ export function ArrayValidation<T>(
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (...args: PropertyDecoratorParam) => {
-    const vo = validationOptions;
     const { required, minSize, maxSize, uniqueItems, strict } = options;
 
-    IsArray(vo)(...args);
+    IsArray(validationOptions)(...args);
 
     IsThen
 
-      // is strict
-      .isTrue(strict !== true, () => ArrayTransformer()(...args))
+      // Is not strict
+      .isNotTrue(strict, () => ArrayTransformer()(...args))
 
-      // is requried
+      // is required
       .isTrue(
         required,
-        () => ArrayNotEmpty(vo)(...args),
-        () => IsOptional(vo)(...args),
+        () => ArrayNotEmpty(validationOptions)(...args),
+        () => IsOptional(validationOptions)(...args),
       )
 
       // unique items
-      .isTrue(uniqueItems, () => ArrayUnique(vo)(...args))
+      .isTrue(uniqueItems, () => ArrayUnique(validationOptions)(...args))
 
       // minSize
-      .ok(minSize, (value) => ArrayMinSize(value, vo)(...args))
+      .ok(minSize, (value) => ArrayMinSize(value, validationOptions)(...args))
 
       // maxSize
-      .ok(maxSize, (value) => ArrayMaxSize(value, vo)(...args));
+      .ok(maxSize, (value) => ArrayMaxSize(value, validationOptions)(...args));
   };
 }

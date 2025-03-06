@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
+import type { Some } from '@puq/type';
 import { isBigint } from '@puq/is';
 import { registerDecorator, ValidatorConstraint } from 'class-validator';
 
@@ -13,7 +14,7 @@ import type {
  */
 @ValidatorConstraint({ name: 'isBigint', async: false })
 export class IsBigintConstraint implements ValidatorConstraintInterface {
-  validate(valueRaw: any, args: ValidationArguments) {
+  validate(valueRaw: Some) {
     if (isBigint(valueRaw)) return true;
 
     return false;

@@ -13,7 +13,7 @@ import {
   NotContains,
 } from 'class-validator';
 import { StringFormatValidation } from './string-format.js';
-import { isDefined } from '@puq/is';
+import { isDefined, IsThen } from '@puq/is';
 import { StringTransformer } from '../transformer/string.js';
 
 export const DEFAULT_MAX_STRING_LENGTH = 5000;
@@ -29,7 +29,10 @@ export function StringValidation(
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
   return (...args: PropertyDecoratorParam) => {
+    IsString(validationOptions)(...args);
+
     const {
+      strict,
       minLength,
       maxLength,
       stringFormat,
@@ -42,51 +45,74 @@ export function StringValidation(
       pattern,
     } = options;
 
-    IsString(validationOptions)(...args);
+    IsThen
 
-    if (options.strict !== true) StringTransformer()(...args);
+      // is not strict
+      .isNotTrue(strict, () => StringTransformer()(...args))
 
-    isDefined(minLength) && MinLength(minLength, validationOptions)(...args);
+      // min length
+      .ok(minLength, (value) => MinLength(value, validationOptions)(...args))
 
-    (isDefined(maxLength) &&
-      MaxLength(maxLength, validationOptions)(...args)) ||
-      MaxLength(DEFAULT_MAX_STRING_LENGTH);
+      // max length
+      .ok(
+        maxLength,
+        (value) => MaxLength(value, validationOptions)(...args),
+        () => MaxLength(DEFAULT_MAX_STRING_LENGTH),
+      )
 
-    isDefined(stringFormat) &&
-      StringFormatValidation(stringFormat, validationOptions)(...args);
+      // is format
+      .ok(stringFormat, (value) =>
+        StringFormatValidation(value, validationOptions)(...args),
+      )
 
-    isDefined(enums) &&
-      ((isArray(enums) && IsIn(enums, validationOptions)(...args)) ||
-        IsEnum(enums, validationOptions)(...args));
+      // enum class or is in array list
+      .ok(enums, (value) => {
+        if (isArray(value)) {
+          IsIn(value, validationOptions)(...args);
+        } else {
+          IsEnum(value, validationOptions)(...args);
+        }
+      })
 
-    isDefined(notIn) && IsNotIn(notIn, validationOptions)(...args);
+      // not in
+      .ok(notIn, (value) => IsNotIn(value, validationOptions)(...args))
 
-    isDefined(contain) &&
-      contain.forEach((each) => {
-        isDefined(each) && Contains(each, validationOptions)(...args);
-      });
+      // contain
+      .ok(contain, (value) => {
+        value.forEach((each) => {
+          if (isDefined(each)) Contains(each, validationOptions)(...args);
+        });
+      })
 
-    isDefined(notContain) &&
-      notContain.forEach((each) => {
-        isDefined(each) && NotContains(each, validationOptions)(...args);
-      });
+      // not contain
+      .ok(notContain, (value) => {
+        value.forEach((each) => {
+          if (isDefined(each)) NotContains(each, validationOptions)(...args);
+        });
+      })
 
-    isDefined(startWith) &&
-      Matches(new RegExp(`/^${startWith}/`), {
-        ...validationOptions,
-        message: `$property should start with ${startWith}`,
-      })(...args);
+      // start with
+      .ok(startWith, (value) =>
+        Matches(new RegExp(`/^${value}/`), {
+          ...validationOptions,
+          message: `$property should start with ${startWith}`,
+        })(...args),
+      )
 
-    isDefined(endWith) &&
-      Matches(new RegExp(`/${endWith}$/`), {
-        ...validationOptions,
-        message: `$property should end with ${endWith}`,
-      })(...args);
+      // end with
+      .ok(endWith, (value) =>
+        Matches(new RegExp(`/${value}$/`), {
+          ...validationOptions,
+          message: `$property should end with ${endWith}`,
+        })(...args),
+      )
 
-    isDefined(pattern) &&
-      Matches(new RegExp(pattern), {
-        ...validationOptions,
-        message: `$property should match the regular expression ${pattern}`,
-      })(...args);
+      // pattern
+      .ok(pattern, (value) =>
+        Matches(new RegExp(value), {
+          ...validationOptions,
+          message: `$property should match the regular expression ${pattern}`,
+        })(...args),
+      );
   };
 }

@@ -11,10 +11,13 @@ export function BigIntValidation(
 ): PropertyDecorator {
   return (...args: PropertyDecoratorParam) => {
     IsBigint(validationOptions)(...args);
+
     MaxDigits(50, 50, validationOptions)(...args);
 
     const { strict } = options;
 
-    IsThen.isTrue(strict !== true, () => BigintTransformer()(...args));
+    IsThen
+      //
+      .isNotTrue(strict, () => BigintTransformer()(...args));
   };
 }

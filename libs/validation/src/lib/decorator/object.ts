@@ -7,7 +7,7 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { isDefinedOrThrow } from '@puq/is';
+import { isDefinedOrThrow, IsThen } from '@puq/is';
 import { ObjectTransformer } from '../transformer/object.js';
 
 /**
@@ -27,12 +27,17 @@ export function ObjectValidation(
 
     ValidateNested(validationOptions)(...args);
 
-    if (options.strict !== true) ObjectTransformer()(...args);
+    const { strict, required } = options;
 
-    if (options.required === true) {
-      IsNotEmptyObject({ nullable: false }, validationOptions)(...args);
-    } else {
-      IsOptional(validationOptions)(...args);
-    }
+    IsThen
+      // is strict
+      .isTrue(strict, () => ObjectTransformer()(...args))
+
+      // is required
+      .isTrue(
+        required,
+        () => IsNotEmptyObject({ nullable: false }, validationOptions)(...args),
+        () => IsOptional(validationOptions)(...args),
+      );
   };
 }

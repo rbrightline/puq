@@ -25,8 +25,8 @@ export class Switch<T> {
    */
   inCaseOf<P extends T>(
     value: P,
-    pass: (value: T) => void,
-    fail?: (value: T) => void,
+    pass: (value?: P) => void,
+    fail?: (value?: P) => void,
   ): Switch<Exclude<T, P>> {
     if (value === this.value) {
       pass(value);

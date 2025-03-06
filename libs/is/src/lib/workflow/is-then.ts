@@ -11,7 +11,7 @@ export class IsThen {
    * @param handler the `function` to run when the `value` is defined
    * @returns - this
    */
-  public static ok<T>(
+  static ok<T>(
     value: Optional<T>,
     handler: (value: T) => void,
     elseHandler?: () => void,
@@ -26,7 +26,7 @@ export class IsThen {
    * @param handler the `function` to run when the `value` is `true`
    * @returns - this
    */
-  public static isTrue<T extends boolean>(
+  static isTrue<T extends boolean>(
     value: Optional<T>,
     handler: (value?: T) => void,
     elseHandler?: () => void,
@@ -36,12 +36,27 @@ export class IsThen {
   }
 
   /**
+   * Run function if the `value` is not `true`.
+   * @param value any value
+   * @param handler the `function` to run when the `value` is `true`
+   * @returns - this
+   */
+  static isNotTrue<T extends boolean>(
+    value: Optional<T>,
+    handler: (value?: Optional<T>) => void,
+    elseHandler?: () => void,
+  ): IsThen {
+    const instance = new IsThen();
+    return instance.isNotTrue(value, handler, elseHandler);
+  }
+
+  /**
    * Run function if the `value` is `false`.
    * @param value any value
    * @param handler the `function` to run when the `value` is `false`
    * @returns - this
    */
-  public static isFalse<T extends boolean>(
+  static isFalse<T extends boolean>(
     value: Optional<T>,
     handler: (value?: T) => void,
     elseHandler?: () => void,
@@ -50,13 +65,22 @@ export class IsThen {
     return instance.isFalse(value, handler, elseHandler);
   }
 
+  static isNotFalse<T extends boolean>(
+    value: Optional<T>,
+    handler: (value?: Optional<T>) => void,
+    elseHandler?: () => void,
+  ): IsThen {
+    const instance = new IsThen();
+    return instance.isNotFalse(value, handler, elseHandler);
+  }
+
   /**
    * Run function if the `value` is defined.
    * @param value any value
    * @param handler the `function` to run when the `value` is defined
    * @returns - this
    */
-  public ok<T>(
+  ok<T>(
     value: Optional<T>,
     handler: (value: T) => void,
     elseHandler?: () => void,
@@ -75,7 +99,7 @@ export class IsThen {
    * @param handler the `function` to run when the `value` is `true`
    * @returns - this
    */
-  public isTrue<T extends boolean>(
+  isTrue<T extends boolean>(
     value: Optional<T>,
     handler: (value?: T) => void,
     elseHandler?: () => void,
@@ -88,18 +112,38 @@ export class IsThen {
     return this;
   }
 
-  /**
-   * Run function if the `value` is `false`.
-   * @param value any value
-   * @param handler the `function` to run when the `value` is `false`
-   * @returns - this
-   */
-  public isFalse<T extends boolean>(
+  isNotTrue<T extends boolean>(
+    value: Optional<T>,
+    handler: (value?: Optional<T>) => void,
+    elseHandler?: () => void,
+  ): IsThen {
+    if (value !== true) {
+      handler(value);
+    } else {
+      elseHandler?.();
+    }
+    return this;
+  }
+
+  isFalse<T extends boolean>(
     value: Optional<T>,
     handler: (value?: T) => void,
     elseHandler?: () => void,
   ): IsThen {
     if (value === false) {
+      handler(value);
+    } else {
+      elseHandler?.();
+    }
+    return this;
+  }
+
+  isNotFalse<T extends boolean>(
+    value: Optional<T>,
+    handler: (value?: Optional<T>) => void,
+    elseHandler?: () => void,
+  ): IsThen {
+    if (value !== false) {
       handler(value);
     } else {
       elseHandler?.();

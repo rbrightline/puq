@@ -15,7 +15,9 @@ export function TrimTransformer(): PropertyDecorator {
 
       if (isString(value)) {
         return trim(value);
-      } else if (isArray(value)) {
+      }
+
+      if (isArray(value)) {
         return value.map((stringValue) => {
           if (isString(stringValue)) return trim(stringValue);
           return stringValue;

@@ -33,6 +33,7 @@ export * from './lib/decorator/string.js';
 export * from './lib/transformer/array.js';
 export * from './lib/transformer/bigint.js';
 export * from './lib/transformer/boolean.js';
+export * from './lib/transformer/date.js';
 export * from './lib/transformer/default.js';
 export * from './lib/transformer/integer.js';
 export * from './lib/transformer/number.js';

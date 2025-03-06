@@ -32,24 +32,24 @@ export function CommonNumberValidation(
       //
       .ok(
         minimum,
-        (minimum) => Min(minimum, validationOptions)(...args),
+        (value) => Min(value, validationOptions)(...args),
         () => Min(Number.MIN_SAFE_INTEGER, validationOptions)(...args),
       )
       .ok(
         maximum,
-        (maximum) => Max(maximum, validationOptions)(...args),
+        (value) => Max(value, validationOptions)(...args),
         () => Max(Number.MAX_SAFE_INTEGER, validationOptions)(...args),
       )
 
-      .ok(enums, (enums) => {
-        if (isArray(enums)) {
-          IsIn(enums, validationOptions)(...args);
+      .ok(enums, (value) => {
+        if (isArray(value)) {
+          IsIn(value, validationOptions)(...args);
         } else {
-          IsEnum(enums, validationOptions)(...args);
+          IsEnum(value, validationOptions)(...args);
         }
       })
 
-      .ok(notIn, (notIn) => IsNotIn(notIn, validationOptions))
+      .ok(notIn, (value) => IsNotIn(value, validationOptions))
 
       .ok(moreThanProperty, (value) =>
         MoreThanProperty(value, validationOptions)(...args),
