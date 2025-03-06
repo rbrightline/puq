@@ -202,6 +202,9 @@
                             <a href="#isObjectOrThrow" title="src/lib/required/is-type-or-throw.ts" ><b>isObjectOrThrow</b>&nbsp;&nbsp;&nbsp;(src/.../is-type-or-throw.ts)</a>
                         </li>
                         <li>
+                            <a href="#isPrimitive" title="src/lib/type/is-type.ts" ><b>isPrimitive</b>&nbsp;&nbsp;&nbsp;(src/.../is-type.ts)</a>
+                        </li>
+                        <li>
                             <a href="#isString" title="src/lib/type/is-type.ts" ><b>isString</b>&nbsp;&nbsp;&nbsp;(src/.../is-type.ts)</a>
                         </li>
                         <li>
@@ -227,6 +230,9 @@
                         </li>
                         <li>
                             <a href="#pick" title="src/lib/object/pick.ts" ><b>pick</b>&nbsp;&nbsp;&nbsp;(src/.../pick.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#trim" title="src/lib/string/trim.ts" ><b>trim</b>&nbsp;&nbsp;&nbsp;(src/.../trim.ts)</a>
                         </li>
                         <li>
                             <a href="#values" title="src/lib/object/values.ts" ><b>values</b>&nbsp;&nbsp;&nbsp;(src/.../values.ts)</a>
@@ -262,7 +268,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Extracts the enumerable <code>key-value</code> pairs of the <a href="value">value</a></p>
+                        <div class="io-description"><p>Extracts the enumerable <code>key-value</code> pairs of the <code>value</code></p>
 </div>
 
                             <div class="io-description">
@@ -291,7 +297,7 @@
 
                                             <td>
                                                     <ul>
-<li>one of <code>string</code>, <code>number</code>, <code>object</code>, <code>array</code>, or <code>(...class instance)</code></li>
+<li>one of <code>string</code>, <code>number</code>, <code>object</code>, or <code>array</code></li>
 </ul>
 
                                             </td>
@@ -1247,6 +1253,67 @@
 <li>{@link boolean}</li>
 </ul>
 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPrimitive"></a>
+                    <span class="name">
+                        <span ><b>isPrimitive</b></span>
+                        <a href="#isPrimitive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isPrimitive(value: Some)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>Some</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>T</code>
+
+                        </div>
+                            <div class="io-description">
+                                
                             </div>
                 </td>
             </tr>
@@ -2721,7 +2788,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Extract the keys of <code>object</code>, <code>array</code>, or <code>class instance</code></p>
+                        <div class="io-description"><p>Extract the keys of <code>object</code>, <code>array</code></p>
 </div>
 
                             <div class="io-description">
@@ -2750,7 +2817,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
                                             <td>
                                                     <ul>
-<li>one of <code>object</code>, <code>array</code> or <code>class instance</code></li>
+<li>one of <code>object</code>, <code>array</code></li>
 </ul>
 
                                             </td>
@@ -2969,7 +3036,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
                                             <td>
                                                     <ul>
-<li><a href="SomeRecord">SomeRecord</a></li>
+<li><a href="https://rbrightline.github.io/puq/type/miscellaneous/typealiases.html#SomeRecord">SomeRecord</a></li>
 </ul>
 
                                             </td>
@@ -3095,6 +3162,62 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 <li>{@link SomeRecord} without the {@link keys}</li>
 </ul>
 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/string/trim.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trim"></a>
+                    <span class="name">
+                        <span ><b>trim</b></span>
+                        <a href="#trim"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trim(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                 </td>
             </tr>

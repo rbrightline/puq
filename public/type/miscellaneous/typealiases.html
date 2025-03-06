@@ -265,6 +265,9 @@
                             <a href="#Some" title="src/lib/common/some.ts" ><b>Some</b>&nbsp;&nbsp;&nbsp;(src/.../some.ts)</a>
                         </li>
                         <li>
+                            <a href="#SomeFunction" title="src/lib/common/some-function.ts" ><b>SomeFunction</b>&nbsp;&nbsp;&nbsp;(src/.../some-function.ts)</a>
+                        </li>
+                        <li>
                             <a href="#SomeRecord" title="src/lib/common/some-record.ts" ><b>SomeRecord</b>&nbsp;&nbsp;&nbsp;(src/.../some-record.ts)</a>
                         </li>
                         <li>
@@ -307,6 +310,12 @@
             </tr>
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Array property options</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
                     <code>    <code>literal type</code>
 </code>
                 </td>
@@ -341,6 +350,12 @@
             </tr>
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>BigInteger property options</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
                     <code>    <code>literal type</code>
 </code>
                 </td>
@@ -353,6 +368,12 @@
                 <td class="col-md-4">
                     <a name="BigIntegerOptions"></a>
                     <span class="name "><b>BigIntegerOptions</b><a href="#BigIntegerOptions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>BigInteger property options with <a href="../miscellaneous/typealiases.html#CommonOptions">CommonOptions</a></p>
+</div>
                 </td>
             </tr>
             <tr>
@@ -757,7 +778,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/Type.html" target="_self" >[Object, , TypedPropertyDescriptor&lt;T&gt;]</a></code>
+                    <code>        <code><a href="../interfaces/Type.html" target="_self" >[object, , TypedPropertyDescriptor&lt;T&gt;]</a></code>
 </code>
                 </td>
             </tr>
@@ -779,7 +800,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>[Object, , number]</code>
+                    <code>    <code>[object, , number]</code>
 </code>
                 </td>
             </tr>
@@ -801,7 +822,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>[Object, ]</code>
+                    <code>    <code>[object, ]</code>
 </code>
                 </td>
             </tr>
@@ -994,7 +1015,7 @@ Used in the <code>type</code> field of a TypeORM connection configuration.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Object key type</p>
+                    <div class="io-description"><p>Native object key type of <code>string</code>, <code>number, and </code>symbol`</p>
 </div>
                 </td>
             </tr>
@@ -1136,7 +1157,7 @@ it defaults to <code>unknown</code>, resulting in an array of any possible keys.
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The type is designed for type types like <code>number |undefined | null</code></p>
+                    <div class="io-description"><p>Optional type creates a union type of T, undefined, and null</p>
 </div>
                 </td>
             </tr>
@@ -1160,7 +1181,7 @@ it defaults to <code>unknown</code>, resulting in an array of any possible keys.
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p><code>package.json</code> type</p>
+                    <div class="io-description"><p><code>package.json</code> file type</p>
 </div>
                 </td>
             </tr>
@@ -1364,17 +1385,38 @@ remain optional or unchanged.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>The type is the improved version of <code>unkown</code> value</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">function&lt;T&gt;requiredValue(value:Some&lt;T&gt;):T {
-  if(type of value ===&#39;string&#39;) return value;
-  throw Error(`${value} is not a typeof string`)
-}</code></pre></div><p>The function in the example accept all types of intput but only returns the T type, throw otherwise</p>
+                    <div class="io-description"><p>The <code>Some</code> type utility makes the type compatible with <code>unknown</code> values.
+This type is useful when the expected type is known but the source is loose.</p>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <code>    <code>T | </code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/common/some-function.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SomeFunction"></a>
+                    <span class="name "><b>SomeFunction</b><a href="#SomeFunction"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Generic function type</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
 </code>
                 </td>
             </tr>
@@ -1392,7 +1434,7 @@ remain optional or unchanged.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Improved version of <a href="Record">Record</a> type
+                    <div class="io-description"><p>Improved version of <code>Record</code> type that supports native object key types of <code>string</code>, <code>number</code>, and <code>symbol</code>
 If the values of the object is known then <code>SomeRecord&lt;string</code> would be <code>Record&lt;Key, string&gt;</code></p>
 </div>
                 </td>
