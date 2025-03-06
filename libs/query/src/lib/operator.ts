@@ -1,3 +1,4 @@
+/* eslint-disable  spellcheck/spell-checker */
 export enum QueryOperator {
   EQUAL = 'eq',
   CONTAIN = 'cn',

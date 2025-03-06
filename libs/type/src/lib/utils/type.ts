@@ -17,6 +17,6 @@
  * console.log(user.name); // 'Alice'
  * ```
  */
-export interface Type<T = unknown> extends Function {
+export interface Type<T = object> extends Function {
   new (...args: unknown[]): T;
 }

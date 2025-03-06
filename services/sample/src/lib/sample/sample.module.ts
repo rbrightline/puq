@@ -19,6 +19,11 @@ import { provideLogger } from '@puq/core';
     ConfigModule.forRoot(),
   ],
   controllers: [SampleController, OtherController],
-  providers: [provideLogger(SampleCron), SampleCron],
+  providers: [
+    provideLogger(SampleCron),
+    provideLogger(SampleController),
+
+    SampleCron,
+  ],
 })
 export class SampleModule {}

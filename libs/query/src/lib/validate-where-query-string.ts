@@ -1,28 +1,26 @@
-import { OBJECT_PROPERTY_DELIMETER } from './delimeter.js';
+import type { Key } from '@puq/type';
+import { OBJECT_PROPERTY_DELIMITER } from './delimiter.js';
 import { QueryOperators } from './operator.js';
 
 export function mustHaveValidOperator(queryString: string) {
   if (
     !new RegExp(
-      `${OBJECT_PROPERTY_DELIMETER}(${QueryOperators.join(
-        '|'
-      )})${OBJECT_PROPERTY_DELIMETER}`
+      `${OBJECT_PROPERTY_DELIMITER}(${QueryOperators.join(
+        '|',
+      )})${OBJECT_PROPERTY_DELIMITER}`,
     ).test(queryString)
   )
     throw new Error(
-      `Query operator must be one of ${QueryOperators.join(',')}`
+      `Query operator must be one of ${QueryOperators.join(',')}`,
     );
 
   return true;
 }
 
-export function mustHaveValidPropertyName(
-  queryString: string,
-  columns: (keyof any)[]
-) {
+export function mustHaveValidPropertyName(queryString: string, columns: Key[]) {
   if (
-    !new RegExp(`^(${columns.join('|')})${OBJECT_PROPERTY_DELIMETER}`).test(
-      queryString
+    !new RegExp(`^(${columns.join('|')})${OBJECT_PROPERTY_DELIMITER}`).test(
+      queryString,
     )
   )
     throw new Error(`Query property must be one of ${columns.join(',')}`);
@@ -32,8 +30,8 @@ export function mustHaveValidPropertyName(
 
 export function mustHaveValidQuery(queryString: string) {
   if (
-    !new RegExp(`${OBJECT_PROPERTY_DELIMETER}[a-zA-Z0-9 ]{1,}$`).test(
-      queryString
+    !new RegExp(`${OBJECT_PROPERTY_DELIMITER}[a-zA-Z0-9 ]{1,}$`).test(
+      queryString,
     )
   )
     throw new Error('Invalid query');
@@ -43,7 +41,7 @@ export function mustHaveValidQuery(queryString: string) {
 
 export function validateWhereQueryString(
   queryString: string,
-  columns: (keyof any)[]
+  columns: Key[],
 ): true | never {
   mustHaveValidOperator(queryString);
   mustHaveValidPropertyName(queryString, columns);

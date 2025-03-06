@@ -7,7 +7,7 @@ export function CreateController(
 ): Type {
   class ControllerClass {
     @SetResourceMetadata(options)
-    readonly __metadata__: unknown;
+    readonly __metadata__: Type;
   }
 
   return ControllerClass;

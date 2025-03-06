@@ -1,4 +1,4 @@
-import { Type } from '@puq/type';
+import type { Type } from '@puq/type';
 import { ResourceMetadataManager } from './resource-metadata-manager.js';
 
 export type SetResourceMetadataOptions = {
@@ -14,7 +14,7 @@ export type SetResourceMetadataOptions = {
 };
 
 /**
- * Set metadata for the resource controlller that method and class decorator can access using {@link ResourceMetadataManager}
+ * Set metadata for the resource controller that method and class decorator can access using {@link ResourceMetadataManager}
  * This decorator must be used as the first property of the resource controller class
  * ```ts
  * class ResourceController {

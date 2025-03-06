@@ -82,4 +82,6 @@ export default [
   'declare',
   'readonly',
   'override',
+  'accessor',
+  'Millis',
 ];

@@ -1,5 +1,6 @@
 import 'reflect-metadata';
-import { Names, names, Paths, paths } from '@puq/names';
+import type { Names, Paths} from '@puq/names';
+import { names, paths } from '@puq/names';
 import type { Keys, Type } from '@puq/type';
 
 /**
@@ -176,7 +177,7 @@ export class ResourceMetadataManager {
     return Reflect.getMetadata(this.PUBLIC, target) === true;
   }
   /**
-   * Get the factory function that returns resoruce entity `()=>Type`
+   * Get the factory function that returns resource entity `()=>Type`
    * @param target target class
    * @returns - function that returns the resource entity `()=> Type`
    */
@@ -205,7 +206,7 @@ export class ResourceMetadataManager {
   /**
    * Get entity keys
    * @param target target class
-   * @returns - resouce name
+   * @returns - resource name
    */
   static keys<T extends object>(target: T): Keys {
     return Reflect.getMetadata(this.KEYS, target);
@@ -214,7 +215,7 @@ export class ResourceMetadataManager {
   /**
    * Get resource name from the metadata
    * @param target target class
-   * @returns - resouce name
+   * @returns - resource name
    */
   static resourceName<T extends object>(target: T): string {
     return Reflect.getMetadata(this.NAME, target);
