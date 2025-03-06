@@ -7,8 +7,8 @@ import { cwd } from 'process';
 
 /**
  * Generate entity and dto
- * @param tree
- * @param options
+ * @param tree - Tree
+ * @param options - EntityGeneratorSchema
  */
 export async function entityGenerator(
   tree: Tree,
@@ -20,9 +20,9 @@ export async function entityGenerator(
 
   generateFiles(tree, source, target, {
     ...__names,
-    properties: '// properties',
-    relations: '// relations',
-    columns: '// columns',
+    properties: '/* properties */',
+    relations: '/* relations */',
+    columns: '/* columns */',
     viewColumns: '// viewColumns',
     actualGenerics: '/* generics */',
   });

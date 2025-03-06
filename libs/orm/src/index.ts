@@ -1,10 +1,6 @@
 // @index(['./**/*.ts','!./**/integration', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
 export * from './lib/common/pick-column-type.js';
 export * from './lib/common/pick-transformer.js';
-export * from './lib/data/data-source-env.js';
-export * from './lib/data/data-source-provider.js';
-export * from './lib/data/provide-pg-data-source-options.js';
-export * from './lib/data/provide-sqlite-data-source-options.js';
 export * from './lib/decorator/column.js';
 export * from './lib/decorator/entity.js';
 export * from './lib/decorator/relation.js';

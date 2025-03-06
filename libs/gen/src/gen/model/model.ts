@@ -1,12 +1,10 @@
 import type { Tree } from '@nx/devkit';
-import { formatFiles, generateFiles, names } from '@nx/devkit';
 import type { ModelGeneratorSchema } from './schema.js';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join, resolve } from 'path';
 import { getName } from '@puq/gen-helper';
 import { cwd } from 'process';
-import * as Printer from '@puq/printer';
-
-console.log(Printer);
+import '@puq/printer';
 /**
  * Generate model type
  * @param tree
@@ -23,21 +21,9 @@ export async function modelGenerator(
 
   const __names = names(modelName);
 
-  // const packageJSON = await readProjectPackageJSON();
-
-  // const modelFilePath = join(
-  //   workspaceRoot,
-  //   packageJSON.puq.metadataRoot,
-  //   `${modelName}.model.yaml`,
-  // );
-
-  // const yamlContent = await readYAMLFile<Model>(modelFilePath);
-
-  // const modelManager = new ModelManager(yamlContent);
-
   generateFiles(tree, source, target, {
     ...__names,
-    properties: '', //modelManager.typeProperties(),
+    properties: '',
     relations: '',
     generics: '',
     actualGenerics: '',

@@ -90,6 +90,7 @@
         "@puq/orm": "workspace:^"
     },
     "dependencies": {
+        "@puq/names": "workspace:^",
         "@swc/helpers": "^0.5.15"
     }
 }

@@ -1,3 +1,6 @@
-import { Create<%- className %>Model } from './create-<%- fileName %>.model.js';
+import type { Create<%- className %>Model } from './create-<%- fileName %>.model.js';
 
+/**
+ * Implement this type to create a `update-dto` class
+ */
 export type Update<%- className %>Model = Partial<Create<%- className %>Model>;

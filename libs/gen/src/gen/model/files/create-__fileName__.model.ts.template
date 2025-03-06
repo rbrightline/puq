@@ -1,3 +1,6 @@
-import { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
+import type { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
 
+/**
+ * Implement this type to create a `create-dto` class
+ */
 export type Create<%- className %>Model = <%- className %>RawModel;
