@@ -2,7 +2,7 @@ import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import type { ModuleGeneratorSchema } from './schema.js';
 import { join } from 'path';
-import { getName } from '@puq/gen-helper';
+import { cwd, getName } from '@puq/gen-helper';
 
 /**
  * Generate resource module with rest and database module
@@ -13,9 +13,10 @@ export async function moduleGenerator(
   tree: Tree,
   options: ModuleGeneratorSchema,
 ) {
+  const { directory } = options;
   const source = join(__dirname, 'files');
-  const target = options.name;
-  const __names = names(getName(options.name));
+  const target = join(cwd(), directory);
+  const __names = names(getName(directory));
   generateFiles(tree, source, target, { ...__names });
   await formatFiles(tree);
 }

@@ -1,13 +1,8 @@
 import type { GeneratorGeneratorSchema } from './schema.js';
 import type { Tree } from '@nx/devkit';
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  names,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import * as path from 'path';
-import { segments } from '@puq/fs';
+import { cwd, getName } from '@puq/gen-helper';
 
 /**
  * Generate a generator
@@ -18,20 +13,13 @@ export async function generatorGenerator(
   tree: Tree,
   options: GeneratorGeneratorSchema,
 ) {
-  const projectRoot = `${options.directory}`;
+  const { directory } = options;
+  const source = path.join(__dirname, 'files');
+  const target = path.join(cwd(), directory);
+  const __names = names(getName(directory));
 
-  addProjectConfiguration(tree, options.directory, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
-  const filename = segments(options.directory).slice(0, -1).pop();
+  generateFiles(tree, source, target, { ...__names });
 
-  if (!filename) throw new Error('filename not extracted!');
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, {
-    ...names(filename),
-  });
   await formatFiles(tree);
 }
 

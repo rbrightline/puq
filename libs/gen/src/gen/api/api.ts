@@ -2,7 +2,7 @@ import type { ApiGeneratorSchema } from './schema.js';
 import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
-import { getName } from '@puq/gen-helper';
+import { cwd, getName } from '@puq/gen-helper';
 
 /**
  * Generate rest api project
@@ -10,9 +10,10 @@ import { getName } from '@puq/gen-helper';
  * @param options
  */
 export async function apiGenerator(tree: Tree, options: ApiGeneratorSchema) {
+  const { directory } = options;
   const source = join(__dirname, 'files');
-  const target = options.directory;
-  const __names = names(getName(options.directory));
+  const target = join(cwd(), directory);
+  const __names = names(getName(directory));
   generateFiles(tree, source, target, { ...__names });
   await formatFiles(tree);
 }
