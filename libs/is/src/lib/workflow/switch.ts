@@ -7,7 +7,7 @@ export class Switch<T> {
   private constructor(private readonly value: T) {}
 
   /**
-   * Start the swtich statement
+   * Start the switch statement
    * @param switchValue - value to check
    * @returns this
    */

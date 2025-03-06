@@ -2,6 +2,7 @@
 export * from './lib/defined/is-defined.js';
 export * from './lib/defined/is-not-defined.js';
 export * from './lib/defined/not-empty.js';
+export * from './lib/object/deep-clone.js';
 export * from './lib/object/entries.js';
 export * from './lib/object/enumerator-param.js';
 export * from './lib/object/keys.js';

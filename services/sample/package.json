@@ -104,7 +104,14 @@
       }
     }
   },
+  "devDependencies": {
+    "@puq/model": "workspace:^",
+    "@puq/type": "workspace:^",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1"
+  },
   "dependencies": {
+    "@swc/helpers": "^0.5.15",
     "@nestjs/common": "^11.0.11",
     "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.11",
@@ -112,18 +119,13 @@
     "@nestjs/schedule": "^5.0.1",
     "@nestjs/swagger": "^11.0.6",
     "@nestjs/throttler": "^6.4.0",
-    "@puq/core": "^0.4.11",
-    "@puq/is": "^0.4.11",
-    "@puq/meta": "^0.4.11",
-    "@puq/orm": "^0.4.11",
-    "@puq/property": "^0.4.11",
+    "@puq/core": "workspace:^",
+    "@puq/is": "workspace:^",
+    "@puq/meta": "workspace:^",
+    "@puq/orm": "workspace:^",
+    "@puq/property": "workspace:^",
     "@puq/rest": "workspace:*",
-    "@swc/helpers": "^0.5.15",
     "commander": "^13.1.0",
     "helmet": "^8.0.0"
-  },
-  "devDependencies": {
-    "@puq/model": "workspace:^",
-    "@puq/type": "workspace:^"
   }
 }

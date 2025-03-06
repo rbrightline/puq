@@ -1,7 +1,7 @@
 {
     "name": "@puq/entity",
     "license": "MIT",
-    "version": "0.4.11",
+    "version": "0.4.20",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -88,8 +88,8 @@
         "typeorm": "^0.3.20"
     },
     "peerDependencies": {
-        "@puq/property": "^0.4.11",
-        "@puq/orm": "^0.4.11"
+        "@puq/property": "workspace:^",
+        "@puq/orm": "workspace:^"
     },
     "dependencies": {
         "@swc/helpers": "^0.5.15"

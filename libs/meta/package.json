@@ -1,7 +1,7 @@
 {
     "name": "@puq/meta",
     "license": "MIT",
-    "version": "0.4.11",
+    "version": "0.4.20",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -84,12 +84,12 @@
         "@puq/type": "workspace:^"
     },
     "peerDependencies": {
-        "reflect-metadata": "^0.2.2"
+        "reflect-metadata": "^0.2.2",
+        "@nestjs/common": "^11.0.11"
     },
     "dependencies": {
-        "@nestjs/common": "^11.0.11",
+        "@swc/helpers": "^0.5.15",
         "@puq/is": "workspace:^",
-        "@puq/names": "^0.4.11",
-        "@swc/helpers": "^0.5.15"
+        "@puq/names": "workspace:^"
     }
 }

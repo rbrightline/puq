@@ -1,7 +1,7 @@
 {
     "name": "@puq/core",
     "license": "MIT",
-    "version": "0.4.12",
+    "version": "0.4.20",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -88,7 +88,7 @@
         "@nestjs/common": "11.0.11"
     },
     "dependencies": {
-        "@puq/is": "workspace:^",
-        "@swc/helpers": "^0.5.15"
+        "@swc/helpers": "^0.5.15",
+        "@puq/is": "workspace:^"
     }
 }

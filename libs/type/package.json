@@ -1,6 +1,6 @@
 {
     "name": "@puq/type",
-    "version": "0.4.16",
+    "version": "0.4.20",
     "license": "MIT",
     "publishConfig": {
         "access": "public",

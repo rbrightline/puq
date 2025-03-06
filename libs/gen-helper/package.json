@@ -1,7 +1,7 @@
 {
     "name": "@puq/gen-helper",
     "license": "MIT",
-    "version": "0.4.13",
+    "version": "0.4.20",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -87,9 +87,9 @@
         "@nx/devkit": "^20.4.4"
     },
     "dependencies": {
+        "@swc/helpers": "^0.5.15",
         "@puq/fs": "workspace:^",
         "@puq/is": "workspace:^",
-        "@puq/printer": "workspace:^",
-        "@swc/helpers": "^0.5.15"
+        "@puq/printer": "workspace:^"
     }
 }

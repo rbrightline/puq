@@ -1,5 +1,5 @@
-import { createGroupValueProvider } from '@puq/meta';
 import type { DataSourceOptions } from 'typeorm';
+import { createGroupValueProvider } from '@puq/meta';
 
 export const {
   token: getDataSourceToken,
