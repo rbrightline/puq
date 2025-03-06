@@ -3,3 +3,7 @@ export * from './lib/common/category/category.entity.js';
 export * from './lib/common/category/category.view.js';
 export * from './lib/common/category/create-category.dto.js';
 export * from './lib/common/category/update-category.dto.js';
+export * from './lib/common/sample/create-sample.dto.js';
+export * from './lib/common/sample/sample.entity.js';
+export * from './lib/common/sample/sample.view.js';
+export * from './lib/common/sample/update-sample.dto.js';

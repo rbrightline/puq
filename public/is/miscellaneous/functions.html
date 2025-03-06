@@ -112,6 +112,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#deepClone" title="src/lib/object/deep-clone.ts" ><b>deepClone</b>&nbsp;&nbsp;&nbsp;(src/.../deep-clone.ts)</a>
+                        </li>
+                        <li>
                             <a href="#entries" title="src/lib/object/entries.ts" ><b>entries</b>&nbsp;&nbsp;&nbsp;(src/.../entries.ts)</a>
                         </li>
                         <li>
@@ -244,7 +247,78 @@
     </table>
 </section>
 
-    <h3>src/lib/object/entries.ts</h3>
+    <h3>src/lib/object/deep-clone.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deepClone"></a>
+                    <span class="name">
+                        <span ><b>deepClone</b></span>
+                        <a href="#deepClone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deepClone(obj: T)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a deep clone of an object, preserving its structure and values without shared references.
+This function recursively copies all properties, including nested objects, arrays, and special types
+like <code>Date</code>, while handling circular references to prevent infinite recursion. The clone is fully
+independent, ensuring no side effects on the original object.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>obj</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>T</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>{T} A deep-cloned copy of the input object.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/object/entries.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>

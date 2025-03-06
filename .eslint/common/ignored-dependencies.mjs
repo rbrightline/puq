@@ -1,1 +1,1 @@
-export default ['@puq/type', '@puq/debug', '@puq/is'];
+export default ['@puq/type', '@puq/model', '@nestjs/common'];
