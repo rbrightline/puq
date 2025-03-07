@@ -4,7 +4,6 @@ import type { QueryMany } from '@puq/query';
 import type { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { ApiProperty, Dto, Property } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
-import { SelectTransformer } from './select-transformer.js';
 import { OrderDirection, OrderNulls } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
 
@@ -66,7 +65,6 @@ export function CreateQueryManyDto<T>(
     })
     skip?: number;
 
-    @SelectTransformer()
     @Property({
       type: 'array',
       maxSize: maximumSelectedColumns,

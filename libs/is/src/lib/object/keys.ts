@@ -1,6 +1,6 @@
-import type { Keys } from '@puq/type';
+import type { Keys, Type } from '@puq/type';
 import type { EnumeratorParam } from './enumerator-param.js';
-import { throwInvalidObjectError } from '@puq/error';
+import { isConstructor } from './is-constructor.js';
 
 /**
  * Extract the keys of `object`, `array`
@@ -8,6 +8,8 @@ import { throwInvalidObjectError } from '@puq/error';
  * @returns the keys of the value such as [`some`, `other`]
  */
 export function keys<T extends EnumeratorParam>(value: T): Keys<T> {
-  if (typeof value !== 'object') throwInvalidObjectError();
+  if (isConstructor(value)) {
+    return Object.keys(new (value as Type)()) as Keys<T>;
+  }
   return Object.keys(value) as Keys<T>;
 }

@@ -88,12 +88,13 @@
         "typeorm": "^0.3.20"
     },
     "peerDependencies": {
-        "@nestjs/swagger": "^11.0.6",
         "@nestjs/common": "^11.0.11",
+        "@nestjs/swagger": "^11.0.6",
         "@puq/orm": "workspace:^",
         "@puq/property": "workspace:^"
     },
     "dependencies": {
+        "@puq/is": "workspace:^",
         "@swc/helpers": "^0.5.15"
     }
 }

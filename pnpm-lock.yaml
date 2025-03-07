@@ -138,6 +138,9 @@ importers:
       '@nestjs/swagger':
         specifier: ^11.0.6
         version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
       '@puq/orm':
         specifier: workspace:^
         version: link:../orm
@@ -533,6 +536,9 @@ importers:
       '@puq/core':
         specifier: workspace:^
         version: link:../../libs/core
+      '@puq/entity':
+        specifier: workspace:^
+        version: link:../../libs/entity
       '@puq/is':
         specifier: workspace:^
         version: link:../../libs/is

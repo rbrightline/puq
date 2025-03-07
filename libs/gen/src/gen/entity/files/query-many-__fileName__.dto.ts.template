@@ -1,0 +1,9 @@
+import { CreateQueryManyDto } from '@puq/orm';
+import { Dto } from '@puq/property';
+import { keys } from '@puq/is';
+import { <%- className %> } from './<%- fileName %>.entity.js';
+
+@Dto()
+export class QueryMany<%- className %>Dto extends CreateQueryManyDto({
+  columns: keys(<%- className %>),
+}) {}

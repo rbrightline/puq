@@ -1,0 +1,9 @@
+import { CreateQueryOneDto } from '@puq/orm';
+import { Dto } from '@puq/property';
+import { <%- className %> } from './<%- fileName %>.entity.js';
+import { keys } from '@puq/is';
+
+@Dto()
+export class QueryOne<%- className %>Dto extends CreateQueryOneDto({
+  columns: keys(<%- className %>),
+}) {}
