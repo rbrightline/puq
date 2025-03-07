@@ -6,6 +6,7 @@ export * from './lib/object/deep-clone.js';
 export * from './lib/object/entries.js';
 export * from './lib/object/enumerator-param.js';
 export * from './lib/object/keys.js';
+export * from './lib/object/new-from.js';
 export * from './lib/object/omit.js';
 export * from './lib/object/pick.js';
 export * from './lib/object/values.js';

@@ -1,28 +1,14 @@
 import { Module } from '@nestjs/common';
 import { OtherController, SampleController } from './sample.controller.js';
-import { ConfigModule } from '@nestjs/config';
-import { ThrottlerModule } from '@nestjs/throttler';
-import { ScheduleModule } from '@nestjs/schedule';
 import { SampleCron } from './sample.cron.js';
 import { provideLogger } from '@puq/core';
 
 @Module({
-  imports: [
-    ScheduleModule.forRoot(),
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60000,
-        limit: 10,
-      },
-    ]),
-
-    ConfigModule.forRoot(),
-  ],
+  imports: [],
   controllers: [SampleController, OtherController],
   providers: [
     provideLogger(SampleCron),
     provideLogger(SampleController),
-
     SampleCron,
   ],
 })

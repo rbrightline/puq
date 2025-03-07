@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectLogger, provideLogger } from './logger.provider.js';
 import { Test, TestingModule } from '@nestjs/testing';
+
 describe('Logger Provider', () => {
   let app: TestingModule;
 

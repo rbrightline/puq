@@ -22,21 +22,19 @@ export function getLoggerToken(targetName: string): string {
  * @returns Configured logger provider
  * @throws {TypeError} If target is not a constructor function
  */
-export function provideLogger(
-  target: Type,
-  logger: Type<Logger> = Logger,
-): Provider {
+export function provideLogger(target: Type): Provider {
   return {
+    inject: [Logger],
     provide: getLoggerToken(isStringOrThrow(target.name)),
-    useFactory() {
-      return new logger(target.name);
+    useFactory(logger: Logger) {
+      return new (logger.constructor(target.name))();
     },
   };
 }
 
 /**
  * Inject logger in constructor
- * @returns - {@link ParameterDecorator}
+ * @returns - Paramter decorator
  */
 export function InjectLogger(): ParameterDecorator {
   return (...args: ParameterDecoratorParam) => {
