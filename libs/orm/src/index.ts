@@ -1,4 +1,5 @@
 // @index(['./**/*.ts','!./**/integration', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
+export * from './lib/common/data-source-env.js';
 export * from './lib/common/pick-column-type.js';
 export * from './lib/common/pick-transformer.js';
 export * from './lib/decorator/column.js';

@@ -1,14 +1,17 @@
-import { Module } from '@nestjs/common';
-import { OtherController, SampleController } from './sample.controller.js';
+import { Logger, Module } from '@nestjs/common';
+import { SampleController } from './sample.controller.js';
 import { SampleCron } from './sample.cron.js';
-import { provideLogger } from '@puq/core';
+import { provideLoggerFor, provideLoggerClass } from '@puq/core';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Sample, SampleView } from '@puq/entity';
 
 @Module({
-  imports: [],
-  controllers: [SampleController, OtherController],
+  imports: [TypeOrmModule.forFeature([Sample, SampleView])],
+  controllers: [SampleController],
   providers: [
-    provideLogger(SampleCron),
-    provideLogger(SampleController),
+    provideLoggerClass(Logger),
+    provideLoggerFor(SampleCron),
+    provideLoggerFor(SampleController),
     SampleCron,
   ],
 })

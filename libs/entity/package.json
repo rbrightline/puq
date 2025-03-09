@@ -1,7 +1,7 @@
 {
     "name": "@puq/entity",
     "license": "MIT",
-    "version": "0.4.20",
+    "version": "0.4.22",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -91,10 +91,10 @@
         "@nestjs/common": "^11.0.11",
         "@nestjs/swagger": "^11.0.6",
         "@puq/orm": "workspace:^",
-        "@puq/property": "workspace:^"
+        "@puq/property": "workspace:^",
+        "@puq/is": "workspace:^"
     },
     "dependencies": {
-        "@puq/is": "workspace:^",
         "@swc/helpers": "^0.5.15"
     }
 }

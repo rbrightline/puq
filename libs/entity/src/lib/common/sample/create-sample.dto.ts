@@ -6,6 +6,7 @@ export class SampleObjDto implements SampleObj {
   @Property({ type: 'string' })
   value: string;
 }
+
 @Dto()
 export class CreateSampleDto implements CreateSampleModel {
   @Property({ type: 'array', required: true, items: { type: 'boolean' } })

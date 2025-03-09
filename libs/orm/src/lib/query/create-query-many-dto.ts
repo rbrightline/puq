@@ -50,6 +50,7 @@ export function CreateQueryManyDto<T>(
       description: 'Take the number of items',
       integerFormat: 'positive',
       maximum: maximumTake,
+      minimum: 1,
       default: defaultTake,
       acceptString: true,
     })
@@ -60,7 +61,7 @@ export function CreateQueryManyDto<T>(
       description: 'Skip the number of items',
       integerFormat: 'positive',
       default: 0,
-
+      minimum: 0,
       acceptString: true,
     })
     skip?: number;
@@ -79,7 +80,6 @@ export function CreateQueryManyDto<T>(
 
     @Property({
       type: 'string',
-      required: true,
       enum: columns,
       default: 'id',
     })
@@ -87,7 +87,6 @@ export function CreateQueryManyDto<T>(
 
     @Property({
       type: 'string',
-      required: true,
       enum: OrderDirection,
       default: 'asc',
     })
@@ -95,7 +94,6 @@ export function CreateQueryManyDto<T>(
 
     @Property({
       type: 'string',
-      required: true,
       enum: OrderNulls,
       default: 'last',
     })

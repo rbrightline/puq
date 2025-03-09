@@ -6,12 +6,24 @@ import { isStringOrThrow } from '@puq/is';
 export const LOGGER_TOKEN_SUFFIX = 'Logger';
 
 /**
+ * Provides the logger class
+ * @param logger - Logger class
+ * @returns - the Logger provider
+ */
+export function provideLoggerClass(logger: Type<Logger>): Provider {
+  return {
+    provide: Logger,
+    useClass: logger,
+  };
+}
+
+/**
  * Generates a unique logger token based on the target class name
  * @param targetName - Name of the target class
  * @returns Unique logger token string
  */
-export function getLoggerToken(targetName: string): string {
-  return `${targetName}LOGGER_TOKEN_SUFFIX`;
+export function getLoggerTokenOf(targetName: string): string {
+  return `${targetName}_${LOGGER_TOKEN_SUFFIX}`;
 }
 
 /**
@@ -22,26 +34,26 @@ export function getLoggerToken(targetName: string): string {
  * @returns Configured logger provider
  * @throws {TypeError} If target is not a constructor function
  */
-export function provideLogger(target: Type): Provider {
+export function provideLoggerFor(target: Type): Provider {
   return {
     inject: [Logger],
-    provide: getLoggerToken(isStringOrThrow(target.name)),
+    provide: getLoggerTokenOf(isStringOrThrow(target.name)),
     useFactory(logger: Logger) {
-      return new (logger.constructor(target.name))();
+      return new (logger.constructor as Type)(target.name);
     },
   };
 }
 
 /**
  * Inject logger in constructor
- * @returns - Paramter decorator
+ * @returns - Parameter decorator
  */
 export function InjectLogger(): ParameterDecorator {
   return (...args: ParameterDecoratorParam) => {
     if (typeof args[0] === 'function') {
-      Inject(getLoggerToken(args[0].name))(...args);
+      Inject(getLoggerTokenOf(args[0].name))(...args);
     } else {
-      Inject(getLoggerToken(args[0].constructor.name))(...args);
+      Inject(getLoggerTokenOf(args[0].constructor.name))(...args);
     }
   };
 }

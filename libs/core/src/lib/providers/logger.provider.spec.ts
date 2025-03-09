@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { InjectLogger, provideLogger } from './logger.provider.js';
+import { InjectLogger, provideLoggerFor } from './logger.provider.js';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('Logger Provider', () => {
@@ -7,6 +7,8 @@ describe('Logger Provider', () => {
 
   let serviceOne: ServiceOne;
   let serviceTwo: ServiceTwo;
+
+  class CustomLogger extends Logger {}
 
   @Injectable()
   class ServiceOne {
@@ -28,10 +30,10 @@ describe('Logger Provider', () => {
 
   beforeAll(async () => {
     app = await Test.createTestingModule({
-      controllers: [],
       providers: [
-        provideLogger(ServiceOne),
-        provideLogger(ServiceTwo),
+        { provide: Logger, useClass: CustomLogger },
+        provideLoggerFor(ServiceOne),
+        provideLoggerFor(ServiceTwo),
         ServiceOne,
         ServiceTwo,
       ],

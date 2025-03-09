@@ -12,14 +12,15 @@ import {
   SetRelation,
   UnsetRelation,
 } from '@puq/rest';
-import { Sample } from '@puq/entity';
+import { Sample, QueryManySampleDto } from '@puq/entity';
+import { Query } from '@nestjs/common';
 
 @Controller()
 export class SampleController extends CreateController({
   entity: () => Sample,
 }) {
   @FindAll()
-  findAll() {
+  findAll(@Query() query: QueryManySampleDto) {
     return [];
   }
 

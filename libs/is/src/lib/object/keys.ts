@@ -1,4 +1,4 @@
-import type { Keys, Type } from '@puq/type';
+import type { Keys } from '@puq/type';
 import type { EnumeratorParam } from './enumerator-param.js';
 import { isConstructor } from './is-constructor.js';
 
@@ -9,7 +9,8 @@ import { isConstructor } from './is-constructor.js';
  */
 export function keys<T extends EnumeratorParam>(value: T): Keys<T> {
   if (isConstructor(value)) {
-    return Object.keys(new (value as Type)()) as Keys<T>;
+    const instance = new value();
+    return Object.keys(instance) as Keys<T>;
   }
   return Object.keys(value) as Keys<T>;
 }

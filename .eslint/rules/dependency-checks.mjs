@@ -7,7 +7,7 @@ import __ignoredDependencies from './../common/ignored-dependencies.mjs';
  */
 export async function createDependencyChecksRule(ignoredDependencies) {
   return {
-    files: ['**/package.json'],
+    files: ['./package.json'],
     rules: {
       '@nx/dependency-checks': [
         'error',

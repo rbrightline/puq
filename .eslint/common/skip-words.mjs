@@ -84,4 +84,5 @@ export default [
   'override',
   'accessor',
   'Millis',
+  'cors',
 ];

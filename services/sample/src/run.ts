@@ -1,3 +1,8 @@
-import { bootstrap } from './lib/bootstrap.js';
+import { bootstrap } from '@puq/boot';
+import { SampleAppModule } from './lib/sample-app.module.js';
 
-bootstrap();
+bootstrap({
+  name: 'sample',
+  profile: 'dev',
+  module: SampleAppModule,
+});

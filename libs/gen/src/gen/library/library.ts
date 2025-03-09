@@ -15,7 +15,7 @@ export async function libraryGenerator(
 ) {
   const { directory } = options;
   const source = join(__dirname, 'files');
-  const target = join(cwd(), directory);
+  const target = join(cwd(), directory).split('\\').join('/');
   const __names = names(getName(directory));
 
   generateFiles(tree, source, target, { ...__names, target });

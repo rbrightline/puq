@@ -1,5 +1,6 @@
+import { bootstrap } from '@puq/boot';
 import { program } from 'commander';
-import { bootstrap } from './bootstrap.js';
+import { SampleAppModule } from './sample-app.module.js';
 
 async function boot() {
   program.name('sample CLI').description('sample CLI').version('0.0.1');
@@ -8,7 +9,13 @@ async function boot() {
     .command('sample')
     .name('sample')
     .description('Run the sample service')
-    .action(bootstrap);
+    .action(async () => {
+      return await bootstrap({
+        name: 'sample',
+        profile: 'dev',
+        module: SampleAppModule,
+      });
+    });
 
   program.parse();
 }
