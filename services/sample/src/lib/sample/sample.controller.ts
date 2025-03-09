@@ -12,8 +12,16 @@ import {
   SetRelation,
   UnsetRelation,
 } from '@puq/rest';
-import { Sample, QueryManySampleDto } from '@puq/entity';
-import { Query } from '@nestjs/common';
+import {
+  Sample,
+  QueryManySampleDto,
+  QueryOneSampleDto,
+  CreateSampleDto,
+  UpdateSampleDto,
+  SampleRelationParamDto,
+  SampleUnsetRelationParamDto,
+} from '@puq/entity';
+import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
 
 @Controller()
 export class SampleController extends CreateController({
@@ -21,51 +29,57 @@ export class SampleController extends CreateController({
 }) {
   @FindAll()
   findAll(@Query() query: QueryManySampleDto) {
-    return [];
+    return { query };
   }
 
   @FindOneById()
-  FindOneById() {
-    return 'FindOneById';
+  FindOneById(@Param('id', ParseIntPipe) id: number) {
+    return { id };
   }
 
   @Count()
-  Count() {
-    return 'Count';
+  Count(@Query() query: QueryOneSampleDto) {
+    return { query };
   }
 
   @SaveOne()
-  SaveOne() {
-    return 'SaveOne';
+  SaveOne(@Body() entity: CreateSampleDto) {
+    return { entity };
   }
 
   @UpdateOneById()
-  UpdateOneById() {
-    return 'UpdateOneById';
+  UpdateOneById(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() entity: UpdateSampleDto,
+  ) {
+    return {
+      id,
+      entity,
+    };
   }
 
   @DeleteOneById()
-  DeleteOneById() {
-    return 'DeleteOneById';
+  DeleteOneById(@Param('id', ParseIntPipe) id: number) {
+    return { id };
   }
 
   @AddRelation()
-  AddRelation() {
-    return 'AddRelation';
+  AddRelation(@Param() relation: SampleRelationParamDto) {
+    return { relation };
   }
 
   @RemoveRelation()
-  RemoveRelation() {
-    return 'RemoveRelation';
+  RemoveRelation(@Param() relation: SampleRelationParamDto) {
+    return { relation };
   }
 
   @SetRelation()
-  SetRelation() {
-    return 'SetRelation';
+  SetRelation(@Param() relation: SampleRelationParamDto) {
+    return { relation };
   }
 
   @UnsetRelation()
-  UnsetRelation() {
-    return 'UnsetRelation';
+  UnsetRelation(@Param() relation: SampleUnsetRelationParamDto) {
+    return { relation };
   }
 }

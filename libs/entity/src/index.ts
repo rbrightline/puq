@@ -6,6 +6,7 @@ export * from './lib/common/category/update-category.dto.js';
 export * from './lib/common/sample/create-sample.dto.js';
 export * from './lib/common/sample/query-many-sample.dto.js';
 export * from './lib/common/sample/query-one-sample.dto.js';
+export * from './lib/common/sample/relation.dto.js';
 export * from './lib/common/sample/sample.entity.js';
 export * from './lib/common/sample/sample.view.js';
 export * from './lib/common/sample/update-sample.dto.js';
