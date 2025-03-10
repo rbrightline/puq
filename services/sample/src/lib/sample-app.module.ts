@@ -3,12 +3,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppEnv } from '@puq/boot';
 import { Sample, SampleView } from '@puq/entity';
-import { DataSourceEnv, TableNamingStrategy } from '@puq/orm';
+import { TableNamingStrategy } from '@puq/orm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { SampleModule } from './sample/sample.module.js';
-import { provideLoggerClass } from '@puq/core';
+import { AppEnv, DataSourceEnv } from '@puq/env';
+
 @Module({
   imports: [
     ConfigModule.forRoot({}),
@@ -44,6 +44,6 @@ import { provideLoggerClass } from '@puq/core';
     }),
     SampleModule,
   ],
-  providers: [provideLoggerClass(Logger)],
+  providers: [Logger],
 })
 export class SampleAppModule {}

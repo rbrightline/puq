@@ -75,9 +75,6 @@
             "path": "./libs/env"
         },
         {
-            "path": "./libs/env"
-        },
-        {
             "path": "./libs/provider"
         }
     ]

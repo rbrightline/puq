@@ -1,23 +1,23 @@
 import type { Provider, Type } from '@nestjs/common';
-import { Inject } from '@nestjs/common';
 import type { ParameterDecoratorParam } from '@puq/type';
+import { Inject } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 
 export const ENTITY_SERVICE_TOKEN_SUFFIX = 'ENTITY_SERVICE';
 
 /**
  * Get the entity service token
- * @param entity entity class
+ * @param entity - entity class
  * @returns - entity service tokenF
  */
-export function getEntityServiceToken(entity: Type) {
-  return `${entity.name}_${ENTITY_SERVICE_TOKEN_SUFFIX}`;
+export function getEntityServiceToken<T>(entity: Type<T>): symbol {
+  return Symbol(`${entity.name}_${ENTITY_SERVICE_TOKEN_SUFFIX}`);
 }
 
 /**
  * Provide entity service
- * @param entity entity class
- * @param service entity service
+ * @param entity  - entity class
+ * @param service - entity service
  * @returns - Provider
  */
 export function provideEntityService(entity: Type, service: Type): Provider {

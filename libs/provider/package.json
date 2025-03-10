@@ -29,8 +29,7 @@
     "url": "https://rbrightline.github.io"
   },
   "categories": [
-    "Other",
-    "- [ ] add categories for provider"
+    "Other"
   ],
   "contributors": [
     {
@@ -90,8 +89,11 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.11",
+    "@nestjs/typeorm": "^11.0.0",
+    "typeorm": "^0.3.20",
     "@puq/debug": "workspace:^",
-    "@puq/is": "workspace:^"
+    "@puq/is": "workspace:^",
+    "@puq/orm": "workspace:^"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.15"

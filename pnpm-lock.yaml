@@ -113,9 +113,6 @@ importers:
       '@nestjs/swagger':
         specifier: ^11.0.6
         version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/debug':
-        specifier: workspace:^
-        version: link:../debug
       '@puq/env':
         specifier: workspace:^
         version: link:../env
@@ -135,25 +132,6 @@ importers:
       '@puq/testing':
         specifier: workspace:^
         version: link:../testing
-      '@puq/type':
-        specifier: workspace:^
-        version: link:../type
-
-  libs/core:
-    dependencies:
-      '@nestjs/common':
-        specifier: 11.0.11
-        version: 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@puq/is':
-        specifier: workspace:^
-        version: link:../is
-      '@swc/helpers':
-        specifier: ^0.5.15
-        version: 0.5.15
-    devDependencies:
-      '@nestjs/testing':
-        specifier: ^11.0.11
-        version: 11.0.11(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(@nestjs/platform-express@11.0.11)
       '@puq/type':
         specifier: workspace:^
         version: link:../type
@@ -481,15 +459,24 @@ importers:
       '@nestjs/common':
         specifier: ^11.0.11
         version: 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/typeorm':
+        specifier: ^11.0.0
+        version: 11.0.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.21(better-sqlite3@11.8.1)(pg@8.13.3)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.13.9)(typescript@5.8.2)))
       '@puq/debug':
         specifier: workspace:^
         version: link:../debug
       '@puq/is':
         specifier: workspace:^
         version: link:../is
+      '@puq/orm':
+        specifier: workspace:^
+        version: link:../orm
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
+      typeorm:
+        specifier: ^0.3.20
+        version: 0.3.21(better-sqlite3@11.8.1)(pg@8.13.3)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.13.9)(typescript@5.8.2))
     devDependencies:
       '@puq/model':
         specifier: workspace:^
@@ -666,12 +653,12 @@ importers:
       '@puq/boot':
         specifier: workspace:^
         version: link:../../libs/boot
-      '@puq/core':
-        specifier: workspace:^
-        version: link:../../libs/core
       '@puq/entity':
         specifier: workspace:^
         version: link:../../libs/entity
+      '@puq/env':
+        specifier: workspace:^
+        version: link:../../libs/env
       '@puq/is':
         specifier: workspace:^
         version: link:../../libs/is
@@ -684,6 +671,9 @@ importers:
       '@puq/property':
         specifier: workspace:^
         version: link:../../libs/property
+      '@puq/provider':
+        specifier: workspace:^
+        version: link:../../libs/provider
       '@puq/rest':
         specifier: workspace:*
         version: link:../../libs/rest
@@ -693,12 +683,15 @@ importers:
       better-sqlite3:
         specifier: ^11.8.1
         version: 11.8.1
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
       commander:
         specifier: ^13.1.0
         version: 13.1.0
-      helmet:
-        specifier: ^8.0.0
-        version: 8.0.0
       pg:
         specifier: ^8.13.3
         version: 8.13.3
@@ -712,12 +705,6 @@ importers:
       '@puq/type':
         specifier: workspace:^
         version: link:../../libs/type
-      class-transformer:
-        specifier: ^0.5.1
-        version: 0.5.1
-      class-validator:
-        specifier: ^0.14.1
-        version: 0.14.1
 
 packages:
 

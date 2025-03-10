@@ -22,7 +22,8 @@ import {
   SampleUnsetRelationParamDto,
 } from '@puq/entity';
 import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
-import { EntityService, InjectEntityService } from '@puq/orm';
+import { EntityService } from '@puq/orm';
+import { InjectEntityService } from '@puq/provider';
 
 @Controller()
 export class SampleController extends CreateController({

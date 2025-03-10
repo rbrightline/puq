@@ -27,7 +27,5 @@ export * from './lib/query/select-transformer.js';
 export * from './lib/query/where-query-transformer.js';
 export * from './lib/service/base-entity.service.js';
 export * from './lib/service/entity-query.service.js';
-export * from './lib/service/entity.module.js';
 export * from './lib/service/entity.service.js';
-export * from './lib/service/provide-entity-service.js';
 export * from './lib/view/base.view.js';

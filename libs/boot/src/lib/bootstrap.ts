@@ -14,7 +14,7 @@ export type BootstrapOptions = {
   name: string;
   profile: string;
   module: Type;
-  logger: LogLevel[];
+  logger?: LogLevel[];
 };
 /**
  * Bootstrap the sample service
@@ -24,8 +24,12 @@ export async function bootstrap(options: BootstrapOptions) {
   notEmptyOrThrow(options.profile);
 
   const app = await NestFactory.create(options.module, {
-    logger: options.logger,
+    logger:
+      (options.logger ?? options.profile === 'dev')
+        ? ['log', 'debug']
+        : undefined,
   });
+
   const config = app.get(ConfigService);
 
   const AppEnvKeys = new AppEnv({ ...options });
