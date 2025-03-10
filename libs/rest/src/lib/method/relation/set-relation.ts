@@ -1,6 +1,7 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import { Post } from '@nestjs/common';
 import {
+  ApiParam,
   ApiNotFoundResponse as NotFound,
   ApiOkResponse as Ok,
 } from '@nestjs/swagger';
@@ -14,6 +15,7 @@ export function SetRelation(): MethodDecorator {
     Common({
       summary: `Set (one|many)-to-one relation to ${M.names.pascalCase} by relation params`,
     })(...args);
+    ApiParam({ type: M.relationDto?.() } as any)(...args);
     Post(M.paths.relationId)(...args);
     Ok({
       type: ResDto,

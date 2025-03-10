@@ -1,6 +1,7 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import { Get } from '@nestjs/common';
 import {
+  ApiQuery,
   ApiNotFoundResponse as NotFound,
   ApiOkResponse as Ok,
 } from '@nestjs/swagger';
@@ -14,6 +15,7 @@ export function FindAll(): MethodDecorator {
     Common({ summary: `Find all ${pluralize(M.names.pascalCase)} by query` })(
       ...args,
     );
+    ApiQuery({ type: M.queryManyDto() })(...args);
     Get(M.paths.plural)(...args);
     Ok({
       type: M.entity(),

@@ -1,6 +1,7 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import { Get } from '@nestjs/common';
 import {
+  ApiQuery,
   ApiNotFoundResponse as NotFound,
   ApiOkResponse as Ok,
 } from '@nestjs/swagger';
@@ -11,6 +12,7 @@ export function FindOneById(): MethodDecorator {
   return <T>(...args: MethodDecoratorParam<T>) => {
     const M = Meta.get(args[0].constructor);
     Common({ summary: `Delete ${M.names.pascalCase} by id` })(...args);
+    ApiQuery({ type: M.queryOneDto() })(...args);
     Get(M.paths.id)(...args);
     Ok({
       type: M.entity(),

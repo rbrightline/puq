@@ -37,6 +37,7 @@ export * from './lib/property/string-format.js';
 export * from './lib/property/string.js';
 export * from './lib/ui/icon.js';
 export * from './lib/ui/input-type.js';
+export * from './lib/utils/deep-partial.js';
 export * from './lib/utils/key-of.js';
 export * from './lib/utils/keys.js';
 export * from './lib/utils/set-optional.js';

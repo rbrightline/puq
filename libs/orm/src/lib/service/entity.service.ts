@@ -6,16 +6,17 @@ import type {
   UpdateResult,
 } from '@puq/type';
 import { EntityQueryService } from './entity-query.service.js';
+import type { DeepPartial } from 'typeorm';
 
 /**
  * Write service
  */
 export class EntityService<T extends BaseEntity> extends EntityQueryService<T> {
-  save(entity: T): Promise<T> {
+  save(entity: DeepPartial<T>): Promise<T> {
     return this.repository.save(entity);
   }
 
-  saveMany(entities: T[]): Promise<T[]> {
+  saveMany(entities: DeepPartial<T>[]): Promise<T[]> {
     return this.repository.save(entities);
   }
 

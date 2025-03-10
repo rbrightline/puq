@@ -2,8 +2,13 @@ import type { Type } from '@puq/type';
 import type { SetResourceMetadataOptions } from '@puq/meta';
 import { SetResourceMetadata } from '@puq/meta';
 
-export function CreateController(
-  options: Readonly<SetResourceMetadataOptions>,
+/**
+ * Create controller class. This factory function allows us to set the resource metadata for the controller
+ * @param options - {@link SetResourceMetadataOptions}
+ * @returns - controller class
+ */
+export function CreateController<T extends object>(
+  options: SetResourceMetadataOptions<T>,
 ): Type {
   class ControllerClass {
     @SetResourceMetadata(options)

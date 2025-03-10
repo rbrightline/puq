@@ -1,17 +1,11 @@
-import type { Type } from '@puq/type';
-import { ResourceMetadataManager } from './resource-metadata-manager.js';
+import {
+  ResourceMetadataManager,
+  type ResourceMetadataOptions,
+} from './resource-metadata-manager.js';
 
-export type SetResourceMetadataOptions = {
-  /**
-   * Factory function that returns resource entity class
-   */
-  entity: () => Type;
-
-  /**
-   * Defines the public resource
-   */
-  isPublic?: boolean;
-};
+export type SetResourceMetadataOptions<T extends object> = Readonly<
+  Omit<ResourceMetadataOptions<T>, 'target'>
+>;
 
 /**
  * Set metadata for the resource controller that method and class decorator can access using {@link ResourceMetadataManager}
@@ -28,13 +22,13 @@ export type SetResourceMetadataOptions = {
  * @param entity
  * @returns - {@link PropertyDecorator}
  */
-export function SetResourceMetadata(
-  options: Readonly<SetResourceMetadataOptions>,
+export function SetResourceMetadata<T extends object>(
+  options: SetResourceMetadataOptions<T>,
 ): PropertyDecorator {
   return (target) => {
     ResourceMetadataManager.set({
+      ...options,
       target,
-      entity: options.entity,
       isPublic: !!options.isPublic,
     });
   };

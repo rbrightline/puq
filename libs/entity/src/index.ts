@@ -10,4 +10,3 @@ export * from './lib/common/sample/relation.dto.js';
 export * from './lib/common/sample/sample.entity.js';
 export * from './lib/common/sample/sample.view.js';
 export * from './lib/common/sample/update-sample.dto.js';
-export * from './references.js';

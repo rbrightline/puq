@@ -1,6 +1,13 @@
 {
   "jsc": {
     "target": "es2017",
+    "minify": {
+      "mangle": true,
+      "compress": {
+        "dead_code": true,
+        "toplevel": true
+      }
+    },
     "parser": {
       "syntax": "typescript",
       "decorators": true,
@@ -12,15 +19,11 @@
     },
     "keepClassNames": true,
     "externalHelpers": true,
-    "loose": true
+    "loose": false
   },
   "module": {
     "type": "es6"
   },
   "sourceMaps": true,
-  "exclude": [
-    ".*\\.spec.tsx?$",
-    ".*\\.test.tsx?$",
-    ".*.js$"
-  ]
+  "exclude": [".*\\.spec.ts$"]
 }

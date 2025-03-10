@@ -28,6 +28,10 @@ import { InjectEntityService } from '@puq/provider';
 @Controller()
 export class SampleController extends CreateController({
   entity: () => Sample,
+  createDto: () => CreateSampleDto,
+  updateDto: () => UpdateSampleDto,
+  queryManyDto: () => QueryManySampleDto,
+  queryOneDto: () => QueryOneSampleDto,
 }) {
   constructor(
     @InjectEntityService(Sample)
@@ -42,22 +46,22 @@ export class SampleController extends CreateController({
   }
 
   @FindOneById()
-  FindOneById(@Param('id', ParseIntPipe) id: number) {
+  findOneById(@Param('id', ParseIntPipe) id: number) {
     return this.service.findOneById(id);
   }
 
   @Count()
-  Count(@Query() query: QueryOneSampleDto) {
+  count(@Query() query: QueryOneSampleDto) {
     return this.service.count(query);
   }
 
   @SaveOne()
-  SaveOne(@Body() entity: CreateSampleDto) {
-    return this.service.save(entity as Sample);
+  saveOne(@Body() entity: CreateSampleDto) {
+    return this.service.save(entity);
   }
 
   @UpdateOneById()
-  UpdateOneById(
+  updateOneById(
     @Param('id', ParseIntPipe) id: number,
     @Body() entity: UpdateSampleDto,
   ) {
@@ -70,22 +74,22 @@ export class SampleController extends CreateController({
   }
 
   @AddRelation()
-  AddRelation(@Param() relation: SampleRelationParamDto) {
+  addRelation(@Param() relation: SampleRelationParamDto) {
     return this.service.addRelation(relation);
   }
 
   @RemoveRelation()
-  RemoveRelation(@Param() relation: SampleRelationParamDto) {
+  removeRelation(@Param() relation: SampleRelationParamDto) {
     return this.service.removeRelation(relation);
   }
 
   @SetRelation()
-  SetRelation(@Param() relation: SampleRelationParamDto) {
+  setRelation(@Param() relation: SampleRelationParamDto) {
     return this.service.setRelation(relation);
   }
 
   @UnsetRelation()
-  UnsetRelation(@Param() relation: SampleUnsetRelationParamDto) {
+  unsetRelation(@Param() relation: SampleUnsetRelationParamDto) {
     return this.service.unsetRelation(relation);
   }
 }

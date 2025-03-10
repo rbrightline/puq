@@ -1,6 +1,7 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import { Put } from '@nestjs/common';
 import {
+  ApiBody,
   ApiNotFoundResponse as NotFound,
   ApiOkResponse as Ok,
 } from '@nestjs/swagger';
@@ -13,6 +14,7 @@ export function UpdateOneById(): MethodDecorator {
     const M = Meta.get(args[0].constructor);
     Common({ summary: `Update ${M.names.pascalCase} by id` })(...args);
     Put(M.paths.id)(...args);
+    ApiBody({ type: M.updateDto() })(...args);
     Ok({
       type: ResDto,
       description: `Successfully updated ${M.names.pascalCase}`,

@@ -3,12 +3,19 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Sample, SampleView } from '@puq/entity';
+import {
+  CreateSampleDto,
+  QueryManySampleDto,
+  QueryOneSampleDto,
+  Sample,
+  SampleRelationParamDto,
+  SampleView,
+  UpdateSampleDto,
+} from '@puq/entity';
 import { TableNamingStrategy } from '@puq/orm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
-import { SampleModule } from './sample/sample.module.js';
 import { AppEnv, DataSourceEnv } from '@puq/env';
-
+import { BasicResourceModule } from '@puq/module';
 @Module({
   imports: [
     ConfigModule.forRoot({}),
@@ -42,7 +49,15 @@ import { AppEnv, DataSourceEnv } from '@puq/env';
         };
       },
     }),
-    SampleModule,
+    BasicResourceModule.configure({
+      entity: () => Sample,
+      createDto: () => CreateSampleDto,
+      updateDto: () => UpdateSampleDto,
+      queryManyDto: () => QueryManySampleDto,
+      queryOneDto: () => QueryOneSampleDto,
+      relationDto: () => SampleRelationParamDto,
+      unsetRelationDto: () => SampleRelationParamDto,
+    }),
   ],
   providers: [Logger],
 })
