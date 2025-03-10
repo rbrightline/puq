@@ -1,45 +1,25 @@
 import type { FindOptionsWhere } from 'typeorm';
 import type { KeyOf, Keys, Type } from '@puq/type';
 import type { QueryMany } from '@puq/query';
-import type { QueryOneDtoOptions } from './create-query-one-dto.js';
 import { ApiProperty, Dto, Property } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { OrderDirection, OrderNulls } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
-
-export type QueryManyDtoOptions<Entity> = QueryOneDtoOptions<Entity> & {
-  /**
-   * Limit the number of columns to be selected. If set 1 for example, the user must select only 1 column such as id.
-   */
-  maximumSelectedColumns?: number;
-
-  /**
-   * Limit the maximum page length
-   */
-  maximumTake?: number;
-
-  /**
-   * Default page length
-   */
-  defaultTake?: number;
-};
+import { keys } from '@puq/is';
+import type { CreateQueryOptions } from './create-query-options.js';
 
 /**
- * Create {@link QueryMany} dto
- * @param options {@link QueryManyDtoOptions}
- * @returns
+ * Create query dto to query many entities
+ * @param options - {@link CreateQueryOptions}
+ * @returns - query dto
  */
-export function CreateQueryManyDto<T>(
-  options: QueryManyDtoOptions<T>,
-): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
-  const {
-    columns,
-    maximumSelectedColumns,
-    maximumTake,
-    defaultTake,
-    isSelectRequired,
-  } = options;
+export function CreateQueryManyDto<Entity>(
+  options: CreateQueryOptions<Entity>,
+): Type<QueryMany<Entity, FindOptionsWhere<Entity>[]>> {
+  const { entity, maxSelectSize, isSelectRequired, maxTake, defaultTake } =
+    options;
 
+  const columns = keys(entity);
   @Dto()
   class QueryManyDto<T1>
     extends CommonQueryDto
@@ -49,7 +29,7 @@ export function CreateQueryManyDto<T>(
       type: 'integer',
       description: 'Take the number of items',
       integerFormat: 'positive',
-      maximum: maximumTake,
+      maximum: maxTake,
       minimum: 1,
       default: defaultTake,
       acceptString: true,
@@ -68,7 +48,7 @@ export function CreateQueryManyDto<T>(
 
     @Property({
       type: 'array',
-      maxSize: maximumSelectedColumns,
+      maxSize: maxSelectSize,
       required: isSelectRequired,
       items: {
         type: 'string',
@@ -99,7 +79,7 @@ export function CreateQueryManyDto<T>(
     })
     orderNulls?: OrderNulls;
 
-    @WhereQueryTransformer(columns)
+    @WhereQueryTransformer(options)
     @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
     where?: FindOptionsWhere<T1>[];
   }

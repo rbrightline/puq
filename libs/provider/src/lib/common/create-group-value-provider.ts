@@ -2,6 +2,9 @@ import type { Provider } from '@nestjs/common';
 import { Inject } from '@nestjs/common';
 import type { ParameterDecoratorParam } from '@puq/type';
 
+/**
+ * Group provider
+ */
 export type GroupValueProviderResult<T> = {
   /**
    * get the value provider token
@@ -26,23 +29,30 @@ export type GroupValueProviderResult<T> = {
   inject: (name: string) => ParameterDecorator;
 };
 
+/**
+ * Create a group provider
+ * @param group group name
+ * @returns - {@link GroupValueProviderResult}
+ */
 export function createGroupValueProvider<T>(
   group: string,
 ): GroupValueProviderResult<T> {
-  const token = (name: string): symbol => Symbol(`${name}_${group}_TOKEN`);
+  function token(name: string): symbol {
+    return Symbol(`${name}_${group}_TOKEN`);
+  }
 
-  const provide = (name: string, useValue: T): Provider => {
+  function provide(name: string, useValue: T): Provider {
     return {
       provide: token(name),
-      useValue: useValue,
+      useValue,
     };
-  };
+  }
 
-  const inject =
-    (name: string): ParameterDecorator =>
-    (...args: ParameterDecoratorParam) =>
+  function inject(name: string): ParameterDecorator {
+    return (...args: ParameterDecoratorParam) => {
       Inject(token(name))(...args);
-
+    };
+  }
   return {
     token,
     provide,

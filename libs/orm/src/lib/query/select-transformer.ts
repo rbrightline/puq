@@ -2,7 +2,7 @@ import { Transform } from 'class-transformer';
 
 /**
  * Transform the select query param into string array
- * @returns
+ * @returns- property decorator
  */
 export function SelectTransformer(): PropertyDecorator {
   return (t, p) => {

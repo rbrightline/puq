@@ -113,24 +113,21 @@ importers:
       '@nestjs/swagger':
         specifier: ^11.0.6
         version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
-      '@puq/core':
-        specifier: workspace:^
-        version: link:../core
       '@puq/debug':
         specifier: workspace:^
         version: link:../debug
+      '@puq/env':
+        specifier: workspace:^
+        version: link:../env
       '@puq/is':
         specifier: workspace:^
         version: link:../is
-      '@puq/names':
+      '@puq/middleware':
         specifier: workspace:^
-        version: link:../names
+        version: link:../middleware
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
-      helmet:
-        specifier: ^8.0.0
-        version: 8.0.0
     devDependencies:
       '@puq/model':
         specifier: workspace:^
@@ -209,6 +206,31 @@ importers:
       typeorm:
         specifier: ^0.3.20
         version: 0.3.21(better-sqlite3@11.8.1)(pg@8.13.3)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.13.9)(typescript@5.8.2))
+
+  libs/env:
+    dependencies:
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
+      '@puq/names':
+        specifier: workspace:^
+        version: link:../names
+      '@swc/helpers':
+        specifier: ^0.5.15
+        version: 0.5.15
+    devDependencies:
+      '@puq/model':
+        specifier: workspace:^
+        version: link:../model
+      '@puq/testing':
+        specifier: workspace:^
+        version: link:../testing
+      '@puq/type':
+        specifier: workspace:^
+        version: link:../type
 
   libs/error:
     dependencies:
@@ -317,6 +339,40 @@ importers:
         specifier: workspace:^
         version: link:../type
 
+  libs/middleware:
+    dependencies:
+      '@nestjs/common':
+        specifier: ^11.0.11
+        version: 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/swagger':
+        specifier: ^11.0.6
+        version: 11.0.6(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
+      '@swc/helpers':
+        specifier: ^0.5.15
+        version: 0.5.15
+      helmet:
+        specifier: ^8.0.0
+        version: 8.0.0
+    devDependencies:
+      '@puq/model':
+        specifier: workspace:^
+        version: link:../model
+      '@puq/testing':
+        specifier: workspace:^
+        version: link:../testing
+      '@puq/type':
+        specifier: workspace:^
+        version: link:../type
+      '@types/helmet':
+        specifier: ^4.0.0
+        version: 4.0.0
+
   libs/model:
     dependencies:
       '@swc/helpers':
@@ -341,6 +397,9 @@ importers:
       '@nestjs/config':
         specifier: ^4.0.0
         version: 4.0.1(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(rxjs@7.8.1)
+      '@nestjs/typeorm':
+        specifier: ^11.0.0
+        version: 11.0.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.21(better-sqlite3@11.8.1)(pg@8.13.3)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.13.9)(typescript@5.8.2)))
       '@puq/is':
         specifier: workspace:^
         version: link:../is
@@ -413,6 +472,31 @@ importers:
       '@puq/model':
         specifier: workspace:^
         version: link:../model
+      '@puq/type':
+        specifier: workspace:^
+        version: link:../type
+
+  libs/provider:
+    dependencies:
+      '@nestjs/common':
+        specifier: ^11.0.11
+        version: 11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@puq/debug':
+        specifier: workspace:^
+        version: link:../debug
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
+      '@swc/helpers':
+        specifier: ^0.5.15
+        version: 0.5.15
+    devDependencies:
+      '@puq/model':
+        specifier: workspace:^
+        version: link:../model
+      '@puq/testing':
+        specifier: workspace:^
+        version: link:../testing
       '@puq/type':
         specifier: workspace:^
         version: link:../type
@@ -2345,6 +2429,10 @@ packages:
 
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
+
+  '@types/helmet@4.0.0':
+    resolution: {integrity: sha512-ONIn/nSNQA57yRge3oaMQESef/6QhoeX7llWeDli0UZIfz8TQMkfNPTXA8VnnyeA1WUjG2pGqdjEIueYonMdfQ==}
+    deprecated: This is a stub types definition. helmet provides its own type definitions, so you do not need this installed.
 
   '@types/http-cache-semantics@4.0.4':
     resolution: {integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==}
@@ -8689,6 +8777,10 @@ snapshots:
   '@types/graceful-fs@4.1.9':
     dependencies:
       '@types/node': 22.13.9
+
+  '@types/helmet@4.0.0':
+    dependencies:
+      helmet: 8.0.0
 
   '@types/http-cache-semantics@4.0.4': {}
 

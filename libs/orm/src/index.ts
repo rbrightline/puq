@@ -1,5 +1,4 @@
 // @index(['./**/*.ts','!./**/integration', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
-export * from './lib/common/data-source-env.js';
 export * from './lib/common/pick-column-type.js';
 export * from './lib/common/pick-transformer.js';
 export * from './lib/decorator/column.js';
@@ -22,10 +21,13 @@ export * from './lib/query/create-find-operator.js';
 export * from './lib/query/create-query-count-dto.js';
 export * from './lib/query/create-query-many-dto.js';
 export * from './lib/query/create-query-one-dto.js';
+export * from './lib/query/create-query-options.js';
 export * from './lib/query/create-where-option-dto.js';
 export * from './lib/query/select-transformer.js';
 export * from './lib/query/where-query-transformer.js';
-export * from './lib/service/base.js';
-export * from './lib/service/read.js';
-export * from './lib/service/write.js';
+export * from './lib/service/base-entity.service.js';
+export * from './lib/service/entity-query.service.js';
+export * from './lib/service/entity.module.js';
+export * from './lib/service/entity.service.js';
+export * from './lib/service/provide-entity-service.js';
 export * from './lib/view/base.view.js';

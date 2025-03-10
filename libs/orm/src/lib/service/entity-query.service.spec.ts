@@ -10,7 +10,7 @@ import {
   Column,
   CreateQueryManyDto,
   CreateQueryOneDto,
-  EntityReadService,
+  EntityQueryService,
   CreateQueryCountDto,
   TableNamingStrategy,
 } from '../../index.js';
@@ -48,7 +48,7 @@ class QueryCountSampleDto extends CreateQueryCountDto<Sample>({
 describe('EntityReadService', () => {
   let ds: DataSource;
   let repo: Repository<Sample>;
-  let service: EntityReadService<Sample>;
+  let service: EntityQueryService<Sample>;
 
   beforeAll(async () => {
     ds = await new DataSource({
@@ -61,7 +61,7 @@ describe('EntityReadService', () => {
     }).initialize();
 
     repo = ds.getRepository(Sample);
-    service = new EntityReadService(repo);
+    service = new EntityQueryService(repo);
 
     await repo.save({
       string: 'string 2',

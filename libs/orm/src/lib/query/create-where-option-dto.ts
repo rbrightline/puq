@@ -1,27 +1,31 @@
-import type { KeyOf, Keys, Type } from '@puq/type';
+import type { KeyOf, Type } from '@puq/type';
 import type { WhereOption } from '@puq/query';
 import { Dto, Property } from '@puq/property';
 import { QueryOperator } from '@puq/query';
+import { keys } from '@puq/is';
+import type { CreateQueryOptions } from './create-query-options.js';
 
 /**
- * Create {@link WhereOption} query dto for the entity
- * @template - {@link T} target entity class
- * @param columns - {@link Keys<T>} columns that allows query operations
- * @returns
+ * Create where option dto
+ * @param options - {@link CreateQueryOptions}
+ * @returns - where option dto
  */
-export function CreateWhereOptionDto<T, V>(
-  columns: Keys<T>,
-): Type<WhereOption<T, V>> {
+export function CreateWhereOptionDto<Entity, Value>(
+  options: CreateQueryOptions<Entity>,
+): Type<WhereOption<Entity, Value>> {
+  const { entity } = options;
+  const columns = keys(entity);
+
   @Dto()
-  class WhereOptionDto implements WhereOption<T, V> {
+  class WhereOptionDto implements WhereOption<Entity, Value> {
     @Property({ type: 'string', required: true, enum: columns as string[] })
-    property: KeyOf<T>;
+    property: KeyOf<Entity>;
 
     @Property({ type: 'string', required: true, enum: QueryOperator })
     operator: QueryOperator;
 
     @Property({ type: 'string', required: true, minLength: 1, maxLength: 100 })
-    query: V;
+    query: Value;
   }
 
   return WhereOptionDto;

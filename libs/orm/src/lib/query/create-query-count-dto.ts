@@ -1,30 +1,25 @@
 import type { FindOptionsWhere } from 'typeorm';
-import type { Keys, Type } from '@puq/type';
+import type { Type } from '@puq/type';
 import type { QueryCount } from '@puq/query';
 import { ApiProperty, Dto } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { CommonQueryDto } from './common-query-dto.js';
-
-export type CreateQueryCountDtoOptions<T> = {
-  columns: Keys<T>;
-};
+import type { CreateQueryOptions } from './create-query-options.js';
 
 /**
- * Create a count query dto for the entity
- * @param options {@link CreateQueryCountDtoOptions}
- * @returns
+ * Create a query count dto
+ * @param options - {@link CreateQueryOptions}
+ * @returns - query dto
  */
 export function CreateQueryCountDto<Entity>(
-  options: CreateQueryCountDtoOptions<Entity>,
+  options: CreateQueryOptions<Entity>,
 ): Type {
-  const { columns } = options;
-
   @Dto()
   class QueryCountDto<T>
     extends CommonQueryDto
     implements QueryCount<FindOptionsWhere<T>[]>
   {
-    @WhereQueryTransformer(columns)
+    @WhereQueryTransformer(options)
     @ApiProperty({ type: 'array', items: { type: 'string' } })
     where?: FindOptionsWhere<T>[];
   }

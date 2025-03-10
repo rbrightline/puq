@@ -1,12 +1,12 @@
 {
-  "name": "@puq/boot",
+  "name": "@puq/middleware",
   "license": "MIT",
   "version": "0.4.20",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "description": "Bootstrap server",
+  "description": "Interceptors, middlewares, and pipes",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -14,14 +14,19 @@
   },
   "keywords": [
     "puq",
-    "- [ ] add keywords for boot"
+    "interceptor",
+    "middlware",
+    "pipe",
+    "security",
+    "validation",
+    "transform"
   ],
   "repository": {
-    "directory": "libs/boot",
+    "directory": "libs/middleware",
     "url": "https://github.com/rbrightline/puq/tree/main",
     "type": "github"
   },
-  "homepage": "https://rbrightline.github.io/puq/boot",
+  "homepage": "https://rbrightline.github.io/puq/middleware",
   "bugs": {
     "email": "robert.brightline@gmail.com",
     "url": "https://rbrightline.github.io"
@@ -39,7 +44,7 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/boot/favicon.png",
+  "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/middleware/favicon.png",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -57,7 +62,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/boot/src",
+    "sourceRoot": "libs/middleware/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -65,9 +70,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/boot/dist",
-          "main": "libs/boot/src/index.ts",
-          "tsConfig": "libs/boot/tsconfig.lib.json",
+          "outputPath": "libs/middleware/dist",
+          "main": "libs/middleware/src/index.ts",
+          "tsConfig": "libs/middleware/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
         },
@@ -76,23 +81,24 @@
         ]
       },
       "doc": {
-        "command": "cd libs/boot && npx compodoc -d ../../public/boot  -p tsconfig.lib.json -n boot"
+        "command": "cd libs/middleware && npx compodoc -d ../../public/middleware  -p tsconfig.lib.json -n middleware"
       }
     }
   },
   "devDependencies": {
     "@puq/model": "workspace:^",
     "@puq/testing": "workspace:^",
-    "@puq/type": "workspace:^"
+    "@puq/type": "workspace:^",
+    "@types/helmet": "^4.0.0"
   },
   "peerDependencies": {
-    "@swc/helpers": "^0.5.15",
     "@nestjs/common": "^11.0.11",
-    "@nestjs/config": "^4.0.0",
-    "@nestjs/core": "^11.0.11",
     "@nestjs/swagger": "^11.0.6",
-    "@puq/is": "workspace:^",
-    "@puq/env": "workspace:^",
-    "@puq/middleware": "workspace:^"
+    "@puq/debug": "workspace:^",
+    "@puq/is": "workspace:^"
+  },
+  "dependencies": {
+    "helmet": "^8.0.0",
+    "@swc/helpers": "^0.5.15"
   }
 }

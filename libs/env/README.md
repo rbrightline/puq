@@ -1,22 +1,22 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/core/favicon.png" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/env/favicon.png" alt="Logo" />
 </p>
 
-# @puq/core
+# @puq/env
 
 ## Summary
 
-The library provides common functionality, configurations for backend services.
+- [ ] add summary for env
 
 ## Install
 
 ```bash
-  pnpm add @puq/core
+  pnpm add @puq/env
 ```
 
 ## Funding
 
-Thank you for using `@puq/core` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
+Thank you for using `@puq/env` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
 
 [Instant Funding](https://cash.app/$puqlib)
 

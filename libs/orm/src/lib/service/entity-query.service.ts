@@ -2,12 +2,12 @@ import type { FindOptionsWhere } from 'typeorm';
 import type { CountResult } from '@puq/type';
 import type { QueryCount, QueryMany, QueryOne } from '@puq/query';
 import type { BaseEntity } from '../entity/base.js';
-import { BaseEntityService } from './base.js';
+import { BaseEntityService } from './base-entity.service.js';
 
 /**
  * Read service
  */
-export class EntityReadService<
+export class EntityQueryService<
   T extends BaseEntity,
 > extends BaseEntityService<T> {
   /**

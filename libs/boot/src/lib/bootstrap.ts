@@ -1,17 +1,20 @@
-import type { Type } from '@nestjs/common';
+import type { LogLevel, Type } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
-import { GlobalValidationPipe } from '@puq/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import helmet from 'helmet';
-import { AppEnv } from './app-env.js';
 import { notEmptyOrThrow } from '@puq/is';
+import { AppEnv } from '@puq/env';
+import {
+  GlobalValidationPipe,
+  secureHeaders,
+  configureSwagger,
+} from '@puq/middleware';
 
 export type BootstrapOptions = {
   name: string;
   profile: string;
   module: Type;
+  logger: LogLevel[];
 };
 /**
  * Bootstrap the sample service
@@ -19,18 +22,26 @@ export type BootstrapOptions = {
 export async function bootstrap(options: BootstrapOptions) {
   notEmptyOrThrow(options.name);
   notEmptyOrThrow(options.profile);
-  const app = await NestFactory.create(options.module);
+
+  const app = await NestFactory.create(options.module, {
+    logger: options.logger,
+  });
   const config = app.get(ConfigService);
 
-  const env = new AppEnv({ ...options });
+  const AppEnvKeys = new AppEnv({ ...options });
 
   // Environment variables
-  const NAME = config.getOrThrow(env.NAME);
-  const DESCRIPTION = config.getOrThrow(env.DESCRIPTION);
-  const PREFIX = config.getOrThrow(env.PREFIX);
-  const ORIGINS = config.getOrThrow(env.ORIGIN);
-  const PORT = config.getOrThrow(env.PORT);
-  const PROFILE = config.getOrThrow(env.PROFILE);
+  const NAME = config.getOrThrow(AppEnvKeys.NAME);
+
+  const DESCRIPTION = config.getOrThrow(AppEnvKeys.DESCRIPTION);
+
+  const PREFIX = config.getOrThrow(AppEnvKeys.PREFIX);
+
+  const ORIGINS = config.getOrThrow(AppEnvKeys.ORIGIN);
+
+  const PORT = config.getOrThrow(AppEnvKeys.PORT);
+
+  const PROFILE = config.getOrThrow(AppEnvKeys.PROFILE);
 
   // Add prefix
   app.setGlobalPrefix(PREFIX);
@@ -41,22 +52,9 @@ export async function bootstrap(options: BootstrapOptions) {
   app.useGlobalPipes(GlobalValidationPipe);
 
   // Configure helmet
-  app.use(helmet());
+  app.use(secureHeaders());
 
-  // Configure swagger
-  SwaggerModule.setup(
-    PREFIX,
-    app,
-    SwaggerModule.createDocument(
-      app,
-      new DocumentBuilder()
-        .addBearerAuth()
-        .setTitle(NAME)
-        .setDescription(DESCRIPTION)
-        .build(),
-      {},
-    ),
-  );
+  configureSwagger({ app, path: 'api', name: NAME, description: DESCRIPTION });
 
   // Start the app
   await app.listen(PORT);

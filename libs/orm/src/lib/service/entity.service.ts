@@ -5,14 +5,12 @@ import type {
   UnsetRelationParam,
   UpdateResult,
 } from '@puq/type';
-import { EntityReadService } from './read.js';
+import { EntityQueryService } from './entity-query.service.js';
 
 /**
  * Write service
  */
-export class EntityWriteService<
-  T extends BaseEntity,
-> extends EntityReadService<T> {
+export class EntityService<T extends BaseEntity> extends EntityQueryService<T> {
   save(entity: T): Promise<T> {
     return this.repository.save(entity);
   }

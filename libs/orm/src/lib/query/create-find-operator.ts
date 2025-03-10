@@ -12,9 +12,9 @@ import {
 } from 'typeorm';
 
 /**
- * Create {@link FindOperator} from {@link WhereOption}
- * @param query {@link WhereOption}
- * @returns
+ * Create a typeorm find operator from {@link WhereOption}
+ * @param query - {@link WhereOption}
+ * @returns - Typeorm find operator
  */
 export function createFindOperator(
   query: WhereOption,

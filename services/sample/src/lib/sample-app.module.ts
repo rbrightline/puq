@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -8,6 +8,7 @@ import { Sample, SampleView } from '@puq/entity';
 import { DataSourceEnv, TableNamingStrategy } from '@puq/orm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { SampleModule } from './sample/sample.module.js';
+import { provideLoggerClass } from '@puq/core';
 @Module({
   imports: [
     ConfigModule.forRoot({}),
@@ -43,5 +44,6 @@ import { SampleModule } from './sample/sample.module.js';
     }),
     SampleModule,
   ],
+  providers: [provideLoggerClass(Logger)],
 })
 export class SampleAppModule {}

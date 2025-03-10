@@ -12,9 +12,6 @@
             "path": "./services/sample"
         },
         {
-            "path": "./libs/core"
-        },
-        {
             "path": "./libs/entity"
         },
         {
@@ -70,6 +67,18 @@
         },
         {
             "path": "./libs/boot"
+        },
+        {
+            "path": "./libs/middleware"
+        },
+        {
+            "path": "./libs/env"
+        },
+        {
+            "path": "./libs/env"
+        },
+        {
+            "path": "./libs/provider"
         }
     ]
 }

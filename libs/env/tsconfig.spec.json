@@ -11,10 +11,7 @@
     ],
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "vite.config.ts",
-    "src/**/*.spec.ts"
-  ],
+  "include": ["vite.config.ts", "src/**/*.spec.ts"],
   "references": [
     {
       "path": "./tsconfig.lib.json"

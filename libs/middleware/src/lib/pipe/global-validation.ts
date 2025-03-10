@@ -1,5 +1,8 @@
 import { UnprocessableEntityException, ValidationPipe } from '@nestjs/common';
 
+/**
+ * Validation pipe that activate transform, hide target and value, and restructure errors
+ */
 export const GlobalValidationPipe = new ValidationPipe({
   transform: true,
   stopAtFirstError: true,

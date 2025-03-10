@@ -22,11 +22,19 @@ import {
   SampleUnsetRelationParamDto,
 } from '@puq/entity';
 import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
+import { EntityService, InjectEntityService } from '@puq/orm';
 
 @Controller()
 export class SampleController extends CreateController({
   entity: () => Sample,
 }) {
+  constructor(
+    @InjectEntityService(Sample)
+    protected readonly service: EntityService<Sample>,
+  ) {
+    super(service);
+  }
+
   @FindAll()
   findAll(@Query() query: QueryManySampleDto) {
     return { query };
