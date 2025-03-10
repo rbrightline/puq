@@ -1,12 +1,12 @@
 {
     "name": "@puq/gen-helper",
     "license": "MIT",
-    "version": "0.4.20",
+    "version": "0.4.50",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
     },
-    "description": "gen-helper",
+    "description": "A set of utilities to help @puq/gen generators including workspace and file utilites",
     "author": {
         "email": "robert.brightline@gmail.com",
         "name": "Robert Brightline",
@@ -81,15 +81,15 @@
         }
     },
     "devDependencies": {
-        "@puq/type": "workspace:^"
+        "@puq/type": "^0.4.50"
     },
     "peerDependencies": {
-        "@nx/devkit": "^20.4.4"
+        "@nx/devkit": "^20.4.4",
+        "@puq/fs": "^0.4.50",
+        "@puq/is": "^0.4.50",
+        "@puq/printer": "^0.4.50"
     },
     "dependencies": {
-        "@swc/helpers": "^0.5.15",
-        "@puq/fs": "workspace:^",
-        "@puq/is": "workspace:^",
-        "@puq/printer": "workspace:^"
+        "@swc/helpers": "^0.5.15"
     }
 }

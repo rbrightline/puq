@@ -6,7 +6,7 @@
 
 ## Summary
 
-gen-helper
+A set of utilities to help @puq/gen generators including workspace and file utilites
 
 ## Install
 

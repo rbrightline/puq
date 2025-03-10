@@ -1,7 +1,7 @@
 {
   "name": "@puq/env",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.4.50",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -82,14 +82,16 @@
     }
   },
   "devDependencies": {
-    "@puq/model": "workspace:^",
-    "@puq/testing": "workspace:^",
-    "@puq/type": "workspace:^"
+    "@puq/model": "^0.4.50",
+    "@puq/testing": "^0.4.50",
+    "@puq/type": "^0.4.50"
+  },
+  "peerDependencies": {
+    "@puq/debug": "^0.4.50",
+    "@puq/is": "^0.4.50",
+    "@puq/names": "^0.4.50"
   },
   "dependencies": {
-    "@puq/debug": "workspace:^",
-    "@puq/is": "workspace:^",
-    "@puq/names": "workspace:^",
     "@swc/helpers": "^0.5.15"
   }
 }

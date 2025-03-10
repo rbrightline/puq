@@ -1,7 +1,7 @@
 {
     "name": "@puq/validation",
     "license": "MIT",
-    "version": "0.4.20",
+    "version": "0.4.50",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -82,16 +82,16 @@
     },
     "devDependencies": {
         "reflect-metadata": "^0.2.2",
-        "@puq/debug": "workspace:^",
-        "@puq/testing": "workspace:^",
-        "@puq/type": "workspace:^"
+        "@puq/debug": "^0.4.50",
+        "@puq/testing": "^0.4.50",
+        "@puq/type": "^0.4.50"
     },
     "peerDependencies": {
         "class-transformer": "^0.5.1",
-        "class-validator": "^0.14.1"
+        "class-validator": "^0.14.1",
+        "@puq/is": "^0.4.50"
     },
     "dependencies": {
-        "@puq/is": "workspace:^",
         "@swc/helpers": "^0.5.15"
     }
 }

@@ -1,7 +1,8 @@
-import { Entity } from '@puq/orm';
+import { CreateQueryOneDto } from '@puq/orm';
 import { Dto } from '@puq/property';
+import { Sample } from './sample.entity.js';
 
 @Dto()
-export class QueryOneSampleDto extends Entity({
-  columns: [],
+export class QueryOneSampleDto extends CreateQueryOneDto({
+  entity: Sample,
 }) {}

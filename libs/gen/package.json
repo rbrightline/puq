@@ -1,7 +1,7 @@
 {
     "name": "@puq/gen",
     "license": "MIT",
-    "version": "0.4.20",
+    "version": "0.4.50",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -95,19 +95,19 @@
         }
     },
     "devDependencies": {
-        "@puq/type": "workspace:^",
+        "@puq/type": "^0.4.50",
         "@types/js-yaml": "^4.0.9"
     },
     "generators": "./generators.json",
     "peerDependencies": {},
     "devDependency": {
-        "@puq/type": "workspace:^"
+        "@puq/type": "^0.4.50"
     },
     "dependencies": {
         "@swc/helpers": "^0.5.15",
         "@nx/devkit": "20.4.4",
-        "@puq/fs": "workspace:^",
-        "@puq/gen-helper": "workspace:^",
-        "@puq/printer": "workspace:^"
+        "@puq/fs": "^0.4.50",
+        "@puq/gen-helper": "^0.4.50",
+        "@puq/printer": "^0.4.50"
     }
 }

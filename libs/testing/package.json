@@ -1,7 +1,7 @@
 {
   "name": "@puq/testing",
   "license": "MIT",
-  "version": "0.4.20",
+  "version": "0.4.50",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -93,9 +93,11 @@
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20"
   },
+  "peerDependencies": {
+    "@puq/is": "^0.4.50",
+    "@puq/debug": "^0.4.50"
+  },
   "dependencies": {
-    "@puq/debug": "workspace:^",
-    "@puq/is": "workspace:^",
     "@swc/helpers": "^0.5.15"
   }
 }
