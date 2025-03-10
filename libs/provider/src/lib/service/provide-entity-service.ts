@@ -10,8 +10,8 @@ export const ENTITY_SERVICE_TOKEN_SUFFIX = 'ENTITY_SERVICE';
  * @param entity - entity class
  * @returns - entity service tokenF
  */
-export function getEntityServiceToken<T>(entity: Type<T>): symbol {
-  return Symbol(`${entity.name}_${ENTITY_SERVICE_TOKEN_SUFFIX}`);
+export function getEntityServiceToken<T>(entity: Type<T>): string {
+  return `${entity.name}_${ENTITY_SERVICE_TOKEN_SUFFIX}`;
 }
 
 /**
