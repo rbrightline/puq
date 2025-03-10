@@ -11,5 +11,6 @@ export default {
     '**/*.js',
     '**/eslint.config.mjs',
     '**/vite.config.ts',
+    "./tools"
   ],
 };

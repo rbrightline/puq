@@ -86,4 +86,5 @@ export default [
   'Millis',
   'cors',
   'orm',
+  'brightline',
 ];

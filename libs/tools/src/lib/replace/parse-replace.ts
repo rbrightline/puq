@@ -1,5 +1,5 @@
 import { debug } from '@puq/debug';
-import { Command } from 'commander';
+import type { Command } from 'commander';
 import type { ReplaceOptions } from './replace.js';
 import { replace } from './replace.js';
 
@@ -15,8 +15,8 @@ export function parseReplace(command: Command) {
       'regular expression to match files (optional)',
       '',
     )
-    .requiredOption('-f, --from <items...>', 'placeholders (requried)')
-    .requiredOption('-t, --to <items...>', 'replacements (requried)')
+    .requiredOption('-f, --from <items...>', 'placeholders (required)')
+    .requiredOption('-t, --to <items...>', 'replacements (required)')
     .option('-p, --prefix <string>', 'prefix (optional)')
     .option('-s, --suffix <string>', 'suffix (optional)')
     .action((options: ReplaceOptions) => {

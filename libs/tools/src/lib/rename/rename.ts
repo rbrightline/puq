@@ -3,7 +3,7 @@ import { rename as __rename } from 'fs/promises';
 import { join } from 'path';
 import { debug } from '@puq/debug';
 import { cwd } from 'process';
-import { RenameOptions } from './rename-options.js';
+import type { RenameOptions } from './rename-options.js';
 
 /**
  * Recursively(optional) rename files matched by the {@link expression} property in {@link RenameOptions}.
@@ -45,7 +45,7 @@ export async function rename(options: RenameOptions): Promise<void> {
 
   if (foundFiles.length == 0) {
     debug(
-      `There is no maching files with ${regularExpression} in the directory ${directory}`,
+      `There is no matching files with ${regularExpression} in the directory ${directory}`,
     );
     return;
   }
