@@ -5,6 +5,9 @@ import { join } from 'path';
 import { readFile, writeFile } from 'fs/promises';
 import { DependOnProperty } from '../libs/validation/src';
 
+/**
+ * Update all versions
+ */
 async function updateVersion() {
   chdir(join(__dirname, '..'));
 
