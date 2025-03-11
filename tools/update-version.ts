@@ -3,7 +3,6 @@ import { argv, chdir } from 'process';
 import { LIBS } from './common';
 import { join } from 'path';
 import { readFile, writeFile } from 'fs/promises';
-import { DependOnProperty } from '../libs/validation/src';
 
 /**
  * Update all versions
@@ -27,7 +26,7 @@ async function updateVersion() {
     [dependencies, peerDependencies, devDependencies]
       .filter((e) => e)
       .map((dependencyObject) => {
-        const entries = Object.entries(DependOnProperty);
+        const entries = Object.entries(dependencyObject);
         for (const [key] of entries) {
           if (key.startsWith('@puq')) {
             dependencyObject[key] = dependencyVersion;
