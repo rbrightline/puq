@@ -15,17 +15,15 @@ async function updateVersion() {
   const dependencyVersion = `^${version}`;
 
   LIBS.map(async (library) => {
-    const packageJSON: any = JSON.parse(
-      (await readFile(join(__dirname, library, 'package.json'))).toString(),
-    );
-
-    packageJSON.version = version;
-
-    const { dependencies, peerDependencies, devDependencies } = packageJSON;
+    const filepath = join(library, 'package.json');
+    const fileContent = await readFile(filepath);
+    const fileJSON: any = JSON.parse(fileContent.toString());
+    fileJSON.version = version;
+    const { dependencies, peerDependencies, devDependencies } = fileJSON;
 
     [dependencies, peerDependencies, devDependencies]
       .filter((e) => e)
-      .map((dependencyObject) => {
+      .forEach((dependencyObject) => {
         const entries = Object.entries(dependencyObject);
         for (const [key] of entries) {
           if (key.startsWith('@puq')) {
@@ -34,10 +32,7 @@ async function updateVersion() {
         }
       });
 
-    await writeFile(
-      join(__dirname, library, 'package.json'),
-      JSON.stringify(packageJSON),
-    );
+    await writeFile(filepath, JSON.stringify(fileJSON));
   });
 }
 
