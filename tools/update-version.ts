@@ -8,7 +8,7 @@ import { readFile, writeFile } from 'fs/promises';
  * Update all versions
  */
 async function updateVersion() {
-  chdir(join(__dirname, '..'));
+  chdir(join(__dirname, '..', 'libs'));
 
   const [, , version] = argv;
 
