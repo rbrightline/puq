@@ -1,7 +1,7 @@
 {
   "name": "@puq/module",
   "license": "MIT",
-  "version": "0.4.50",
+  "version": "0.4.60",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -29,8 +29,7 @@
     "url": "https://rbrightline.github.io"
   },
   "categories": [
-    "Other",
-    "- [ ] add categories for module"
+    "Other"
   ],
   "contributors": [
     {
@@ -93,11 +92,11 @@
     "@puq/model": "^0.4.50",
     "@puq/orm": "^0.4.51",
     "@puq/provider": "^0.4.51",
-    "@puq/type": "^0.4.51"
+    "@puq/type": "^0.4.51",
+    "@puq/meta": "^0.4.60",
+    "@puq/rest": "^0.4.60"
   },
   "dependencies": {
-    "@puq/meta": "workspace:^",
-    "@puq/rest": "workspace:^",
     "@swc/helpers": "^0.5.15"
   }
 }

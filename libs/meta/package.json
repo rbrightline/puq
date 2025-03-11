@@ -1,7 +1,7 @@
 {
     "name": "@puq/meta",
     "license": "MIT",
-    "version": "0.4.53",
+    "version": "0.4.60",
     "publishConfig": {
         "access": "public",
         "tag": "latest"
@@ -80,10 +80,8 @@
             }
         }
     },
-    "devDependencies": {
-        "@puq/type": "^0.4.50"
-    },
     "peerDependencies": {
+        "@puq/type": "^0.4.50",
         "reflect-metadata": "^0.2.2",
         "@puq/is": "^0.4.50",
         "@puq/names": "^0.4.50"

@@ -17,6 +17,7 @@ import {
 } from '@puq/rest';
 import type { BaseEntity, EntityService } from '@puq/orm';
 import type { SetResourceMetadataOptions } from '@puq/meta';
+import { debug } from '@puq/debug';
 
 export function BasicResourceController<T extends BaseEntity>(
   options: SetResourceMetadataOptions<T>,
@@ -32,51 +33,61 @@ export function BasicResourceController<T extends BaseEntity>(
 
     @FindAll()
     findAll(@Query() query: any) {
+      debug({ query });
       return this.service.find(query);
     }
 
     @FindOneById()
     findOneById(@Param('id', ParseIntPipe) id: number) {
+      debug({ id });
       return this.service.findOneById(id);
     }
 
     @Count()
     count(@Query() query: any) {
+      debug({ query });
       return this.service.count(query);
     }
 
     @SaveOne()
     saveOne(@Body() entity: any) {
+      debug({ entity });
       return this.service.save(entity);
     }
 
     @UpdateOneById()
     updateOneById(@Param('id', ParseIntPipe) id: number, @Body() entity: any) {
+      debug({ id, entity });
       return this.service.update(id, entity);
     }
 
     @DeleteOneById()
     DeleteOneById(@Param('id', ParseIntPipe) id: number) {
+      debug({ id });
       return this.service.softDelete(id);
     }
 
     @AddRelation()
     addRelation(@Param() relation: any) {
+      debug({ relation });
       return this.service.addRelation(relation);
     }
 
     @RemoveRelation()
     removeRelation(@Param() relation: any) {
+      debug({ relation });
       return this.service.removeRelation(relation);
     }
 
     @SetRelation()
     setRelation(@Param() relation: any) {
+      debug({ relation });
       return this.service.setRelation(relation);
     }
 
     @UnsetRelation()
     unsetRelation(@Param() relation: any) {
+      debug({ relation });
       return this.service.unsetRelation(relation);
     }
   }
