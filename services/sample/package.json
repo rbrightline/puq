@@ -105,8 +105,8 @@
     }
   },
   "peerDependencies": {
-    "@puq/model": "^0.4.50",
-    "@puq/type": "^0.4.50"
+    "@puq/model": "^0.5.0",
+    "@puq/type": "^0.5.0"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.11",
