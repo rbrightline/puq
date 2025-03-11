@@ -10,10 +10,28 @@ import {
   configureSwagger,
 } from '@puq/middleware';
 
+/**
+ * App options
+ */
 export type BootstrapOptions = {
+  /**
+   * App name
+   */
   name: string;
+
+  /**
+   * Profile name
+   */
   profile: string;
+
+  /**
+   * App module
+   */
   module: Type;
+
+  /**
+   * Log levels
+   */
   logger?: LogLevel[];
 };
 /**

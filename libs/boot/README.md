@@ -6,7 +6,7 @@
 
 ## Summary
 
-- [ ] add summary for boot
+Provides the function to run the api.
 
 ## Install
 
