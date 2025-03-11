@@ -56,6 +56,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <li class="link">
                                     <a href="entities/Category.html" data-type="entity-link" >Category</a>
                                 </li>
+                                <li class="link">
+                                    <a href="entities/Sample.html" data-type="entity-link" >Sample</a>
+                                </li>
                             </ul>
                         </li>
                     <li class="chapter">
@@ -73,7 +76,31 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CreateCategoryDto.html" data-type="entity-link" >CreateCategoryDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CreateSampleDto.html" data-type="entity-link" >CreateSampleDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/QueryManySampleDto.html" data-type="entity-link" >QueryManySampleDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/QueryOneSampleDto.html" data-type="entity-link" >QueryOneSampleDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SampleObjDto.html" data-type="entity-link" >SampleObjDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SampleRelationParamDto.html" data-type="entity-link" >SampleRelationParamDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SampleUnsetRelationParamDto.html" data-type="entity-link" >SampleUnsetRelationParamDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SampleView.html" data-type="entity-link" >SampleView</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/UpdateCategoryDto.html" data-type="entity-link" >UpdateCategoryDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/UpdateSampleDto.html" data-type="entity-link" >UpdateSampleDto</a>
                             </li>
                         </ul>
                     </li>

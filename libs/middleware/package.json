@@ -1,7 +1,7 @@
 {
   "name": "@puq/middleware",
   "license": "MIT",
-  "version": "0.4.50",
+  "version": "0.5.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -86,9 +86,9 @@
     }
   },
   "devDependencies": {
-    "@puq/model": "^0.4.50",
-    "@puq/testing": "^0.4.50",
-    "@puq/type": "^0.4.50",
+    "@puq/model": "^0.5.0",
+    "@puq/testing": "^0.5.0",
+    "@puq/type": "^0.5.0",
     "@types/helmet": "^4.0.0"
   },
   "peerDependencies": {

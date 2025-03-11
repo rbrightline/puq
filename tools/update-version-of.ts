@@ -4,7 +4,6 @@ import { argv } from 'process';
 import { LIBS } from './common';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-import type { PackageJSON } from '@puq/type' with { 'resolution-mode': 'import' };
 
 const [, , library, version] = argv;
 
@@ -18,9 +17,7 @@ export async function updateVersionOf(lib: string, ver: string) {
       currenctLibrary,
       'package.json',
     );
-    const content: PackageJSON = JSON.parse(
-      (await readFile(filepath)).toString(),
-    );
+    const content = JSON.parse((await readFile(filepath)).toString());
 
     [content.dependencies, content.peerDependencies].forEach((dependency) => {
       if (dependency) {

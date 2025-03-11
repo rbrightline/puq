@@ -1,7 +1,7 @@
 {
   "name": "@puq/module",
   "license": "MIT",
-  "version": "0.4.60",
+  "version": "0.5.0",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -83,7 +83,7 @@
     }
   },
   "devDependencies": {
-    "@puq/testing": "workspace:^"
+    "@puq/testing": "0.5.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.11",

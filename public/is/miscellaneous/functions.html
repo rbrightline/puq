@@ -112,6 +112,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#create" title="src/lib/object/create.ts" ><b>create</b>&nbsp;&nbsp;&nbsp;(src/.../create.ts)</a>
+                        </li>
+                        <li>
                             <a href="#deepClone" title="src/lib/object/deep-clone.ts" ><b>deepClone</b>&nbsp;&nbsp;&nbsp;(src/.../deep-clone.ts)</a>
                         </li>
                         <li>
@@ -178,6 +181,9 @@
                             <a href="#isBooleanOrThrow" title="src/lib/required/is-type-or-throw.ts" ><b>isBooleanOrThrow</b>&nbsp;&nbsp;&nbsp;(src/.../is-type-or-throw.ts)</a>
                         </li>
                         <li>
+                            <a href="#isConstructor" title="src/lib/object/is-constructor.ts" ><b>isConstructor</b>&nbsp;&nbsp;&nbsp;(src/.../is-constructor.ts)</a>
+                        </li>
+                        <li>
                             <a href="#isDefined" title="src/lib/defined/is-defined.ts" ><b>isDefined</b>&nbsp;&nbsp;&nbsp;(src/.../is-defined.ts)</a>
                         </li>
                         <li>
@@ -223,6 +229,9 @@
                             <a href="#keys" title="src/lib/object/keys.ts" ><b>keys</b>&nbsp;&nbsp;&nbsp;(src/.../keys.ts)</a>
                         </li>
                         <li>
+                            <a href="#newFrom" title="src/lib/object/new-from.ts" ><b>newFrom</b>&nbsp;&nbsp;&nbsp;(src/.../new-from.ts)</a>
+                        </li>
+                        <li>
                             <a href="#notEmpty" title="src/lib/defined/not-empty.ts" ><b>notEmpty</b>&nbsp;&nbsp;&nbsp;(src/.../not-empty.ts)</a>
                         </li>
                         <li>
@@ -247,7 +256,75 @@
     </table>
 </section>
 
-    <h3>src/lib/object/deep-clone.ts</h3>
+    <h3>src/lib/object/create.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>create(value: Type, ...args: ConstructorParameters)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>Type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>args</td>
+                                            <td>
+                                                        <code>ConstructorParameters</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/object/deep-clone.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -2606,6 +2683,71 @@ independent, ensuring no side effects on the original object.</p>
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/lib/object/is-constructor.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConstructor"></a>
+                    <span class="name">
+                        <span ><b>isConstructor</b></span>
+                        <a href="#isConstructor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isConstructor(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks if a value is a constructor function or class that can be instantiated with <code>new</code></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The value to check</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/lib/defined/is-defined.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -2905,6 +3047,99 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                         </div>
                             <div class="io-description">
                                 <p>the keys of the value such as [<code>some</code>, <code>other</code>]</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/object/new-from.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newFrom"></a>
+                    <span class="name">
+                        <span ><b>newFrom</b></span>
+                        <a href="#newFrom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>newFrom(instance: InstanceType, ...parameters: undefined)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new instance of a class from an existing instance using its constructor.
+This function takes an instance of a class and invokes its constructor with the provided
+parameters to produce a new instance of the same type. It’s useful for creating fresh
+instances without manually referencing the class constructor.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                        <code>InstanceType</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>An existing instance of the class, used to access its constructor.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>parameters</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Arguments to pass to the constructor, matching its signature.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>InstanceType&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A new instance of the same class as <code>instance</code>.</p>
 
                             </div>
                 </td>

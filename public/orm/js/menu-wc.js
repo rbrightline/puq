@@ -115,10 +115,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DeleteResultDto.html" data-type="entity-link" >DeleteResultDto</a>
                             </li>
                             <li class="link">
-                                <a href="classes/EntityReadService.html" data-type="entity-link" >EntityReadService</a>
+                                <a href="classes/EntityQueryService.html" data-type="entity-link" >EntityQueryService</a>
                             </li>
                             <li class="link">
-                                <a href="classes/EntityWriteService.html" data-type="entity-link" >EntityWriteService</a>
+                                <a href="classes/EntityService.html" data-type="entity-link" >EntityService</a>
                             </li>
                             <li class="link">
                                 <a href="classes/HttpErrorDto.html" data-type="entity-link" >HttpErrorDto</a>
