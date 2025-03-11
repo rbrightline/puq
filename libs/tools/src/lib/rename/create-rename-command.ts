@@ -9,16 +9,19 @@ export function createRenameCommand(command: Command) {
     .command('rename')
     .description('Rename file')
 
-    .requiredOption(
+    .option(
       '-e, --expression <string>',
       'regular expression to match files (optional)',
     )
     .option('-d, --directory <string>', 'root directory (optional)', '.')
-
     .option('-f, --from <items...>', 'placeholder (optional)')
-    .requiredOption('-t, --to <items...>', 'replacement (required)')
-    .option('-p, --prefix <string>', 'prefix')
-    .option('-s, --suffix <string>', 'suffix')
+    .option('-t, --to <items...>', 'replacement (optional)')
+    .option('-p, --prefix <string>', 'prefix (optional)')
+    .option('-s, --suffix <string>', 'suffix (optional)')
+    .option('-r, --recursive <boolean>', 'recursive', (value) => {
+      if (value == 'true') return true;
+      return false;
+    })
 
     .action((options: RenameOptions) => {
       debug(options);

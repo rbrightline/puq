@@ -5,7 +5,7 @@ import { LIBS } from './common';
 import { join } from 'path';
 import { exec } from 'child_process';
 
-chdir(join(__dirname, '..', 'libs', 'core'));
+chdir(join(__dirname, '..', 'libs', 'boot'));
 
 export function cleanNodeModules() {
   return Promise.all(
@@ -28,7 +28,7 @@ export function cleanNodeModules() {
           }
         });
       });
-    })
+    }),
   );
 }
 

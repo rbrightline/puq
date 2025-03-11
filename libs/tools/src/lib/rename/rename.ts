@@ -35,8 +35,11 @@ export async function rename(options: RenameOptions): Promise<void> {
       if (foundDirs.length > 0) {
         await Promise.all(
           foundDirs.map(
-            async (d) =>
-              await rename({ ...options, directory: join(directory, d) }),
+            async (subDirectory) =>
+              await rename({
+                ...options,
+                directory: join(directory, subDirectory),
+              }),
           ),
         );
       }
@@ -50,16 +53,18 @@ export async function rename(options: RenameOptions): Promise<void> {
     return;
   }
 
-  const matchedFiles = foundFiles.filter((e) => regularExpression.test(e));
+  const matchedFiles = foundFiles.filter((filename) =>
+    regularExpression.test(filename),
+  );
 
   const operations = matchedFiles.map(async (filename) => {
-    let newFilename = options.to[0];
+    let newFilename = options.to?.[0] ?? filename;
 
     debug({ newFilename });
 
-    if (options.from) {
+    if (options.from && options.to) {
       options.from.forEach((f, i) => {
-        newFilename = filename.replace(f, options.to[i] ?? options.to[0]);
+        newFilename = filename.replace(f, options.to![i] ?? options.to![0]);
         debug({ filename, newFilename });
       });
     }

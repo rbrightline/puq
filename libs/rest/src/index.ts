@@ -14,3 +14,7 @@ export * from './lib/method/write/decrement.js';
 export * from './lib/method/write/increment.js';
 export * from './lib/method/write/save-one.js';
 export * from './lib/method/write/update-one-by-id.js';
+export * from './lib/param/body.js';
+export * from './lib/param/param.js';
+export * from './lib/param/query.js';
+export * from './lib/param/user-id.js';

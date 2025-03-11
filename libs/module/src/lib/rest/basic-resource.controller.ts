@@ -1,5 +1,4 @@
 import type { Type } from '@puq/type';
-import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { InjectEntityService } from '@puq/provider';
 import {
   AddRelation,
@@ -9,6 +8,9 @@ import {
   DeleteOneById,
   FindAll,
   FindOneById,
+  Param,
+  Query,
+  Body,
   RemoveRelation,
   SaveOne,
   SetRelation,
@@ -16,6 +18,7 @@ import {
   UpdateOneById,
 } from '@puq/rest';
 import type { BaseEntity, EntityService } from '@puq/orm';
+import { IDDto } from '@puq/orm';
 import type { SetResourceMetadataOptions } from '@puq/meta';
 import { debug } from '@puq/debug';
 
@@ -32,13 +35,13 @@ export function BasicResourceController<T extends BaseEntity>(
     }
 
     @FindAll()
-    findAll(@Query() query: any) {
+    findAll(@Query(options.queryManyDto) query: any) {
       debug({ query });
       return this.service.find(query);
     }
 
     @FindOneById()
-    findOneById(@Param('id', ParseIntPipe) id: number) {
+    findOneById(@Param(() => IDDto) { id }: IDDto) {
       debug({ id });
       return this.service.findOneById(id);
     }
@@ -50,43 +53,46 @@ export function BasicResourceController<T extends BaseEntity>(
     }
 
     @SaveOne()
-    saveOne(@Body() entity: any) {
+    saveOne(@Body(options.createDto) entity: any) {
       debug({ entity });
       return this.service.save(entity);
     }
 
     @UpdateOneById()
-    updateOneById(@Param('id', ParseIntPipe) id: number, @Body() entity: any) {
-      debug({ id, entity });
-      return this.service.update(id, entity);
+    updateOneById(
+      @Param(() => IDDto) idObject: IDDto,
+      @Body(options.updateDto) entity: any,
+    ) {
+      debug({ idObject, entity });
+      return this.service.update(idObject.id, entity);
     }
 
     @DeleteOneById()
-    DeleteOneById(@Param('id', ParseIntPipe) id: number) {
-      debug({ id });
-      return this.service.softDelete(id);
+    DeleteOneById(@Param(() => IDDto) idObject: IDDto) {
+      debug({ idObject });
+      return this.service.softDelete(idObject.id);
     }
 
     @AddRelation()
-    addRelation(@Param() relation: any) {
+    addRelation(@Param(options.relationDto) relation: any) {
       debug({ relation });
       return this.service.addRelation(relation);
     }
 
     @RemoveRelation()
-    removeRelation(@Param() relation: any) {
+    removeRelation(@Param(options.relationDto) relation: any) {
       debug({ relation });
       return this.service.removeRelation(relation);
     }
 
     @SetRelation()
-    setRelation(@Param() relation: any) {
+    setRelation(@Param(options.relationDto) relation: any) {
       debug({ relation });
       return this.service.setRelation(relation);
     }
 
     @UnsetRelation()
-    unsetRelation(@Param() relation: any) {
+    unsetRelation(@Param(options.unsetRelationDto) relation: any) {
       debug({ relation });
       return this.service.unsetRelation(relation);
     }

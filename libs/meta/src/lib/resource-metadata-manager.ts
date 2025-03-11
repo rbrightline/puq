@@ -46,6 +46,12 @@ export type ResourceMetadataOptions<T> = {
    * function to return dto class
    * @returns dto class
    */
+  queryCountDto: () => Type;
+
+  /**
+   * function to return dto class
+   * @returns dto class
+   */
   relationDto?: () => Type;
 
   /**
@@ -144,6 +150,7 @@ export class ResourceMetadataManager {
   static readonly UPDATE_DTO = Symbol('update:class');
   static readonly QUERY_MANY_DTO = Symbol('queryMany:class');
   static readonly QUERY_ONE_DTO = Symbol('queryOne:class');
+  static readonly QUERY_COUNT_DTO = Symbol('queryCount:class');
   static readonly RELATION_DTO = Symbol('relation:class');
   static readonly UNSET_RELATION_DTO = Symbol('unsetRelation:class');
 
@@ -226,6 +233,7 @@ export class ResourceMetadataManager {
       updateDto: this.updateDto(target),
       queryManyDto: this.queryManyDto(target),
       queryOneDto: this.queryOneDto(target),
+      queryCountDto: this.queryCountDto(target),
       relationDto: this.relationDto(target),
       unsetRelationDto: this.unsetRelationDto(target),
       keys: this.keys(target),
@@ -267,6 +275,10 @@ export class ResourceMetadataManager {
 
   static queryOneDto<T extends object>(target: T) {
     return Reflect.getMetadata(this.QUERY_ONE_DTO, target);
+  }
+
+  static queryCountDto<T extends object>(target: T) {
+    return Reflect.getMetadata(this.QUERY_COUNT_DTO, target);
   }
 
   static relationDto<T extends object>(target: T) {

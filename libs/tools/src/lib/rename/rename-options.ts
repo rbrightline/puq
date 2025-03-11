@@ -18,7 +18,7 @@ export class RenameOptions {
    *
    * For example, `from[0]` will be replaced by `to[0]`, `from[1]` with `to[1]`
    */
-  to: string[];
+  to?: string[];
 
   /**
    * Placeholders to replace with `to`. If not set, all files are renamed with the value in the `to`'s first index.

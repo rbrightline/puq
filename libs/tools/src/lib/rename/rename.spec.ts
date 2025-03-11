@@ -31,8 +31,7 @@ describe('rename: recursively rename files.', () => {
     await rename({
       directory: resolve(__root, 'sample'),
       expression: '.ts',
-      from: ['.ts'],
-      to: ['.ts.template'],
+      suffix: '.template',
       recursive: true,
     });
 
@@ -40,6 +39,6 @@ describe('rename: recursively rename files.', () => {
       recursive: true,
     });
 
-    expect(replacedFiles).toEqual(1);
+    expect(replacedFiles).toHaveLength(3);
   });
 });

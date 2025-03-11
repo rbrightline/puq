@@ -14,7 +14,7 @@ export function Count(): MethodDecorator {
     const M = Meta.get(args[0].constructor);
     Common({ summary: `Count ${M.names.pascalCase} by query` })(...args);
     Get(M.paths.count)(...args);
-    ApiQuery({ type: M.queryOneDto() })(...args);
+    ApiQuery({ type: M.queryCountDto() })(...args);
     Ok({
       type: ResDto,
       description: `Successfully counted ${M.names.pascalCase} by query`,

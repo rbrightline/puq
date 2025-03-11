@@ -1,1 +1,102 @@
-{"name":"@puq/module","license":"MIT","version":"0.5.0","publishConfig":{"access":"public","tag":"latest"},"description":"Common resource modules","author":{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"},"keywords":["puq","factory","module","controller"],"repository":{"directory":"libs/module","url":"https://github.com/rbrightline/puq/tree/main","type":"github"},"homepage":"https://rbrightline.github.io/puq/module","bugs":{"email":"robert.brightline@gmail.com","url":"https://rbrightline.github.io"},"categories":["Other"],"contributors":[{"email":"robert.brightline@gmail.com","name":"Robert Brightline","url":"https://rbrightline.github.io"}],"funding":["https://cash.app/$puqlib"],"icon":"https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/module/favicon.png","type":"module","main":"./dist/index.js","module":"./dist/index.js","types":"./dist/index.d.ts","exports":{"./package.json":"./package.json",".":{"types":"./dist/index.d.ts","import":"./dist/index.js","default":"./dist/index.js"}},"files":["dist","!**/*.tsbuildinfo"],"nx":{"sourceRoot":"libs/module/src","targets":{"build":{"executor":"@nx/js:swc","outputs":["{options.outputPath}"],"options":{"outputPath":"libs/module/dist","main":"libs/module/src/index.ts","tsConfig":"libs/module/tsconfig.lib.json","skipTypeCheck":false,"stripLeadingPaths":true},"dependsOn":["lint"]},"doc":{"command":"cd libs/module && npx compodoc -d ../../public/module  -p tsconfig.lib.json -n module"}}},"devDependencies":{"@puq/testing":"^0.5.0"},"peerDependencies":{"@nestjs/common":"^11.0.11","@puq/debug":"^0.5.0","@puq/is":"^0.5.0","@puq/model":"^0.5.0","@puq/orm":"^0.5.0","@puq/provider":"^0.5.0","@puq/type":"^0.5.0","@puq/meta":"^0.5.0","@puq/rest":"^0.5.0"},"dependencies":{"@swc/helpers":"^0.5.15"}}
+{
+    "name": "@puq/module",
+    "license": "MIT",
+    "version": "0.5.12",
+    "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+    },
+    "description": "Common resource factories",
+    "author": {
+        "email": "robert.brightline@gmail.com",
+        "name": "Robert Brightline",
+        "url": "https://rbrightline.github.io"
+    },
+    "keywords": [
+        "puq",
+        "factory",
+        "module",
+        "controller"
+    ],
+    "repository": {
+        "directory": "libs/module",
+        "url": "https://github.com/rbrightline/puq/tree/main",
+        "type": "github"
+    },
+    "homepage": "https://rbrightline.github.io/puq/module",
+    "bugs": {
+        "email": "robert.brightline@gmail.com",
+        "url": "https://rbrightline.github.io"
+    },
+    "categories": [
+        "Other"
+    ],
+    "contributors": [
+        {
+            "email": "robert.brightline@gmail.com",
+            "name": "Robert Brightline",
+            "url": "https://rbrightline.github.io"
+        }
+    ],
+    "funding": [
+        "https://cash.app/$puqlib"
+    ],
+    "icon": "https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/libs/module/favicon.png",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+        "sourceRoot": "libs/module/src",
+        "targets": {
+            "build": {
+                "executor": "@nx/js:swc",
+                "outputs": [
+                    "{options.outputPath}"
+                ],
+                "options": {
+                    "outputPath": "libs/module/dist",
+                    "main": "libs/module/src/index.ts",
+                    "tsConfig": "libs/module/tsconfig.lib.json",
+                    "skipTypeCheck": false,
+                    "stripLeadingPaths": true
+                },
+                "dependsOn": [
+                    "lint"
+                ]
+            },
+            "doc": {
+                "command": "cd libs/module && npx compodoc -d ../../public/module  -p tsconfig.lib.json -n module"
+            }
+        }
+    },
+    "devDependencies": {
+        "@puq/testing": "^0.5.11"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^11.0.11",
+        "@puq/debug": "^0.5.11",
+        "@puq/is": "^0.5.11",
+        "@puq/meta": "^0.5.11",
+        "@puq/model": "^0.5.11",
+        "@puq/orm": "^0.5.11",
+        "@puq/rest": "^0.5.11",
+        "@puq/provider": "^0.5.11",
+        "@puq/type": "^0.5.11"
+    },
+    "dependencies": {
+        "@swc/helpers": "^0.5.15"
+    }
+}

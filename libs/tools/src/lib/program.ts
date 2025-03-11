@@ -13,7 +13,7 @@ async function boot() {
         'Empower your command-line experience—effortlessly!',
       ].join('\n'),
     )
-    .version('0.0.15');
+    .version('0.5.4');
 
   createRenameCommand(program);
 

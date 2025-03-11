@@ -32,6 +32,7 @@ Options:
 - **-t, --to**: <items...> replacement (required)-
 - **-p, --prefix**: <string> prefix-
 - **-s, --suffix**: <string> suffix-
+- **-r, --recursive**: <boolean> recursive-
 - **-h, --help**: display help for command
 
 ### Example: rename

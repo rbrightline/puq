@@ -6,7 +6,7 @@
 
 ## Summary
 
-- Common resource modules
+- Common resource factories
 
 ## Install
 
