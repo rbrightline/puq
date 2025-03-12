@@ -11,7 +11,7 @@ export type ReplaceOptions = {
   /**
    * Regular expression string that matches the file names
    */
-  expression: string;
+  expression?: string;
 
   /**
    * placeholder regular expression string (optional)
@@ -30,7 +30,7 @@ export type ReplaceOptions = {
 
 export async function replace(options: ReplaceOptions) {
   const { expression, from, to, prefix, suffix } = options;
-  const RX = new RegExp(expression);
+  const RX = new RegExp(expression ?? '');
   const directory = options.directory ?? '';
 
   const foundFiles = await files(directory);
@@ -55,7 +55,7 @@ export async function replace(options: ReplaceOptions) {
       });
 
       await writeFile(join(directory, filename), content);
-    }
+    },
   );
 
   for (const e of replaceContentForEachFile) {
@@ -66,7 +66,7 @@ export async function replace(options: ReplaceOptions) {
 
   if (foundDirs.length > 0) {
     const replaceAllSubDirectories = foundDirs.map((subDirectory) =>
-      replace({ ...options, directory: join(directory, subDirectory) })
+      replace({ ...options, directory: join(directory, subDirectory) }),
     );
 
     for (const e of replaceAllSubDirectories) {
