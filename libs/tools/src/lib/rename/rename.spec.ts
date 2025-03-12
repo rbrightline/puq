@@ -8,6 +8,7 @@ describe('rename: recursively rename files.', () => {
   const resolve = (...args: string[]) => __resolve(__root, ...args);
 
   const testFiles: string[] = [
+    'sample/index.ts',
     'sample/entity/sample.entity.ts',
     'sample/dto/create-sample.dto.ts',
     'sample/dto/update-sample.dto.ts',
@@ -39,6 +40,6 @@ describe('rename: recursively rename files.', () => {
       recursive: true,
     });
 
-    expect(replacedFiles).toHaveLength(3);
+    expect(replacedFiles).toHaveLength(4);
   });
 });

@@ -127,8 +127,21 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Workflow class to simplify switch-case work-flow</p>
-
+                <p>A utility class to simplify switch-case workflows in a fluent, chainable manner.
+The <code>Switch</code> class allows checking a value against multiple cases, executing
+corresponding handlers when a match is found, and refining the type of the
+value as cases are excluded.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Basic usage
+Switch.switchValue(42)
+  .inCaseOf(42, () =&gt; console.log(&quot;Matched 42&quot;))
+  .inCaseOf(50, () =&gt; console.log(&quot;Matched 50&quot;), () =&gt; console.log(&quot;Not 50&quot;));
+// Output: &quot;Matched 42&quot;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Type narrowing
+type Status = &#39;active&#39; | &#39;inactive&#39; | &#39;pending&#39;;
+const status: Status = &#39;active&#39;;
+Switch.switchValue(status)
+  .inCaseOf(&#39;active&#39;, () =&gt; console.log(&quot;Active&quot;))
+  .inCaseOf(&#39;inactive&#39;, () =&gt; console.log(&quot;Inactive&quot;));
+// Output: &quot;Active&quot;</code></pre></div>
             </p>
 
 
@@ -178,12 +191,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/lib/workflow/switch.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/lib/workflow/switch.ts:27</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Private constructor to initialize the switch value.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -192,6 +207,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -206,6 +222,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>The value to switch on.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -242,8 +264,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/lib/workflow/switch.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/lib/workflow/switch.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -258,7 +280,9 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Check the <code>value</code> is equal to the source value or not and run the <code>pass</code> or <code>fail</code> functions accordingly</p>
+                        <div class="io-description"><p>Checks if the stored value matches the provided case value.
+Executes the <code>pass</code> handler if they match, or the optional <code>fail</code> handler if they don&#39;t.
+Narrows the type of the <code>Switch</code> instance by excluding the matched type from <code>T</code>.</p>
 </div>
 
                             <div class="io-description">
@@ -287,7 +311,7 @@
 
                                             <td>
                                                     <ul>
-<li>case value</li>
+<li>The case value to compare against the stored value.</li>
 </ul>
 
                                             </td>
@@ -305,7 +329,7 @@
 
                                             <td>
                                                     <ul>
-<li>run when the case value is equal to the source value</li>
+<li>Callback executed if the stored value equals the case value.</li>
 </ul>
 
                                             </td>
@@ -323,7 +347,7 @@
 
                                             <td>
                                                     <ul>
-<li>run when the case value is not equal to the source value</li>
+<li>Optional callback executed if the stored value does not equal the case value.</li>
 </ul>
 
                                             </td>
@@ -336,9 +360,7 @@
 
                         </div>
                             <div class="io-description">
-                                <ul>
-<li>this</li>
-</ul>
+                                <p>The current <code>Switch</code> instance with a narrowed type for chaining.</p>
 
                             </div>
                 </td>
@@ -367,8 +389,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">src/lib/workflow/switch.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/lib/workflow/switch.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -383,7 +405,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Start the switch statement</p>
+                        <div class="io-description"><p>Static method to initiate a new <code>Switch</code> workflow with a value.
+Throws an error if the value is not defined (e.g., <code>null</code> or <code>undefined</code>).</p>
 </div>
 
                             <div class="io-description">
@@ -412,7 +435,7 @@
 
                                             <td>
                                                     <ul>
-<li>value to check</li>
+<li>The value to start the switch workflow with.</li>
 </ul>
 
                                             </td>
@@ -425,7 +448,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>this</p>
+                                <p>A new <code>Switch</code> instance for chaining.</p>
 
                             </div>
                 </td>
@@ -445,15 +468,45 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isDefinedOrThrow } from &#x27;../required/is-defined-or-throw.js&#x27;;
 
 /**
- * Workflow class to simplify switch-case work-flow
+ * A utility class to simplify switch-case workflows in a fluent, chainable manner.
+ * The &#x60;Switch&#x60; class allows checking a value against multiple cases, executing
+ * corresponding handlers when a match is found, and refining the type of the
+ * value as cases are excluded.
+ *
+ * @template T - The type of the value being switched on.
+ *
+ * @example
+ * // Basic usage
+ * Switch.switchValue(42)
+ *   .inCaseOf(42, () &#x3D;&gt; console.log(&quot;Matched 42&quot;))
+ *   .inCaseOf(50, () &#x3D;&gt; console.log(&quot;Matched 50&quot;), () &#x3D;&gt; console.log(&quot;Not 50&quot;));
+ * // Output: &quot;Matched 42&quot;
+ *
+ * @example
+ * // Type narrowing
+ * type Status &#x3D; &#x27;active&#x27; | &#x27;inactive&#x27; | &#x27;pending&#x27;;
+ * const status: Status &#x3D; &#x27;active&#x27;;
+ * Switch.switchValue(status)
+ *   .inCaseOf(&#x27;active&#x27;, () &#x3D;&gt; console.log(&quot;Active&quot;))
+ *   .inCaseOf(&#x27;inactive&#x27;, () &#x3D;&gt; console.log(&quot;Inactive&quot;));
+ * // Output: &quot;Active&quot;
  */
 export class Switch&lt;T&gt; {
+  /**
+   * Private constructor to initialize the switch value.
+   *
+   * @param {T} value - The value to switch on.
+   */
   private constructor(private readonly value: T) {}
 
   /**
-   * Start the switch statement
-   * @param switchValue - value to check
-   * @returns this
+   * Static method to initiate a new &#x60;Switch&#x60; workflow with a value.
+   * Throws an error if the value is not defined (e.g., &#x60;null&#x60; or &#x60;undefined&#x60;).
+   *
+   * @template T - The type of the value being switched on.
+   * @param {T} switchValue - The value to start the switch workflow with.
+   * @returns {Switch&lt;T&gt;} A new &#x60;Switch&#x60; instance for chaining.
+   * @throws {Error} If &#x60;switchValue&#x60; is not defined (via &#x60;isDefinedOrThrow&#x60;).
    */
   public static switchValue&lt;T&gt;(switchValue: T): Switch&lt;T&gt; {
     isDefinedOrThrow(switchValue);
@@ -461,11 +514,15 @@ export class Switch&lt;T&gt; {
   }
 
   /**
-   * Check the &#x60;value&#x60; is equal to the source value or not and run the &#x60;pass&#x60; or &#x60;fail&#x60; functions accordingly
-   * @param value - case value
-   * @param pass - run when the case value is equal to the source value
-   * @param fail - run when the case value is not equal to the source value
-   * @returns - this
+   * Checks if the stored value matches the provided case value.
+   * Executes the &#x60;pass&#x60; handler if they match, or the optional &#x60;fail&#x60; handler if they don&#x27;t.
+   * Narrows the type of the &#x60;Switch&#x60; instance by excluding the matched type from &#x60;T&#x60;.
+   *
+   * @template P - A sub type of &#x60;T&#x60; representing the case value&#x27;s type.
+   * @param {P} value - The case value to compare against the stored value.
+   * @param {(value?: P) &#x3D;&gt; void} pass - Callback executed if the stored value equals the case value.
+   * @param {(value?: P) &#x3D;&gt; void} [fail] - Optional callback executed if the stored value does not equal the case value.
+   * @returns {Switch&lt;Exclude&lt;T, P&gt;&gt;} The current &#x60;Switch&#x60; instance with a narrowed type for chaining.
    */
   inCaseOf&lt;P extends T&gt;(
     value: P,

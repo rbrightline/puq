@@ -229,7 +229,7 @@
                             <a href="#keys" title="src/lib/object/keys.ts" ><b>keys</b>&nbsp;&nbsp;&nbsp;(src/.../keys.ts)</a>
                         </li>
                         <li>
-                            <a href="#newFrom" title="src/lib/object/new-from.ts" ><b>newFrom</b>&nbsp;&nbsp;&nbsp;(src/.../new-from.ts)</a>
+                            <a href="#newFrom" title="src/lib/object/new-from.ts" class="deprecated-name"><b>newFrom</b>&nbsp;&nbsp;&nbsp;(src/.../new-from.ts)</a>
                         </li>
                         <li>
                             <a href="#notEmpty" title="src/lib/defined/not-empty.ts" ><b>notEmpty</b>&nbsp;&nbsp;&nbsp;(src/.../not-empty.ts)</a>
@@ -271,7 +271,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>create(value: Type, ...args: ConstructorParameters)</code>
+<code>create(classConstructor: Type, ...args: ConstructorParameters)</code>
                 </td>
             </tr>
 
@@ -280,6 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Create a class instance by <code>classConstructor</code> and <code>args</code></p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -290,11 +292,12 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>value</td>
+                                                <td>classConstructor</td>
                                             <td>
                                                         <code>Type</code>
                                             </td>
@@ -304,6 +307,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>class constructor</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>args</td>
@@ -316,6 +325,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>constructor parameters</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -387,7 +402,7 @@ independent, ensuring no side effects on the original object.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>{T} A deep-cloned copy of the input object.</li>
+<li>A deep-cloned copy of the input object.</li>
 </ul>
 
                             </div>
@@ -461,7 +476,9 @@ independent, ensuring no side effects on the original object.</p>
 
                         </div>
                             <div class="io-description">
-                                <p>An array of <code>[key, value]</code> tuples</p>
+                                <ul>
+<li>List of key, value pairs</li>
+</ul>
 
                             </div>
                 </td>
@@ -2425,7 +2442,7 @@ independent, ensuring no side effects on the original object.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>check the type of value is <code>number</code>. And return <code>true</code> or <code>false</code></p>
+                        <div class="io-description"><p>Check the type of value is number, and return it, else throw error</p>
 </div>
 
                             <div class="io-description">
@@ -2450,7 +2467,7 @@ independent, ensuring no side effects on the original object.</p>
 
                                             <td>
                                                     <ul>
-<li><T><a href="Some">Some</a> value</li>
+<li>unknown value</li>
 </ul>
 
                                             </td>
@@ -2464,7 +2481,7 @@ independent, ensuring no side effects on the original object.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>{@link number}</li>
+<li><code>value</code></li>
 </ul>
 
                             </div>
@@ -2811,7 +2828,9 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
                         </div>
                             <div class="io-description">
-                                <p><code>true</code> if the value is defined (not <code>undefined</code> or <code>null</code>), otherwise <code>false</code>.</p>
+                                <ul>
+<li>boolean</li>
+</ul>
 
                             </div>
                 </td>
@@ -2842,7 +2861,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Ensures the value is neither <code>undefined</code> nor <code>null</code> and return the value, otherwise <a href="ErrorCode.RequiredFieldMissing">ErrorCode.RequiredFieldMissing</a>.</p>
+                        <div class="io-description"><p>Ensures the value is neither <code>undefined</code> nor <code>null</code> and return the value, otherwise throws error</p>
 </div>
 
                             <div class="io-description">
@@ -2897,7 +2916,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>value if defined</li>
+<li><code>value</code></li>
 </ul>
 
                             </div>
@@ -2958,7 +2977,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
                                             <td>
                                                     <ul>
-<li><a href="Some">Some</a></li>
+<li>unknown value</li>
 </ul>
 
                                             </td>
@@ -2972,7 +2991,7 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>{@link boolean}</li>
+<li>boolean</li>
 </ul>
 
                             </div>
@@ -3046,7 +3065,9 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
 
                         </div>
                             <div class="io-description">
-                                <p>the keys of the value such as [<code>some</code>, <code>other</code>]</p>
+                                <ul>
+<li>keys of the <code>value</code></li>
+</ul>
 
                             </div>
                 </td>
@@ -3061,9 +3082,14 @@ Acts as a type guard to ensure <code>value</code> is of type <code>T</code>.</p>
                 <td class="col-md-4">
                     <a name="newFrom"></a>
                     <span class="name">
-                        <span ><b>newFrom</b></span>
+                        <span class="deprecated-name"><b>newFrom</b></span>
                         <a href="#newFrom"><span class="icon ion-ios-link"></span></a>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    [object Object],[object Object]
                 </td>
             </tr>
             <tr>
@@ -3139,7 +3165,9 @@ instances without manually referencing the class constructor.</p>
 
                         </div>
                             <div class="io-description">
-                                <p>A new instance of the same class as <code>instance</code>.</p>
+                                <ul>
+<li>A new instance of the same class as <code>instance</code>.</li>
+</ul>
 
                             </div>
                 </td>
@@ -3376,7 +3404,7 @@ instances without manually referencing the class constructor.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>{@link SomeRecord} without the {@link keys}</li>
+<li>object without the keys</li>
 </ul>
 
                             </div>
@@ -3408,7 +3436,7 @@ instances without manually referencing the class constructor.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Pick the list of properties from <a href="SomeRecord">SomeRecord</a></p>
+                        <div class="io-description"><p>Pick the list of properties from record</p>
 </div>
 
                             <div class="io-description">
@@ -3437,7 +3465,7 @@ instances without manually referencing the class constructor.</p>
 
                                             <td>
                                                     <ul>
-<li><a href="SomeRecord">SomeRecord</a></li>
+<li>object record</li>
 </ul>
 
                                             </td>
@@ -3454,7 +3482,7 @@ instances without manually referencing the class constructor.</p>
 
                                             <td>
                                                     <ul>
-<li><string><a href="Array">Array</a> list of properties to pick</li>
+<li>Array string to pick items from</li>
 </ul>
 
                                             </td>
@@ -3468,7 +3496,7 @@ instances without manually referencing the class constructor.</p>
                         </div>
                             <div class="io-description">
                                 <ul>
-<li>{@link SomeRecord} without the {@link keys}</li>
+<li>object with the keys</li>
 </ul>
 
                             </div>
@@ -3500,6 +3528,8 @@ instances without manually referencing the class constructor.</p>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Trim and replace multiple spaces with one in the string</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -3510,6 +3540,7 @@ instances without manually referencing the class constructor.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3524,6 +3555,12 @@ instances without manually referencing the class constructor.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>string value</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3598,7 +3635,9 @@ instances without manually referencing the class constructor.</p>
 
                         </div>
                             <div class="io-description">
-                                <p>Array of values of the object</p>
+                                <ul>
+<li>Array of values of the object</li>
+</ul>
 
                             </div>
                 </td>

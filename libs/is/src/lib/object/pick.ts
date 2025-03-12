@@ -1,11 +1,11 @@
 import type { KeyOf, SomeRecord } from '@puq/type';
 import { entries } from './entries.js';
-// - [ ] add unit test
+
 /**
- * Pick the list of properties from {@link SomeRecord}
- * @param value - {@link SomeRecord}
- * @param keys - {@link Array<string>} list of properties to pick
- * @returns - {@link SomeRecord } without the {@link keys}
+ * Pick the list of properties from record
+ * @param value - object record
+ * @param keys - Array string to pick items from
+ * @returns - object with the keys
  */
 export function pick<T extends SomeRecord, K extends KeyOf<T>>(
   value: T,

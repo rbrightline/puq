@@ -7,8 +7,8 @@ import type { Some } from '@puq/type';
  * independent, ensuring no side effects on the original object.
  *
  * @template T - The type of the object to clone.
- * @param - {T} obj - The object to deep clone (can be any value, including primitives).
- * @returns - {T} A deep-cloned copy of the input object.
+ * @param - obj - The object to deep clone (can be any value, including primitives).
+ * @returns - A deep-cloned copy of the input object.
  *
  * @example
  * ```typescript

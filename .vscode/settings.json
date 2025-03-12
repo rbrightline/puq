@@ -1,10 +1,14 @@
 {
-  "eslint.validate": ["json"],
+  "eslint.validate": [
+    "json"
+  ],
   "editor.codeActionsOnSave": {
     "source.removeUnusedImports": "always",
     "source.addMissingImports.ts": "always"
   },
   "yaml.schemas": {
-    "schema/model.schema.json": ["model/**/*.model.yaml"]
+    "schema/model.schema.json": [
+      "model/**/*.model.yaml"
+    ]
   }
 }

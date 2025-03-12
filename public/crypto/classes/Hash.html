@@ -248,10 +248,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/lib/hash.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/hash.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>algorithm</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -282,10 +288,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/lib/hash.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/hash.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>encoding</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -316,10 +328,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/lib/hash.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/lib/hash.ts:12</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>iteration count</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -350,10 +368,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/lib/hash.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/lib/hash.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>key length</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -384,10 +408,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/lib/hash.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/lib/hash.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>salt length</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -421,8 +451,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/lib/hash.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/lib/hash.ts:74</a></div>
                         </td>
                     </tr>
 
@@ -531,8 +561,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/lib/hash.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/lib/hash.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -609,8 +639,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/lib/hash.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/lib/hash.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -676,10 +706,29 @@ export type HashResult &#x3D; { hash: string; salt: string };
  * Crypto utility for secure hashing and comparison
  */
 export class Hash {
+  /**
+   * iteration count
+   */
   private static readonly ITERATIONS &#x3D; 100000; // High iteration count for security
+
+  /**
+   * key length
+   */
   private static readonly KEY_LENGTH &#x3D; 32; // 256 bits
+
+  /**
+   * algorithm
+   */
   private static readonly ALGORITHM &#x3D; &#x27;sha256&#x27;;
+
+  /**
+   * salt length
+   */
   private static readonly SALT_LENGTH &#x3D; 16; // 128 bits
+
+  /**
+   * encoding
+   */
   private static readonly ENCODING &#x3D; &#x27;hex&#x27;;
 
   /**
@@ -709,7 +758,7 @@ export class Hash {
         (err, derivedKey) &#x3D;&gt; {
           if (err) reject(err);
           else resolve(derivedKey.toString(this.ENCODING));
-        }
+        },
       );
     });
     return { hash, salt };
@@ -725,7 +774,7 @@ export class Hash {
   static async compare(
     data: string,
     storedHash: string,
-    salt: string
+    salt: string,
   ): Promise&lt;boolean&gt; {
     const hash &#x3D; await new Promise&lt;string&gt;((resolve, reject) &#x3D;&gt; {
       crypto.pbkdf2(
@@ -737,14 +786,14 @@ export class Hash {
         (err, derivedKey) &#x3D;&gt; {
           if (err) reject(err);
           else resolve(derivedKey.toString(this.ENCODING));
-        }
+        },
       );
     });
 
     // Use timing-safe comparison to prevent timing attacks
     return crypto.timingSafeEqual(
       Buffer.from(hash, this.ENCODING),
-      Buffer.from(storedHash, this.ENCODING)
+      Buffer.from(storedHash, this.ENCODING),
     );
   }
 }

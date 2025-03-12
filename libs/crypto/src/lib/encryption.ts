@@ -5,9 +5,24 @@ import { Readable } from 'stream';
  * Crypto utility with truly asynchronous encryption and decryption using streams
  */
 export class Encryption {
+  /**
+   * Algorithm
+   */
   private static readonly ALGORITHM = 'aes-256-cbc';
+
+  /**
+   * Key length
+   */
   private static readonly KEY_LENGTH = 32; // 256 bits
+
+  /**
+   * Iv length
+   */
   private static readonly IV_LENGTH = 16; // 128 bits for CBC
+
+  /**
+   * Encoding
+   */
   private static readonly ENCODING = 'hex';
 
   /**

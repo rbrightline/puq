@@ -4,12 +4,12 @@
  * parameters to produce a new instance of the same type. It’s useful for creating fresh
  * instances without manually referencing the class constructor.
  *
+ * @deprecated - use {@link create}
  * @template T - The constructor type (a class) that produces instances of `InstanceType<T>`.
  * @param instance - An existing instance of the class, used to access its constructor.
  * @param parameters - Arguments to pass to the constructor, matching its signature.
- * @returns A new instance of the same class as `instance`.
+ * @returns - A new instance of the same class as `instance`.
  * @throws - If `instance` is not an object or lacks a constructor.
- *
  * @example
  * ```typescript
  * class Person {

@@ -1,7 +1,7 @@
 /**
  * Checks if a value is a constructor function or class that can be instantiated with `new`
  * @param value - The value to check
- * @returns `true` if the value is a constructor, `false` otherwise
+ * @returns - boolean
  */
 export function isConstructor(
   value: any,

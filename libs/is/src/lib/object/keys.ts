@@ -5,7 +5,7 @@ import { isConstructor } from './is-constructor.js';
 /**
  * Extract the keys of `object`, `array`
  * @param value - one of `object`, `array`
- * @returns the keys of the value such as [`some`, `other`]
+ * @returns - keys of the `value`
  */
 export function keys<T extends EnumeratorParam>(value: T): Keys<T> {
   if (isConstructor(value)) {

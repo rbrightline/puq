@@ -6,10 +6,29 @@ export type HashResult = { hash: string; salt: string };
  * Crypto utility for secure hashing and comparison
  */
 export class Hash {
+  /**
+   * iteration count
+   */
   private static readonly ITERATIONS = 100000; // High iteration count for security
+
+  /**
+   * key length
+   */
   private static readonly KEY_LENGTH = 32; // 256 bits
+
+  /**
+   * algorithm
+   */
   private static readonly ALGORITHM = 'sha256';
+
+  /**
+   * salt length
+   */
   private static readonly SALT_LENGTH = 16; // 128 bits
+
+  /**
+   * encoding
+   */
   private static readonly ENCODING = 'hex';
 
   /**
@@ -39,7 +58,7 @@ export class Hash {
         (err, derivedKey) => {
           if (err) reject(err);
           else resolve(derivedKey.toString(this.ENCODING));
-        }
+        },
       );
     });
     return { hash, salt };
@@ -55,7 +74,7 @@ export class Hash {
   static async compare(
     data: string,
     storedHash: string,
-    salt: string
+    salt: string,
   ): Promise<boolean> {
     const hash = await new Promise<string>((resolve, reject) => {
       crypto.pbkdf2(
@@ -67,14 +86,14 @@ export class Hash {
         (err, derivedKey) => {
           if (err) reject(err);
           else resolve(derivedKey.toString(this.ENCODING));
-        }
+        },
       );
     });
 
     // Use timing-safe comparison to prevent timing attacks
     return crypto.timingSafeEqual(
       Buffer.from(hash, this.ENCODING),
-      Buffer.from(storedHash, this.ENCODING)
+      Buffer.from(storedHash, this.ENCODING),
     );
   }
 }

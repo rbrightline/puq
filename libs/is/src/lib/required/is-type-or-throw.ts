@@ -37,11 +37,10 @@ export function isStringOrThrow<T extends string>(value: Some<T>): T {
 }
 
 /**
- * check the type of value is `number`. And return `true` or `false`
- * @template - {@link T} expected value
- * @param value - {@link Some<T>} value
- * @returns - {@link number}
- * @throws - {@link throwInvalidNumberError}
+ * Check the type of value is number, and return it, else throw error
+ * @param value - unknown value
+ * @returns - `value`
+ * @throws - error via `throwInvalidNumberError`
  */
 
 export function isNumberOrThrow(value: unknown): number {

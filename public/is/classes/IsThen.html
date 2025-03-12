@@ -127,11 +127,18 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <ul>
-<li><input disabled="" type="checkbox"> add docs
-Workflow class to simplify conditional work flows.</li>
-</ul>
-
+                <p>A utility class for conditional execution with method chaining.
+Provides static and instance methods to handle defined values and boolean conditions,
+executing provided handlers based on the condition, with optional fallback handlers.
+Each method returns the <code>IsThen</code> instance for chaining.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Using static method
+IsThen.ok(&quot;hello&quot;, (val) =&gt; console.log(val), () =&gt; console.log(&quot;undefined&quot;));
+// Output: &quot;hello&quot;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Using instance method with chaining
+const checker = new IsThen();
+checker
+  .ok(42, (val) =&gt; console.log(val))
+  .isTrue(true, () =&gt; console.log(&quot;is true&quot;));
+// Output: 42, &quot;is true&quot;</code></pre></div>
             </p>
 
 
@@ -226,8 +233,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:87</a></div>
                         </td>
                     </tr>
 
@@ -242,6 +249,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Static method to check if a value is <code>false</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -252,6 +261,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -266,6 +276,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -278,6 +294,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -290,6 +312,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -299,7 +327,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A new <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -325,8 +354,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="93"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:93</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:189</a></div>
                         </td>
                     </tr>
 
@@ -341,6 +370,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Instance method to check if a value is <code>false</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -351,6 +382,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -365,6 +397,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -377,6 +415,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -389,6 +433,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -398,7 +448,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The current <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -426,8 +477,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -442,6 +493,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Static method to check if a value is not <code>false</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -452,6 +505,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -466,6 +520,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -478,6 +538,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is not <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -490,6 +556,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -499,7 +571,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A new <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -525,8 +598,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="106"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:106</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="211"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:211</a></div>
                         </td>
                     </tr>
 
@@ -541,6 +614,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Instance method to check if a value is not <code>false</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -551,6 +626,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -565,6 +641,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -577,6 +659,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is not <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -589,6 +677,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is <code>false</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -598,7 +692,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The current <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -626,8 +721,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -642,6 +737,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Static method to check if a value is not <code>true</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -652,6 +749,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -666,6 +764,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -678,6 +782,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is not <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -690,6 +800,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -699,7 +815,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A new <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -725,8 +842,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:80</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="167"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:167</a></div>
                         </td>
                     </tr>
 
@@ -741,6 +858,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Instance method to check if a value is not <code>true</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -751,6 +870,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -765,6 +885,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -777,6 +903,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is not <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -789,6 +921,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -798,7 +936,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The current <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -826,8 +965,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -842,6 +981,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Static method to check if a value is <code>true</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -852,6 +993,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -866,6 +1008,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -878,6 +1026,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -890,6 +1044,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -899,7 +1059,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A new <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -925,8 +1086,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:145</a></div>
                         </td>
                     </tr>
 
@@ -941,6 +1102,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Instance method to check if a value is <code>true</code> and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -951,6 +1114,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -965,6 +1129,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -977,6 +1147,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -989,6 +1165,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not <code>true</code>.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -998,7 +1180,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The current <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1026,8 +1209,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="9"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:9</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -1042,6 +1225,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Static method to check if a value is defined and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1052,6 +1237,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1066,6 +1252,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -1078,6 +1270,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is defined.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -1090,6 +1288,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not defined.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1099,7 +1303,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A new <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1125,8 +1330,8 @@ Workflow class to simplify conditional work flows.</li>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/lib/workflow/is-then.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/lib/workflow/is-then.ts:123</a></div>
                         </td>
                     </tr>
 
@@ -1141,6 +1346,8 @@ Workflow class to simplify conditional work flows.</li>
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Instance method to check if a value is defined and execute a handler.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1151,6 +1358,7 @@ Workflow class to simplify conditional work flows.</li>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1165,6 +1373,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The value to check (can be undefined or null).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>handler</td>
@@ -1177,6 +1391,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The callback to execute if the value is defined.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>elseHandler</td>
@@ -1189,6 +1409,12 @@ Workflow class to simplify conditional work flows.</li>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Optional callback to execute if the value is not defined.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1198,7 +1424,8 @@ Workflow class to simplify conditional work flows.</li>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The current <code>IsThen</code> instance for chaining.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1218,10 +1445,34 @@ Workflow class to simplify conditional work flows.</li>
 import { isDefined } from &#x27;../defined/is-defined.js&#x27;;
 
 /**
- * - [ ] add docs
- * Workflow class to simplify conditional work flows.
+ * A utility class for conditional execution with method chaining.
+ * Provides static and instance methods to handle defined values and boolean conditions,
+ * executing provided handlers based on the condition, with optional fallback handlers.
+ * Each method returns the &#x60;IsThen&#x60; instance for chaining.
+ *
+ * @example
+ * // Using static method
+ * IsThen.ok(&quot;hello&quot;, (val) &#x3D;&gt; console.log(val), () &#x3D;&gt; console.log(&quot;undefined&quot;));
+ * // Output: &quot;hello&quot;
+ *
+ * @example
+ * // Using instance method with chaining
+ * const checker &#x3D; new IsThen();
+ * checker
+ *   .ok(42, (val) &#x3D;&gt; console.log(val))
+ *   .isTrue(true, () &#x3D;&gt; console.log(&quot;is true&quot;));
+ * // Output: 42, &quot;is true&quot;
  */
 export class IsThen {
+  /**
+   * Static method to check if a value is defined and execute a handler.
+   *
+   * @template T - The type of the value being checked.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value: T) &#x3D;&gt; void} handler - The callback to execute if the value is defined.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not defined.
+   * @returns {IsThen} A new &#x60;IsThen&#x60; instance for chaining.
+   */
   static ok&lt;T&gt;(
     value: Optional&lt;T&gt;,
     handler: (value: T) &#x3D;&gt; void,
@@ -1231,6 +1482,15 @@ export class IsThen {
     return instance.ok(value, handler, elseHandler);
   }
 
+  /**
+   * Static method to check if a value is &#x60;true&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: T) &#x3D;&gt; void} handler - The callback to execute if the value is &#x60;true&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not &#x60;true&#x60;.
+   * @returns {IsThen} A new &#x60;IsThen&#x60; instance for chaining.
+   */
   static isTrue&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: T) &#x3D;&gt; void,
@@ -1240,6 +1500,15 @@ export class IsThen {
     return instance.isTrue(value, handler, elseHandler);
   }
 
+  /**
+   * Static method to check if a value is not &#x60;true&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: Optional&lt;T&gt;) &#x3D;&gt; void} handler - The callback to execute if the value is not &#x60;true&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is &#x60;true&#x60;.
+   * @returns {IsThen} A new &#x60;IsThen&#x60; instance for chaining.
+   */
   static isNotTrue&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: Optional&lt;T&gt;) &#x3D;&gt; void,
@@ -1249,6 +1518,15 @@ export class IsThen {
     return instance.isNotTrue(value, handler, elseHandler);
   }
 
+  /**
+   * Static method to check if a value is &#x60;false&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: T) &#x3D;&gt; void} handler - The callback to execute if the value is &#x60;false&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not &#x60;false&#x60;.
+   * @returns {IsThen} A new &#x60;IsThen&#x60; instance for chaining.
+   */
   static isFalse&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: T) &#x3D;&gt; void,
@@ -1258,6 +1536,15 @@ export class IsThen {
     return instance.isFalse(value, handler, elseHandler);
   }
 
+  /**
+   * Static method to check if a value is not &#x60;false&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: Optional&lt;T&gt;) &#x3D;&gt; void} handler - The callback to execute if the value is not &#x60;false&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is &#x60;false&#x60;.
+   * @returns {IsThen} A new &#x60;IsThen&#x60; instance for chaining.
+   */
   static isNotFalse&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: Optional&lt;T&gt;) &#x3D;&gt; void,
@@ -1267,6 +1554,15 @@ export class IsThen {
     return instance.isNotFalse(value, handler, elseHandler);
   }
 
+  /**
+   * Instance method to check if a value is defined and execute a handler.
+   *
+   * @template T - The type of the value being checked.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value: T) &#x3D;&gt; void} handler - The callback to execute if the value is defined.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not defined.
+   * @returns {IsThen} The current &#x60;IsThen&#x60; instance for chaining.
+   */
   ok&lt;T&gt;(
     value: Optional&lt;T&gt;,
     handler: (value: T) &#x3D;&gt; void,
@@ -1280,6 +1576,15 @@ export class IsThen {
     return this;
   }
 
+  /**
+   * Instance method to check if a value is &#x60;true&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: T) &#x3D;&gt; void} handler - The callback to execute if the value is &#x60;true&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not &#x60;true&#x60;.
+   * @returns {IsThen} The current &#x60;IsThen&#x60; instance for chaining.
+   */
   isTrue&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: T) &#x3D;&gt; void,
@@ -1293,6 +1598,15 @@ export class IsThen {
     return this;
   }
 
+  /**
+   * Instance method to check if a value is not &#x60;true&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: Optional&lt;T&gt;) &#x3D;&gt; void} handler - The callback to execute if the value is not &#x60;true&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is &#x60;true&#x60;.
+   * @returns {IsThen} The current &#x60;IsThen&#x60; instance for chaining.
+   */
   isNotTrue&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: Optional&lt;T&gt;) &#x3D;&gt; void,
@@ -1306,6 +1620,15 @@ export class IsThen {
     return this;
   }
 
+  /**
+   * Instance method to check if a value is &#x60;false&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: T) &#x3D;&gt; void} handler - The callback to execute if the value is &#x60;false&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is not &#x60;false&#x60;.
+   * @returns {IsThen} The current &#x60;IsThen&#x60; instance for chaining.
+   */
   isFalse&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: T) &#x3D;&gt; void,
@@ -1319,6 +1642,15 @@ export class IsThen {
     return this;
   }
 
+  /**
+   * Instance method to check if a value is not &#x60;false&#x60; and execute a handler.
+   *
+   * @template T - A type extending boolean.
+   * @param {Optional&lt;T&gt;} value - The value to check (can be undefined or null).
+   * @param {(value?: Optional&lt;T&gt;) &#x3D;&gt; void} handler - The callback to execute if the value is not &#x60;false&#x60;.
+   * @param {() &#x3D;&gt; void} [elseHandler] - Optional callback to execute if the value is &#x60;false&#x60;.
+   * @returns {IsThen} The current &#x60;IsThen&#x60; instance for chaining.
+   */
   isNotFalse&lt;T extends boolean&gt;(
     value: Optional&lt;T&gt;,
     handler: (value?: Optional&lt;T&gt;) &#x3D;&gt; void,

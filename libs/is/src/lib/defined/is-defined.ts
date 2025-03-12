@@ -3,7 +3,7 @@
  * Acts as a type guard to ensure `value` is of type `T`.
  *
  * @param value - The value to check.
- * @returns `true` if the value is defined (not `undefined` or `null`), otherwise `false`.
+ * @returns - boolean
  */
 export function isDefined<T>(value: T | null | undefined): value is T {
   return value != undefined;

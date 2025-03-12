@@ -23,7 +23,7 @@ export type EntriesReturnType<T> = T extends string
 /**
  * Extracts the enumerable `key-value` pairs of the `value`
  * @param value - one of `string`, `number`, `object`, or `array`
- * @returns An array of `[key, value]` tuples
+ * @returns - List of key, value pairs
  */
 export function entries<T extends EnumeratorParam>(
   value: T,
@@ -42,5 +42,3 @@ export function entries<T extends EnumeratorParam>(
 
   return run(value);
 }
-
-entries(class A {});

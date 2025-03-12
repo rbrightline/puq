@@ -1,6 +1,6 @@
 import { dirs, files, scope } from '@puq/fs';
 import { rename as __rename } from 'fs/promises';
-import { join } from 'path';
+
 import { debug } from '@puq/debug';
 import { cwd } from 'process';
 import type { RenameOptions } from './rename-options.js';
@@ -12,6 +12,7 @@ import type { RenameOptions } from './rename-options.js';
  */
 export async function rename(options: RenameOptions): Promise<void> {
   const resolve = scope(cwd());
+
   const regularExpression = new RegExp(options.expression);
   const directory = resolve(options.directory ?? '.');
   const prefix = options.prefix ?? '';
@@ -38,7 +39,7 @@ export async function rename(options: RenameOptions): Promise<void> {
             async (subDirectory) =>
               await rename({
                 ...options,
-                directory: join(directory, subDirectory),
+                directory: resolve(options.directory ?? '', subDirectory),
               }),
           ),
         );
@@ -69,22 +70,12 @@ export async function rename(options: RenameOptions): Promise<void> {
       });
     }
 
-    const source = join(directory, filename);
-    const target = join(directory, [prefix, newFilename, suffix].join(''));
+    const source = resolve(directory, filename);
+    const target = resolve(directory, [prefix, newFilename, suffix].join(''));
 
     debug({ source, target });
 
     await __rename(source, target);
-
-    if (options.recursive == true) {
-      const foundDirs = await dirs(directory);
-
-      await Promise.all(
-        foundDirs.map((childDirectory) => {
-          return rename({ ...options, directory: childDirectory });
-        }),
-      );
-    }
   });
 
   await Promise.all(operations);

@@ -6,7 +6,7 @@ import { throwInvalidObjectError } from '@puq/error';
  * @template - {@link T}  the object type
  * @template - {@link V}  the value of each property
  * @param instance - the object value to extract the values from
- * @returns Array of values of the object
+ * @returns - Array of values of the object
  */
 export function values<T extends SomeRecord, V = unknown>(
   instance: T,
