@@ -1,3 +1,4 @@
+import '@puq/type';
 import {
   Controller,
   CreateController,
@@ -11,6 +12,9 @@ import {
   RemoveRelation,
   SetRelation,
   UnsetRelation,
+  Body,
+  Param,
+  Query,
 } from '@puq/rest';
 import {
   Sample,
@@ -22,9 +26,9 @@ import {
   SampleRelationParamDto,
   SampleUnsetRelationParamDto,
 } from '@puq/entity';
-import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
-import { EntityService } from '@puq/orm';
+import { EntityService, IDDto } from '@puq/orm';
 import { InjectEntityService } from '@puq/provider';
+import { debug } from 'console';
 
 @Controller()
 export class SampleController extends CreateController({
@@ -46,13 +50,15 @@ export class SampleController extends CreateController({
   }
 
   @FindAll()
-  findAll(@Query() query: QueryManySampleDto) {
+  findAll(@Query(() => QueryManySampleDto) query: any) {
+    debug(query);
     return this.service.find(query);
   }
 
   @FindOneById()
-  findOneById(@Param('id', ParseIntPipe) id: number) {
-    return this.service.findOneById(id);
+  findOneById(@Param() objectID: IDDto) {
+    debug(objectID);
+    return this.service.findOneById(objectID.id);
   }
 
   @Count()
@@ -66,16 +72,17 @@ export class SampleController extends CreateController({
   }
 
   @UpdateOneById()
-  updateOneById(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() entity: UpdateSampleDto,
-  ) {
-    return this.service.update(id, entity);
+  updateOneById(@Param() objectId: IDDto, @Body() entity: UpdateSampleDto) {
+    debug({
+      objectId,
+      entity,
+    });
+    return this.service.update(objectId.id, entity);
   }
 
   @DeleteOneById()
-  DeleteOneById(@Param('id', ParseIntPipe) id: number) {
-    return this.service.softDelete(id);
+  DeleteOneById(@Param() objectId: IDDto) {
+    return this.service.softDelete(objectId.id);
   }
 
   @AddRelation()

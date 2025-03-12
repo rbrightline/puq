@@ -3,20 +3,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  CreateSampleDto,
-  QueryManySampleDto,
-  QueryOneSampleDto,
-  QueryCountSampleDto,
-  Sample,
-  SampleRelationParamDto,
-  SampleView,
-  UpdateSampleDto,
-} from '@puq/entity';
+import { Sample, SampleView } from '@puq/entity';
 import { TableNamingStrategy } from '@puq/orm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { AppEnv, DataSourceEnv } from '@puq/env';
-import { BasicResourceModule } from '@puq/module';
+import { SampleModule } from './sample/sample.module.js';
+
 @Module({
   imports: [
     ConfigModule.forRoot({}),
@@ -41,6 +33,8 @@ import { BasicResourceModule } from '@puq/module';
           database: config.getOrThrow<string>(dbEnv.DATABASE_NAME),
           entities: [Sample, SampleView],
           namingStrategy: new TableNamingStrategy(),
+          synchronize: true,
+          dropSchema: true,
           poolSize: 50,
           extra: {
             max: 50, // Maximum number of connections in the pool
@@ -50,18 +44,9 @@ import { BasicResourceModule } from '@puq/module';
         };
       },
     }),
-    BasicResourceModule.configure({
-      entity: () => Sample,
-      createDto: () => CreateSampleDto,
-      updateDto: () => UpdateSampleDto,
-      queryManyDto: () => QueryManySampleDto,
-      queryOneDto: () => QueryOneSampleDto,
-      queryCountDto: () => QueryCountSampleDto,
-      relationDto: () => SampleRelationParamDto,
-      unsetRelationDto: () => SampleRelationParamDto,
-      isPublic: false,
-    }),
+    SampleModule,
   ],
+
   providers: [Logger],
 })
 export class SampleAppModule {}

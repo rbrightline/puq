@@ -1,10 +1,5 @@
-import type {
-  Type,
-  ValidationPipeOptions} from '@nestjs/common';
-import {
-  UnprocessableEntityException,
-  ValidationPipe
-} from '@nestjs/common';
+import type { Type, ValidationPipeOptions } from '@nestjs/common';
+import { UnprocessableEntityException, ValidationPipe } from '@nestjs/common';
 
 export function globalValidationPipeOptions(
   expectedType?: () => Type,
@@ -12,14 +7,6 @@ export function globalValidationPipeOptions(
   return {
     expectedType: expectedType?.(),
     transform: true,
-    stopAtFirstError: true,
-    transformOptions: {
-      exposeUnsetFields: false,
-    },
-    validationError: {
-      target: false,
-      value: false,
-    },
     exceptionFactory(errors) {
       throw new UnprocessableEntityException({ errors });
     },
