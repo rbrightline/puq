@@ -29,7 +29,6 @@ export function SetResourceMetadata<T extends object>(
     ResourceMetadataManager.set({
       ...options,
       target,
-      isPublic: !!options.isPublic,
     });
   };
 }

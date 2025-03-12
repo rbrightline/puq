@@ -194,8 +194,10 @@ export class ResourceMetadataManager {
       updateDto: __updateDto,
       queryManyDto: __queryManyDto,
       queryOneDto: __queryOneDto,
+      queryCountDto: __queryCountDto,
       relationDto: __relationDto,
       unsetRelationDto: __unsetRelationDto,
+      isPublic: __isPublic,
     } = options;
     const __paths = paths(__entity().name);
     const __names = names(__entity().name);
@@ -205,6 +207,7 @@ export class ResourceMetadataManager {
     Reflect.defineMetadata(this.UPDATE_DTO, __updateDto, constructor);
     Reflect.defineMetadata(this.QUERY_MANY_DTO, __queryManyDto, constructor);
     Reflect.defineMetadata(this.QUERY_ONE_DTO, __queryOneDto, constructor);
+    Reflect.defineMetadata(this.QUERY_COUNT_DTO, __queryCountDto, constructor);
     Reflect.defineMetadata(this.RELATION_DTO, __relationDto, constructor);
 
     Reflect.defineMetadata(
@@ -213,11 +216,12 @@ export class ResourceMetadataManager {
       constructor,
     );
 
+    Reflect.defineMetadata(this.PUBLIC, !!__isPublic, constructor);
     Reflect.defineMetadata(this.PATHS, __paths, constructor);
+
     Reflect.defineMetadata(this.NAMES, __names, constructor);
     Reflect.defineMetadata(this.NAME, __names.className, constructor);
     Reflect.defineMetadata(this.KEYS, keys(__entity()), constructor);
-    Reflect.defineMetadata(this.PUBLIC, !!options.isPublic, constructor);
   }
 
   /**

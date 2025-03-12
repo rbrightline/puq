@@ -16,6 +16,7 @@ import {
   Sample,
   QueryManySampleDto,
   QueryOneSampleDto,
+  QueryCountSampleDto,
   CreateSampleDto,
   UpdateSampleDto,
   SampleRelationParamDto,
@@ -32,6 +33,10 @@ export class SampleController extends CreateController({
   updateDto: () => UpdateSampleDto,
   queryManyDto: () => QueryManySampleDto,
   queryOneDto: () => QueryOneSampleDto,
+  queryCountDto: () => QueryCountSampleDto,
+  unsetRelationDto: undefined,
+  relationDto: undefined,
+  isPublic: false,
 }) {
   constructor(
     @InjectEntityService(Sample)

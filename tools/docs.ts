@@ -1,9 +1,9 @@
 #!/usr/bin/env ts-node
 
 import { exec } from 'child_process';
-import { DIRS } from './dirs';
 import { chdir } from 'process';
 import { join } from 'path';
+import { LIBS } from './common';
 
 chdir(join(__dirname, '..'));
 
@@ -17,7 +17,7 @@ export async function doc(library: string) {
   });
 }
 export async function docs() {
-  await Promise.all(DIRS.map(doc));
+  await Promise.all(LIBS.map(doc));
 }
 
 docs();

@@ -47,7 +47,7 @@ export function BasicResourceController<T extends BaseEntity>(
     }
 
     @Count()
-    count(@Query() query: any) {
+    count(@Query(options.queryCountDto) query: any) {
       debug({ query });
       return this.service.count(query);
     }
