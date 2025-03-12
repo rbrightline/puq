@@ -3,6 +3,7 @@ import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { cwd, getName, updateTsconfigReferences } from '@puq/gen-helper';
 import { join } from 'path';
+import { filesOf } from '../files-of.js';
 
 /**
  * Generate CLI library project
@@ -11,7 +12,7 @@ import { join } from 'path';
  */
 export async function cliGenerator(tree: Tree, options: CliGeneratorSchema) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('cli');
   const target = join(cwd(), directory);
   const __names = names(getName(directory));
   generateFiles(tree, source, target, { ...__names, target });

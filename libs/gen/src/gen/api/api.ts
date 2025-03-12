@@ -3,6 +3,8 @@ import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { cwd, getName } from '@puq/gen-helper';
+import { filesOf } from '../files-of.js';
+import { repositoryName } from '../repository-name.js';
 
 /**
  * Generate rest api project
@@ -11,10 +13,18 @@ import { cwd, getName } from '@puq/gen-helper';
  */
 export async function apiGenerator(tree: Tree, options: ApiGeneratorSchema) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('api');
   const target = join(cwd(), directory);
   const __names = names(getName(directory));
-  generateFiles(tree, source, target, { ...__names });
+
+  const repository = await repositoryName();
+
+  generateFiles(tree, source, target, {
+    ...__names,
+    directory,
+    repository,
+  });
+
   await formatFiles(tree);
 }
 

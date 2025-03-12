@@ -1,4 +1,4 @@
-import * as crypto from 'crypto';
+import { randomBytes, createCipheriv, createDecipheriv } from 'crypto';
 import { Readable } from 'stream';
 
 /**
@@ -42,11 +42,14 @@ export class Encryption {
    * @returns Promise resolving to encrypted string (IV:encrypted_data in hex)
    * @throws Error if key length is invalid
    */
-  static async encrypt(data: string, key: Buffer): Promise<string> {
+  static async encrypt(
+    data: string,
+    key: Buffer,
+    version: number,
+  ): Promise<string> {
     this.validateKey(key);
-
-    const iv = crypto.randomBytes(this.IV_LENGTH);
-    const cipher = crypto.createCipheriv(this.ALGORITHM, key, iv);
+    const iv = randomBytes(this.IV_LENGTH);
+    const cipher = createCipheriv(this.ALGORITHM, key, iv);
 
     return new Promise((resolve, reject) => {
       let encrypted = '';
@@ -55,7 +58,11 @@ export class Encryption {
       input
         .pipe(cipher)
         .on('data', (chunk) => (encrypted += chunk.toString(this.ENCODING)))
-        .on('end', () => resolve(`${iv.toString(this.ENCODING)}:${encrypted}`))
+        .on('end', () =>
+          resolve(
+            `${version.toString()}:${iv.toString(this.ENCODING)}:${encrypted}`,
+          ),
+        )
         .on('error', reject);
     });
   }
@@ -70,21 +77,24 @@ export class Encryption {
   static async decrypt(encryptedData: string, key: Buffer): Promise<string> {
     this.validateKey(key);
 
-    const [ivHex, encryptedHex] = encryptedData.split(':');
-    if (!ivHex || !encryptedHex) {
+    const [__version, __iv, __encrypted] = encryptedData.split(':');
+
+    if (!__version || !__iv || !__encrypted) {
       throw new Error('Invalid encrypted data format');
     }
 
-    const iv = Buffer.from(ivHex, this.ENCODING);
-    const decipher = crypto.createDecipheriv(this.ALGORITHM, key, iv);
-    const input = Readable.from([Buffer.from(encryptedHex, this.ENCODING)]);
+    const iv = Buffer.from(__iv, this.ENCODING);
+    const decipher = createDecipheriv(this.ALGORITHM, key, iv);
+    const input = Readable.from([Buffer.from(__encrypted, this.ENCODING)]);
 
     return new Promise((resolve, reject) => {
       let decrypted = '';
       input
         .pipe(decipher)
         .on('data', (chunk) => (decrypted += chunk.toString('utf8')))
-        .on('end', () => resolve(decrypted))
+        .on('end', () => {
+          return resolve(decrypted);
+        })
         .on('error', reject);
     });
   }
@@ -94,7 +104,7 @@ export class Encryption {
    * @returns Buffer containing a secure random key
    */
   static generateKey(): Buffer {
-    return crypto.randomBytes(this.KEY_LENGTH);
+    return randomBytes(this.KEY_LENGTH);
   }
 
   /**

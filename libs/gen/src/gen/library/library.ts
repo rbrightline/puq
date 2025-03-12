@@ -3,6 +3,7 @@ import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { cwd, getName, updateTsconfigReferences } from '@puq/gen-helper';
+import { filesOf } from '../files-of.js';
 
 /**
  * Generate library project
@@ -14,7 +15,7 @@ export async function libraryGenerator(
   options: LibraryGeneratorSchema,
 ) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('library');
   const target = join(cwd(), directory).split('\\').join('/');
   const __names = names(getName(directory));
 

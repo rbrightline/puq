@@ -3,6 +3,7 @@ import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { cwd, getName } from '@puq/gen-helper';
+import { filesOf } from '../files-of.js';
 
 /**
  * Generate an angular-client application
@@ -14,7 +15,7 @@ export async function clientGenerator(
   options: ClientGeneratorSchema,
 ) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('client');
   const target = join(cwd(), directory);
   const __names = names(getName(directory));
   generateFiles(tree, source, target, { ...__names });

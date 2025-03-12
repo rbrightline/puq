@@ -4,6 +4,7 @@ import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { cwd, getName } from '@puq/gen-helper';
 import '@puq/printer';
+import { filesOf } from '../files-of.js';
 /**
  * Generate model type
  * @param tree
@@ -14,7 +15,7 @@ export async function modelGenerator(
   options: ModelGeneratorSchema,
 ) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('model');
   const target = join(cwd(), directory);
   const __names = names(getName(directory));
 

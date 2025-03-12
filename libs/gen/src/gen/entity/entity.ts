@@ -5,6 +5,7 @@ import { join } from 'path';
 import { cwd, getName } from '@puq/gen-helper';
 import '@puq/fs';
 import '@puq/printer';
+import { filesOf } from '../files-of.js';
 /**
  * Generate entity and dto
  * @param tree - Tree
@@ -15,7 +16,7 @@ export async function entityGenerator(
   options: EntityGeneratorSchema,
 ) {
   const { directory } = options;
-  const source = join(__dirname, 'files');
+  const source = filesOf('entity');
   const target = join(cwd(), directory);
   const __names = names(getName(directory));
 

@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/services/<%- fileName %>/favicon.png" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/rbrightline/<%- repository %>/refs/heads/main/<%- directory %>/favicon.png" alt="Logo" />
 </p>
 
-# @puq/<%- fileName %>
+# @<%- repository %>/<%- fileName %>
 
 ## Summary
 
-This package provides a fully portable NestJS service that can be easily installed and run as a standalone application. Designed for flexibility and ease of use, it includes its own CLI tool to manage execution seamlessly.
+- [ ] add summary
 
 ## Features
 
