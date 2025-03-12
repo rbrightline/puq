@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/services/sample/favicon.png" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/rbrightline/puq/refs/heads/main/services/<%- fileName %>/favicon.png" alt="Logo" />
 </p>
 
-# @puq/sample
+# @puq/<%- fileName %>
 
 ## Summary
 
@@ -18,12 +18,12 @@ This package provides a fully portable NestJS service that can be easily install
 ## Install
 
 ```bash
-  pnpm add @puq/sample
+  pnpm add @puq/<%- fileName %>
 ```
 
 ## Funding
 
-Thank you for using `@puq/sample` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
+Thank you for using `@puq/<%- fileName %>` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
 
 [Instant Funding](https://cash.app/$puqlib)
 

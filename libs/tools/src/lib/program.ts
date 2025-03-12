@@ -1,6 +1,6 @@
 import { program } from 'commander';
 import { createRenameCommand } from './rename/create-rename-command.js';
-import { parseReplace } from './replace/parse-replace.js';
+import { createReplaceCommand } from './replace/create-replace-command.js';
 
 async function boot() {
   program
@@ -17,7 +17,7 @@ async function boot() {
 
   createRenameCommand(program);
 
-  parseReplace(program);
+  createReplaceCommand(program);
 
   program.parse();
 }

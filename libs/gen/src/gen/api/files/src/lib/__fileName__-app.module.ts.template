@@ -4,14 +4,14 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {
-  CreateSampleDto,
-  QueryManySampleDto,
-  QueryOneSampleDto,
-  QueryCountSampleDto,
-  Sample,
-  SampleRelationParamDto,
-  SampleView,
-  UpdateSampleDto,
+  Create<%- className %>Dto,
+  QueryMany<%- className %>Dto,
+  QueryOne<%- className %>Dto,
+  QueryCount<%- className %>Dto,
+  <%- className %>,
+  <%- className %>RelationParamDto,
+  <%- className %>View,
+  Update<%- className %>Dto,
 } from '@puq/entity';
 import { TableNamingStrategy } from '@puq/orm';
 import { EventEmitterModule } from '@nestjs/event-emitter';
@@ -27,7 +27,7 @@ import { BasicResourceModule } from '@puq/module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory(config: ConfigService) {
-        const appEnv = new AppEnv({ name: 'sample', profile: 'dev' });
+        const appEnv = new AppEnv({ name: '<%- fileName %>', profile: 'dev' });
         const PROFILE = config.getOrThrow(appEnv.PROFILE);
         const NAME = config.getOrThrow(appEnv.NAME);
         const dbEnv = new DataSourceEnv({ name: NAME, profile: PROFILE });
@@ -39,7 +39,7 @@ import { BasicResourceModule } from '@puq/module';
           username: config.getOrThrow<string>(dbEnv.DATABASE_USERNAME),
           password: config.getOrThrow<string>(dbEnv.DATABASE_PASSWORD),
           database: config.getOrThrow<string>(dbEnv.DATABASE_NAME),
-          entities: [Sample, SampleView],
+          entities: [<%- className %>, <%- className %>View],
           namingStrategy: new TableNamingStrategy(),
           poolSize: 50,
           extra: {
@@ -51,17 +51,17 @@ import { BasicResourceModule } from '@puq/module';
       },
     }),
     BasicResourceModule.configure({
-      entity: () => Sample,
-      createDto: () => CreateSampleDto,
-      updateDto: () => UpdateSampleDto,
-      queryManyDto: () => QueryManySampleDto,
-      queryOneDto: () => QueryOneSampleDto,
-      queryCountDto: () => QueryCountSampleDto,
-      relationDto: () => SampleRelationParamDto,
-      unsetRelationDto: () => SampleRelationParamDto,
+      entity: () => <%- className %>,
+      createDto: () => Create<%- className %>Dto,
+      updateDto: () => Update<%- className %>Dto,
+      queryManyDto: () => QueryMany<%- className %>Dto,
+      queryOneDto: () => QueryOne<%- className %>Dto,
+      queryCountDto: () => QueryCount<%- className %>Dto,
+      relationDto: () => <%- className %>RelationParamDto,
+      unsetRelationDto: () => <%- className %>RelationParamDto,
       isPublic: false,
     }),
   ],
   providers: [Logger],
 })
-export class SampleAppModule {}
+export class <%- className %>AppModule {}

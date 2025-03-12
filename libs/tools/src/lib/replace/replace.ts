@@ -1,32 +1,7 @@
+import type { ReplaceOptions } from './replace-options.js';
 import { dirs, files } from '@puq/fs';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-
-export type ReplaceOptions = {
-  /**
-   * The root directory of the file
-   */
-  directory?: string;
-
-  /**
-   * Regular expression string that matches the file names
-   */
-  expression?: string;
-
-  /**
-   * placeholder regular expression string (optional)
-   */
-  from: string[];
-
-  /**
-   * replacement string
-   */
-  to: string[];
-
-  prefix?: string;
-
-  suffix?: string;
-};
 
 export async function replace(options: ReplaceOptions) {
   const { expression, from, to, prefix, suffix } = options;
@@ -58,8 +33,8 @@ export async function replace(options: ReplaceOptions) {
     },
   );
 
-  for (const e of replaceContentForEachFile) {
-    await e;
+  for (const __replaceContentForEachFile of replaceContentForEachFile) {
+    await __replaceContentForEachFile;
   }
 
   const foundDirs = await dirs(directory);
@@ -69,8 +44,8 @@ export async function replace(options: ReplaceOptions) {
       replace({ ...options, directory: join(directory, subDirectory) }),
     );
 
-    for (const e of replaceAllSubDirectories) {
-      await e;
+    for (const __replaceAllSubDirectories of replaceAllSubDirectories) {
+      await __replaceAllSubDirectories;
     }
   }
 }

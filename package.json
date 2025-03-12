@@ -5,7 +5,7 @@
   "scripts": {
     "lint:all": "npx nx run-many --target=build --all",
     "build:all": "npx nx run-many --target=build --all",
-    "build:doc": "npx nx run-many --target=doc --all"
+    "doc:all": "npx nx run-many --target=doc --all"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.26",

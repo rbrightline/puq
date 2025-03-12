@@ -1,0 +1,6 @@
+// @index(['./**/*.ts', '!./**/*.{spec,test}.ts','!./**/index.ts'], f => `export * from '${f.path}.js'`)
+export * from './lib/program.js';
+export * from './lib/<%- fileName %>-app.module.js';
+export * from './lib/<%- fileName %>/<%- fileName %>.controller.js';
+export * from './lib/<%- fileName %>/<%- fileName %>.cron.js';
+export * from './lib/<%- fileName %>/<%- fileName %>.module.js';

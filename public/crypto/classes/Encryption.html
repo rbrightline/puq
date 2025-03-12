@@ -413,8 +413,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="70"
-                                    class="link-to-prism">src/lib/encryption.ts:70</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/lib/encryption.ts:77</a></div>
                         </td>
                     </tr>
 
@@ -500,7 +500,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>encrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, key: Buffer)</code>
+                    <code>encrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, key: Buffer, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -563,6 +563,20 @@
 
                                             </td>
                                         </tr>
+                                        <tr>
+                                                <td>version</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -600,8 +614,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="96"
-                                    class="link-to-prism">src/lib/encryption.ts:96</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/lib/encryption.ts:106</a></div>
                         </td>
                     </tr>
 
@@ -645,8 +659,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="105"
-                                    class="link-to-prism">src/lib/encryption.ts:105</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/lib/encryption.ts:115</a></div>
                         </td>
                     </tr>
 
@@ -776,7 +790,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as crypto from &#x27;crypto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { randomBytes, createCipheriv, createDecipheriv } from &#x27;crypto&#x27;;
 import { Readable } from &#x27;stream&#x27;;
 
 /**
@@ -820,11 +834,14 @@ export class Encryption {
    * @returns Promise resolving to encrypted string (IV:encrypted_data in hex)
    * @throws Error if key length is invalid
    */
-  static async encrypt(data: string, key: Buffer): Promise&lt;string&gt; {
+  static async encrypt(
+    data: string,
+    key: Buffer,
+    version: number,
+  ): Promise&lt;string&gt; {
     this.validateKey(key);
-
-    const iv &#x3D; crypto.randomBytes(this.IV_LENGTH);
-    const cipher &#x3D; crypto.createCipheriv(this.ALGORITHM, key, iv);
+    const iv &#x3D; randomBytes(this.IV_LENGTH);
+    const cipher &#x3D; createCipheriv(this.ALGORITHM, key, iv);
 
     return new Promise((resolve, reject) &#x3D;&gt; {
       let encrypted &#x3D; &#x27;&#x27;;
@@ -833,7 +850,11 @@ export class Encryption {
       input
         .pipe(cipher)
         .on(&#x27;data&#x27;, (chunk) &#x3D;&gt; (encrypted +&#x3D; chunk.toString(this.ENCODING)))
-        .on(&#x27;end&#x27;, () &#x3D;&gt; resolve(&#x60;${iv.toString(this.ENCODING)}:${encrypted}&#x60;))
+        .on(&#x27;end&#x27;, () &#x3D;&gt;
+          resolve(
+            &#x60;${version.toString()}:${iv.toString(this.ENCODING)}:${encrypted}&#x60;,
+          ),
+        )
         .on(&#x27;error&#x27;, reject);
     });
   }
@@ -848,21 +869,24 @@ export class Encryption {
   static async decrypt(encryptedData: string, key: Buffer): Promise&lt;string&gt; {
     this.validateKey(key);
 
-    const [ivHex, encryptedHex] &#x3D; encryptedData.split(&#x27;:&#x27;);
-    if (!ivHex || !encryptedHex) {
+    const [__version, __iv, __encrypted] &#x3D; encryptedData.split(&#x27;:&#x27;);
+
+    if (!__version || !__iv || !__encrypted) {
       throw new Error(&#x27;Invalid encrypted data format&#x27;);
     }
 
-    const iv &#x3D; Buffer.from(ivHex, this.ENCODING);
-    const decipher &#x3D; crypto.createDecipheriv(this.ALGORITHM, key, iv);
-    const input &#x3D; Readable.from([Buffer.from(encryptedHex, this.ENCODING)]);
+    const iv &#x3D; Buffer.from(__iv, this.ENCODING);
+    const decipher &#x3D; createDecipheriv(this.ALGORITHM, key, iv);
+    const input &#x3D; Readable.from([Buffer.from(__encrypted, this.ENCODING)]);
 
     return new Promise((resolve, reject) &#x3D;&gt; {
       let decrypted &#x3D; &#x27;&#x27;;
       input
         .pipe(decipher)
         .on(&#x27;data&#x27;, (chunk) &#x3D;&gt; (decrypted +&#x3D; chunk.toString(&#x27;utf8&#x27;)))
-        .on(&#x27;end&#x27;, () &#x3D;&gt; resolve(decrypted))
+        .on(&#x27;end&#x27;, () &#x3D;&gt; {
+          return resolve(decrypted);
+        })
         .on(&#x27;error&#x27;, reject);
     });
   }
@@ -872,7 +896,7 @@ export class Encryption {
    * @returns Buffer containing a secure random key
    */
   static generateKey(): Buffer {
-    return crypto.randomBytes(this.KEY_LENGTH);
+    return randomBytes(this.KEY_LENGTH);
   }
 
   /**

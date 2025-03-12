@@ -1,0 +1,16 @@
+import { Module } from '@nestjs/common';
+import { <%- className %>Controller } from './<%- fileName %>.controller.js';
+import { <%- className %>Cron } from './<%- fileName %>.cron.js';
+import { <%- className %>, <%- className %>View } from '@puq/entity';
+import { EntityModule } from '@puq/provider';
+
+@Module({
+  imports: [
+    EntityModule.forFeature({
+      entities: [<%- className %>, <%- className %>View],
+    }),
+  ],
+  controllers: [<%- className %>Controller],
+  providers: [<%- className %>Cron],
+})
+export class <%- className %>Module {}

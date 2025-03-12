@@ -1,0 +1,23 @@
+import { bootstrap } from '@puq/boot';
+import { program } from 'commander';
+import { <%- className %>AppModule } from './<%- fileName %>-app.module.js';
+
+async function boot() {
+  program.name('<%- fileName %> CLI').description('<%- fileName %> CLI').version('0.0.1');
+
+  program
+    .command('<%- fileName %>')
+    .name('<%- fileName %>')
+    .description('Run the <%- fileName %> service')
+    .action(async () => {
+      return await bootstrap({
+        name: '<%- fileName %>',
+        profile: 'dev',
+        module: <%- className %>AppModule,
+      });
+    });
+
+  program.parse();
+}
+
+boot();

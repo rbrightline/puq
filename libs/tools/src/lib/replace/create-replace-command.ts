@@ -1,9 +1,9 @@
 import { debug } from '@puq/debug';
 import type { Command } from 'commander';
-import type { ReplaceOptions } from './replace.js';
+import type { ReplaceOptions } from './replace-options.js';
 import { replace } from './replace.js';
 
-export function parseReplace(command: Command) {
+export function createReplaceCommand(command: Command) {
   command
 
     .command('replace')

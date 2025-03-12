@@ -1,0 +1,10 @@
+import { bootstrap } from '@puq/boot';
+import { <%- className %>AppModule } from './lib/<%- fileName %>-app.module.js';
+/**
+ * Start the app
+ */
+bootstrap({
+  name: '<%- fileName %>',
+  profile: 'dev',
+  module: <%- className %>AppModule,
+});

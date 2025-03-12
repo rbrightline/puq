@@ -13,40 +13,40 @@ import {
   UnsetRelation,
 } from '@puq/rest';
 import {
-  Sample,
-  QueryManySampleDto,
-  QueryOneSampleDto,
-  QueryCountSampleDto,
-  CreateSampleDto,
-  UpdateSampleDto,
-  SampleRelationParamDto,
-  SampleUnsetRelationParamDto,
+  <%- className %>,
+  QueryMany<%- className %>Dto,
+  QueryOne<%- className %>Dto,
+  QueryCount<%- className %>Dto,
+  Create<%- className %>Dto,
+  Update<%- className %>Dto,
+  <%- className %>RelationParamDto,
+  <%- className %>UnsetRelationParamDto,
 } from '@puq/entity';
 import { Body, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { EntityService } from '@puq/orm';
 import { InjectEntityService } from '@puq/provider';
 
 @Controller()
-export class SampleController extends CreateController({
-  entity: () => Sample,
-  createDto: () => CreateSampleDto,
-  updateDto: () => UpdateSampleDto,
-  queryManyDto: () => QueryManySampleDto,
-  queryOneDto: () => QueryOneSampleDto,
-  queryCountDto: () => QueryCountSampleDto,
+export class <%- className %>Controller extends CreateController({
+  entity: () => <%- className %>,
+  createDto: () => Create<%- className %>Dto,
+  updateDto: () => Update<%- className %>Dto,
+  queryManyDto: () => QueryMany<%- className %>Dto,
+  queryOneDto: () => QueryOne<%- className %>Dto,
+  queryCountDto: () => QueryCount<%- className %>Dto,
   unsetRelationDto: undefined,
   relationDto: undefined,
   isPublic: false,
 }) {
   constructor(
-    @InjectEntityService(Sample)
-    protected readonly service: EntityService<Sample>,
+    @InjectEntityService(<%- className %>)
+    protected readonly service: EntityService<<%- className %>>,
   ) {
     super(service);
   }
 
   @FindAll()
-  findAll(@Query() query: QueryManySampleDto) {
+  findAll(@Query() query: QueryMany<%- className %>Dto) {
     return this.service.find(query);
   }
 
@@ -56,19 +56,19 @@ export class SampleController extends CreateController({
   }
 
   @Count()
-  count(@Query() query: QueryOneSampleDto) {
+  count(@Query() query: QueryOne<%- className %>Dto) {
     return this.service.count(query);
   }
 
   @SaveOne()
-  saveOne(@Body() entity: CreateSampleDto) {
+  saveOne(@Body() entity: Create<%- className %>Dto) {
     return this.service.save(entity);
   }
 
   @UpdateOneById()
   updateOneById(
     @Param('id', ParseIntPipe) id: number,
-    @Body() entity: UpdateSampleDto,
+    @Body() entity: Update<%- className %>Dto,
   ) {
     return this.service.update(id, entity);
   }
@@ -79,22 +79,22 @@ export class SampleController extends CreateController({
   }
 
   @AddRelation()
-  addRelation(@Param() relation: SampleRelationParamDto) {
+  addRelation(@Param() relation: <%- className %>RelationParamDto) {
     return this.service.addRelation(relation);
   }
 
   @RemoveRelation()
-  removeRelation(@Param() relation: SampleRelationParamDto) {
+  removeRelation(@Param() relation: <%- className %>RelationParamDto) {
     return this.service.removeRelation(relation);
   }
 
   @SetRelation()
-  setRelation(@Param() relation: SampleRelationParamDto) {
+  setRelation(@Param() relation: <%- className %>RelationParamDto) {
     return this.service.setRelation(relation);
   }
 
   @UnsetRelation()
-  unsetRelation(@Param() relation: SampleUnsetRelationParamDto) {
+  unsetRelation(@Param() relation: <%- className %>UnsetRelationParamDto) {
     return this.service.unsetRelation(relation);
   }
 }

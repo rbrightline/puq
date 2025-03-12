@@ -225,8 +225,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="77"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:77</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -301,8 +301,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -377,8 +377,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="72"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:72</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:77</a></div>
                         </td>
                     </tr>
 
@@ -453,8 +453,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -529,8 +529,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -605,8 +605,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="82"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:82</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:87</a></div>
                         </td>
                     </tr>
 
@@ -681,8 +681,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -757,8 +757,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="87"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:87</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:92</a></div>
                         </td>
                     </tr>
 
@@ -833,8 +833,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:97</a></div>
                         </td>
                     </tr>
 
@@ -909,8 +909,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">src/lib/sample/sample.controller.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/lib/sample/sample.controller.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -990,6 +990,7 @@ import {
   Sample,
   QueryManySampleDto,
   QueryOneSampleDto,
+  QueryCountSampleDto,
   CreateSampleDto,
   UpdateSampleDto,
   SampleRelationParamDto,
@@ -1006,6 +1007,10 @@ export class SampleController extends CreateController({
   updateDto: () &#x3D;&gt; UpdateSampleDto,
   queryManyDto: () &#x3D;&gt; QueryManySampleDto,
   queryOneDto: () &#x3D;&gt; QueryOneSampleDto,
+  queryCountDto: () &#x3D;&gt; QueryCountSampleDto,
+  unsetRelationDto: undefined,
+  relationDto: undefined,
+  isPublic: false,
 }) {
   constructor(
     @InjectEntityService(Sample)
