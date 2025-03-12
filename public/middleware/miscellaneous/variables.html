@@ -137,18 +137,7 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>new ValidationPipe({
-  transform: true,
-  stopAtFirstError: true,
-  transformOptions: {
-    exposeUnsetFields: false,
-  },
-  validationError: {
-    target: false,
-    value: false,
-  },
-  exceptionFactory(errors) {
-    throw new UnprocessableEntityException({ errors });
-  },
+  ...globalValidationPipeOptions(),
 })</code>
                     </td>
                 </tr>

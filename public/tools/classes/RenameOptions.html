@@ -170,6 +170,7 @@
                                 <a href="#suffix" >suffix</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#to" >to</a>
                             </li>
                         </ul>
@@ -397,6 +398,7 @@ For example, <code>.ts</code> would find all ts files in the root directory</p>
                 <td class="col-md-4">
                     <a name="to"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>to</b></span>
                         <a href="#to"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -453,7 +455,7 @@ For example, <code>.ts</code> would find all ts files in the root directory</p>
    *
    * For example, &#x60;from[0]&#x60; will be replaced by &#x60;to[0]&#x60;, &#x60;from[1]&#x60; with &#x60;to[1]&#x60;
    */
-  to: string[];
+  to?: string[];
 
   /**
    * Placeholders to replace with &#x60;to&#x60;. If not set, all files are renamed with the value in the &#x60;to&#x60;&#x27;s first index.
