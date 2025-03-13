@@ -1,7 +1,6 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import { Delete } from '@nestjs/common';
 import {
-  ApiParam,
   ApiNotFoundResponse as NotFound,
   ApiOkResponse as Ok,
 } from '@nestjs/swagger';
@@ -15,7 +14,6 @@ export function UnsetRelation(): MethodDecorator {
     Common({
       summary: `Delete (one|many)-to-one relation from ${M.names.pascalCase} by relation params`,
     })(...args);
-    ApiParam({ type: M.unsetRelationDto?.() } as any)(...args);
     Delete(M.paths.relation)(...args);
     Ok({
       type: ResDto,

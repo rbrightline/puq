@@ -12,7 +12,7 @@ async function updateVersion() {
 
   const [, , version] = argv;
 
-  const dependencyVersion = `^${version}`;
+  const dependencyVersion = `${version}`;
 
   [
     ...LIBS.map((e) => join('libs', e)),

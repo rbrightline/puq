@@ -1,13 +1,13 @@
 import type { MethodDecoratorParam } from '@puq/type';
 import type { ApiOperationOptions } from '@nestjs/swagger';
 import {
-  ApiInternalServerErrorResponse as Internal,
-  ApiUnauthorizedResponse as Unauthorized,
-  ApiUnprocessableEntityResponse as InvalidInput,
-  ApiOperation as Operation,
-  ApiRequestTimeoutResponse as Timeout,
+  ApiInternalServerErrorResponse,
+  ApiUnauthorizedResponse,
+  ApiUnprocessableEntityResponse,
+  ApiOperation,
+  ApiRequestTimeoutResponse,
 } from '@nestjs/swagger';
-import { ValidationErrorDto as ErrorDto } from '@puq/orm';
+import { ValidationErrorDto } from '@puq/orm';
 
 export type CommonMethodOptions = {
   summary?: string;
@@ -20,12 +20,19 @@ export type CommonMethodOptions = {
 export function CommonMethod(options?: ApiOperationOptions): MethodDecorator {
   return <T>(...args: MethodDecoratorParam<T>) => {
     options = options ?? {};
-    Operation({ summary: 'Operation summary is not set', ...options })(...args);
-    Internal({ description: 'Internal server error' })(...args);
-    Unauthorized({ description: 'Unauthorized access' })(...args);
-    InvalidInput({ type: ErrorDto, description: 'Input validation error' })(
+    ApiOperation({ summary: 'Operation summary is not set', ...options })(
       ...args,
     );
-    Timeout({ description: 'Request is taking longer than expected' })(...args);
+    ApiInternalServerErrorResponse({ description: 'Internal server error' })(
+      ...args,
+    );
+    ApiUnauthorizedResponse({ description: 'Unauthorized access' })(...args);
+    ApiUnprocessableEntityResponse({
+      type: ValidationErrorDto,
+      description: 'Input validation error',
+    })(...args);
+    ApiRequestTimeoutResponse({
+      description: 'Request is taking longer than expected',
+    })(...args);
   };
 }

@@ -14,13 +14,12 @@ import {
   UnsetRelation,
   Body,
   Param,
-  Query,
 } from '@puq/rest';
+import { Query, ValidationPipe } from '@nestjs/common';
 import {
   Sample,
   QueryManySampleDto,
   QueryOneSampleDto,
-  QueryCountSampleDto,
   CreateSampleDto,
   UpdateSampleDto,
   SampleRelationParamDto,
@@ -28,18 +27,13 @@ import {
 } from '@puq/entity';
 import { EntityService, IDDto } from '@puq/orm';
 import { InjectEntityService } from '@puq/provider';
-import { debug } from 'console';
+import { debug } from '@puq/debug';
+
+class CustomValiationPipe extends ValidationPipe {}
 
 @Controller()
 export class SampleController extends CreateController({
   entity: () => Sample,
-  createDto: () => CreateSampleDto,
-  updateDto: () => UpdateSampleDto,
-  queryManyDto: () => QueryManySampleDto,
-  queryOneDto: () => QueryOneSampleDto,
-  queryCountDto: () => QueryCountSampleDto,
-  unsetRelationDto: undefined,
-  relationDto: undefined,
   isPublic: false,
 }) {
   constructor(
@@ -50,7 +44,7 @@ export class SampleController extends CreateController({
   }
 
   @FindAll()
-  findAll(@Query(() => QueryManySampleDto) query: any) {
+  findAll(@Query(CustomValiationPipe) query: QueryManySampleDto) {
     debug(query);
     return this.service.find(query);
   }
@@ -62,7 +56,8 @@ export class SampleController extends CreateController({
   }
 
   @Count()
-  count(@Query() query: QueryOneSampleDto) {
+  count(@Query(CustomValiationPipe) query: QueryOneSampleDto) {
+    debug(query);
     return this.service.count(query);
   }
 

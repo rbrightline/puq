@@ -1,14 +1,10 @@
-import type { LogLevel, Type } from '@nestjs/common';
+import type { Type } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { notEmptyOrThrow } from '@puq/is';
 import { AppEnv } from '@puq/env';
-import {
-  GlobalValidationPipe,
-  secureHeaders,
-  configureSwagger,
-} from '@puq/middleware';
+import { secureHeaders, configureSwagger } from '@puq/middleware';
 
 /**
  * App options
@@ -28,12 +24,8 @@ export type BootstrapOptions = {
    * App module
    */
   module: Type;
-
-  /**
-   * Log levels
-   */
-  logger?: LogLevel[];
 };
+
 /**
  * Bootstrap the sample service
  */
@@ -41,12 +33,7 @@ export async function bootstrap(options: BootstrapOptions) {
   notEmptyOrThrow(options.name);
   notEmptyOrThrow(options.profile);
 
-  const app = await NestFactory.create(options.module, {
-    logger:
-      (options.logger ?? options.profile === 'dev')
-        ? ['log', 'debug']
-        : undefined,
-  });
+  const app = await NestFactory.create(options.module);
 
   const config = app.get(ConfigService);
 
@@ -70,8 +57,8 @@ export async function bootstrap(options: BootstrapOptions) {
 
   app.enableCors({ origin: ORIGINS });
 
-  // Add global pipes
-  app.useGlobalPipes(GlobalValidationPipe);
+  // // Add global pipes
+  // app.useGlobalPipes(GlobalValidationPipe);
 
   // Configure helmet
   app.use(secureHeaders());

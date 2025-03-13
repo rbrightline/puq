@@ -9,8 +9,12 @@ import type { ParameterDecoratorParam, Type } from '@puq/type';
  */
 export function Body(expectedType?: () => Type): ParameterDecorator {
   return (...args: ParameterDecoratorParam) => {
-    __Body(new ValidationPipe(globalValidationPipeOptions(expectedType)))(
-      ...args,
-    );
+    if (expectedType) {
+      __Body(new ValidationPipe(globalValidationPipeOptions(expectedType)))(
+        ...args,
+      );
+    } else {
+      __Body()(...args);
+    }
   };
 }

@@ -1,27 +1,27 @@
 import type { Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
 import type { QueryOne } from '@puq/query';
+import type { CreateQueryOptions } from './create-query-options.js';
 import { ApiProperty, Dto, Property } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { CommonQueryDto } from './common-query-dto.js';
 import { keys } from '@puq/is';
-import type { CreateQueryOptions } from './create-query-options.js';
 
 /**
  * Create query dto to query a single entity
  * @param options - {@link CreateQueryOptions}
  * @returns- query dto
  */
-export function CreateQueryOneDto<Entity>(
-  options: CreateQueryOptions<Entity>,
-): Type<QueryOne<Entity, FindOptionsWhere<Entity>[]>> {
+export function CreateQueryOneDto<T>(
+  options: CreateQueryOptions<T>,
+): Type<QueryOne<T, FindOptionsWhere<T>[]>> {
   const { entity, maxSelectSize, isSelectRequired } = options;
   const columns = keys(entity);
 
   @Dto()
-  class QueryOneDto<T1>
+  class QueryOneDto
     extends CommonQueryDto
-    implements QueryOne<T1, FindOptionsWhere<T1>[]>
+    implements QueryOne<T, FindOptionsWhere<T>[]>
   {
     @Property({
       type: 'array',
@@ -33,11 +33,11 @@ export function CreateQueryOneDto<Entity>(
         enum: columns,
       },
     })
-    select?: Keys<T1>;
+    select?: Keys<T>;
 
     @WhereQueryTransformer(options)
     @ApiProperty({ type: 'array', items: { type: 'string' } })
-    where?: FindOptionsWhere<T1>[];
+    where?: FindOptionsWhere<T>[];
   }
 
   return QueryOneDto;

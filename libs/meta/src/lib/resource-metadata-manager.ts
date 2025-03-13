@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import type { Names, Paths } from '@puq/names';
-import { names, paths } from '@puq/names';
 import type { Keys, Type } from '@puq/type';
+import { names, paths } from '@puq/names';
 import { keys } from '@puq/is';
 
 /**
@@ -17,48 +17,6 @@ export type ResourceMetadataOptions<T> = {
    * entity class factory function that return the resource entity class
    */
   entity: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  createDto: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  updateDto: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  queryOneDto: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  queryManyDto: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  queryCountDto: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  relationDto?: () => Type;
-
-  /**
-   * function to return dto class
-   * @returns dto class
-   */
-  unsetRelationDto?: () => Type;
 
   /**
    * if set true, the requests bypass the authentication and authorization
@@ -188,37 +146,13 @@ export class ResourceMetadataManager {
     options: Readonly<ResourceMetadataOptions<T>>,
   ): void {
     const constructor = options.target.constructor;
-    const {
-      entity: __entity,
-      createDto: __createDto,
-      updateDto: __updateDto,
-      queryManyDto: __queryManyDto,
-      queryOneDto: __queryOneDto,
-      queryCountDto: __queryCountDto,
-      relationDto: __relationDto,
-      unsetRelationDto: __unsetRelationDto,
-      isPublic: __isPublic,
-    } = options;
+    const { entity: __entity, isPublic: __isPublic } = options;
     const __paths = paths(__entity().name);
     const __names = names(__entity().name);
 
     Reflect.defineMetadata(this.ENTITY, __entity, constructor);
-    Reflect.defineMetadata(this.CREATE_DTO, __createDto, constructor);
-    Reflect.defineMetadata(this.UPDATE_DTO, __updateDto, constructor);
-    Reflect.defineMetadata(this.QUERY_MANY_DTO, __queryManyDto, constructor);
-    Reflect.defineMetadata(this.QUERY_ONE_DTO, __queryOneDto, constructor);
-    Reflect.defineMetadata(this.QUERY_COUNT_DTO, __queryCountDto, constructor);
-    Reflect.defineMetadata(this.RELATION_DTO, __relationDto, constructor);
-
-    Reflect.defineMetadata(
-      this.UNSET_RELATION_DTO,
-      __unsetRelationDto,
-      constructor,
-    );
-
     Reflect.defineMetadata(this.PUBLIC, !!__isPublic, constructor);
     Reflect.defineMetadata(this.PATHS, __paths, constructor);
-
     Reflect.defineMetadata(this.NAMES, __names, constructor);
     Reflect.defineMetadata(this.NAME, __names.className, constructor);
     Reflect.defineMetadata(this.KEYS, keys(__entity()), constructor);
@@ -233,13 +167,6 @@ export class ResourceMetadataManager {
     return {
       target,
       entity: this.entity(target),
-      createDto: this.createDto(target),
-      updateDto: this.updateDto(target),
-      queryManyDto: this.queryManyDto(target),
-      queryOneDto: this.queryOneDto(target),
-      queryCountDto: this.queryCountDto(target),
-      relationDto: this.relationDto(target),
-      unsetRelationDto: this.unsetRelationDto(target),
       keys: this.keys(target),
       names: this.names(target),
       paths: this.paths(target),
@@ -263,34 +190,6 @@ export class ResourceMetadataManager {
    */
   static entity<T extends object>(target: T): () => Type {
     return Reflect.getMetadata(this.ENTITY, target);
-  }
-
-  static createDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.CREATE_DTO, target);
-  }
-
-  static updateDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.UPDATE_DTO, target);
-  }
-
-  static queryManyDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.QUERY_MANY_DTO, target);
-  }
-
-  static queryOneDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.QUERY_ONE_DTO, target);
-  }
-
-  static queryCountDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.QUERY_COUNT_DTO, target);
-  }
-
-  static relationDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.RELATION_DTO, target);
-  }
-
-  static unsetRelationDto<T extends object>(target: T) {
-    return Reflect.getMetadata(this.UNSET_RELATION_DTO, target);
   }
 
   /**

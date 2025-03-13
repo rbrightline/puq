@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { SampleController } from './sample.controller.js';
-import { SampleCron } from './sample.cron.js';
 import { Sample, SampleView } from '@puq/entity';
 import { EntityModule } from '@puq/provider';
 
@@ -11,6 +10,5 @@ import { EntityModule } from '@puq/provider';
     }),
   ],
   controllers: [SampleController],
-  providers: [SampleCron],
 })
 export class SampleModule {}

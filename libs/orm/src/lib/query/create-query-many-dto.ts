@@ -13,17 +13,17 @@ import type { CreateQueryOptions } from './create-query-options.js';
  * @param options - {@link CreateQueryOptions}
  * @returns - query dto
  */
-export function CreateQueryManyDto<Entity>(
-  options: CreateQueryOptions<Entity>,
-): Type<QueryMany<Entity, FindOptionsWhere<Entity>[]>> {
+export function CreateQueryManyDto<T>(
+  options: CreateQueryOptions<T>,
+): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
   const { entity, maxSelectSize, isSelectRequired, maxTake, defaultTake } =
     options;
 
   const columns = keys(entity);
   @Dto()
-  class QueryManyDto<T1>
+  class QueryManyDto
     extends CommonQueryDto
-    implements QueryMany<T1, FindOptionsWhere<T1>[]>
+    implements QueryMany<T, FindOptionsWhere<T>[]>
   {
     @Property({
       type: 'integer',
@@ -56,14 +56,14 @@ export function CreateQueryManyDto<Entity>(
         enum: columns,
       },
     })
-    select?: Keys<T1>;
+    select?: Keys<T>;
 
     @Property({
       type: 'string',
       enum: columns,
       default: 'id',
     })
-    orderBy?: KeyOf<T1>;
+    orderBy?: KeyOf<T>;
 
     @Property({
       type: 'string',
@@ -81,7 +81,7 @@ export function CreateQueryManyDto<Entity>(
 
     @WhereQueryTransformer(options)
     @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
-    where?: FindOptionsWhere<T1>[];
+    where?: FindOptionsWhere<T>[];
   }
 
   return QueryManyDto;

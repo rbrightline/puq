@@ -1,4 +1,4 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -46,7 +46,5 @@ import { SampleModule } from './sample/sample.module.js';
     }),
     SampleModule,
   ],
-
-  providers: [Logger],
 })
 export class SampleAppModule {}
