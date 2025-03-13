@@ -197,6 +197,14 @@
                             <li>
                                 <a href="#findOneById" >findOneById</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByIdOrThrow" >findOneByIdOrThrow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneOrThrow" >findOneOrThrow</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -867,7 +875,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:33</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:55</a></code>
 </div>
                         </td>
                     </tr>
@@ -927,7 +935,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>find(query: QueryMany<T | FindOptionsWhere[]>)</code>
+<code>find(query: QueryMany<T | any[]>)</code>
                 </td>
             </tr>
 
@@ -940,7 +948,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:16</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:17</a></code>
 </div>
                         </td>
                     </tr>
@@ -948,7 +956,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Query all entities</p>
+                        <div class="io-description"><p>Query all entities QueryMany&lt;T, FindOptionsWhere<T>[]&gt;</p>
 </div>
 
                             <div class="io-description">
@@ -966,7 +974,7 @@
                                         <tr>
                                                 <td>query</td>
                                             <td>
-                                                        <code>QueryMany&lt;T | FindOptionsWhere[]&gt;</code>
+                                                        <code>QueryMany&lt;T | any[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -1015,7 +1023,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:26</a></code>
 </div>
                         </td>
                     </tr>
@@ -1095,7 +1103,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:29</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:41</a></code>
 </div>
                         </td>
                     </tr>
@@ -1142,6 +1150,163 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByIdOrThrow"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByIdOrThrow</b></span>
+                        <a href="#findOneByIdOrThrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByIdOrThrow(id: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/EntityQueryService.html" target="_self" >EntityQueryService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneOrThrow"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneOrThrow</b></span>
+                        <a href="#findOneOrThrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneOrThrow(query: QueryOne<T | FindOptionsWhere[]>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/EntityQueryService.html" target="_self" >EntityQueryService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Query one entity</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p><a href="QueryOne">QueryOne</a></p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -1152,9 +1317,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { BaseEntity } from &#x27;../entity/base.js&#x27;;
-import type { QueryDeepPartialEntity } from &#x27;typeorm/query-builder/QueryPartialEntity.js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { QueryDeepPartialEntity } from &#x27;typeorm/query-builder/QueryPartialEntity.js&#x27;;
 import type {
+  BaseModel,
   RelationParam,
   UnsetRelationParam,
   UpdateResult,
@@ -1165,7 +1330,7 @@ import type { DeepPartial } from &#x27;typeorm&#x27;;
 /**
  * Write service
  */
-export class EntityService&lt;T extends BaseEntity&gt; extends EntityQueryService&lt;T&gt; {
+export class EntityService&lt;T extends BaseModel&gt; extends EntityQueryService&lt;T&gt; {
   save(entity: DeepPartial&lt;T&gt;): Promise&lt;T&gt; {
     return this.repository.save(entity);
   }

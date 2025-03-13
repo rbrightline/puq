@@ -189,9 +189,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Repository } from &#x27;typeorm&#x27;;
-import type { BaseEntity } from &#x27;../entity/base.js&#x27;;
+import type { BaseModel } from &#x27;@puq/type&#x27;;
 
-export class BaseEntityService&lt;T extends BaseEntity&gt; {
+export class BaseEntityService&lt;T extends BaseModel&gt; {
   constructor(protected readonly repository: Repository&lt;T&gt;) {}
 }
 </code></pre>

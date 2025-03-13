@@ -166,6 +166,14 @@
                             <li>
                                 <a href="#findOneById" >findOneById</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByIdOrThrow" >findOneByIdOrThrow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneOrThrow" >findOneOrThrow</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -207,8 +215,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -267,22 +275,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>find(query: QueryMany<T | FindOptionsWhere[]>)</code>
+<code>find(query: QueryMany<T | any[]>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:17</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Query all entities</p>
+                        <div class="io-description"><p>Query all entities QueryMany&lt;T, FindOptionsWhere<T>[]&gt;</p>
 </div>
 
                             <div class="io-description">
@@ -300,7 +308,7 @@
                                         <tr>
                                                 <td>query</td>
                                             <td>
-                                                        <code>QueryMany&lt;T | FindOptionsWhere[]&gt;</code>
+                                                        <code>QueryMany&lt;T | any[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -343,8 +351,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -417,8 +425,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -464,6 +472,151 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByIdOrThrow"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByIdOrThrow</b></span>
+                        <a href="#findOneByIdOrThrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByIdOrThrow(id: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneOrThrow"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneOrThrow</b></span>
+                        <a href="#findOneOrThrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneOrThrow(query: QueryOne<T | FindOptionsWhere[]>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Query one entity</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p><a href="QueryOne">QueryOne</a></p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -475,21 +628,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { FindOptionsWhere } from &#x27;typeorm&#x27;;
-import type { CountResult } from &#x27;@puq/type&#x27;;
+import { In } from &#x27;typeorm&#x27;;
+import type { BaseModel, CountResult } from &#x27;@puq/type&#x27;;
 import type { QueryCount, QueryMany, QueryOne } from &#x27;@puq/query&#x27;;
-import type { BaseEntity } from &#x27;../entity/base.js&#x27;;
 import { BaseEntityService } from &#x27;./base-entity.service.js&#x27;;
+import { NotFoundException } from &#x27;@nestjs/common&#x27;;
 
 /**
  * Read service
  */
 export class EntityQueryService&lt;
-  T extends BaseEntity,
+  T extends BaseModel,
 &gt; extends BaseEntityService&lt;T&gt; {
   /**
-   * Query all entities
+   * Query all entities QueryMany&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;
    */
-  find(query: QueryMany&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;) {
+  find(query: QueryMany&lt;T, any[]&gt;) {
     return this.repository.find(query);
   }
 
@@ -502,8 +656,29 @@ export class EntityQueryService&lt;
     return this.repository.findOne(query);
   }
 
+  /**
+   * Query one entity
+   * @param query {@link QueryOne}
+   * @returns
+   */
+  async findOneOrThrow(query: QueryOne&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;) {
+    const found &#x3D; await this.repository.findOne(query);
+    if (!found) throw new NotFoundException();
+    return found;
+  }
+
   findOneById(id: number) {
     return this.repository.findOneBy({ id } as FindOptionsWhere&lt;T&gt;);
+  }
+
+  async findOneByIdOrThrow(id: T[&#x27;id&#x27;]) {
+    const found &#x3D; await this.repository.findOneBy({
+      id: In([id]),
+    } as FindOptionsWhere&lt;T&gt;);
+
+    if (!found) throw new NotFoundException();
+
+    return found;
   }
 
   async count(query: QueryCount&lt;FindOptionsWhere&lt;T&gt;[]&gt;): Promise&lt;CountResult&gt; {

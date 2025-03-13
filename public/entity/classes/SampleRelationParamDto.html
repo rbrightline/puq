@@ -143,12 +143,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreateRelationParamDto, CreateUnsetRelationParamDto } from &#x27;@puq/orm&#x27;;
 import { Dto } from &#x27;@puq/property&#x27;;
 @Dto()
-export class SampleRelationParamDto extends CreateRelationParamDto([]) {}
+export class SampleRelationParamDto extends CreateRelationParamDto([
+  &#x27;attributes&#x27;,
+]) {}
 
 @Dto()
-export class SampleUnsetRelationParamDto extends CreateUnsetRelationParamDto(
-  [],
-) {}
+export class SampleUnsetRelationParamDto extends CreateUnsetRelationParamDto([
+  &#x27;owner&#x27;,
+]) {}
 </code></pre>
     </div>
 </div>
