@@ -1,6 +1,6 @@
-import type { FindOptionsWhere } from 'typeorm';
+import type { FindOptionsOrder, FindOptionsWhere } from 'typeorm';
 import { In } from 'typeorm';
-import type { BaseModel, CountResult } from '@puq/type';
+import type { BaseModel, CountResult, IDModel } from '@puq/type';
 import type { QueryCount, QueryMany, QueryOne } from '@puq/query';
 import { BaseEntityService } from './base-entity.service.js';
 import { NotFoundException } from '@nestjs/common';
@@ -15,7 +15,17 @@ export class EntityQueryService<
    * Query all entities QueryMany<T, FindOptionsWhere<T>[]>
    */
   find(query: QueryMany<T, any[]>) {
-    return this.repository.find(query);
+    const { orderBy, orderDir, orderNulls, ...restQuery } = query;
+
+    return this.repository.find({
+      ...restQuery,
+      order: {
+        [orderBy!]: {
+          direction: orderDir,
+          nulls: orderNulls,
+        },
+      } as FindOptionsOrder<T>,
+    });
   }
 
   /**
@@ -38,13 +48,25 @@ export class EntityQueryService<
     return found;
   }
 
-  findOneById(id: number) {
-    return this.repository.findOneBy({ id } as FindOptionsWhere<T>);
+  /**
+   * Find one by id
+   * @param id
+   * @returns
+   */
+  findOneById(objectId: IDModel) {
+    return this.repository.findOneBy({
+      id: In([objectId.id]),
+    } as FindOptionsWhere<T>);
   }
 
-  async findOneByIdOrThrow(id: T['id']) {
+  /**
+   * Find one by id or throw error
+   * @param id
+   * @returns
+   */
+  async findOneByIdOrThrow(objectId: IDModel) {
     const found = await this.repository.findOneBy({
-      id: In([id]),
+      id: In([objectId.id]),
     } as FindOptionsWhere<T>);
 
     if (!found) throw new NotFoundException();
@@ -52,6 +74,11 @@ export class EntityQueryService<
     return found;
   }
 
+  /**
+   * Count
+   * @param query
+   * @returns
+   */
   async count(query: QueryCount<FindOptionsWhere<T>[]>): Promise<CountResult> {
     return { count: await this.repository.count(query) };
   }

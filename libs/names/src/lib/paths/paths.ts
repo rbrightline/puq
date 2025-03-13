@@ -52,15 +52,17 @@ export function paths(resourceName: string, prefix = ''): Paths {
   const pluralName = pluralize(singularName);
   const singularPath = `${pf}${singularName}`;
   const pluralPath = `${pf}${pluralName}`;
-  const idPath = `${singularPath}/:id`;
+  const idPath = `${pluralPath}/:id`;
 
   return {
     plural: pluralPath,
     singular: singularPath,
     id: `${idPath}`,
-    increment: `${idPath}/increment`,
-    decrement: `${idPath}/decrement`,
-    count: `${pluralPath}/count`,
+    action: `${pluralPath}/actions/:action`,
+    actionId: `${pluralPath}/:id/actions/:action`,
+    increment: `${idPath}/actions/increment`,
+    decrement: `${idPath}/actions/decrement`,
+    count: `${pluralPath}/actions/count`,
     relation: `${idPath}/:relationName`,
     relationId: `${idPath}/:relationName/:relationId`,
     file: `${idPath}/file`,

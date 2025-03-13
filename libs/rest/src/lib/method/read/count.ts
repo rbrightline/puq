@@ -5,6 +5,10 @@ import { ResourceMetadataManager } from '@puq/meta';
 import { CommonMethod } from '../common/common.js';
 import { CountResultDto } from '@puq/orm';
 
+/**
+ * `/items/actions/count`
+ * @returns Method decorator
+ */
 export function Count(): MethodDecorator {
   return <T>(...args: MethodDecoratorParam<T>) => {
     const M = ResourceMetadataManager.get(args[0].constructor);

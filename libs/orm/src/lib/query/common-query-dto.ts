@@ -9,7 +9,6 @@ export class CommonQueryDto {
     type: 'boolean',
     description: 'Include deleted items to the load',
     default: false,
-    acceptString: true,
   })
   withDeleted?: boolean;
 }

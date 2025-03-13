@@ -2,5 +2,4 @@
 export * from './lib/program.js';
 export * from './lib/sample-app.module.js';
 export * from './lib/sample/sample.controller.js';
-export * from './lib/sample/sample.cron.js';
 export * from './lib/sample/sample.module.js';

@@ -1,7 +1,8 @@
 import type { Provider, Type } from '@nestjs/common';
 import type { ParameterDecoratorParam } from '@puq/type';
+import type { DataSource } from 'typeorm';
 import { Inject } from '@nestjs/common';
-import { DataSource } from 'typeorm';
+import { getDataSourceToken } from '@nestjs/typeorm';
 
 export const ENTITY_SERVICE_TOKEN_SUFFIX = 'ENTITY_SERVICE';
 
@@ -22,7 +23,7 @@ export function getEntityServiceToken<T>(entity: Type<T>): string {
  */
 export function provideEntityService(entity: Type, service: Type): Provider {
   return {
-    inject: [DataSource],
+    inject: [getDataSourceToken()],
     provide: getEntityServiceToken(entity),
     useFactory(dataSource: DataSource) {
       const repository = dataSource.getRepository(entity);
@@ -30,6 +31,7 @@ export function provideEntityService(entity: Type, service: Type): Provider {
     },
   };
 }
+
 /**
  * Inject entity service
  * @param entity entity class

@@ -11,6 +11,7 @@ export * from './lib/common/some-record.js';
 export * from './lib/common/some.js';
 export * from './lib/dto/count-result.js';
 export * from './lib/dto/delete-result.js';
+export * from './lib/dto/increment-param.js';
 export * from './lib/dto/relation-param.js';
 export * from './lib/dto/update-result.js';
 export * from './lib/dto/validation-error.js';

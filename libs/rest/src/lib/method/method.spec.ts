@@ -1,4 +1,4 @@
-import { DeleteOneById } from './delete/delete-one-by-id.js';
+import { DeleteOneById } from './delete/delete-by-id.js';
 import { Count } from './read/count.js';
 import { FindAll } from './read/find-all.js';
 import { FindOneById } from './read/find-one-by-id.js';

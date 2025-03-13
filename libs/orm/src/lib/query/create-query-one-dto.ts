@@ -2,10 +2,10 @@ import type { BaseModel, Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
 import type { QueryOne } from '@puq/query';
 import type { CreateQueryOptions } from './create-query-options.js';
-import { ApiProperty, Dto, Property } from '@puq/property';
-import { WhereQueryTransformer } from './where-query-transformer.js';
+import { Dto, Property } from '@puq/property';
 import { CommonQueryDto } from './common-query-dto.js';
 import { keys } from '@puq/is';
+import { WhereProperty } from './where-property.js';
 
 /**
  * Create query dto to query a single entity
@@ -35,14 +35,7 @@ export function CreateQueryOneDto<T extends BaseModel>(
     })
     select?: Keys<T>;
 
-    @WhereQueryTransformer(options)
-    @ApiProperty({
-      type: 'array',
-      items: { type: 'string' },
-
-      description: `Array of a query in form of property::operator::query.`,
-      example: ['property::operator::query'],
-    })
+    @WhereProperty(options)
     where?: FindOptionsWhere<T>[];
   }
 

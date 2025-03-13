@@ -1,37 +1,108 @@
 import type { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
 import type {
   BaseModel,
+  IDModel,
+  IncrementParam,
   RelationParam,
   UnsetRelationParam,
   UpdateResult,
 } from '@puq/type';
 import { EntityQueryService } from './entity-query.service.js';
-import type { DeepPartial } from 'typeorm';
+import type { FindOptionsWhere } from 'typeorm';
+import { In, type DeepPartial } from 'typeorm';
 
 /**
  * Write service
  */
 export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
+  /**
+   * Save entity
+   * @param entity
+   * @returns
+   */
   save(entity: DeepPartial<T>): Promise<T> {
     return this.repository.save(entity);
   }
 
+  /**
+   * Save many entities
+   * @param entities
+   * @returns
+   */
   saveMany(entities: DeepPartial<T>[]): Promise<T[]> {
     return this.repository.save(entities);
   }
 
-  update(id: number, entity: QueryDeepPartialEntity<T>) {
-    return this.repository.update(id, entity);
+  /**
+   * Update entity
+   * @param id
+   * @param entity
+   * @returns
+   */
+  update(objectId: IDModel, entity: QueryDeepPartialEntity<T>) {
+    return this.repository.update(objectId.id, entity);
   }
 
-  delete(id: number) {
-    return this.repository.delete(id);
+  /**
+   * Hard delete entity
+   * @param id
+   * @returns
+   */
+  delete(objectId: IDModel) {
+    return this.repository.delete(objectId.id);
   }
 
-  softDelete(id: number) {
-    return this.repository.softDelete(id);
+  /**
+   * Soft delete entity by id
+   * @param id
+   * @returns
+   */
+  softDelete(objectId: IDModel) {
+    return this.repository.softDelete(objectId.id);
   }
 
+  /**
+   * Restore entity by id
+   * @param id
+   * @returns
+   */
+  restore(objectId: IDModel) {
+    return this.repository.restore(objectId.id);
+  }
+
+  /**
+   * Increment property by value
+   * @param param
+   * @returns
+   */
+  increment(param: IncrementParam) {
+    const { id, property, value } = param;
+    return this.repository.increment(
+      { id: In([id]) } as FindOptionsWhere<T>,
+      property,
+      value ?? 1,
+    );
+  }
+
+  /**
+   * Decrement property by value
+   * @param param
+   * @returns
+   */
+  decrement(param: IncrementParam) {
+    const { id, property, value } = param;
+    return this.repository.decrement(
+      { id: In([id]) } as FindOptionsWhere<T>,
+      property,
+      value ?? 1,
+    );
+  }
+
+  /**
+   * Add relation (*-to-many) to the entity
+   * @param relation
+   * @returns
+   */
   async addRelation(relation: RelationParam): Promise<UpdateResult> {
     const { id, relationId, relationName } = relation;
     await this.repository
@@ -42,6 +113,11 @@ export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
     return { affected: 1 };
   }
 
+  /**
+   * Remove relation (*-to-many) to the entity
+   * @param relation
+   * @returns
+   */
   async removeRelation(relation: RelationParam): Promise<UpdateResult> {
     const { id, relationId, relationName: relationName } = relation;
     await this.repository
@@ -52,6 +128,11 @@ export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
     return { affected: 1 };
   }
 
+  /**
+   * Set relation (*-to-one) to the entity
+   * @param relation
+   * @returns
+   */
   async setRelation(relation: RelationParam): Promise<UpdateResult> {
     const { id, relationId, relationName } = relation;
     await this.repository
@@ -62,6 +143,11 @@ export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
     return { affected: 1 };
   }
 
+  /**
+   * Unset relation (*-to-one) to the entity
+   * @param relation
+   * @returns
+   */
   async unsetRelation(relation: UnsetRelationParam): Promise<UpdateResult> {
     const { id, relationName } = relation;
     await this.repository

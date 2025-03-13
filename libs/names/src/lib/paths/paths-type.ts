@@ -47,6 +47,10 @@ export type Paths = {
    */
   count: string;
 
+  action: string;
+
+  actionId: string;
+
   /**
    * The path used to represent a relation between resources.
    * @example

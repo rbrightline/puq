@@ -1,24 +1,22 @@
 import type { MethodDecoratorParam } from '@puq/type';
-import { Delete } from '@nestjs/common';
+import { Post } from '@nestjs/common';
 import { ApiNotFoundResponse, ApiOkResponse } from '@nestjs/swagger';
 import { ResourceMetadataManager } from '@puq/meta';
 import { CommonMethod } from '../common/common.js';
 import { DeleteResultDto } from '@puq/orm';
 
 /**
- * delete entity by id
+ * Restore entity by id
  * @returns - method decorator
  */
-export function DeleteOneById(): MethodDecorator {
+export function RestoreOneById(): MethodDecorator {
   return <T>(...args: MethodDecoratorParam<T>) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
-    CommonMethod({ summary: `Soft delete ${M.names.pascalCase} by id` })(
-      ...args,
-    );
-    Delete(M.paths.id)(...args);
+    CommonMethod({ summary: `Restore ${M.names.pascalCase} by id` })(...args);
+    Post(M.paths.id)(...args);
     ApiOkResponse({
       type: DeleteResultDto,
-      description: `Successfully deleted ${M.names.pascalCase} by id`,
+      description: `Successfully restored ${M.names.pascalCase} by id`,
     })(...args);
     ApiNotFoundResponse({
       description: `${M.names.pascalCase} entity not found by id`,

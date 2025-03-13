@@ -13,7 +13,7 @@ import { SampleModule } from './sample/sample.module.js';
   imports: [
     ConfigModule.forRoot({}),
     ScheduleModule.forRoot(),
-    ThrottlerModule.forRoot([{ ttl: 60000, limit: 10 }]),
+    ThrottlerModule.forRoot({ throttlers: [{ limit: 1000, ttl: 60_000 }] }),
     EventEmitterModule.forRoot({ delimiter: '.' }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

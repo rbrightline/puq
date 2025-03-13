@@ -4,7 +4,11 @@ import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { notEmptyOrThrow } from '@puq/is';
 import { AppEnv } from '@puq/env';
-import { secureHeaders, configureSwagger } from '@puq/middleware';
+import {
+  secureHeaders,
+  configureSwagger,
+  GlobalValidationPipe,
+} from '@puq/middleware';
 
 /**
  * App options
@@ -58,7 +62,7 @@ export async function bootstrap(options: BootstrapOptions) {
   app.enableCors({ origin: ORIGINS });
 
   // // Add global pipes
-  // app.useGlobalPipes(GlobalValidationPipe);
+  app.useGlobalPipes(GlobalValidationPipe);
 
   // Configure helmet
   app.use(secureHeaders());

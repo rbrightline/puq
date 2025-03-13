@@ -1,12 +1,12 @@
-import type { DynamicModule } from '@nestjs/common';
 import type { Type } from '@puq/type';
+import type { DynamicModule } from '@nestjs/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   getEntityServiceToken,
   provideEntityService,
-} from '../service/provide-entity-service.js';
-import { EntityService } from '@puq/orm';
+} from './provide-entity-service.js';
+import { EntityService } from '../service/entity.service.js';
 
 export type EntityModuleOptions = {
   entities: Type[];

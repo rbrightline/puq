@@ -1,4 +1,6 @@
 import { program } from 'commander';
+import { bootstrap } from 'src/run.js';
+import { SampleAppModule } from './sample-app.module.js';
 
 async function boot() {
   program.name('sample CLI').description('sample CLI').version('0.0.1');
@@ -8,12 +10,11 @@ async function boot() {
     .name('sample')
     .description('Run the sample service')
     .action(async () => {
-      // return await bootstrap({
-      //   name: 'sample',
-      //   profile: 'dev',
-      //   module: SampleAppModule,
-      // });
-      throw new Error('Not implemented');
+      return await bootstrap({
+        name: 'sample',
+        profile: 'dev',
+        module: SampleAppModule,
+      });
     });
 
   program.parse();

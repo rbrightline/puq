@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SampleController } from './sample.controller.js';
+import { EntityModule } from '@puq/orm';
 import { Sample, SampleView } from '@puq/entity';
-import { EntityModule } from '@puq/provider';
 
 @Module({
   imports: [

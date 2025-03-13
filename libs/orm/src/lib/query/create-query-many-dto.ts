@@ -2,12 +2,11 @@ import type { FindOptionsWhere } from 'typeorm';
 import type { BaseModel, KeyOf, Keys, Type } from '@puq/type';
 import type { QueryMany } from '@puq/query';
 import type { CreateQueryOptions } from './create-query-options.js';
-import { ApiProperty, Dto, Property } from '@puq/property';
-import { WhereQueryTransformer } from './where-query-transformer.js';
+import { Dto, Property } from '@puq/property';
 import { OrderDirection, OrderNulls } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
 import { keys } from '@puq/is';
-import { Expose } from 'class-transformer';
+import { WhereProperty } from './where-property.js';
 
 /**
  * Create query dto to query many entities
@@ -81,9 +80,7 @@ export function CreateQueryManyDto<T extends BaseModel>(
     })
     orderNulls?: OrderNulls;
 
-    @WhereQueryTransformer(options)
-    @Expose()
-    @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
+    @WhereProperty(options)
     where?: FindOptionsWhere<T>[];
   }
 
