@@ -47,8 +47,12 @@ export function pickColumnType(options: PropertyOptions): ColumnType {
           return 'boolean';
         case 'object':
           return 'jsonb';
-        case 'array':
+        case 'array': {
+          if (options.items.type === 'object') {
+            return 'jsonb';
+          }
           return pickColumnType(options.items);
+        }
         default:
           throw new Error(`Invalid column type ${type}`);
       }

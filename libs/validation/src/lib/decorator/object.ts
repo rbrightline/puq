@@ -31,7 +31,7 @@ export function ObjectValidation(
 
     IsThen
       // is strict
-      .isTrue(strict, () => ObjectTransformer()(...args))
+      .isNotTrue(strict, () => ObjectTransformer()(...args))
 
       // is required
       .isTrue(

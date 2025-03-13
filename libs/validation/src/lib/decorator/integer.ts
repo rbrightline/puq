@@ -28,7 +28,7 @@ export function IntegerValidation(
 
     IsThen
       //
-      .isTrue(strict, () => IntegerTransformer()(...args))
+      .isNotTrue(strict, () => IntegerTransformer()(...args))
 
       .ok(integerFormat, (value) =>
         NumberFormatValidation(value, validationOptions)(...args),

@@ -26,7 +26,7 @@ export function NumberValidation(
 
     const { strict, numberFormat, maxDecimals } = options;
 
-    IsThen.isTrue(strict, () => NumberTransformer()(...args))
+    IsThen.isNotTrue(strict, () => NumberTransformer()(...args))
 
       .ok(numberFormat, (value) =>
         NumberFormatValidation(value, validationOptions)(...args),

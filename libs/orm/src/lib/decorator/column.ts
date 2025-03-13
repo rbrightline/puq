@@ -27,7 +27,7 @@ export function Column(options: PropertyOptions): PropertyDecorator {
 
     __Column({
       type,
-      array: options.type === 'array',
+      array: options.type === 'array' && options.items.type !== 'object',
       nullable,
       unique,
       update,

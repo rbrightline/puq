@@ -1,17 +1,18 @@
+import type { BaseModel, PropertyDecoratorParam } from '@puq/type';
+import type { CreateQueryOptions } from './create-query-options.js';
 import { parseWhereQueryString, validateWhereQueryString } from '@puq/query';
 import { Transform } from 'class-transformer';
 import { createFindOperator } from './create-find-operator.js';
-import type { CreateQueryOptions } from './create-query-options.js';
 import { keys } from '@puq/is';
 /**
  * Where query transformer
  * @param options
  * @returns
  */
-export function WhereQueryTransformer<Entity>(
-  options: CreateQueryOptions<Entity>,
+export function WhereQueryTransformer<T extends BaseModel>(
+  options: CreateQueryOptions<T>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     const columns = keys(options.entity);
 
     Transform(({ value }) => {
@@ -40,6 +41,6 @@ export function WhereQueryTransformer<Entity>(
         }
       }
       return value;
-    })(t, p);
+    })(...args);
   };
 }

@@ -3,6 +3,6 @@ import { Dto } from '@puq/property';
 import { Sample } from './sample.entity.js';
 
 @Dto()
-export class QueryManySampleDto extends CreateQueryManyDto({
+export class QueryManySampleDto extends CreateQueryManyDto<Sample>({
   entity: Sample,
 }) {}

@@ -7,6 +7,11 @@ export function globalValidationPipeOptions(
   return {
     expectedType: expectedType?.(),
     transform: true,
+    validationError: {
+      target: true,
+      value: true,
+    },
+
     exceptionFactory(errors) {
       throw new UnprocessableEntityException({ errors });
     },
@@ -15,6 +20,6 @@ export function globalValidationPipeOptions(
 /**
  * Validation pipe that activate transform, hide target and value, and restructure errors
  */
-export const GlobalValidationPipe = new ValidationPipe({
-  ...globalValidationPipeOptions(),
-});
+export const GlobalValidationPipe = new ValidationPipe(
+  globalValidationPipeOptions(),
+);

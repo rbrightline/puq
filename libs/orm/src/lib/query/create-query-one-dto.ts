@@ -1,4 +1,4 @@
-import type { Keys, Type } from '@puq/type';
+import type { BaseModel, Keys, Type } from '@puq/type';
 import type { FindOptionsWhere } from 'typeorm';
 import type { QueryOne } from '@puq/query';
 import type { CreateQueryOptions } from './create-query-options.js';
@@ -12,7 +12,7 @@ import { keys } from '@puq/is';
  * @param options - {@link CreateQueryOptions}
  * @returns- query dto
  */
-export function CreateQueryOneDto<T>(
+export function CreateQueryOneDto<T extends BaseModel>(
   options: CreateQueryOptions<T>,
 ): Type<QueryOne<T, FindOptionsWhere<T>[]>> {
   const { entity, maxSelectSize, isSelectRequired } = options;
@@ -36,7 +36,13 @@ export function CreateQueryOneDto<T>(
     select?: Keys<T>;
 
     @WhereQueryTransformer(options)
-    @ApiProperty({ type: 'array', items: { type: 'string' } })
+    @ApiProperty({
+      type: 'array',
+      items: { type: 'string' },
+
+      description: `Array of a query in form of property::operator::query.`,
+      example: ['property::operator::query'],
+    })
     where?: FindOptionsWhere<T>[];
   }
 

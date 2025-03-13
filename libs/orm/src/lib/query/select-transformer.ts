@@ -1,3 +1,4 @@
+import type { PropertyDecoratorParam } from '@puq/type';
 import { Transform } from 'class-transformer';
 
 /**
@@ -5,12 +6,12 @@ import { Transform } from 'class-transformer';
  * @returns- property decorator
  */
 export function SelectTransformer(): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     Transform(({ value }) => {
       if (typeof value === 'string') {
         return [value];
       }
       return value;
-    })(t, p);
+    })(...args);
   };
 }

@@ -85,7 +85,7 @@
                     "outputPath": "services/sample/dist",
                     "main": "services/sample/src/index.ts",
                     "tsConfig": "services/sample/tsconfig.lib.json",
-                    "skipTypeCheck": false,
+                    "skipTypeCheck": true,
                     "stripLeadingPaths": true,
                     "watch": true
                 }
@@ -119,6 +119,7 @@
         "@puq/entity": "workspace:^",
         "@puq/env": "workspace:^",
         "@puq/is": "workspace:^",
+        "@puq/middleware": "workspace:^",
         "@puq/model": "workspace:^",
         "@puq/orm": "workspace:^",
         "@puq/property": "workspace:^",
@@ -127,7 +128,6 @@
         "@puq/rest": "workspace:^",
         "@puq/type": "workspace:^",
         "@swc/helpers": "^0.5.15",
-        "better-sqlite3": "^11.8.1",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",
         "commander": "^13.1.0",

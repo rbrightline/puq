@@ -1,10 +1,10 @@
-import type { Type } from '@puq/type';
+import type { BaseModel, Type } from '@puq/type';
 
-export type CreateQueryOptions<Entity> = {
+export type CreateQueryOptions<T extends BaseModel> = {
   /**
    * Entity class
    */
-  entity: Type<Entity>;
+  entity: Type<T>;
   /**
    * Maximum columns to select
    */

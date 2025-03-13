@@ -1,6 +1,6 @@
 import type { Repository } from 'typeorm';
-import type { BaseEntity } from '../entity/base.js';
+import type { BaseModel } from '@puq/type';
 
-export class BaseEntityService<T extends BaseEntity> {
+export class BaseEntityService<T extends BaseModel> {
   constructor(protected readonly repository: Repository<T>) {}
 }

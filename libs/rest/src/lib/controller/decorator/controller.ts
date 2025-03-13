@@ -5,7 +5,7 @@ import { ResourceMetadataManager } from '@puq/meta';
 
 /**
  * Define resource controller
- * @returns - {@link ClassDecorator}
+ * @returns - class decorator
  */
 export function Controller(): ClassDecorator {
   return (...args: ClassDecoratorParam) => {

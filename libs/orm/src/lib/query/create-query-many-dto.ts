@@ -1,25 +1,27 @@
 import type { FindOptionsWhere } from 'typeorm';
-import type { KeyOf, Keys, Type } from '@puq/type';
+import type { BaseModel, KeyOf, Keys, Type } from '@puq/type';
 import type { QueryMany } from '@puq/query';
+import type { CreateQueryOptions } from './create-query-options.js';
 import { ApiProperty, Dto, Property } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
 import { OrderDirection, OrderNulls } from '@puq/query';
 import { CommonQueryDto } from './common-query-dto.js';
 import { keys } from '@puq/is';
-import type { CreateQueryOptions } from './create-query-options.js';
+import { Expose } from 'class-transformer';
 
 /**
  * Create query dto to query many entities
  * @param options - {@link CreateQueryOptions}
  * @returns - query dto
  */
-export function CreateQueryManyDto<T>(
+export function CreateQueryManyDto<T extends BaseModel>(
   options: CreateQueryOptions<T>,
 ): Type<QueryMany<T, FindOptionsWhere<T>[]>> {
   const { entity, maxSelectSize, isSelectRequired, maxTake, defaultTake } =
     options;
 
   const columns = keys(entity);
+
   @Dto()
   class QueryManyDto
     extends CommonQueryDto
@@ -80,6 +82,7 @@ export function CreateQueryManyDto<T>(
     orderNulls?: OrderNulls;
 
     @WhereQueryTransformer(options)
+    @Expose()
     @ApiProperty({ type: 'array', items: { type: 'string', required: true } })
     where?: FindOptionsWhere<T>[];
   }

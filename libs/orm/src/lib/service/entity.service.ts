@@ -1,6 +1,6 @@
-import type { BaseEntity } from '../entity/base.js';
 import type { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
 import type {
+  BaseModel,
   RelationParam,
   UnsetRelationParam,
   UpdateResult,
@@ -11,7 +11,7 @@ import type { DeepPartial } from 'typeorm';
 /**
  * Write service
  */
-export class EntityService<T extends BaseEntity> extends EntityQueryService<T> {
+export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
   save(entity: DeepPartial<T>): Promise<T> {
     return this.repository.save(entity);
   }

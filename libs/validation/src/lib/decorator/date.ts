@@ -46,7 +46,7 @@ export function DateValidation(
       sameYearAsProperty,
     } = options;
 
-    IsThen.isNotFalse(strict, () => DateTransformer()(...args))
+    IsThen.isNotTrue(strict, () => DateTransformer()(...args))
       //
       .ok(minDate, (value) => MinDate(value, validationOptions)(...args))
 

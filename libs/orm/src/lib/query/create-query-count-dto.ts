@@ -1,5 +1,5 @@
 import type { FindOptionsWhere } from 'typeorm';
-import type { Type } from '@puq/type';
+import type { BaseModel, Type } from '@puq/type';
 import type { QueryCount } from '@puq/query';
 import { ApiProperty, Dto } from '@puq/property';
 import { WhereQueryTransformer } from './where-query-transformer.js';
@@ -11,11 +11,11 @@ import type { CreateQueryOptions } from './create-query-options.js';
  * @param options - {@link CreateQueryOptions}
  * @returns - query dto
  */
-export function CreateQueryCountDto<Entity>(
-  options: CreateQueryOptions<Entity>,
+export function CreateQueryCountDto<T extends BaseModel>(
+  options: CreateQueryOptions<T>,
 ): Type {
   @Dto()
-  class QueryCountDto<T>
+  class QueryCountDto
     extends CommonQueryDto
     implements QueryCount<FindOptionsWhere<T>[]>
   {
