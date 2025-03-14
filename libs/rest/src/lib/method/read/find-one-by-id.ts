@@ -5,7 +5,7 @@ import { ResourceMetadataManager } from '@puq/meta';
 import { CommonMethod } from '../common/common.js';
 
 export function FindOneById(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({ summary: `Delete ${M.names.pascalCase} by id` })(...args);
     Get(M.paths.id)(...args);

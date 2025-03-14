@@ -6,7 +6,7 @@ import { CommonMethod } from '../common/common.js';
 import { pluralize } from '@puq/names';
 
 export function FindAll(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({
       summary: `Find all ${pluralize(M.names.pascalCase)} by query`,

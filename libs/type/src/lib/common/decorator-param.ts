@@ -13,10 +13,10 @@ export type ClassDecoratorParam = [Function];
 /**
  * Decorator param `(...args:MethodDecoratorParam)=>`
  */
-export type MethodDecoratorParam<T> = [
+export type MethodDecoratorParam = [
   object,
   string | symbol,
-  TypedPropertyDescriptor<T>,
+  TypedPropertyDescriptor<any>,
 ];
 
 /**

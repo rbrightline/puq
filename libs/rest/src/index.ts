@@ -11,6 +11,7 @@ export * from './lib/method/relation/add-relation.js';
 export * from './lib/method/relation/remove-relation.js';
 export * from './lib/method/relation/set-relation.js';
 export * from './lib/method/relation/unset-relation.js';
+export * from './lib/method/rest.js';
 export * from './lib/method/write/action-id.js';
 export * from './lib/method/write/action.js';
 export * from './lib/method/write/decrement.js';

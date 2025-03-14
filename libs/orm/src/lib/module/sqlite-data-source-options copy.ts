@@ -1,8 +1,8 @@
 import { EnvKeys } from '@puq/env';
 import { TableNamingStrategy } from '../factory/naming-strategy.js';
-import { ConfigService } from '@nestjs/config';
-import { DataSourceModuleOptions } from './data-source-options.js';
-import { DataSourceOptions } from 'typeorm';
+import type { ConfigService } from '@nestjs/config';
+import type { DataSourceModuleOptions } from './data-source-options.js';
+import type { DataSourceOptions } from 'typeorm';
 
 export function getSqliteDataSourceOptions(
   config: ConfigService,

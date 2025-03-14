@@ -87,4 +87,5 @@ export default [
   'cors',
   'orm',
   'brightline',
+  'localhost',
 ];

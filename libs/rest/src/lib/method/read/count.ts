@@ -10,7 +10,7 @@ import { CountResultDto } from '@puq/orm';
  * @returns Method decorator
  */
 export function Count(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({ summary: `Count ${M.names.pascalCase} by query` })(...args);
     Get(M.paths.count)(...args);

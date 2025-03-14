@@ -9,7 +9,7 @@ import { CommonMethod as Common } from '../common/common.js';
 import { UpdateResultDto as ResDto } from '@puq/orm';
 
 export function UnsetRelation(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = Meta.get(args[0].constructor);
     Common({
       summary: `Delete (one|many)-to-one relation from ${M.names.pascalCase} by relation params`,

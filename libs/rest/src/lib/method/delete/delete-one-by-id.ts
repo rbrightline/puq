@@ -10,7 +10,7 @@ import { DeleteResultDto } from '@puq/orm';
  * @returns - method decorator
  */
 export function DeleteOneById(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({ summary: `Soft delete ${M.names.pascalCase} by id` })(
       ...args,

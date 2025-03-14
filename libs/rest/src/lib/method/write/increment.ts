@@ -6,7 +6,7 @@ import { CommonMethod } from '../common/common.js';
 import { UpdateResultDto } from '@puq/orm';
 
 export function Increment(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({
       summary: `Increment the property of ${M.names.pascalCase} by value`,

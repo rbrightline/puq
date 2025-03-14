@@ -2,7 +2,7 @@ import { EnvKeys } from '@puq/env';
 import type { DataSourceOptions } from 'typeorm';
 import { TableNamingStrategy } from '../factory/naming-strategy.js';
 import type { Type } from '@puq/type';
-import { ConfigService } from '@nestjs/config';
+import type { ConfigService } from '@nestjs/config';
 
 export type DataSourceModuleOptions = {
   entities: Type[];

@@ -6,7 +6,7 @@ import { CommonMethod } from '../common/common.js';
 import { DeleteResultDto } from '@puq/orm';
 
 export function SaveOne(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({ summary: `Save ${M.names.pascalCase}` })(...args);
     Post(M.paths.plural)(...args);

@@ -10,7 +10,7 @@ import { DeleteResultDto } from '@puq/orm';
  * @returns - method decorator
  */
 export function RestoreOneById(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({ summary: `Restore ${M.names.pascalCase} by id` })(...args);
     Post(M.paths.id)(...args);

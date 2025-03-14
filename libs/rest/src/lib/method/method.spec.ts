@@ -1,4 +1,5 @@
-import { DeleteOneById } from './delete/delete-by-id.js';
+import { DeleteOneById } from './delete/delete-one-by-id.js';
+import { Rest } from './method.js';
 import { Count } from './read/count.js';
 import { FindAll } from './read/find-all.js';
 import { FindOneById } from './read/find-one-by-id.js';
@@ -25,5 +26,18 @@ describe('Methods', () => {
     Decrement();
     Count();
     SaveOne();
+
+    Rest.Action();
+    Rest.ActionId();
+    Rest.AddRelation();
+    Rest.Count();
+    Rest.Decrement();
+    Rest.DeleteOneById();
+    Rest.FindAll();
+    Rest.FindOneById();
+    Rest.Increment();
+    Rest.RemoveRelation();
+    Rest.RestoreOneById();
+    Rest.SaveOne();
   });
 });

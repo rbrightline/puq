@@ -18,7 +18,7 @@ export type CommonMethodOptions = {
  * @returns - {@link MethodDecorator}
  */
 export function CommonMethod(options?: ApiOperationOptions): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     options = options ?? {};
     ApiOperation({ summary: 'Operation summary is not set', ...options })(
       ...args,

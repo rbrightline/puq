@@ -6,7 +6,7 @@ import { CommonMethod } from '../common/common.js';
 import { UpdateResultDto } from '@puq/orm';
 
 export function RemoveRelation(): MethodDecorator {
-  return <T>(...args: MethodDecoratorParam<T>) => {
+  return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({
       summary: `Remove many-to-many relation from ${M.names.pascalCase} by relation params`,
