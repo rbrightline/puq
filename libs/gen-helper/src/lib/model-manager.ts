@@ -6,6 +6,7 @@ import {
   propertyDecorator,
   relationDecorator,
   propertyDecoratorForRelations,
+  convertRelationOptionsToPropertyOptions,
 } from '@puq/printer';
 import { names } from '@nx/devkit';
 
@@ -55,7 +56,7 @@ export class ModelManager {
       ?.map((e) =>
         [
           propertyDecoratorForRelations('Property', e),
-          relationDefinition(e),
+          propertyDefinition(convertRelationOptionsToPropertyOptions(e)),
         ].join('\n'),
       )
       .join('\n');
@@ -100,7 +101,10 @@ export class ModelManager {
       }),
     );
     if (targets.size > 0) {
-      return `<${[...targets].filter((e) => e).join(',')}>`;
+      return `<${[...targets]
+        .filter((e) => e)
+        .map((e) => `${e}Model`)
+        .join(',')}>`;
     }
     return '';
   }
@@ -141,9 +145,12 @@ export class ModelManager {
     );
 
     if (targets.size > 0) {
-      return [...targets].map((e) => {
-        return `import type {${e}} from '../${names(e).fileName}/${names(e).fileName}.model.js'`;
-      });
+      return [...targets]
+        .filter((e) => e)
+        .map((e) => {
+          return `import type {${e}Model} from '../${names(e).fileName}/${names(e).fileName}.model.js'`;
+        })
+        .join('\n');
     }
     return '';
   }

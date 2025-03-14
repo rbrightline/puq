@@ -31,6 +31,7 @@ export async function entityGenerator(
     actualGenerics: M.actualGenerics(),
     imports: M.imports(),
   });
+
   await formatFiles(tree);
 }
 

@@ -10,7 +10,7 @@
         .select('m.createdAt', 'createdAt')
         .select('m.updatedAt', 'updatedAt')
         .select('m.deletedAt', 'deletedAt')
-        .from(<%- className %>, 'm)
+        .from(<%- className %>, 'm')
   }
  })
  export class <%- className %>View extends BaseView implements <%- className %>ViewModel {

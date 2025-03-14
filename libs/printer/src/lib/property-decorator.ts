@@ -22,14 +22,14 @@ export function convertRelationOptionsToPropertyOptions(
     case 'one-to-many':
       return {
         type: 'array',
-        items: { type: 'object', target: options.target },
+        items: { type: 'object', target: 'IDDto' },
         required: options.required,
       };
     case 'many-to-one':
     case 'one-to-one':
       return {
         type: 'object',
-        target: options.target,
+        target: 'IDDto',
         required: options.required,
       };
   }
