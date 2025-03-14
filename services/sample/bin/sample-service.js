@@ -1,1 +1,1 @@
-import('../dist/run.js');
+import('../dist/lib/program.js');

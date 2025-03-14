@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import { bootstrap } from 'src/run.js';
+import { bootstrap } from '@puq/boot';
 import { SampleAppModule } from './sample-app.module.js';
 
 async function boot() {
@@ -11,9 +11,7 @@ async function boot() {
     .description('Run the sample service')
     .action(async () => {
       return await bootstrap({
-        name: 'sample',
-        profile: 'dev',
-        module: SampleAppModule,
+        module: () => SampleAppModule,
       });
     });
 

@@ -190,15 +190,6 @@ importers:
 
   libs/env:
     dependencies:
-      '@puq/debug':
-        specifier: workspace:^
-        version: link:../debug
-      '@puq/is':
-        specifier: workspace:^
-        version: link:../is
-      '@puq/names':
-        specifier: workspace:^
-        version: link:../names
       '@swc/helpers':
         specifier: ^0.5.15
         version: 0.5.15
@@ -293,13 +284,12 @@ importers:
       '@puq/error':
         specifier: workspace:^
         version: link:../error
-      '@swc/helpers':
-        specifier: ^0.5.15
-        version: 0.5.15
-    devDependencies:
       '@puq/type':
         specifier: workspace:^
         version: link:../type
+      '@swc/helpers':
+        specifier: ^0.5.15
+        version: 0.5.15
 
   libs/meta:
     dependencies:
@@ -380,6 +370,9 @@ importers:
       '@nestjs/typeorm':
         specifier: ^11.0.0
         version: 11.0.0(@nestjs/common@11.0.11(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@11.0.11)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.21(better-sqlite3@11.8.1)(pg@8.13.3)(reflect-metadata@0.2.2)(ts-node@10.9.1(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/node@22.13.9)(typescript@5.8.2)))
+      '@puq/env':
+        specifier: workspace:^
+        version: link:../env
       '@puq/is':
         specifier: workspace:^
         version: link:../is
@@ -4514,8 +4507,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libphonenumber-js@1.12.5:
-    resolution: {integrity: sha512-DOjiaVjjSmap12ztyb4QgoFmUe/GbgnEXHu+R7iowk0lzDIjScvPAm8cK9RYTEobbRb0OPlwlZUGTTJPJg13Kw==}
+  libphonenumber-js@1.12.6:
+    resolution: {integrity: sha512-PJiS4ETaUfCOFLpmtKzAbqZQjCCKVu2OhTV4SVNNE7c2nu/dACvtCqj4L0i/KWNnIgRv7yrILvBj5Lonv5Ncxw==}
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -9728,7 +9721,7 @@ snapshots:
   class-validator@0.14.1:
     dependencies:
       '@types/validator': 13.12.2
-      libphonenumber-js: 1.12.5
+      libphonenumber-js: 1.12.6
       validator: 13.12.0
 
   cli-cursor@3.1.0:
@@ -11387,7 +11380,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libphonenumber-js@1.12.5: {}
+  libphonenumber-js@1.12.6: {}
 
   lines-and-columns@1.2.4: {}
 

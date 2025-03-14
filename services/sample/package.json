@@ -91,7 +91,7 @@
                 }
             },
             "start": {
-                "command": "cd services/sample &&  node --watch --watch-path=src ./bin/sample-service.js sample"
+                "command": "cd services/sample &&  node --watch --watch-path=src ./dist/run.js"
             },
             "serve": {
                 "dependsOn": [
