@@ -164,6 +164,7 @@
                                 <a href="#findOne" >findOne</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findOneById" >findOneById</a>
                             </li>
                             <li>
@@ -215,14 +216,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:82</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Count</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -351,8 +354,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -411,6 +414,7 @@
                 <td class="col-md-4">
                     <a name="findOneById"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>findOneById</b></span>
                         <a href="#findOneById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -418,21 +422,24 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findOneById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneById(param: IDModel, query: QueryOne<T | FindOptionsWhere[]>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Find one by id</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -447,9 +454,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>param</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -462,7 +481,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -487,21 +506,23 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneByIdOrThrow(id: T)</code>
+                    <code>findOneByIdOrThrow(param: IDModel, query: QueryOne<T | FindOptionsWhere[]>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:68</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Find one by id or throw error</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -516,9 +537,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>param</td>
                                             <td>
-                                                        <code>T</code>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -563,8 +596,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/lib/service/entity-query.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/lib/service/entity-query.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -627,9 +660,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { FindOptionsWhere } from &#x27;typeorm&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { FindOptionsOrder, FindOptionsWhere } from &#x27;typeorm&#x27;;
 import { In } from &#x27;typeorm&#x27;;
-import type { BaseModel, CountResult } from &#x27;@puq/type&#x27;;
+import type { BaseModel, CountResult, IDModel } from &#x27;@puq/type&#x27;;
 import type { QueryCount, QueryMany, QueryOne } from &#x27;@puq/query&#x27;;
 import { BaseEntityService } from &#x27;./base-entity.service.js&#x27;;
 import { NotFoundException } from &#x27;@nestjs/common&#x27;;
@@ -644,7 +677,17 @@ export class EntityQueryService&lt;
    * Query all entities QueryMany&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;
    */
   find(query: QueryMany&lt;T, any[]&gt;) {
-    return this.repository.find(query);
+    const { orderBy, orderDir, orderNulls, ...restQuery } &#x3D; query;
+
+    return this.repository.find({
+      ...restQuery,
+      order: {
+        [orderBy ?? &#x27;id&#x27;]: {
+          direction: orderDir ?? &#x27;asc&#x27;,
+          nulls: orderNulls ?? &#x27;LAST&#x27;,
+        },
+      } as FindOptionsOrder&lt;T&gt;,
+    });
   }
 
   /**
@@ -667,20 +710,37 @@ export class EntityQueryService&lt;
     return found;
   }
 
-  findOneById(id: number) {
-    return this.repository.findOneBy({ id } as FindOptionsWhere&lt;T&gt;);
+  /**
+   * Find one by id
+   * @param id
+   * @returns
+   */
+  async findOneById(param: IDModel, query: QueryOne&lt;T, FindOptionsWhere&lt;T&gt;[]&gt;) {
+    return await this.findOneOrThrow({
+      where: [{ id: In([param.id]) } as FindOptionsWhere&lt;T&gt;],
+      ...query,
+    });
   }
 
-  async findOneByIdOrThrow(id: T[&#x27;id&#x27;]) {
-    const found &#x3D; await this.repository.findOneBy({
-      id: In([id]),
-    } as FindOptionsWhere&lt;T&gt;);
-
+  /**
+   * Find one by id or throw error
+   * @param id
+   * @returns
+   */
+  async findOneByIdOrThrow(
+    param: IDModel,
+    query: QueryOne&lt;T, FindOptionsWhere&lt;any&gt;[]&gt;,
+  ) {
+    const found &#x3D; await this.findOneById(param, query);
     if (!found) throw new NotFoundException();
-
     return found;
   }
 
+  /**
+   * Count
+   * @param query
+   * @returns
+   */
   async count(query: QueryCount&lt;FindOptionsWhere&lt;T&gt;[]&gt;): Promise&lt;CountResult&gt; {
     return { count: await this.repository.count(query) };
   }

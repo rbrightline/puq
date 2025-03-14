@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { SampleController, SampleViewController } from './sample.controller.js';
+import { SampleController } from './sample.controller.js';
 import { DataSourceModule } from '@puq/orm';
-import { Sample, SampleView } from '@puq/entity';
+import { Sample } from '@puq/entity';
 
 @Module({
-  imports: [DataSourceModule.forFeature({ entities: [Sample, SampleView] })],
-  controllers: [SampleController, SampleViewController],
+  imports: [DataSourceModule.forFeature({ entities: [Sample] })],
+  controllers: [SampleController],
 })
 export class SampleModule {}

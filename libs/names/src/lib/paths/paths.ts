@@ -2,6 +2,12 @@ import { names } from '../names/names.js';
 import { pluralize } from '../names/pluralize.js';
 import type { Paths } from './paths-type.js';
 
+/**
+ * RestApi resource path builder
+ * @param resourceName
+ * @param prefix
+ * @returns
+ */
 export function paths(resourceName: string, prefix = ''): Paths {
   const pf = prefix ? `${prefix}/` : '';
   const singularName = names(resourceName).kebabCase;

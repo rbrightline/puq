@@ -1,7 +1,7 @@
 import { DeleteOneById } from './delete/delete-one-by-id.js';
 import { Rest } from './method.js';
 import { Count } from './read/count.js';
-import { FindAll } from './read/find-all.js';
+import { Find } from './read/find-all.js';
 import { FindOneById } from './read/find-one-by-id.js';
 import { AddRelation } from './relation/add-relation.js';
 import { RemoveRelation } from './relation/remove-relation.js';
@@ -14,7 +14,7 @@ import { UpdateOneById } from './write/update-one-by-id.js';
 
 describe('Methods', () => {
   it('should work', () => {
-    FindAll();
+    Find();
     FindOneById();
     DeleteOneById();
     UpdateOneById();

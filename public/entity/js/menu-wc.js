@@ -79,6 +79,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CreateSampleDto.html" data-type="entity-link" >CreateSampleDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DecrementSampleDto.html" data-type="entity-link" >DecrementSampleDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/IncrementSampleDto.html" data-type="entity-link" >IncrementSampleDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/QueryCountSampleDto.html" data-type="entity-link" >QueryCountSampleDto</a>
                             </li>
                             <li class="link">

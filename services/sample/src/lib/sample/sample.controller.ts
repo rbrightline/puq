@@ -10,26 +10,9 @@ import {
   IncrementSampleDto,
   DecrementSampleDto,
   QueryManySampleDto,
-  SampleView,
   QueryOneSampleDto,
 } from '@puq/entity';
 import { EntityService, IDDto, InjectEntityService } from '@puq/orm';
-
-@Rest.Controller()
-export class SampleViewController {
-  @Rest.SetResourceMetadata({ entity: () => SampleView })
-  protected readonly __metadata__ = '';
-
-  constructor(
-    @InjectEntityService()
-    protected readonly service: EntityService<SampleView>,
-  ) {}
-
-  @Rest.FindAll()
-  findAll() {
-    return this.service.find({});
-  }
-}
 
 @Rest.Controller()
 export class SampleController {
@@ -40,8 +23,8 @@ export class SampleController {
     @InjectEntityService() protected readonly service: EntityService<Sample>,
   ) {}
 
-  @Rest.FindAll()
-  findAll(@Query() query: QueryManySampleDto) {
+  @Rest.Find()
+  find(@Query() query: QueryManySampleDto) {
     return this.service.find(query);
   }
 

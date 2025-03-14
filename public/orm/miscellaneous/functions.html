@@ -118,6 +118,9 @@
                             <a href="#createFindOperator" title="src/lib/query/create-find-operator.ts" ><b>createFindOperator</b>&nbsp;&nbsp;&nbsp;(src/.../create-find-operator.ts)</a>
                         </li>
                         <li>
+                            <a href="#CreateIncrementDecrementDto" title="src/lib/dto/create-increment-decrement-dto.ts" ><b>CreateIncrementDecrementDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-increment-decrement-dto.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CreateQueryCountDto" title="src/lib/query/create-query-count-dto.ts" ><b>CreateQueryCountDto</b>&nbsp;&nbsp;&nbsp;(src/.../create-query-count-dto.ts)</a>
                         </li>
                         <li>
@@ -139,10 +142,25 @@
                             <a href="#Entity" title="src/lib/decorator/entity.ts" ><b>Entity</b>&nbsp;&nbsp;&nbsp;(src/.../entity.ts)</a>
                         </li>
                         <li>
+                            <a href="#getDataSourceOptions" title="src/lib/module/data-source-options.ts" ><b>getDataSourceOptions</b>&nbsp;&nbsp;&nbsp;(src/.../data-source-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getEntityServiceToken" title="src/lib/module/provide-entity-service.ts" ><b>getEntityServiceToken</b>&nbsp;&nbsp;&nbsp;(src/.../provide-entity-service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSqliteDataSourceOptions" title="src/lib/module/sqlite-data-source-options copy.ts" ><b>getSqliteDataSourceOptions</b>&nbsp;&nbsp;&nbsp;(src/.../sqlite-data-source-options copy.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InjectEntityService" title="src/lib/module/provide-entity-service.ts" ><b>InjectEntityService</b>&nbsp;&nbsp;&nbsp;(src/.../provide-entity-service.ts)</a>
+                        </li>
+                        <li>
                             <a href="#pickColumnType" title="src/lib/common/pick-column-type.ts" ><b>pickColumnType</b>&nbsp;&nbsp;&nbsp;(src/.../pick-column-type.ts)</a>
                         </li>
                         <li>
                             <a href="#pickTransformer" title="src/lib/common/pick-transformer.ts" ><b>pickTransformer</b>&nbsp;&nbsp;&nbsp;(src/.../pick-transformer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#provideEntityService" title="src/lib/module/provide-entity-service.ts" ><b>provideEntityService</b>&nbsp;&nbsp;&nbsp;(src/.../provide-entity-service.ts)</a>
                         </li>
                         <li>
                             <a href="#Relation" title="src/lib/decorator/relation.ts" ><b>Relation</b>&nbsp;&nbsp;&nbsp;(src/.../relation.ts)</a>
@@ -155,6 +173,9 @@
                         </li>
                         <li>
                             <a href="#ViewEntity" title="src/lib/decorator/view-entity.ts" ><b>ViewEntity</b>&nbsp;&nbsp;&nbsp;(src/.../view-entity.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WhereProperty" title="src/lib/query/where-property.ts" ><b>WhereProperty</b>&nbsp;&nbsp;&nbsp;(src/.../where-property.ts)</a>
                         </li>
                         <li>
                             <a href="#WhereQueryTransformer" title="src/lib/query/where-query-transformer.ts" ><b>WhereQueryTransformer</b>&nbsp;&nbsp;&nbsp;(src/.../where-query-transformer.ts)</a>
@@ -312,6 +333,69 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/lib/dto/create-increment-decrement-dto.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CreateIncrementDecrementDto"></a>
+                    <span class="name">
+                        <span ><b>CreateIncrementDecrementDto</b></span>
+                        <a href="#CreateIncrementDecrementDto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CreateIncrementDecrementDto(columns: Keys)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>columns</td>
+                                            <td>
+                                                        <code>Keys</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Type&lt;IncrementParam&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/lib/query/create-query-count-dto.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -327,7 +411,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>CreateQueryCountDto(options: <a href="../undefineds/CreateQueryOptions.html" target="_self">CreateQueryOptions</a>)</code>
+<code>CreateQueryCountDto(options: Pick)</code>
                 </td>
             </tr>
 
@@ -355,7 +439,7 @@
                                         <tr>
                                                 <td>options</td>
                                             <td>
-                                                            <code><a href="../miscellaneous/typealiases.html#CreateQueryOptions" target="_self" >CreateQueryOptions</a></code>
+                                                        <code>Pick</code>
                                             </td>
 
                                             <td>
@@ -820,6 +904,335 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>src/lib/module/data-source-options.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDataSourceOptions"></a>
+                    <span class="name">
+                        <span ><b>getDataSourceOptions</b></span>
+                        <a href="#getDataSourceOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDataSourceOptions(config: ConfigService, options: <a href="../undefineds/DataSourceModuleOptions.html" target="_self">DataSourceModuleOptions</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>config</td>
+                                            <td>
+                                                        <code>ConfigService</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#DataSourceModuleOptions" target="_self" >DataSourceModuleOptions</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>DataSourceOptions</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/module/provide-entity-service.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEntityServiceToken"></a>
+                    <span class="name">
+                        <span ><b>getEntityServiceToken</b></span>
+                        <a href="#getEntityServiceToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEntityServiceToken(entity)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Get the entity service token</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>entity</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>entity class</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>entity service tokenF</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InjectEntityService"></a>
+                    <span class="name">
+                        <span ><b>InjectEntityService</b></span>
+                        <a href="#InjectEntityService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>InjectEntityService()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Inject entity service</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ParameterDecorator</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Parameter decorator</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provideEntityService"></a>
+                    <span class="name">
+                        <span ><b>provideEntityService</b></span>
+                        <a href="#provideEntityService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>provideEntityService(entity)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Provide entity service</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>entity</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>entity class</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Provider</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Provider</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/module/sqlite-data-source-options copy.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSqliteDataSourceOptions"></a>
+                    <span class="name">
+                        <span ><b>getSqliteDataSourceOptions</b></span>
+                        <a href="#getSqliteDataSourceOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSqliteDataSourceOptions(config: ConfigService, options: <a href="../undefineds/DataSourceModuleOptions.html" target="_self">DataSourceModuleOptions</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>config</td>
+                                            <td>
+                                                        <code>ConfigService</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#DataSourceModuleOptions" target="_self" >DataSourceModuleOptions</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>DataSourceOptions</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>src/lib/common/pick-column-type.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1162,7 +1575,7 @@ This function picks the <code>transformer</code> to make none-primitive data typ
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>TypeORM <a href="___ViewEntity">___ViewEntity</a> decorator with prebuilt query builder that coverts id and timestamp columns.</p>
+                        <div class="io-description"><p>View entity decorator</p>
 </div>
 
                             <div class="io-description">
@@ -1189,7 +1602,7 @@ This function picks the <code>transformer</code> to make none-primitive data typ
                                             </td>
 
                                             <td>
-                                                    <p><T><a href="SelectQueryBuilder">SelectQueryBuilder</a> query builder</p>
+                                                    <p>Query builder factory</p>
 
                                             </td>
                                         </tr>
@@ -1205,8 +1618,6 @@ This function picks the <code>transformer</code> to make none-primitive data typ
                                             </td>
 
                                             <td>
-                                                    <p>defined whether the fields of <a href="../classes/BaseEntity.html">BaseEntity</a> class are added or not to the view</p>
-
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1217,8 +1628,70 @@ This function picks the <code>transformer</code> to make none-primitive data typ
 
                         </div>
                             <div class="io-description">
-                                <p>class decorator {@link ClassDecorator}</p>
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/query/where-property.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WhereProperty"></a>
+                    <span class="name">
+                        <span ><b>WhereProperty</b></span>
+                        <a href="#WhereProperty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>WhereProperty(options: <a href="../miscellaneouss/CreateQueryOptions.html" target="_self">CreateQueryOptions</a>)</code>
+                </td>
+            </tr>
 
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#CreateQueryOptions" target="_self" >CreateQueryOptions</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>PropertyDecorator</code>
+
+                        </div>
+                            <div class="io-description">
+                                
                             </div>
                 </td>
             </tr>

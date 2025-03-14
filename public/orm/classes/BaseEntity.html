@@ -212,7 +212,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -249,7 +249,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -286,7 +286,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -375,15 +375,15 @@ import { BaseIdEntity } from &#x27;./base-id.js&#x27;;
 export class BaseEntity extends BaseIdEntity implements BaseModel {
   @Property({ type: &#x27;date&#x27; })
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: string;
 
   @Property({ type: &#x27;date&#x27; })
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: string;
 
   @Property({ type: &#x27;date&#x27; })
   @DeleteDateColumn()
-  deletedAt: Date;
+  deletedAt: string;
 }
 
 export const BASE_ENTITY_COLUMNS &#x3D; Object.keys(new BaseEntity());

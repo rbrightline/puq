@@ -5,7 +5,11 @@ import { ResourceMetadataManager } from '@puq/meta';
 import { CommonMethod } from '../common/common.js';
 import { pluralize } from '@puq/names';
 
-export function FindAll(): MethodDecorator {
+/**
+ * Request method decorator
+ * `GET /api/items?`
+ */
+export function Find(): MethodDecorator {
   return (...args: MethodDecoratorParam) => {
     const M = ResourceMetadataManager.get(args[0].constructor);
     CommonMethod({

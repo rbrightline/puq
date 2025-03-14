@@ -1,51 +1,51 @@
 export type AuthPaths = {
   /**
-   * /login
+   * `login`
    */
   login: string;
 
   /**
-   * /opt
+   * `opt`
    */
   otp: string;
 
   /**
-   * /logout
+   * `logout`
    */
   logout: string;
 
   /**
-   * /logout-all
+   * `logout-all`
    */
   logoutAll: string;
 
   /**
-   * /signup
+   * `signup`
    */
   signup: string;
 
   /**
-   * /forgot-password
+   * `forgot-password`
    */
   forgotPassword: string;
 
   /**
-   * /reset-password
+   * `reset-password`
    */
   resetPassword: string;
 
   /**
-   * /has-session
+   * `has-session`
    */
   hasSession: string;
 
   /**
-   * /has-permission
+   * `has-permission`
    */
   hasPermission: string;
 
   /**
-   * /has-role
+   * `has-role`
    */
   hasRole: string;
 };

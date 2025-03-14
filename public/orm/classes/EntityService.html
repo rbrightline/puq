@@ -158,11 +158,20 @@
                                 <a href="#addRelation" >addRelation</a>
                             </li>
                             <li>
+                                <a href="#decrement" >decrement</a>
+                            </li>
+                            <li>
                                 <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                <a href="#increment" >increment</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#removeRelation" >removeRelation</a>
+                            </li>
+                            <li>
+                                <a href="#restore" >restore</a>
                             </li>
                             <li>
                                 <a href="#save" >save</a>
@@ -195,6 +204,7 @@
                                 <a href="#findOne" >findOne</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findOneById" >findOneById</a>
                             </li>
                             <li>
@@ -246,14 +256,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:107</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Add relation (*-to-many) to the entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -297,30 +309,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
+                    <a name="decrement"></a>
                     <span class="name">
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>decrement</b></span>
+                        <a href="#decrement"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>decrement(param: IDModel, body: DecrementParam)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:93</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Decrement property by value</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -335,9 +349,171 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>param</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                        <code>DecrementParam</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>delete(objectId: IDModel)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hard delete entity</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objectId</td>
+                                            <td>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="increment"></a>
+                    <span class="name">
+                        <span ><b>increment</b></span>
+                        <a href="#increment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>increment(param: IDModel, body: IncrementParam)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Increment property by value</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>param</td>
+                                            <td>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                        <code>IncrementParam</code>
                                             </td>
 
                                             <td>
@@ -382,14 +558,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:122</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Remove relation (*-to-many) to the entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -433,6 +611,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="restore"></a>
+                    <span class="name">
+                        <span ><b>restore</b></span>
+                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>restore(objectId: IDModel)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restore entity by id</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objectId</td>
+                                            <td>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="save"></a>
                     <span class="name">
                         <span ><b>save</b></span>
@@ -449,14 +696,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Save entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -516,14 +765,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:33</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Save many entities</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -585,14 +836,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:137</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Set relation (*-to-one) to the entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -645,21 +898,23 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>softDelete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>softDelete(objectId: IDModel)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:61</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Soft delete entity by id</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -674,9 +929,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>objectId</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>IDModel</code>
                                             </td>
 
                                             <td>
@@ -721,14 +976,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:152</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Unset relation (*-to-one) to the entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -781,21 +1038,23 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, entity: <a href="../undefineds/Entity.html" target="_self">QueryDeepPartialEntity&lt;T&gt;</a>)</code>
+<code>update(objectId: IDModel, entity: <a href="../undefineds/Entity.html" target="_self">QueryDeepPartialEntity&lt;T&gt;</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">src/lib/service/entity.service.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/lib/service/entity.service.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Update entity</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -810,9 +1069,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>objectId</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>IDModel</code>
                                             </td>
 
                                             <td>
@@ -875,7 +1134,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:82</a></code>
 </div>
                         </td>
                     </tr>
@@ -883,6 +1142,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Count</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1023,7 +1284,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:26</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:36</a></code>
 </div>
                         </td>
                     </tr>
@@ -1083,6 +1344,7 @@
                 <td class="col-md-4">
                     <a name="findOneById"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>findOneById</b></span>
                         <a href="#findOneById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1090,7 +1352,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findOneById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneById(param: IDModel, query: QueryOne<T | FindOptionsWhere[]>)</code>
                 </td>
             </tr>
 
@@ -1103,7 +1366,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:41</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:56</a></code>
 </div>
                         </td>
                     </tr>
@@ -1111,6 +1374,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Find one by id</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1125,9 +1390,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>param</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -1140,7 +1417,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -1165,7 +1442,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneByIdOrThrow(id: T)</code>
+                    <code>findOneByIdOrThrow(param: IDModel, query: QueryOne<T | FindOptionsWhere[]>)</code>
                 </td>
             </tr>
 
@@ -1178,7 +1455,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:45</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:68</a></code>
 </div>
                         </td>
                     </tr>
@@ -1186,6 +1463,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Find one by id or throw error</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1200,9 +1479,21 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>param</td>
                                             <td>
-                                                        <code>T</code>
+                                                        <code>IDModel</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                        <code>QueryOne&lt;T | FindOptionsWhere[]&gt;</code>
                                             </td>
 
                                             <td>
@@ -1253,7 +1544,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:35</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/EntityQueryService.html#source" target="_self" >EntityQueryService:45</a></code>
 </div>
                         </td>
                     </tr>
@@ -1320,37 +1611,109 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { QueryDeepPartialEntity } from &#x27;typeorm/query-builder/QueryPartialEntity.js&#x27;;
 import type {
   BaseModel,
+  DecrementParam,
+  IDModel,
+  IncrementParam,
   RelationParam,
   UnsetRelationParam,
   UpdateResult,
 } from &#x27;@puq/type&#x27;;
 import { EntityQueryService } from &#x27;./entity-query.service.js&#x27;;
-import type { DeepPartial } from &#x27;typeorm&#x27;;
+import type { FindOptionsWhere } from &#x27;typeorm&#x27;;
+import { In, type DeepPartial } from &#x27;typeorm&#x27;;
 
 /**
  * Write service
  */
 export class EntityService&lt;T extends BaseModel&gt; extends EntityQueryService&lt;T&gt; {
+  /**
+   * Save entity
+   * @param entity
+   * @returns
+   */
   save(entity: DeepPartial&lt;T&gt;): Promise&lt;T&gt; {
     return this.repository.save(entity);
   }
 
+  /**
+   * Save many entities
+   * @param entities
+   * @returns
+   */
   saveMany(entities: DeepPartial&lt;T&gt;[]): Promise&lt;T[]&gt; {
     return this.repository.save(entities);
   }
 
-  update(id: number, entity: QueryDeepPartialEntity&lt;T&gt;) {
-    return this.repository.update(id, entity);
+  /**
+   * Update entity
+   * @param id
+   * @param entity
+   * @returns
+   */
+  update(objectId: IDModel, entity: QueryDeepPartialEntity&lt;T&gt;) {
+    return this.repository.update(objectId.id, entity);
   }
 
-  delete(id: number) {
-    return this.repository.delete(id);
+  /**
+   * Hard delete entity
+   * @param id
+   * @returns
+   */
+  delete(objectId: IDModel) {
+    return this.repository.delete(objectId.id);
   }
 
-  softDelete(id: number) {
-    return this.repository.softDelete(id);
+  /**
+   * Soft delete entity by id
+   * @param id
+   * @returns
+   */
+  softDelete(objectId: IDModel) {
+    return this.repository.softDelete(objectId.id);
   }
 
+  /**
+   * Restore entity by id
+   * @param id
+   * @returns
+   */
+  restore(objectId: IDModel) {
+    return this.repository.restore(objectId.id);
+  }
+
+  /**
+   * Increment property by value
+   * @param param
+   * @returns
+   */
+  increment(param: IDModel, body: IncrementParam) {
+    const { property, value } &#x3D; body;
+    return this.repository.increment(
+      { id: In([param.id]) } as FindOptionsWhere&lt;T&gt;,
+      property,
+      value ?? 1,
+    );
+  }
+
+  /**
+   * Decrement property by value
+   * @param param
+   * @returns
+   */
+  decrement(param: IDModel, body: DecrementParam) {
+    const { property, value } &#x3D; body;
+    return this.repository.decrement(
+      { id: In([param.id]) } as FindOptionsWhere&lt;T&gt;,
+      property,
+      value ?? 1,
+    );
+  }
+
+  /**
+   * Add relation (*-to-many) to the entity
+   * @param relation
+   * @returns
+   */
   async addRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
     const { id, relationId, relationName } &#x3D; relation;
     await this.repository
@@ -1361,6 +1724,11 @@ export class EntityService&lt;T extends BaseModel&gt; extends EntityQueryService
     return { affected: 1 };
   }
 
+  /**
+   * Remove relation (*-to-many) to the entity
+   * @param relation
+   * @returns
+   */
   async removeRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
     const { id, relationId, relationName: relationName } &#x3D; relation;
     await this.repository
@@ -1371,6 +1739,11 @@ export class EntityService&lt;T extends BaseModel&gt; extends EntityQueryService
     return { affected: 1 };
   }
 
+  /**
+   * Set relation (*-to-one) to the entity
+   * @param relation
+   * @returns
+   */
   async setRelation(relation: RelationParam): Promise&lt;UpdateResult&gt; {
     const { id, relationId, relationName } &#x3D; relation;
     await this.repository
@@ -1381,6 +1754,11 @@ export class EntityService&lt;T extends BaseModel&gt; extends EntityQueryService
     return { affected: 1 };
   }
 
+  /**
+   * Unset relation (*-to-one) to the entity
+   * @param relation
+   * @returns
+   */
   async unsetRelation(relation: UnsetRelationParam): Promise&lt;UpdateResult&gt; {
     const { id, relationName } &#x3D; relation;
     await this.repository

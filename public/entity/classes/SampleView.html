@@ -150,7 +150,7 @@
 import { ViewEntity, BaseView } from &#x27;@puq/orm&#x27;;
 import { Sample } from &#x27;./sample.entity.js&#x27;;
 
-@ViewEntity((q) &#x3D;&gt; q.from(Sample, &#x27;m&#x27;))
+@ViewEntity((builder) &#x3D;&gt; builder.from(Sample, &#x27;m&#x27;))
 export class SampleView extends BaseView implements SampleViewModel {}
 </code></pre>
     </div>

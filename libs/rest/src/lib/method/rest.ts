@@ -7,7 +7,7 @@ import { SaveOne } from './write/save-one.js';
 import { DeleteOneById } from './delete/delete-one-by-id.js';
 import { UpdateOneById } from './write/update-one-by-id.js';
 import { FindOneById } from './read/find-one-by-id.js';
-import { FindAll } from './read/find-all.js';
+import { Find } from './read/find-all.js';
 import { Count } from './read/count.js';
 import { Increment } from './write/increment.js';
 import { Decrement } from './write/decrement.js';
@@ -31,9 +31,9 @@ export class Rest {
     };
   }
 
-  static FindAll(): MethodDecorator {
+  static Find(): MethodDecorator {
     return (...args: MethodDecoratorParam) => {
-      FindAll()(...args);
+      Find()(...args);
     };
   }
 

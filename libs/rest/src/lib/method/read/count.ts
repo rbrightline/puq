@@ -6,8 +6,8 @@ import { CommonMethod } from '../common/common.js';
 import { CountResultDto } from '@puq/orm';
 
 /**
- * `/items/actions/count`
- * @returns Method decorator
+ * Request method decorator
+ * `GET /api/items?`
  */
 export function Count(): MethodDecorator {
   return (...args: MethodDecoratorParam) => {

@@ -157,7 +157,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Generate the standard authorization and authentication rest-api paths with (optional) prefix</p>
+                        <div class="io-description"><p>RestApi authentication service path builder</p>
 </div>
 
                             <div class="io-description">
@@ -169,7 +169,6 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -184,10 +183,6 @@
                                             </td>
 
 
-                                            <td>
-                                                    <p>prefix can be any none-empty string such as <code>api</code>, <code>auth</code>,<code>security</code>. But it is better do not set prefix here, configure it in the main module.</p>
-
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -197,8 +192,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>auth paths {@link AuthPaths}</p>
-
+                                
                             </div>
                 </td>
             </tr>
@@ -419,67 +413,7 @@ contains only letters, underscores, dollar signs, and spaces.</li>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Create rest-api resource paths for each operations including</p>
-<ul>
-<li><p><strong>plural</strong> :</p>
-<ul>
-<li>GET  : find all entities by query</li>
-</ul>
-</li>
-<li><p><strong>singular</strong> :</p>
-<ul>
-<li>GET  : entity metadata</li>
-<li>POST : insert entity</li>
-</ul>
-</li>
-<li><p><strong>id</strong> :</p>
-<ul>
-<li>GET     : find entity by id</li>
-<li>DELETE  : delete entity by id</li>
-<li>PUT     : udpate entity by id</li>
-</ul>
-</li>
-<li><p><strong>increment</strong> :</p>
-<ul>
-<li>PUT : increment a specific property</li>
-</ul>
-</li>
-<li><p><strong>decrement</strong> :</p>
-<ul>
-<li>PUT : decrement a specific property</li>
-</ul>
-</li>
-<li><p><strong>count</strong> :</p>
-<ul>
-<li>GET : find the cout of entities by query</li>
-</ul>
-</li>
-<li><p><strong>relation</strong> :</p>
-<ul>
-<li>GET    :  get the relation data by entity id and relation name</li>
-<li>DELETE :  delete  the relation by entity id and relation name.</li>
-</ul>
-</li>
-<li><p><strong>relationId</strong> :</p>
-<ul>
-<li>GET    : get the relation data by enetity id and relation id</li>
-<li>DELETE : delete the relation  by enetity id and relation id</li>
-<li>PUT    : add the relation by enetity id and relation id</li>
-</ul>
-</li>
-<li><p><strong>file</strong> :</p>
-<ul>
-<li>GET    : get file</li>
-<li>POST   : upload file</li>
-</ul>
-</li>
-<li><p><strong>img</strong> :</p>
-<ul>
-<li>GET    : get image file</li>
-<li>POST   : upload image file</li>
-</ul>
-</li>
-</ul>
+                        <div class="io-description"><p>RestApi resource path builder</p>
 </div>
 
                             <div class="io-description">
@@ -492,7 +426,6 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
-                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -509,8 +442,6 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                             <td>
                                             </td>
 
-                                            <td>
-                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>prefix</td>
@@ -526,10 +457,6 @@ contains only letters, underscores, dollar signs, and spaces.</li>
                                                     <code>&#x27;&#x27;</code>
                                             </td>
 
-                                            <td>
-                                                    <p>prefix such as <code>api</code>, <code>resource</code>. Do not set the prefix here. It is recommended to do in main module.</p>
-
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

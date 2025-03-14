@@ -233,9 +233,9 @@ export class CreateSampleDto implements CreateSampleModel {
   @Property({ type: &#x27;boolean&#x27;, required: true }) booleanValue: boolean;
 
   @Property({ type: &#x27;array&#x27;, required: true, items: { type: &#x27;date&#x27; } })
-  dateArray: Date[];
+  dateArray: string[];
 
-  @Property({ type: &#x27;date&#x27;, required: true }) dateValue: Date;
+  @Property({ type: &#x27;date&#x27;, required: true }) dateValue: string;
 
   @Property({ type: &#x27;array&#x27;, required: true, items: { type: &#x27;integer&#x27; } })
   integerArray: number[];

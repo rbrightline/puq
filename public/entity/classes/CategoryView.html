@@ -197,7 +197,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/lib/common/category/category.view.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/lib/common/category/category.view.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -220,7 +220,9 @@
 import { ViewEntity, BaseView, ViewColumn } from &#x27;@puq/orm&#x27;;
 import { Category } from &#x27;./category.entity.js&#x27;;
 
-@ViewEntity((q) &#x3D;&gt; q.addSelect(&#x27;m.name&#x27;, &#x27;name&#x27;).from(Category, &#x27;m&#x27;))
+@ViewEntity((builder) &#x3D;&gt;
+  builder.addSelect(&#x27;m.name&#x27;, &#x27;name&#x27;).from(Category, &#x27;m&#x27;),
+)
 export class CategoryView extends BaseView implements CategoryModel {
   @ViewColumn({ type: &#x27;string&#x27; }) name: string;
 }
