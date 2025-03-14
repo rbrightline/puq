@@ -1,15 +1,16 @@
-description: User
+description: User credentials
+
 properties:
   username:
     type: string
     stringFormat: email
     required: true
     readonly: true
+    unique: true
 
   password:
     type: string
     required: true
-    unique: true
     stringFormat: strong-password
     hash: true
 

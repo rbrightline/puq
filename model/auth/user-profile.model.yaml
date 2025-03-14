@@ -1,4 +1,5 @@
 description: User profile
+
 properties:
   firstName:
     type: string
@@ -21,21 +22,6 @@ properties:
     type: string
     description: Profile image url
     stringFormat: url
-
-  bio:
-    type: string
-    description: Brief introduction aobut yourself
-    maxLength: 1000
-
-  occupation:
-    type: string
-    description: Job title
-    maxLength: 100
-
-  organization:
-    type: string
-    description: Organization name
-    maxLength: 100
 
 relations:
   user:

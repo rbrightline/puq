@@ -415,6 +415,10 @@
                     "$ref": "#/definitions/PropertyType",
                     "default": "string"
                 },
+                "strict": {
+                    "type": "boolean",
+                    "default": true
+                },
                 "required": {
                     "type": "boolean",
                     "default": true

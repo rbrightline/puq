@@ -1,4 +1,4 @@
-description: Resources
+description: Database resource
 properties:
   name:
     type: string

@@ -1,4 +1,4 @@
-description: Operation
+description: Resource operation
 properties:
   name:
     type: string

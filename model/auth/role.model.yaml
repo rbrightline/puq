@@ -6,6 +6,10 @@ properties:
     required: true
     unique: true
 
+  description:
+    type: string
+    maxLength: 1000
+
 relations:
   permissions:
     type: many-to-many

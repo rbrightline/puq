@@ -12,10 +12,10 @@ properties:
 
   mfaVerified:
     type: boolean
-    default: false
 
   opt:
     type: string
+    minLength: 6
 
   origin:
     type: string
@@ -29,8 +29,8 @@ properties:
 
   token:
     type: string
-    stringFormat: jwt
     required: true
+    stringFormat: jwt
 
   type:
     type: string
