@@ -1,5 +1,4 @@
 import type { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
-
 /**
  * Implement this type to create a `create-dto` class
  */

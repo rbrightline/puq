@@ -1,12 +1,12 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
-import { controllerGenerator } from './controller';
-import { ControllerGeneratorSchema } from './schema';
+import { controllerGenerator } from './controller.js';
+import { ControllerGeneratorSchema } from './schema.js';
 
 describe('controller generator', () => {
   let tree: Tree;
-  const options: ControllerGeneratorSchema = { name: 'test' };
+  const options: ControllerGeneratorSchema = { directory: 'test' };
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

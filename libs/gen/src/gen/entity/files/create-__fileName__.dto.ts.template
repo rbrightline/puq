@@ -1,8 +1,7 @@
 import type { Create<%- className %>Model } from '@puq/model';
-import { IDDto } from '@puq/orm'
 import { Dto, Property } from '@puq/property';
 
 @Dto()
-export class Create<%- className %>Dto implements Create<%- className %>Model<%- dtoGenerics %> {
+export class Create<%- className %>Dto implements Create<%- className %>Model {
   <%- properties %>
 }

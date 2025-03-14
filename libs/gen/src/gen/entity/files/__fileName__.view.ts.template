@@ -1,9 +1,18 @@
  import type { <%- className %>ViewModel } from '@puq/model';
  import { ViewEntity, BaseView, ViewColumn } from '@puq/orm';
- import type { <%- className %> } from './<%- fileName %>.entity.js';
+ import { <%- className %> } from './<%- fileName %>.entity.js';
  
- @ViewEntity((q) => q.from(<%- className %>, 'm'))
+ @ViewEntity({ 
+  expression(dataSource){ 
+
+    return dataSource.createQueryBuilder()
+        .select('m.id', 'id')
+        .select('m.createdAt', 'createdAt')
+        .select('m.updatedAt', 'updatedAt')
+        .select('m.deletedAt', 'deletedAt')
+        .from(<%- className %>, 'm)
+  }
+ })
  export class <%- className %>View extends BaseView implements <%- className %>ViewModel {
-   <%- viewColumns %>
  }
 

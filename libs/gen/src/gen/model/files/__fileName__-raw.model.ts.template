@@ -1,5 +1,5 @@
 /**
- * The own properties of <%- className %> without `timestamps` and `id` properties
+ * The own properties of <%- className %> without `timestamp` and `id` properties
  */
 export type <%- className %>RawModel<%- generics %> = {
   <%- properties %>

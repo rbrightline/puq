@@ -41,7 +41,7 @@ export class ModelManager {
       ?.map((e) => relationDefinition(e))
       .join('\n');
 
-    return [__properties, __relations].join('\n');
+    return [__properties, __relations].filter((e) => e).join('\n');
   }
 
   dtoProperties() {
@@ -60,7 +60,7 @@ export class ModelManager {
       )
       .join('\n');
 
-    return [__properties, __relations].join('\n');
+    return [__properties, __relations].filter((e) => e).join('\n');
   }
 
   entityProperties() {
@@ -76,7 +76,7 @@ export class ModelManager {
       )
       .join('\n');
 
-    return [__properties, __relations].join('\n');
+    return [__properties, __relations].filter((e) => e).join('\n');
   }
 
   viewProperties() {
@@ -90,7 +90,19 @@ export class ModelManager {
       ?.map((e) => [relationDefinition(e), relationDefinition(e)].join('\n'))
       .join('\n');
 
-    return [__properties, __relations].join('\n');
+    return [__properties, __relations].filter((e) => e).join('\n');
+  }
+
+  actualGenerics() {
+    const targets = new Set(
+      this.relations()?.map((e) => {
+        return e.target;
+      }),
+    );
+    if (targets.size > 0) {
+      return `<${[...targets].filter((e) => e).join(',')}>`;
+    }
+    return '';
   }
 
   generics() {
@@ -99,7 +111,13 @@ export class ModelManager {
         return e.target;
       }),
     );
-    return `<${[...targets].join(',')}>`;
+    if (targets.size > 0) {
+      return `<${[...targets]
+        .filter((e) => e)
+        .map((e) => `${e} = IDModel`)
+        .join(',')}>`;
+    }
+    return '';
   }
 
   dtoGenerics() {
@@ -108,7 +126,11 @@ export class ModelManager {
         return e.target;
       }),
     );
-    return `<${[...targets].map((e) => 'IDDto').join(',')}>`;
+    if (targets.size > 0) {
+      return `<${[...targets].map((e) => 'IDDto').join(',')}>`;
+    }
+
+    return '';
   }
 
   imports() {
@@ -117,8 +139,12 @@ export class ModelManager {
         return e.target.toString();
       }),
     );
-    return [...targets].map((e) => {
-      return `import type {${e}} from '../${names(e).fileName}/${names(e).fileName}.model.js'`;
-    });
+
+    if (targets.size > 0) {
+      return [...targets].map((e) => {
+        return `import type {${e}} from '../${names(e).fileName}/${names(e).fileName}.model.js'`;
+      });
+    }
+    return '';
   }
 }
