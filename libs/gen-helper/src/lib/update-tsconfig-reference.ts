@@ -13,15 +13,15 @@ import { join } from 'path';
  *   ]
  * }
  * ````
- * @param name
+ * @param directory
  */
-export function updateTsconfigReferences(name: string) {
+export function updateTsconfigReferences(directory: string) {
   const tsconfigFilePath = join(workspaceRoot, 'tsconfig.json');
   const tsconfigContent = JSON.parse(readFileSync(tsconfigFilePath).toString());
   if (!tsconfigContent.references) tsconfigContent.references = [];
 
   tsconfigContent.references.push({
-    path: `./${name}`,
+    path: `./${directory}`,
   });
 
   writeFileSync(tsconfigFilePath, JSON.stringify(tsconfigContent));

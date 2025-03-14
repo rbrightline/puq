@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common';
+import { <%- className %>Controller } from './<%- fileName  %>.controller.js';
+import { DataSourceModule } from '@puq/orm';
+import { <%- className %> } from '@puq/entity';
+
+@Module({
+  imports: [DataSourceModule.forFeature({ entities: [<%- className %>] })],
+  controllers: [<%- className %>Controller],
+})
+export class <%- className %>Module {}

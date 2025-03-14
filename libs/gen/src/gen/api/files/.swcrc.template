@@ -1,6 +1,13 @@
 {
   "jsc": {
     "target": "es2017",
+    "minify": {
+      "mangle": true,
+      "compress": {
+        "dead_code": true,
+        "toplevel": true
+      }
+    },
     "parser": {
       "syntax": "typescript",
       "decorators": true,

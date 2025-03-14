@@ -1,15 +1,16 @@
+import '@puq/fs';
+import '@puq/printer';
 import type { EntityGeneratorSchema } from './schema.js';
 import type { Tree } from '@nx/devkit';
 import { formatFiles, generateFiles, names } from '@nx/devkit';
 import { join } from 'path';
 import { cwd, getName } from '@puq/gen-helper';
-import '@puq/fs';
-import '@puq/printer';
 import { filesOf } from '../files-of.js';
+
 /**
  * Generate entity and dto
- * @param tree - Tree
- * @param options - EntityGeneratorSchema
+ * @param tree
+ * @param options
  */
 export async function entityGenerator(
   tree: Tree,

@@ -6,7 +6,7 @@
 
 ## Summary
 
-This package provides a fully portable NestJS service that can be easily installed and run as a standalone application. Designed for flexibility and ease of use, it includes its own CLI tool to manage execution seamlessly.
+This package provides a fully portable sample portable service that can be easily installed and run as a standalone application. Designed for flexibility and ease of use, it includes its own CLI tool to manage execution seamlessly.
 
 ## Features
 

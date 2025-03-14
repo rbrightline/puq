@@ -5,6 +5,8 @@ export * from './gen/cli/cli.js';
 export * from './gen/cli/schema.d.js';
 export * from './gen/client/client.js';
 export * from './gen/client/schema.d.js';
+export * from './gen/controller/controller.js';
+export * from './gen/controller/schema.d.js';
 export * from './gen/entity/entity.js';
 export * from './gen/entity/schema.d.js';
 export * from './gen/files-of.js';

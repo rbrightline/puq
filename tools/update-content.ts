@@ -1,15 +1,16 @@
 #!/usr/bin/env ts-node
 
-import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
-
-const LIBS_ROOT = join(__dirname, '..', 'libs');
-const libs = readdirSync(LIBS_ROOT);
+import { LIBS, SERVICES } from './common';
 
 const result: string[] = [];
 
-for (const l of libs) {
-  const content = readFileSync(join(LIBS_ROOT, l, 'package.json')).toString();
+for (const libraryPath of [
+  ...LIBS.map((e) => join(__dirname, '..', 'libs', e)),
+  ...SERVICES.map((e) => join(__dirname, '..', 'services', e)),
+]) {
+  const content = readFileSync(join(libraryPath, 'package.json')).toString();
   const object = JSON.parse(content);
 
   const { nx, exports, files, ...rest } = object;
@@ -21,5 +22,5 @@ for (const l of libs) {
 
 writeFileSync(
   join(__dirname, '..', 'content', 'libs.json'),
-  `[${result.join(',')}]`
+  `[${result.join(',')}]`,
 );
