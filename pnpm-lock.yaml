@@ -432,6 +432,9 @@ importers:
       '@puq/debug':
         specifier: workspace:^
         version: link:../debug
+      '@puq/is':
+        specifier: workspace:^
+        version: link:../is
       '@puq/validation':
         specifier: workspace:^
         version: link:../validation

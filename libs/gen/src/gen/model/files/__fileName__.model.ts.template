@@ -1,7 +1,8 @@
 import type { <%- className %>RawModel } from './<%- fileName %>-raw.model.js';
 import type { BaseModel } from '@puq/type';
+<%- imports %>
 
 /**
  * All properties of <%- className %>. This is the type to implement to create the database `entity` class
  */
-export type <%- className %>Model = BaseModel & <%- className %>RawModel<%- actualGenerics %>;
+export type <%- className %>Model = BaseModel & <%- className %>RawModel<%- generics %>;

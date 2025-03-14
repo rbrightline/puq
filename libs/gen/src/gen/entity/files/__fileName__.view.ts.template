@@ -1,6 +1,6 @@
  import type { <%- className %>ViewModel } from '@puq/model';
  import { ViewEntity, BaseView, ViewColumn } from '@puq/orm';
- import { <%- className %> } from './<%- fileName %>.entity.js';
+ import type { <%- className %> } from './<%- fileName %>.entity.js';
  
  @ViewEntity((q) => q.from(<%- className %>, 'm'))
  export class <%- className %>View extends BaseView implements <%- className %>ViewModel {

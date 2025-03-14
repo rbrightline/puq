@@ -1,4 +1,4 @@
-import type { PropertyOptions } from '@puq/type';
+import type { PropertyOptions, RelationOptions } from '@puq/type';
 import { propertyDecoratorOptions } from './property-decorator-options.js';
 
 /**
@@ -12,4 +12,32 @@ export function propertyDecorator(
   options: PropertyOptions,
 ): string {
   return `@${decoratorName}(${propertyDecoratorOptions(options)})`;
+}
+
+export function convertRelationOptionsToPropertyOptions(
+  options: RelationOptions,
+): PropertyOptions {
+  switch (options.type) {
+    case 'many-to-many':
+    case 'one-to-many':
+      return {
+        type: 'array',
+        items: { type: 'object', target: options.target },
+        required: options.required,
+      };
+    case 'many-to-one':
+    case 'one-to-one':
+      return {
+        type: 'object',
+        target: options.target,
+        required: options.required,
+      };
+  }
+}
+
+export function propertyDecoratorForRelations(
+  decoratorName: string,
+  options: RelationOptions,
+) {
+  return `@${decoratorName}(${propertyDecoratorOptions(convertRelationOptionsToPropertyOptions(options))})`;
 }

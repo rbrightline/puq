@@ -112,6 +112,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#convertRelationOptionsToPropertyOptions" title="src/lib/property-decorator.ts" ><b>convertRelationOptionsToPropertyOptions</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator.ts)</a>
+                        </li>
+                        <li>
                             <a href="#getOptionalMarker" title="src/lib/get-optional-marker.ts" ><b>getOptionalMarker</b>&nbsp;&nbsp;&nbsp;(src/.../get-optional-marker.ts)</a>
                         </li>
                         <li>
@@ -122,6 +125,9 @@
                         </li>
                         <li>
                             <a href="#propertyDecorator" title="src/lib/property-decorator.ts" ><b>propertyDecorator</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#propertyDecoratorForRelations" title="src/lib/property-decorator.ts" ><b>propertyDecoratorForRelations</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator.ts)</a>
                         </li>
                         <li>
                             <a href="#propertyDecoratorOptions" title="src/lib/property-decorator-options.ts" ><b>propertyDecoratorOptions</b>&nbsp;&nbsp;&nbsp;(src/.../property-decorator-options.ts)</a>
@@ -157,7 +163,227 @@
     </table>
 </section>
 
-    <h3>src/lib/get-optional-marker.ts</h3>
+    <h3>src/lib/property-decorator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertRelationOptionsToPropertyOptions"></a>
+                    <span class="name">
+                        <span ><b>convertRelationOptionsToPropertyOptions</b></span>
+                        <a href="#convertRelationOptionsToPropertyOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>convertRelationOptionsToPropertyOptions(options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>PropertyOptions</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propertyDecorator"></a>
+                    <span class="name">
+                        <span ><b>propertyDecorator</b></span>
+                        <a href="#propertyDecorator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>propertyDecorator(decoratorName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: PropertyOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Return property decorator definition</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>decoratorName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li><a href="string">string</a> such as Property, Column, Entity</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>PropertyOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li><a href="PropertyOptions">PropertyOptions</a></li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>{@link string} decorator definition such as</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propertyDecoratorForRelations"></a>
+                    <span class="name">
+                        <span ><b>propertyDecoratorForRelations</b></span>
+                        <a href="#propertyDecoratorForRelations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>propertyDecoratorForRelations(decoratorName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: RelationOptions)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>decoratorName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>RelationOptions</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/get-optional-marker.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -693,99 +919,6 @@
                             <div class="io-description">
                                 <ul>
 <li>{@link string} JSON string</li>
-</ul>
-
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/lib/property-decorator.ts</h3>
-    <section data-compodoc="block-methods">
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="propertyDecorator"></a>
-                    <span class="name">
-                        <span ><b>propertyDecorator</b></span>
-                        <a href="#propertyDecorator"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>propertyDecorator(decoratorName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: PropertyOptions)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Return property decorator definition</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>decoratorName</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <ul>
-<li><a href="string">string</a> such as Property, Column, Entity</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                                <td>options</td>
-                                            <td>
-                                                        <code>PropertyOptions</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <ul>
-<li><a href="PropertyOptions">PropertyOptions</a></li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                <ul>
-<li>{@link string} decorator definition such as</li>
 </ul>
 
                             </div>

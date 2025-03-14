@@ -7,7 +7,7 @@ import type { Some, SomeRecord } from '@puq/type';
  * @returns - {@link boolean}
  */
 export function isString(value: Some<string>): value is string {
-  return typeof value === 'string';
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
@@ -16,7 +16,7 @@ export function isString(value: Some<string>): value is string {
  * @returns - {@link boolean}
  */
 export function isNumber(value: Some<number>): value is number {
-  return typeof value === 'number';
+  return typeof value === 'number' || value instanceof Number;
 }
 
 /**
@@ -25,7 +25,7 @@ export function isNumber(value: Some<number>): value is number {
  * @returns - {@link boolean}
  */
 export function isBoolean(value: Some<boolean>): value is boolean {
-  return typeof value === 'boolean';
+  return typeof value === 'boolean' || value instanceof Boolean;
 }
 
 /**
@@ -34,7 +34,15 @@ export function isBoolean(value: Some<boolean>): value is boolean {
  * @returns - {@link boolean}
  */
 export function isObject(value: Some<SomeRecord>): value is object {
-  return typeof value === 'object';
+  return (
+    typeof value === 'object' &&
+    !(
+      value instanceof String ||
+      value instanceof Number ||
+      value instanceof BigInt ||
+      value instanceof Boolean
+    )
+  );
 }
 
 /**

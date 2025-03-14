@@ -9,7 +9,7 @@ export type __ObjectOptions = {
    * Target DTO class
    * @returns
    */
-  target: () => Type;
+  target: string | (() => Type);
 };
 
 export type ObjectOptions<T = any> = Readonly<

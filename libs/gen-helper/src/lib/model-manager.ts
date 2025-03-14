@@ -5,7 +5,9 @@ import {
   relationDefinition,
   propertyDecorator,
   relationDecorator,
+  propertyDecoratorForRelations,
 } from '@puq/printer';
+import { names } from '@nx/devkit';
 
 export class ModelManager {
   constructor(protected readonly model: Model) {}
@@ -42,6 +44,25 @@ export class ModelManager {
     return [__properties, __relations].join('\n');
   }
 
+  dtoProperties() {
+    const __properties = this.properties()
+      ?.map((e) =>
+        [propertyDecorator('Property', e), propertyDefinition(e)].join('\n'),
+      )
+      .join('\n');
+
+    const __relations = this.relations()
+      ?.map((e) =>
+        [
+          propertyDecoratorForRelations('Property', e),
+          relationDefinition(e),
+        ].join('\n'),
+      )
+      .join('\n');
+
+    return [__properties, __relations].join('\n');
+  }
+
   entityProperties() {
     const __properties = this.properties()
       ?.map((e) =>
@@ -70,5 +91,34 @@ export class ModelManager {
       .join('\n');
 
     return [__properties, __relations].join('\n');
+  }
+
+  generics() {
+    const targets = new Set(
+      this.relations()?.map((e) => {
+        return e.target;
+      }),
+    );
+    return `<${[...targets].join(',')}>`;
+  }
+
+  dtoGenerics() {
+    const targets = new Set(
+      this.relations()?.map((e) => {
+        return e.target;
+      }),
+    );
+    return `<${[...targets].map((e) => 'IDDto').join(',')}>`;
+  }
+
+  imports() {
+    const targets = new Set(
+      this.relations()?.map((e) => {
+        return e.target.toString();
+      }),
+    );
+    return [...targets].map((e) => {
+      return `import type {${e}} from '../${names(e).fileName}/${names(e).fileName}.model.js'`;
+    });
   }
 }

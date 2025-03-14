@@ -1,8 +1,8 @@
 import type { <%- className %>Model } from '@puq/model';
 import { Entity, Column, BaseEntity } from '@puq/orm';
+<%- entityImports %>
 
 @Entity()
-export class <%- className %> extends BaseEntity implements <%- className %>Model {
+export class <%- className %> extends BaseEntity implements <%- className %>Model<%- entityGenerics %> {
  <%- columns %>
- <%- relations %>
 }

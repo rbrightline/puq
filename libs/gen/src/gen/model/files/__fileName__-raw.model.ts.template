@@ -3,5 +3,4 @@
  */
 export type <%- className %>RawModel<%- generics %> = {
   <%- properties %>
-  <%- relations %>
 };

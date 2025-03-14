@@ -4,10 +4,11 @@ import {
   IsNotEmptyObject,
   IsObject,
   IsOptional,
+  isString,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { isDefinedOrThrow, IsThen } from '@puq/is';
+import { IsThen } from '@puq/is';
 import { ObjectTransformer } from '../transformer/object.js';
 
 /**
@@ -23,7 +24,13 @@ export function ObjectValidation(
   return (...args: PropertyDecoratorParam) => {
     IsObject(validationOptions)(...args);
 
-    Type(isDefinedOrThrow(options.target))(...args);
+    if (isString(options.target)) {
+      throw new Error(
+        `options.target must be a function that returns the class type`,
+      );
+    }
+
+    Type(options.target)(...args);
 
     ValidateNested(validationOptions)(...args);
 
