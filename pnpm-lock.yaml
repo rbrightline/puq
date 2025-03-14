@@ -662,6 +662,9 @@ importers:
       '@puq/is':
         specifier: workspace:^
         version: link:../../libs/is
+      '@puq/meta':
+        specifier: workspace:^
+        version: link:../../libs/meta
       '@puq/middleware':
         specifier: workspace:^
         version: link:../../libs/middleware

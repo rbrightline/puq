@@ -5,7 +5,6 @@ import type { CreateQueryOptions } from './create-query-options.js';
 import { Dto, Property } from '@puq/property';
 import { CommonQueryDto } from './common-query-dto.js';
 import { keys } from '@puq/is';
-import { WhereProperty } from './where-property.js';
 
 /**
  * Create query dto to query a single entity
@@ -34,9 +33,6 @@ export function CreateQueryOneDto<T extends BaseModel>(
       },
     })
     select?: Keys<T>;
-
-    @WhereProperty(options)
-    where?: FindOptionsWhere<T>[];
   }
 
   return QueryOneDto;

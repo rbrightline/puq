@@ -88,4 +88,6 @@ export default [
   'orm',
   'brightline',
   'localhost',
+  'pdf',
+  'txt',
 ];

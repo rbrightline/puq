@@ -7,9 +7,6 @@ export function CreateIncrementDecrementDto<T extends BaseModel>(
 ): Type<IncrementParam> {
   @Dto()
   class IncrementParamDto implements IncrementParam {
-    @Property({ type: 'integer', required: true })
-    id: number;
-
     @Property({ type: 'string', enum: columns, required: true })
     property: string;
 

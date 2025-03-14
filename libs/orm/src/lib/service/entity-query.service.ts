@@ -20,9 +20,9 @@ export class EntityQueryService<
     return this.repository.find({
       ...restQuery,
       order: {
-        [orderBy!]: {
-          direction: orderDir,
-          nulls: orderNulls,
+        [orderBy ?? 'id']: {
+          direction: orderDir ?? 'asc',
+          nulls: orderNulls ?? 'LAST',
         },
       } as FindOptionsOrder<T>,
     });
@@ -53,10 +53,11 @@ export class EntityQueryService<
    * @param id
    * @returns
    */
-  findOneById(objectId: IDModel) {
-    return this.repository.findOneBy({
-      id: In([objectId.id]),
-    } as FindOptionsWhere<T>);
+  async findOneById(param: IDModel, query: QueryOne<T, FindOptionsWhere<T>[]>) {
+    return await this.findOneOrThrow({
+      where: [{ id: In([param.id]) } as FindOptionsWhere<T>],
+      ...query,
+    });
   }
 
   /**
@@ -64,13 +65,12 @@ export class EntityQueryService<
    * @param id
    * @returns
    */
-  async findOneByIdOrThrow(objectId: IDModel) {
-    const found = await this.repository.findOneBy({
-      id: In([objectId.id]),
-    } as FindOptionsWhere<T>);
-
+  async findOneByIdOrThrow(
+    param: IDModel,
+    query: QueryOne<T, FindOptionsWhere<any>[]>,
+  ) {
+    const found = await this.findOneById(param, query);
     if (!found) throw new NotFoundException();
-
     return found;
   }
 

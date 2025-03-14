@@ -15,7 +15,7 @@ export function pickColumnType(options: PropertyOptions): ColumnType {
       switch (type) {
         case 'string':
         case 'date':
-          return 'text';
+          return 'varchar';
         case 'number':
           return 'real';
         case 'integer':
@@ -26,7 +26,7 @@ export function pickColumnType(options: PropertyOptions): ColumnType {
           return 'boolean';
         case 'object':
         case 'array':
-          return 'text';
+          return 'varchar';
 
         default:
           throw new Error(`Invalid column type ${type}`);

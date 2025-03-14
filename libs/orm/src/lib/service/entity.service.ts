@@ -1,6 +1,7 @@
 import type { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js';
 import type {
   BaseModel,
+  DecrementParam,
   IDModel,
   IncrementParam,
   RelationParam,
@@ -75,10 +76,10 @@ export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
    * @param param
    * @returns
    */
-  increment(param: IncrementParam) {
-    const { id, property, value } = param;
+  increment(param: IDModel, body: IncrementParam) {
+    const { property, value } = body;
     return this.repository.increment(
-      { id: In([id]) } as FindOptionsWhere<T>,
+      { id: In([param.id]) } as FindOptionsWhere<T>,
       property,
       value ?? 1,
     );
@@ -89,10 +90,10 @@ export class EntityService<T extends BaseModel> extends EntityQueryService<T> {
    * @param param
    * @returns
    */
-  decrement(param: IncrementParam) {
-    const { id, property, value } = param;
+  decrement(param: IDModel, body: DecrementParam) {
+    const { property, value } = body;
     return this.repository.decrement(
-      { id: In([id]) } as FindOptionsWhere<T>,
+      { id: In([param.id]) } as FindOptionsWhere<T>,
       property,
       value ?? 1,
     );

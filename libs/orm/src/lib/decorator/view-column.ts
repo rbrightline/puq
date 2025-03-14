@@ -1,4 +1,4 @@
-import type { PropertyOptions } from '@puq/type';
+import type { PropertyDecoratorParam, PropertyOptions } from '@puq/type';
 import { Property } from '@puq/property';
 import { ViewColumn as __ViewColumn } from 'typeorm';
 
@@ -8,8 +8,8 @@ import { ViewColumn as __ViewColumn } from 'typeorm';
  * @returns - {@link PropertyDecorator}
  */
 export function ViewColumn(options: PropertyOptions): PropertyDecorator {
-  return (t, p) => {
-    Property(options)(t, p);
-    __ViewColumn()(t, p);
+  return (...args: PropertyDecoratorParam) => {
+    Property(options)(...args);
+    __ViewColumn()(...args);
   };
 }

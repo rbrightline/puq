@@ -3,7 +3,7 @@ import type { ParameterDecoratorParam } from '@puq/type';
 import { DataSource } from 'typeorm';
 import { Inject } from '@nestjs/common';
 import { EntityService } from '../service/entity.service.js';
-
+import { ResourceMetadataManager } from '@puq/meta';
 /**
  * Get the entity service token
  * @param entity - entity class
@@ -34,8 +34,10 @@ export function provideEntityService(entity: () => Type): Provider {
  * @param entity entity class
  * @returns - Parameter decorator
  */
-export function InjectEntityService(entity: Type): ParameterDecorator {
+export function InjectEntityService(): ParameterDecorator {
   return (...args: ParameterDecoratorParam) => {
-    Inject(getEntityServiceToken(() => entity))(...args);
+    Inject(getEntityServiceToken(ResourceMetadataManager.get(args[0]).entity))(
+      ...args,
+    );
   };
 }

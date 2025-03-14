@@ -9,15 +9,15 @@ import { BaseIdEntity } from './base-id.js';
 export class BaseEntity extends BaseIdEntity implements BaseModel {
   @Property({ type: 'date' })
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: string;
 
   @Property({ type: 'date' })
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: string;
 
   @Property({ type: 'date' })
   @DeleteDateColumn()
-  deletedAt: Date;
+  deletedAt: string;
 }
 
 export const BASE_ENTITY_COLUMNS = Object.keys(new BaseEntity());

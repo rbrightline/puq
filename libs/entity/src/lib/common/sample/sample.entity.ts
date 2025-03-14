@@ -8,7 +8,8 @@ export class Sample extends BaseEntity implements SampleModel {
   @Column({ type: 'number' }) numberValue: number;
   @Column({ type: 'integer' }) integerValue: number;
   @Column({ type: 'boolean' }) booleanValue: boolean;
-  @Column({ type: 'date' }) dateValue: Date;
+  @Column({ type: 'date' }) dateValue: string;
+
   @Column({ type: 'object', target: () => SampleObjDto })
   objectValue: SampleObj;
   @Column({ type: 'array', items: { type: 'string' } }) stringArray: string[];
@@ -21,5 +22,5 @@ export class Sample extends BaseEntity implements SampleModel {
     items: { type: 'object', target: () => SampleObjDto },
   })
   objectArray: SampleObj[];
-  @Column({ type: 'array', items: { type: 'date' } }) dateArray: Date[];
+  @Column({ type: 'array', items: { type: 'date' } }) dateArray: string[];
 }

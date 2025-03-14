@@ -1,5 +1,4 @@
 export type IncrementParam = {
-  id: number;
   property: string;
   value: number;
 };

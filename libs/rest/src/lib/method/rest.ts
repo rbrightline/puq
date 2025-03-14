@@ -1,4 +1,8 @@
-import type { ClassDecoratorParam, MethodDecoratorParam } from '@puq/type';
+import type {
+  ClassDecoratorParam,
+  MethodDecoratorParam,
+  PropertyDecoratorParam,
+} from '@puq/type';
 import { SaveOne } from './write/save-one.js';
 import { DeleteOneById } from './delete/delete-one-by-id.js';
 import { UpdateOneById } from './write/update-one-by-id.js';
@@ -15,6 +19,10 @@ import { RestoreOneById } from './delete/restore-one-by-id.js';
 import { Action } from './write/action.js';
 import { ActionId } from './write/action-id.js';
 import { Controller } from '../controller/decorator/controller.js';
+import {
+  SetResourceMetadata,
+  type SetResourceMetadataOptions,
+} from '@puq/meta';
 
 export class Rest {
   static Controller(): ClassDecorator {
@@ -110,6 +118,14 @@ export class Rest {
   static ActionId(): MethodDecorator {
     return (...args: MethodDecoratorParam) => {
       ActionId()(...args);
+    };
+  }
+
+  static SetResourceMetadata(
+    options: SetResourceMetadataOptions,
+  ): PropertyDecorator {
+    return (...args: PropertyDecoratorParam) => {
+      SetResourceMetadata(options)(...args);
     };
   }
 }

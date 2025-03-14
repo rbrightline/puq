@@ -119,6 +119,7 @@
         "@puq/entity": "workspace:^",
         "@puq/env": "workspace:^",
         "@puq/is": "workspace:^",
+        "@puq/meta": "workspace:^",
         "@puq/middleware": "workspace:^",
         "@puq/model": "workspace:^",
         "@puq/orm": "workspace:^",

@@ -82,4 +82,14 @@ export type Paths = {
    * - POST /`user/1/img` { file: file } ⭐ Upload image for the user (1)
    */
   img: string;
+
+  /**
+   * - POST `users/1/pdf {file: file} ⭐ Upload pdf file for user(1)
+   */
+  pdf: string;
+
+  /**
+   * - POST `users/1/txt {file: file} ⭐ Upload txt file for user(1)
+   */
+  txt: string;
 };

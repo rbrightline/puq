@@ -3,7 +3,7 @@ import {
   type ResourceMetadataOptions,
 } from './resource-metadata-manager.js';
 
-export type SetResourceMetadataOptions<T extends object> = Readonly<
+export type SetResourceMetadataOptions<T extends object = object> = Readonly<
   Omit<ResourceMetadataOptions<T>, 'target'>
 >;
 

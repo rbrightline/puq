@@ -1,5 +1,4 @@
-import '@puq/type';
-import { CreateController, Rest } from '@puq/rest';
+import { Rest } from '@puq/rest';
 import { Body, Param, Query } from '@nestjs/common';
 import {
   Sample,
@@ -11,27 +10,44 @@ import {
   IncrementSampleDto,
   DecrementSampleDto,
   QueryManySampleDto,
+  SampleView,
+  QueryOneSampleDto,
 } from '@puq/entity';
 import { EntityService, IDDto, InjectEntityService } from '@puq/orm';
 
 @Rest.Controller()
-export class SampleController extends CreateController({
-  entity: () => Sample,
-}) {
+export class SampleViewController {
+  @Rest.SetResourceMetadata({ entity: () => SampleView })
+  protected readonly __metadata__ = '';
+
   constructor(
-    @InjectEntityService(Sample)
-    protected readonly service: EntityService<Sample>,
-  ) {
-    super(service);
+    @InjectEntityService()
+    protected readonly service: EntityService<SampleView>,
+  ) {}
+
+  @Rest.FindAll()
+  findAll() {
+    return this.service.find({});
   }
+}
+
+@Rest.Controller()
+export class SampleController {
+  @Rest.SetResourceMetadata({ entity: () => Sample })
+  protected readonly __metadata__ = '';
+
+  constructor(
+    @InjectEntityService() protected readonly service: EntityService<Sample>,
+  ) {}
+
   @Rest.FindAll()
   findAll(@Query() query: QueryManySampleDto) {
     return this.service.find(query);
   }
 
   @Rest.FindOneById()
-  findOneById(@Param() objectID: IDDto) {
-    return this.service.findOneByIdOrThrow(objectID);
+  findOneById(@Param() param: IDDto, @Query() query: QueryOneSampleDto) {
+    return this.service.findOneByIdOrThrow(param, query);
   }
 
   @Rest.Count()
@@ -40,52 +56,52 @@ export class SampleController extends CreateController({
   }
 
   @Rest.SaveOne()
-  saveOne(@Body() entity: CreateSampleDto) {
-    return this.service.save(entity);
+  saveOne(@Body() body: CreateSampleDto) {
+    return this.service.save(body);
   }
 
   @Rest.UpdateOneById()
-  updateOneById(@Param() objectId: IDDto, @Body() entity: UpdateSampleDto) {
-    return this.service.update(objectId, entity);
+  updateOneById(@Param() param: IDDto, @Body() body: UpdateSampleDto) {
+    return this.service.update(param, body);
   }
 
   @Rest.DeleteOneById()
-  deleteOneById(@Param() objectId: IDDto) {
-    return this.service.softDelete(objectId);
+  deleteOneById(@Param() param: IDDto) {
+    return this.service.softDelete(param);
   }
 
   @Rest.RestoreOneById()
-  restore(@Param() objectId: IDDto) {
-    return this.service.restore(objectId);
+  restore(@Param() param: IDDto) {
+    return this.service.restore(param);
   }
 
   @Rest.AddRelation()
-  addRelation(@Param() relation: SampleRelationParamDto) {
-    return this.service.addRelation(relation);
+  addRelation(@Param() param: SampleRelationParamDto) {
+    return this.service.addRelation(param);
   }
 
   @Rest.RemoveRelation()
-  removeRelation(@Param() relation: SampleRelationParamDto) {
-    return this.service.removeRelation(relation);
+  removeRelation(@Param() param: SampleRelationParamDto) {
+    return this.service.removeRelation(param);
   }
 
   @Rest.SetRelation()
-  setRelation(@Param() relation: SampleRelationParamDto) {
-    return this.service.setRelation(relation);
+  setRelation(@Param() param: SampleRelationParamDto) {
+    return this.service.setRelation(param);
   }
 
   @Rest.UnsetRelation()
-  unsetRelation(@Param() relation: SampleUnsetRelationParamDto) {
-    return this.service.unsetRelation(relation);
+  unsetRelation(@Param() param: SampleUnsetRelationParamDto) {
+    return this.service.unsetRelation(param);
   }
 
   @Rest.Increment()
-  increment(@Param() param: IncrementSampleDto) {
-    return this.service.increment(param);
+  increment(@Param() param: IDDto, @Body() body: IncrementSampleDto) {
+    return this.service.increment(param, body);
   }
 
   @Rest.Decrement()
-  decrement(@Param() param: DecrementSampleDto) {
-    return this.service.decrement(param);
+  decrement(@Param() param: IDDto, @Body() body: DecrementSampleDto) {
+    return this.service.decrement(param, body);
   }
 }

@@ -7,12 +7,12 @@ export type SampleRawModel = {
   numberValue: number;
   integerValue: number;
   booleanValue: boolean;
-  dateValue: Date;
+  dateValue: string;
   objectValue: SampleObj;
   stringArray: Array<string>;
   numberArray: Array<number>;
   integerArray: Array<number>;
   booleanArray: Array<boolean>;
   objectArray: Array<SampleObj>;
-  dateArray: Array<Date>;
+  dateArray: Array<string>;
 };

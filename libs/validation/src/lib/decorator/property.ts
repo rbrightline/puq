@@ -1,5 +1,6 @@
-import { StringValidation } from './string.js';
+import type { PropertyDecoratorParam, PropertyOptions } from '@puq/type';
 import type { ValidationOptions } from 'class-validator';
+import { StringValidation } from './string.js';
 import { NumberValidation } from './number.js';
 import { IntegerValidation } from './integer.js';
 import { BooleanValidation } from './boolean.js';
@@ -9,7 +10,6 @@ import { BigIntValidation } from './bigint.js';
 import { DateValidation } from './date.js';
 import { CommonValidation } from './common.js';
 import { Exclude, Expose } from 'class-transformer';
-import type { PropertyOptions } from '@puq/type';
 
 /**
  * Transform and validate class properties
@@ -21,49 +21,49 @@ export function __PropertyValidation(
   options: PropertyOptions,
   validationOptions?: Readonly<ValidationOptions>,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args: PropertyDecoratorParam) => {
     const type = options.type;
 
     switch (type) {
       case 'string':
-        CommonValidation(options, validationOptions)(t, p);
-        StringValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        StringValidation(options, validationOptions)(...args);
         break;
       case 'number':
-        CommonValidation(options, validationOptions)(t, p);
-        NumberValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        NumberValidation(options, validationOptions)(...args);
         break;
       case 'integer':
-        CommonValidation(options, validationOptions)(t, p);
-        IntegerValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        IntegerValidation(options, validationOptions)(...args);
         break;
       case 'date':
-        CommonValidation(options, validationOptions)(t, p);
-        DateValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        DateValidation(options, validationOptions)(...args);
         break;
       case 'bigint':
-        CommonValidation(options, validationOptions)(t, p);
-        BigIntValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        BigIntValidation(options, validationOptions)(...args);
         break;
       case 'boolean':
-        CommonValidation(options, validationOptions)(t, p);
-        BooleanValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        BooleanValidation(options, validationOptions)(...args);
         break;
       case 'object':
-        CommonValidation(options, validationOptions)(t, p);
-        ObjectValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        ObjectValidation(options, validationOptions)(...args);
         break;
 
       case 'array':
-        CommonValidation(options, validationOptions)(t, p);
-        ArrayValidation(options, validationOptions)(t, p);
+        CommonValidation(options, validationOptions)(...args);
+        ArrayValidation(options, validationOptions)(...args);
 
         if (options.items.type === 'array') break;
 
         __PropertyValidation(
           { ...options.items, required: options.required },
           { each: true },
-        )(t, p);
+        )(...args);
         break;
     }
   };
@@ -96,14 +96,14 @@ export function __PropertyValidation(
 export function PropertyValidation(
   options: PropertyOptions,
 ): PropertyDecorator {
-  return (t, p) => {
+  return (...args) => {
     // Exclude or expose
     if (options.expose == false) {
-      Exclude()(t, p);
+      Exclude()(...args);
     } else {
-      Expose()(t, p);
+      Expose()(...args);
     }
 
-    __PropertyValidation(options)(t, p);
+    __PropertyValidation(options)(...args);
   };
 }
