@@ -3,5 +3,6 @@ import { Dto, Property } from '@puq/property';
 
 @Dto()
 export class CreateCategoryDto implements CreateCategoryModel {
-  @Property({ type: 'string', required: true, maxLength: 50 }) name: string;
+  @Property({ type: 'string', required: true, unique: true, maxLength: 50 })
+  name: string;
 }

@@ -4,7 +4,5 @@ import { <%- className %> } from './<%- fileName %>.entity.js';
 
 @Dto()
 export class QueryCount<%- className %>Dto extends CreateQueryCountDto({
-  entity: <%- className %>,
-  defaultTake: 50,
-  maxTake: 200,
+  entity: <%- className %>
 }) {}

@@ -33,7 +33,7 @@ import type { Some } from '@puq/type';
  */
 export function isStringOrThrow<T extends string>(value: Some<T>): T {
   if (isString(value)) return value as T;
-  throwInvalidStringError();
+  throwInvalidStringError(`The value, ${value}, is not a string`);
 }
 
 /**
@@ -45,7 +45,7 @@ export function isStringOrThrow<T extends string>(value: Some<T>): T {
 
 export function isNumberOrThrow(value: unknown): number {
   if (isNumber(value)) return value;
-  throwInvalidNumberError();
+  throwInvalidNumberError(`The value, ${value}, is not a number`);
 }
 
 /**
@@ -57,7 +57,7 @@ export function isNumberOrThrow(value: unknown): number {
  */
 export function isBooleanOrThrow(value: unknown): boolean {
   if (isBoolean(value)) return value;
-  throwInvalidBooleanError();
+  throwInvalidBooleanError(`The value, ${value}, is not a boolean`);
 }
 
 /**
@@ -69,7 +69,7 @@ export function isBooleanOrThrow(value: unknown): boolean {
  */
 export function isObjectOrThrow(value: unknown): object {
   if (isObject(value)) return value;
-  throwInvalidObjectError();
+  throwInvalidObjectError(`The value, ${value}, is not an object`);
 }
 
 /**
@@ -81,7 +81,7 @@ export function isObjectOrThrow(value: unknown): object {
  */
 export function isBigintOrThrow(value: unknown): bigint {
   if (isBigint(value)) return value;
-  throwInvalidNumberError();
+  throwInvalidNumberError(`The value, ${value}, is not a bigint`);
 }
 
 /**
@@ -93,7 +93,7 @@ export function isBigintOrThrow(value: unknown): bigint {
  */
 export function isSymbolOrThrow(value: unknown): symbol {
   if (isSymbol(value)) return value;
-  throwInvalidParameterError();
+  throwInvalidParameterError(`The value, ${value}, is not symbol`);
 }
 
 /**
@@ -105,7 +105,7 @@ export function isSymbolOrThrow(value: unknown): symbol {
  */
 export function isFunctionOrThrow(value: Some<Function>): Function {
   if (isFunction(value)) return value;
-  throwInvalidFieldError();
+  throwInvalidFieldError(`The value, ${value}, is not a function`);
 }
 
 /**
@@ -118,7 +118,7 @@ export function isFunctionOrThrow(value: Some<Function>): Function {
  */
 export function isArrayOrThrow<T>(value: Some<Array<T>>): value is Array<T> {
   if (Array.isArray(value)) return true;
-  throwInvalidArrayError();
+  throwInvalidArrayError(`The value, ${value}, is not an array`);
 }
 
 /**
@@ -132,7 +132,7 @@ export function isArrayStringOrThrow(
   value: Some<Array<string>>,
 ): value is Array<string> {
   if (isArray<string>(value) && value.every(isString)) return true;
-  throwInvalidArrayStringError();
+  throwInvalidArrayStringError(`The value, ${value}, is not an array string`);
 }
 
 /**
@@ -146,7 +146,7 @@ export function isArrayNumberOrThrow(
   value: Some<Array<number>>,
 ): value is Array<number> {
   if (isArray(value) && value.every(isNumber)) return true;
-  throwInvalidArrayNumberError();
+  throwInvalidArrayNumberError(`The value, ${value}, is not an array number`);
 }
 
 /**
@@ -160,7 +160,7 @@ export function isArrayBooleanOrThrow(
   value: Some<Array<boolean>>,
 ): value is Array<boolean> {
   if (isArray(value) && value.every(isBoolean)) return true;
-  throwInvalidArrayBooleanError();
+  throwInvalidArrayBooleanError(`The value, ${value}, is not an array boolean`);
 }
 
 /**
@@ -174,7 +174,7 @@ export function isArrayObjectOrThrow<T extends object>(
   value: Some<Array<T>>,
 ): value is Array<T> {
   if (isArray(value) && value.every(isObject)) return true;
-  throwInvalidArrayObjectError();
+  throwInvalidArrayObjectError(`The value, ${value}, is not an array object`);
 }
 
 /**
@@ -188,7 +188,7 @@ export function isArrayBigintOrThrow(
   value: Some<Array<bigint>>,
 ): value is Array<bigint> {
   if (isArray(value) && value.every(isBigint)) return true;
-  throwInvalidArrayNumberError();
+  throwInvalidArrayNumberError(`The value, ${value}, is not an array bigint`);
 }
 
 /**
@@ -202,7 +202,7 @@ export function isArraySymbolOrThrow(
   value: Some<Array<symbol>>,
 ): value is Array<symbol> {
   if (isArray<symbol>(value) && value.every(isSymbol)) return true;
-  throwInvalidParameterError();
+  throwInvalidParameterError(`The value, ${value}, is not an array symbol`);
 }
 
 /**
@@ -216,5 +216,5 @@ export function isArrayFunctionOrThrow(
   value: Some<Array<Function>>,
 ): value is Array<Function> {
   if (isArray<symbol>(value) && value.every(isFunction)) return true;
-  throwInvalidParameterError();
+  throwInvalidParameterError(`The value, ${value}, is not an array function`);
 }

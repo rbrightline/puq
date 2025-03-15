@@ -17,5 +17,7 @@ export function notEmptyOrThrow<T>(
   if (notEmpty(value)) return value;
   if (notEmpty(defaultValue)) return defaultValue;
 
-  throwEmptyFieldError(undefined, { data: { params: [value, defaultValue] } });
+  throwEmptyFieldError(`The value, ${value}, is empty`, {
+    data: { params: [value, defaultValue] },
+  });
 }

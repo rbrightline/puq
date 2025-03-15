@@ -1,4 +1,8 @@
 description: User permission
+properties:
+  description:
+    type: string
+
 relations:
   resource:
     description: Resource entity

@@ -2,7 +2,10 @@ import type { ReplaceOptions } from './replace-options.js';
 import { dirs, files } from '@puq/fs';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-
+/**
+ * Recursively replace content
+ * @param options
+ */
 export async function replace(options: ReplaceOptions) {
   const { expression, from, to, prefix, suffix } = options;
   const RX = new RegExp(expression ?? '');

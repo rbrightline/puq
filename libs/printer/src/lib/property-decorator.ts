@@ -21,6 +21,7 @@ export function convertRelationOptionsToPropertyOptions(
     case 'many-to-many':
     case 'one-to-many':
       return {
+        name: options.name,
         type: 'array',
         items: { type: 'object', target: 'IDDto' },
         required: options.required,
@@ -28,6 +29,7 @@ export function convertRelationOptionsToPropertyOptions(
     case 'many-to-one':
     case 'one-to-one':
       return {
+        name: options.name,
         type: 'object',
         target: 'IDDto',
         required: options.required,

@@ -46,8 +46,8 @@
       "description": "hello generator"
     },
     "controller": {
-      "factory": "./src/gen/controller/controller",
-      "schema": "./src/gen/controller/schema.json",
+      "factory": "./dist/gen/controller/controller",
+      "schema": "./dist/gen/controller/schema.json",
       "description": "controller generator"
     }
   }

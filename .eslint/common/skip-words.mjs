@@ -90,4 +90,6 @@ export default [
   'localhost',
   'pdf',
   'txt',
+  'mfa',
+  'ip',
 ];

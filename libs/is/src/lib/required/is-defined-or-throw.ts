@@ -17,7 +17,7 @@ export function isDefinedOrThrow<T>(
   if (isDefined(value)) return value;
   if (isDefined(defaultValue)) return defaultValue;
 
-  throwRequiredFieldMissingError(undefined, {
+  throwRequiredFieldMissingError(`The value, ${value}, is not defined`, {
     data: { params: [value, defaultValue] },
   });
 }

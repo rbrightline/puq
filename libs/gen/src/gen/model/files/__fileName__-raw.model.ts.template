@@ -1,4 +1,6 @@
+<% if(generics) { %> 
 import type { IDModel} from '@puq/type';
+<% } %>
 
 /**
  * The own properties of <%- className %> without `timestamp` and `id` properties
