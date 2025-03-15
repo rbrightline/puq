@@ -1,0 +1,8 @@
+import { CreateIncrementDecrementDto } from '@puq/orm';
+import { Dto } from '@puq/property';
+import type { <%- className %> } from './<%- fileName %>.entity.js';
+
+@Dto()
+export class Decrement<%- className %>Dto extends CreateIncrementDecrementDto<<%- className %>>([
+  <%- numberColumns %>
+]) {}

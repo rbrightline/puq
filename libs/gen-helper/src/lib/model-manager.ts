@@ -154,4 +154,39 @@ export class ModelManager {
     }
     return '';
   }
+
+  toOneRelations() {
+    return (
+      this.relations()
+        ?.filter((e) => {
+          return e.type.endsWith('one');
+        })
+        .map((e) => {
+          return `'${e.name}'`;
+        })
+        .join(',') ?? ''
+    );
+  }
+  toManyRelations() {
+    return (
+      this.relations()
+        ?.filter((e) => {
+          return e.type.endsWith('many');
+        })
+        .map((e) => {
+          return `'${e.name}'`;
+        })
+        .join(',') ?? ''
+    );
+  }
+  numberColumns() {
+    return (
+      this.properties()
+        ?.filter((e) => e.type === 'integer' || e.type === 'number')
+        .map((e) => {
+          return `'${e}'`;
+        })
+        .join(',') ?? ''
+    );
+  }
 }

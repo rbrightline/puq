@@ -1,0 +1,14 @@
+
+import { CreateRelationParamDto, CreateUnsetRelationParamDto } from '@puq/orm';
+import { Dto } from '@puq/property';
+
+@Dto()
+export class <%- className %>RelationParamDto extends CreateRelationParamDto([
+  <%- toOneRelations %>
+]) {}
+
+
+@Dto()
+export class <%- className %>UnsetRelationParamDto extends CreateUnsetRelationParamDto([
+  <%- toManyRelations %>
+]) {}

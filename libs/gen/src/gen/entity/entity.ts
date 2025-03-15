@@ -30,6 +30,9 @@ export async function entityGenerator(
     columns: M.entityProperties(),
     actualGenerics: M.actualGenerics(),
     imports: M.imports(),
+    toOneRelations: '',
+    toManyRelations: '',
+    numberColumns: '',
   });
 
   await formatFiles(tree);
